@@ -19,7 +19,7 @@ export function LockScreen({ word }: { word: SiteWord }) {
         </p>
 
         {/* the rectangular accessory */}
-        <div className="mt-7 w-full rounded-[0.9rem] border border-white/60 bg-white/55 px-3 py-2.5 shadow-[0_4px_14px_-8px_rgba(58,46,34,.4)]">
+        <div className="mt-7 w-full rounded-[0.9rem] border border-white/90 bg-white/80 px-3 py-2.5 shadow-[0_4px_14px_-8px_rgba(58,46,34,.4)]">
           <div className="flex items-center gap-2">
             <span
               className="rounded-full px-1.5 py-0.5 text-[8px] font-bold text-white"
@@ -36,8 +36,8 @@ export function LockScreen({ word }: { word: SiteWord }) {
         </div>
 
         <div className="mt-auto flex w-full items-center justify-between">
-          <span aria-hidden className="h-9 w-9 rounded-full border border-white/60 bg-white/45" />
-          <span aria-hidden className="h-9 w-9 rounded-full border border-white/60 bg-white/45" />
+          <span aria-hidden className="h-9 w-9 rounded-full border border-white/80 bg-white/65" />
+          <span aria-hidden className="h-9 w-9 rounded-full border border-white/80 bg-white/65" />
         </div>
         <div className="mt-4 h-1 w-24 rounded-full bg-ink/25" />
       </div>

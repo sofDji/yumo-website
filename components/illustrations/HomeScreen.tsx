@@ -28,15 +28,15 @@ export function HomeScreen({ word }: { word: SiteWord }) {
 
         <div className="grid grid-cols-4 gap-3">
           {Array.from({ length: 12 }).map((_, i) => (
-            <Tile key={i} className="aspect-square" />
+            <Tile key={i} i={i} className="aspect-square" />
           ))}
         </div>
 
         <div className="mt-auto">
-          <div className="mx-auto mb-2 h-4 w-16 rounded-full bg-white/50" />
-          <div className="flex items-center justify-center gap-2.5 rounded-[1.4rem] border border-white/50 bg-white/45 p-2.5">
+          <div className="mx-auto mb-2 h-4 w-16 rounded-full bg-white/70" />
+          <div className="flex items-center justify-center gap-2.5 rounded-[1.4rem] border border-white/85 bg-white/60 p-2.5">
             {Array.from({ length: 4 }).map((_, i) => (
-              <Tile key={i} className="h-8 w-8" />
+              <Tile key={i} i={i + 1} className="h-8 w-8" />
             ))}
           </div>
         </div>

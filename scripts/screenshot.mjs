@@ -1,12 +1,12 @@
 // Visual check for a running build. Serve the site first, then:
-//   npx serve out -l 4187 &   npm run shot
+//   npx serve out -l 4190 &   npm run shot
 //
 // Sections animate in on scroll, so each one is scrolled into view and given
 // time to finish before capture — screenshotting without that catches the
 // reveal mid-blur and looks like a rendering bug.
 import { chromium } from 'playwright';
 
-const URL = process.env.SHOT_URL ?? 'http://localhost:4187/';
+const URL = process.env.SHOT_URL ?? 'http://localhost:4190/';
 const SECTIONS = ['how', 'lockscreen', 'widget', 'features', 'levels', 'browse', 'pricing'];
 
 const browser = await chromium.launch();

@@ -13,7 +13,7 @@ export function BrowseScreen({ words }: { words: SiteWord[] }) {
       <div className="flex flex-1 flex-col overflow-hidden px-4 pb-6 pt-3">
         <p className="mb-2 text-center text-[10px] font-semibold">Browse</p>
 
-        <div className="rounded-[0.7rem] border border-line bg-white/80 px-2.5 py-1.5 text-[8.5px] text-muted">
+        <div className="rounded-[0.7rem] border border-line bg-white/90 px-2.5 py-1.5 text-[8.5px] text-muted">
           Search kanji, kana, romaji, meaning…
         </div>
 
@@ -36,7 +36,7 @@ export function BrowseScreen({ words }: { words: SiteWord[] }) {
           {words.map((w) => (
             <div
               key={w.id}
-              className="flex items-center justify-between rounded-[0.65rem] border border-line bg-white/85 px-2.5 py-1.5"
+              className="flex items-center justify-between rounded-[0.65rem] border border-line bg-white/90 px-2.5 py-1.5"
             >
               <span className="min-w-0">
                 <span className="block font-jp text-[12px] font-medium leading-tight">
@@ -57,7 +57,7 @@ export function BrowseScreen({ words }: { words: SiteWord[] }) {
         </div>
 
         {/* the app's floating nav pill */}
-        <div className="mt-2 flex items-center justify-around rounded-full border border-line bg-white/75 px-3 py-2">
+        <div className="mt-2 flex items-center justify-around rounded-full border border-line bg-white/85 px-3 py-2">
           <span aria-hidden className="h-4 w-4 rounded-full bg-accent" />
           <span aria-hidden className="h-3 w-3 rounded-full border-2 border-ink/35" />
           <span aria-hidden className="h-3 w-3 rounded-[3px] bg-ink/25" />
