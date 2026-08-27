@@ -1,5 +1,9 @@
-import { Reveal } from '@/components/layout/Reveal';
+'use client';
+
+import { motion, useReducedMotion } from 'framer-motion';
+import { useState } from 'react';
 import { Section } from '@/components/layout/Section';
+import { EASE } from '@/lib/motion';
 
 const QA = [
   {
@@ -25,27 +29,65 @@ const QA = [
 ];
 
 export function Faq() {
+  const [open, setOpen] = useState(0);
+  const reduced = useReducedMotion();
+
   return (
     <Section id="faq" eyebrow="Questions" title="Before you ask">
+      {/* Panels are collapsed by the markup so there is no flash of every
+          answer before hydration. Without JavaScript nothing can expand them,
+          so this puts them back. */}
+      <noscript>
+        <style>{`.faq-panel { height: auto !important; opacity: 1 !important; }`}</style>
+      </noscript>
+
       <div className="mx-auto max-w-3xl divide-y divide-line overflow-hidden rounded-2xl border border-line bg-surface shadow-soft">
-        {QA.map((item, i) => (
-          <Reveal key={item.q} delay={i * 0.04}>
-            <details className="group px-7 py-5">
-              <summary className="cursor-pointer list-none text-[15px] font-medium marker:content-none">
-                <span className="flex items-center justify-between gap-4">
+        {QA.map((item, i) => {
+          const isOpen = open === i;
+          return (
+            <div key={item.q}>
+              <h3>
+                <button
+                  type="button"
+                  onClick={() => setOpen(isOpen ? -1 : i)}
+                  aria-expanded={isOpen}
+                  aria-controls={`faq-panel-${i}`}
+                  className="flex w-full items-center justify-between gap-4 px-7 py-5 text-left text-[15px] font-medium transition-colors duration-200 hover:text-accent"
+                >
                   {item.q}
-                  <span
+                  <motion.span
                     aria-hidden
-                    className="shrink-0 text-muted transition-transform duration-300 group-open:rotate-45"
+                    className="shrink-0 text-xl leading-none text-muted"
+                    animate={{ rotate: isOpen ? 45 : 0 }}
+                    transition={reduced ? { duration: 0 } : { duration: 0.3, ease: EASE }}
                   >
                     +
-                  </span>
-                </span>
-              </summary>
-              <p className="mt-3 text-[14px] leading-relaxed text-muted">{item.a}</p>
-            </details>
-          </Reveal>
-        ))}
+                  </motion.span>
+                </button>
+              </h3>
+
+              <motion.div
+                id={`faq-panel-${i}`}
+                role="region"
+                className="faq-panel overflow-hidden"
+                initial={{ height: i === 0 ? 'auto' : 0, opacity: i === 0 ? 1 : 0 }}
+                animate={{ height: isOpen ? 'auto' : 0, opacity: isOpen ? 1 : 0 }}
+                transition={
+                  reduced
+                    ? { duration: 0 }
+                    : {
+                        height: { duration: 0.38, ease: EASE },
+                        // Fading a touch faster than the height keeps the text
+                        // from smearing as the panel closes.
+                        opacity: { duration: isOpen ? 0.3 : 0.18, ease: 'linear' },
+                      }
+                }
+              >
+                <p className="px-7 pb-5 text-[14px] leading-relaxed text-muted">{item.a}</p>
+              </motion.div>
+            </div>
+          );
+        })}
       </div>
     </Section>
   );
