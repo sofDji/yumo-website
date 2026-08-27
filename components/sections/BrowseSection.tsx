@@ -4,19 +4,14 @@ import { Section } from '@/components/layout/Section';
 import { WORDS } from '@/lib/words';
 import { TOTAL_WORDS, WORD_COUNTS } from '@/lib/tokens';
 
-// Ten rows, ordered N5 -> N1, so the illustration shows the whole ladder.
-// The list clips inside the frame rather than pushing the nav pill out, and an
-// alphabetical slice of the dataset would have shown nothing but N5.
-const LADDER: { level: string; count: number }[] = [
-  { level: 'n5', count: 2 },
-  { level: 'n4', count: 2 },
-  { level: 'n3', count: 2 },
-  { level: 'n2', count: 2 },
-  { level: 'n1', count: 2 },
-];
-
-const BROWSE_ROWS = LADDER.flatMap(({ level, count }) =>
-  WORDS.filter((w) => w.level === level).slice(0, count),
+// One word per level, five rows. The illustration only needs to say "you can
+// look words up"; a dense list forces the type down until it is texture
+// rather than something anyone reads. Meanings are capped at 22 characters so
+// no row truncates at this size.
+const BROWSE_ROWS = ['n5', 'n4', 'n3', 'n2', 'n1'].map(
+  (level) =>
+    WORDS.filter((w) => w.level === level && w.meaning.length <= 22)[0] ??
+    WORDS.filter((w) => w.level === level)[0],
 );
 
 export function BrowseSection() {
