@@ -1,5 +1,5 @@
 import type { Metadata } from 'next';
-import { Instrument_Serif, Schibsted_Grotesk, Zen_Kaku_Gothic_New } from 'next/font/google';
+import { Instrument_Serif, Schibsted_Grotesk } from 'next/font/google';
 import { SITE_URL } from '@/lib/site';
 import './globals.css';
 
@@ -14,13 +14,6 @@ const serif = Instrument_Serif({
   weight: '400',
   style: 'italic',
   variable: '--font-serif',
-  display: 'swap',
-});
-
-const jp = Zen_Kaku_Gothic_New({
-  subsets: ['latin'],
-  weight: ['400', '500', '700'],
-  variable: '--font-jp',
   display: 'swap',
 });
 
@@ -48,7 +41,7 @@ export const metadata: Metadata = {
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
-    <html lang="en" className={`${sans.variable} ${serif.variable} ${jp.variable}`}>
+    <html lang="en" className={`${sans.variable} ${serif.variable}`}>
       <body>{children}</body>
     </html>
   );

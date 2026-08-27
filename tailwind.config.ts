@@ -20,7 +20,22 @@ const config: Config = {
       fontFamily: {
         sans: ['var(--font-sans)', 'ui-sans-serif', 'system-ui', 'sans-serif'],
         serif: ['var(--font-serif)', 'Georgia', 'serif'],
-        jp: ['var(--font-jp)', 'ui-sans-serif', 'sans-serif'],
+        // No webfont for Japanese. Google serves Zen Kaku Gothic New as 364
+        // @font-face rules over 367 woff2 files (4.2 MB, 267 KB of
+        // render-blocking CSS) because CJK fonts ship unicode-range subsets.
+        // Every platform that renders Japanese already has a good face, and
+        // the app itself uses the system stack — so match it.
+        jp: [
+          'Hiragino Sans',
+          'Hiragino Kaku Gothic ProN',
+          'Yu Gothic',
+          'YuGothic',
+          'Meiryo',
+          'Noto Sans JP',
+          'Noto Sans CJK JP',
+          'ui-sans-serif',
+          'sans-serif',
+        ],
       },
       borderRadius: { lg: '12px', xl: '16px', '2xl': '24px' },
       boxShadow: {
