@@ -7,19 +7,20 @@ import { LEVELS } from '@/lib/tokens';
 import { wordsByLevel } from '@/lib/words';
 import { WordCard } from './WordCard';
 
-// All five sit in the gutters beside the headline and the live word card, and
-// none reach below 46% — the band lower down belongs to the phone, and cards
-// flanking it read as clutter rather than atmosphere.
+// All five sit in the gutters beside the headline and the live word card.
 //
-// Percentages are relative to the 1180px wrapper below, not the viewport, so
+// Percentages are relative to the 1280px wrapper below, not the viewport, so
 // a card can never drift over the centred 768px content column no matter how
-// wide the window gets.
+// wide the window gets: the gutter is 256px and a 172px card at 6% still
+// clears it. Vertical spacing is at least 24 points between cards on the same
+// side — now that each card carries its meaning they are ~15% of the hero
+// tall, and the previous 13/31/46 split had them overlapping each other.
 const SPOTS = [
-  'left-[1%] top-[13%]',
-  'right-[2%] top-[8%]',
-  'left-[6%] top-[31%]',
-  'right-[7%] top-[27%]',
-  'left-[2%] top-[46%]',
+  'left-[3%] top-[9%]',
+  'right-[4%] top-[13%]',
+  'left-[6%] top-[35%]',
+  'right-[1%] top-[42%]',
+  'left-[1%] top-[61%]',
 ];
 
 export function FloatingCards() {
@@ -34,7 +35,7 @@ export function FloatingCards() {
 
   return (
     <div aria-hidden className="pointer-events-none absolute inset-0 hidden xl:block">
-      <div className="relative mx-auto h-full w-full max-w-[1180px]">
+      <div className="relative mx-auto h-full w-full max-w-[1280px]">
         {LEVELS.map((level, i) => {
           const pool = wordsByLevel(level);
           const word = pool[(seed + i * 5) % pool.length];

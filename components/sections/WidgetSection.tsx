@@ -1,7 +1,7 @@
-import { PhoneShot } from '@/components/hero/PhoneShot';
+import { WidgetIllustration } from '@/components/hero/WidgetIllustration';
 import { Reveal } from '@/components/layout/Reveal';
 import { Section } from '@/components/layout/Section';
-import { SHOTS } from '@/lib/shots';
+import { WORDS } from '@/lib/words';
 
 const POINTS = [
   {
@@ -18,6 +18,12 @@ const POINTS = [
   },
 ];
 
+// Chosen, not indexed: two clean kanji, a one-word meaning, and a sense that
+// fits a widget which brings you a word each day. Falls back to the first N5
+// entry if the dataset is ever regenerated without it.
+const ILLUSTRATION_WORD =
+  WORDS.find((w) => w.kanji === '明日') ?? WORDS.filter((w) => w.level === 'n5')[0];
+
 export function WidgetSection() {
   return (
     <Section
@@ -27,9 +33,7 @@ export function WidgetSection() {
     >
       <div className="grid items-center gap-12 md:grid-cols-2">
         <Reveal>
-          <div className="mx-auto max-w-[280px]">
-            <PhoneShot shot={SHOTS.widgetHome} alt="The Yumo widget on a Home Screen" fade />
-          </div>
+          <WidgetIllustration word={ILLUSTRATION_WORD} />
         </Reveal>
 
         <Reveal delay={0.1}>

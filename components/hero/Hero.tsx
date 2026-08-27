@@ -4,11 +4,9 @@ import { motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import { StoreCta } from '@/components/ui/StoreCta';
 import { DURATION, EASE } from '@/lib/motion';
-import { SHOTS } from '@/lib/shots';
 import { WORDS } from '@/lib/words';
 import { Blooms } from './Blooms';
 import { FloatingCards } from './FloatingCards';
-import { PhoneShot } from './PhoneShot';
 import { WordCard } from './WordCard';
 
 export function Hero() {
@@ -31,7 +29,7 @@ export function Hero() {
         };
 
   return (
-    <header className="relative overflow-hidden pb-8 pt-16 md:pt-24">
+    <header className="relative overflow-hidden pb-24 pt-16 md:pb-32 md:pt-24">
       <Blooms />
       <FloatingCards />
 
@@ -60,15 +58,6 @@ export function Hero() {
           <StoreCta />
         </motion.div>
       </div>
-
-      <motion.div {...enter(0.45)} className="relative mx-auto mt-16 w-full max-w-xs px-6">
-        <PhoneShot
-          shot={SHOTS.widgetHome}
-          alt="The Yumo widget on an iPhone Home Screen"
-          priority
-          fade
-        />
-      </motion.div>
     </header>
   );
 }
