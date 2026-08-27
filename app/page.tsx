@@ -1,12 +1,14 @@
-import NavBar from '@/components/NavBar';
-import Hero from '@/components/Hero';
-import HowItWorks from '@/components/HowItWorks';
-import FeaturesGrid from '@/components/FeaturesGrid';
-import Privacy from '@/components/Privacy';
-import JlptLevels from '@/components/JlptLevels';
-import Pricing from '@/components/Pricing';
-import WhatsComing from '@/components/WhatsComing';
-import Footer from '@/components/Footer';
+import { Footer } from '@/components/chrome/Footer';
+import { NavBar } from '@/components/chrome/NavBar';
+import { Hero } from '@/components/hero/Hero';
+import { BrowseSection } from '@/components/sections/BrowseSection';
+import { Faq } from '@/components/sections/Faq';
+import { Features } from '@/components/sections/Features';
+import { HowItWorks } from '@/components/sections/HowItWorks';
+import { JlptLadder } from '@/components/sections/JlptLadder';
+import { Pricing } from '@/components/sections/Pricing';
+import { PrivacySection } from '@/components/sections/PrivacySection';
+import { WidgetSection } from '@/components/sections/WidgetSection';
 
 export default function Home() {
   return (
@@ -15,11 +17,13 @@ export default function Home() {
       <main>
         <Hero />
         <HowItWorks />
-        <FeaturesGrid />
-        <Privacy />
-        <JlptLevels />
+        <WidgetSection />
+        <Features />
+        <JlptLadder />
+        <BrowseSection />
         <Pricing />
-        <WhatsComing />
+        <PrivacySection />
+        <Faq />
       </main>
       <Footer />
     </>
