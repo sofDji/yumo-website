@@ -109,7 +109,7 @@ One long landing page at `/`, plus three standalone routes.
    on the free tier, all 7,972 with Pro. Browse is level-gated exactly like
    the widget (`src/app/(tabs)/browse.tsx:27`), so "a free dictionary" would
    be false advertising.
-8. **Pricing** — Free versus Pro. $5.99 once, no subscription.
+8. **Pricing** — Free versus Pro. $8.99 once, no subscription.
 
    Verified against the resolvers, which are the only source of truth
    (`resolveFrequency`, `resolveLevelForWindow` in `src/lib/scheduler.ts`):

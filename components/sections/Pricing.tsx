@@ -6,6 +6,10 @@ import { TOTAL_WORDS, WORD_COUNTS } from '@/lib/tokens';
 // Every claim below is taken from resolveFrequency and resolveLevelForWindow
 // in the app's src/lib/scheduler.ts. Do not adjust without re-reading them —
 // an earlier design doc described Browse as fully free and the code does not.
+//
+// The price must match PRO_PRICE_LABEL in the app and the product tier set in
+// App Store Connect and Play Console. Those consoles are what customers are
+// actually charged; this is only what the site claims.
 const FREE = [
   `N5 vocabulary — ${WORD_COUNTS.n5} words`,
   'A new word every 6, 12 or 24 hours',
@@ -79,7 +83,7 @@ export function Pricing() {
           <Tier name="Free" price="$0" items={FREE} />
         </Reveal>
         <Reveal delay={0.08}>
-          <Tier name="Yumo Pro" price="$5.99" suffix="once" items={PRO} featured />
+          <Tier name="Yumo Pro" price="$8.99" suffix="once" items={PRO} featured />
         </Reveal>
       </div>
 
