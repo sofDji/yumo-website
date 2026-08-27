@@ -4,15 +4,15 @@ import { Section } from '@/components/layout/Section';
 import { WORDS } from '@/lib/words';
 import { TOTAL_WORDS, WORD_COUNTS } from '@/lib/tokens';
 
-// Seven rows, ordered N5 -> N1, so the illustration shows the whole ladder.
-// The frame fits eight before the nav pill is pushed out, and an
+// Ten rows, ordered N5 -> N1, so the illustration shows the whole ladder.
+// The list clips inside the frame rather than pushing the nav pill out, and an
 // alphabetical slice of the dataset would have shown nothing but N5.
 const LADDER: { level: string; count: number }[] = [
   { level: 'n5', count: 2 },
   { level: 'n4', count: 2 },
-  { level: 'n3', count: 1 },
-  { level: 'n2', count: 1 },
-  { level: 'n1', count: 1 },
+  { level: 'n3', count: 2 },
+  { level: 'n2', count: 2 },
+  { level: 'n1', count: 2 },
 ];
 
 const BROWSE_ROWS = LADDER.flatMap(({ level, count }) =>

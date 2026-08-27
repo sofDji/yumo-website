@@ -12,14 +12,14 @@ export function LockScreen({ word }: { word: SiteWord }) {
     <PhoneFrame bloom={color} tone="dusk">
       <StatusBar time="9:41" />
 
-      <div className="flex flex-1 flex-col items-center px-5 pb-5 pt-8">
+      <div className="flex flex-1 flex-col items-center px-5 pb-8 pt-12">
         <p className="text-[11px] font-medium text-ink/60">Sunday, 9 February</p>
-        <p className="mt-0.5 text-[54px] font-semibold leading-none tracking-tight text-ink/85">
+        <p className="mt-0.5 text-[62px] font-semibold leading-none tracking-tight text-ink/85">
           9:41
         </p>
 
         {/* the rectangular accessory */}
-        <div className="mt-5 w-full rounded-[0.9rem] border border-white/60 bg-white/55 px-3 py-2.5 shadow-[0_4px_14px_-8px_rgba(58,46,34,.4)]">
+        <div className="mt-7 w-full rounded-[0.9rem] border border-white/60 bg-white/55 px-3 py-2.5 shadow-[0_4px_14px_-8px_rgba(58,46,34,.4)]">
           <div className="flex items-center gap-2">
             <span
               className="rounded-full px-1.5 py-0.5 text-[8px] font-bold text-white"

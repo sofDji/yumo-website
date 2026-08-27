@@ -10,7 +10,7 @@ export function BrowseScreen({ words }: { words: SiteWord[] }) {
     <PhoneFrame bloom="#3B82F6">
       <StatusBar time="9:41" />
 
-      <div className="flex flex-1 flex-col overflow-hidden px-3 pb-3 pt-2">
+      <div className="flex flex-1 flex-col overflow-hidden px-4 pb-6 pt-3">
         <p className="mb-2 text-center text-[10px] font-semibold">Browse</p>
 
         <div className="rounded-[0.7rem] border border-line bg-white/80 px-2.5 py-1.5 text-[8.5px] text-muted">

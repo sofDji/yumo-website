@@ -11,7 +11,7 @@ export function HomeScreen({ word }: { word: SiteWord }) {
     <PhoneFrame bloom={color}>
       <StatusBar />
 
-      <div className="flex flex-1 flex-col px-4 pb-4 pt-4">
+      <div className="flex flex-1 flex-col px-5 pb-6 pt-5">
         <div
           className="relative aspect-square w-[62%] rounded-[1.35rem] p-3.5 text-white shadow-[0_10px_24px_-10px_rgba(0,0,0,.35)]"
           style={{ background: `linear-gradient(150deg, ${color}, ${color}CC)` }}
@@ -26,8 +26,8 @@ export function HomeScreen({ word }: { word: SiteWord }) {
         </div>
         <p className="mb-4 mt-1 pl-1 text-[8px] font-medium text-ink/55">Yumo</p>
 
-        <div className="grid grid-cols-4 gap-2.5">
-          {Array.from({ length: 8 }).map((_, i) => (
+        <div className="grid grid-cols-4 gap-3">
+          {Array.from({ length: 12 }).map((_, i) => (
             <Tile key={i} className="aspect-square" />
           ))}
         </div>
