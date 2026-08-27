@@ -27,9 +27,42 @@ mkdirSync(OUT, { recursive: true });
 
 const entries = {};
 
+// The Home Screen capture carries iOS's default rainbow wallpaper, which
+// fights the site's beige ground. We cannot retake it (that needs a Mac), so
+// the wallpaper is desaturated and lifted while the Yumo widget itself is
+// composited back at full strength — the widget must stay the focal point,
+// and a flat desaturation drains its green along with everything else.
+// Bounds were measured from the source, not guessed.
+const WIDGET_RECT = { left: 89, top: 296, width: 519, height: 518 };
+const WIDGET_RADIUS = 96;
+
+async function softenWallpaper(input) {
+  const mask = Buffer.from(
+    `<svg xmlns="http://www.w3.org/2000/svg" width="${WIDGET_RECT.width}" height="${WIDGET_RECT.height}">` +
+      `<rect width="${WIDGET_RECT.width}" height="${WIDGET_RECT.height}" ` +
+      `rx="${WIDGET_RADIUS}" ry="${WIDGET_RADIUS}" fill="#fff"/></svg>`,
+  );
+
+  const widget = await sharp(input)
+    .extract(WIDGET_RECT)
+    .composite([{ input: mask, blend: 'dest-in' }])
+    .png()
+    .toBuffer();
+
+  // Composite at full resolution and resize in a second pass: sharp applies
+  // resize before composite within one pipeline regardless of call order, so
+  // chaining them would paste the widget at source scale onto a shrunk base.
+  return sharp(input)
+    .modulate({ saturation: 0.26, brightness: 1.16 })
+    .composite([{ input: widget, left: WIDGET_RECT.left, top: WIDGET_RECT.top }])
+    .png()
+    .toBuffer();
+}
+
 for (const [file, key] of Object.entries(MAP)) {
-  const input = resolve(SRC, file);
-  const meta = await sharp(input).metadata();
+  const original = resolve(SRC, file);
+  const meta = await sharp(original).metadata();
+  const input = key === 'widgetHome' ? await softenWallpaper(original) : original;
 
   // The phones render at ~320 CSS px, so 1080 already covers a 3x display.
   // Shipping the 1290 source width cost 580 KB for pixels nothing shows.

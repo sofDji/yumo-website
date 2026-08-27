@@ -66,6 +66,7 @@ export function Hero() {
           shot={SHOTS.widgetHome}
           alt="The Yumo widget on an iPhone Home Screen"
           priority
+          fade
         />
       </motion.div>
     </header>

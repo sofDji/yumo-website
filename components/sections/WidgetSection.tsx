@@ -28,7 +28,7 @@ export function WidgetSection() {
       <div className="grid items-center gap-12 md:grid-cols-2">
         <Reveal>
           <div className="mx-auto max-w-[280px]">
-            <PhoneShot shot={SHOTS.widgetHome} alt="The Yumo widget on a Home Screen" />
+            <PhoneShot shot={SHOTS.widgetHome} alt="The Yumo widget on a Home Screen" fade />
           </div>
         </Reveal>
 

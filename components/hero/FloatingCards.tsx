@@ -7,14 +7,19 @@ import { LEVELS } from '@/lib/tokens';
 import { wordsByLevel } from '@/lib/words';
 import { WordCard } from './WordCard';
 
-// Positions are deliberately asymmetric — a symmetrical ring reads as a
-// diagram rather than as objects floating in space.
+// All five sit in the gutters beside the headline and the live word card, and
+// none reach below 46% — the band lower down belongs to the phone, and cards
+// flanking it read as clutter rather than atmosphere.
+//
+// Percentages are relative to the 1180px wrapper below, not the viewport, so
+// a card can never drift over the centred 768px content column no matter how
+// wide the window gets.
 const SPOTS = [
-  'left-[2%] top-[14%]',
-  'right-[4%] top-[8%]',
-  'left-[8%] bottom-[16%]',
-  'right-[2%] bottom-[22%]',
-  'left-[46%] top-[2%]',
+  'left-[1%] top-[13%]',
+  'right-[2%] top-[8%]',
+  'left-[6%] top-[31%]',
+  'right-[7%] top-[27%]',
+  'left-[2%] top-[46%]',
 ];
 
 export function FloatingCards() {
@@ -28,26 +33,28 @@ export function FloatingCards() {
   }, []);
 
   return (
-    <div aria-hidden className="pointer-events-none absolute inset-0 hidden lg:block">
-      {LEVELS.map((level, i) => {
-        const pool = wordsByLevel(level);
-        const word = pool[(seed + i * 5) % pool.length];
-        const motionProps = reduced ? {} : drift(i);
+    <div aria-hidden className="pointer-events-none absolute inset-0 hidden xl:block">
+      <div className="relative mx-auto h-full w-full max-w-[1180px]">
+        {LEVELS.map((level, i) => {
+          const pool = wordsByLevel(level);
+          const word = pool[(seed + i * 5) % pool.length];
+          const motionProps = reduced ? {} : drift(i);
 
-        return (
-          <motion.div
-            key={level}
-            className={`absolute ${SPOTS[i]}`}
-            initial={{ opacity: 0, scale: 0.92 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ delay: 0.5 + i * 0.1, duration: 0.6 }}
-          >
-            <motion.div {...motionProps}>
-              <WordCard word={word} size="sm" />
+          return (
+            <motion.div
+              key={level}
+              className={`absolute ${SPOTS[i]}`}
+              initial={{ opacity: 0, scale: 0.92 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ delay: 0.5 + i * 0.1, duration: 0.6 }}
+            >
+              <motion.div {...motionProps}>
+                <WordCard word={word} size="sm" />
+              </motion.div>
             </motion.div>
-          </motion.div>
-        );
-      })}
+          );
+        })}
+      </div>
     </div>
   );
 }

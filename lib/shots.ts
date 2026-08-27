@@ -41,6 +41,6 @@ export const SHOTS: Record<string, Shot> = {
     "srcSmall": "/shots/widgetHome@small.webp",
     "width": 1080,
     "height": 2341,
-    "blur": "data:image/webp;base64,UklGRsoAAABXRUJQVlA4IL4AAAAQBQCdASoMABoAPu1iqU2ppaOiMAgBMB2JbACsLwJ5WAYdCzj8TinRt06bCH5roIZAAP7c/Iscbjlfi3YSQswnxwLPsnddgQCHGSkY3cKyGRzLsGsrARJy0ez0JKqkM+Ayf7Qq9VFY7QlGbuOfS3yeFH2OJUhtQBxrekjh+MaYvJfPtApIwnSGHZpGWKdbLpdIKU9ugNRdrHsSi0ngxdSx8xorp7g/n/n+RqjA5P8RhApUmwAP/PSBZR/nlAAA"
+    "blur": "data:image/webp;base64,UklGRpYAAABXRUJQVlA4IIoAAADQAwCdASoMABoAPu1iqU2ppaOiMAgBMB2JZAC06CHVE/MN19pPjJAA/tD7DjFGxPITNVBuMvOk+E/GiNdjwnA7r1IgbPf1jIJqnBQFnXN1XC2stW6KSWIC6GrCLJE5OdsYTTCaBn1BnQ0CVCwk+TOV9JXLDcfxSnhWcPtaB+wfR4F0K1bXx20AAAA="
   }
 };
