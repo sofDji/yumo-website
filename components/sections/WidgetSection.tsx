@@ -1,12 +1,12 @@
-import { WidgetIllustration } from '@/components/hero/WidgetIllustration';
+import { HomeScreen } from '@/components/illustrations/HomeScreen';
 import { Reveal } from '@/components/layout/Reveal';
 import { Section } from '@/components/layout/Section';
 import { WORDS } from '@/lib/words';
 
 const POINTS = [
   {
-    h: 'On iPhone',
-    p: 'Lock Screen and Home Screen, in small, medium, rectangular and inline sizes. Every widget can carry its own level and rhythm, so you can run N5 on the Lock Screen and N3 on the Home Screen.',
+    h: 'Small or medium',
+    p: 'Every widget carries its own level and rhythm, so you can run N5 on the Lock Screen and N3 on the Home Screen at the same time.',
   },
   {
     h: 'On Android',
@@ -28,15 +28,15 @@ export function WidgetSection() {
   return (
     <Section
       id="widget"
-      eyebrow="The widget"
-      title={<>It lives where you already <span className="font-serif font-normal italic">look</span></>}
+      eyebrow="Home Screen"
+      title={<>And on the screen you <span className="font-serif font-normal italic">work</span> from</>}
     >
       <div className="grid items-center gap-12 md:grid-cols-2">
-        <Reveal>
-          <WidgetIllustration word={ILLUSTRATION_WORD} />
+        <Reveal className="md:order-2">
+          <HomeScreen word={ILLUSTRATION_WORD} />
         </Reveal>
 
-        <Reveal delay={0.1}>
+        <Reveal delay={0.1} className="md:order-1">
           <div className="space-y-6">
             {POINTS.map((pt) => (
               <div key={pt.h}>

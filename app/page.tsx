@@ -6,6 +6,7 @@ import { Faq } from '@/components/sections/Faq';
 import { Features } from '@/components/sections/Features';
 import { HowItWorks } from '@/components/sections/HowItWorks';
 import { JlptLadder } from '@/components/sections/JlptLadder';
+import { LockScreenSection } from '@/components/sections/LockScreenSection';
 import { Pricing } from '@/components/sections/Pricing';
 import { PrivacySection } from '@/components/sections/PrivacySection';
 import { WidgetSection } from '@/components/sections/WidgetSection';
@@ -17,6 +18,7 @@ export default function Home() {
       <main>
         <Hero />
         <HowItWorks />
+        <LockScreenSection />
         <WidgetSection />
         <Features />
         <JlptLadder />
