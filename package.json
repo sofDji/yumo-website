@@ -10,7 +10,8 @@
     "test": "vitest run",
     "test:watch": "vitest",
     "build:words": "node scripts/build-words.mjs",
-    "shot": "node scripts/screenshot.mjs"
+    "shot": "node scripts/screenshot.mjs",
+    "shots:store": "node scripts/store-shots.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.0.0",
