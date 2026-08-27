@@ -1,10 +1,11 @@
+import type { Locale } from '@/lib/i18n';
 import type { SiteWord } from '@/lib/select-words';
 import { LEVEL_COLORS, LEVEL_LABELS } from '@/lib/tokens';
 import { PhoneFrame, StatusBar, Tile } from './PhoneFrame';
 
 // Neighbouring tiles are deliberately abstract — imitating Apple's own app
 // icons would be noisier and a trademark problem.
-export function HomeScreen({ word }: { word: SiteWord }) {
+export function HomeScreen({ word, locale }: { word: SiteWord; locale: Locale }) {
   const color = LEVEL_COLORS[word.level];
 
   return (
@@ -22,7 +23,7 @@ export function HomeScreen({ word }: { word: SiteWord }) {
           <p className="mt-1.5 font-jp text-[26px] font-medium leading-none">{word.kanji}</p>
           <p className="mt-1 font-jp text-[10px] leading-tight text-white/85">{word.kana}</p>
           <p className="text-[9px] italic leading-tight text-white/75">{word.romaji}</p>
-          <p className="mt-1 text-[9px] leading-snug text-white/95">{word.meaning}</p>
+          <p className="mt-1 text-[9px] leading-snug text-white/95">{word.meaning[locale]}</p>
         </div>
         <p className="mb-4 mt-1 pl-1 text-[8px] font-medium text-ink/55">Yumo</p>
 

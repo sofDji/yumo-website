@@ -13,21 +13,37 @@ describe('generated words', () => {
     expect(WORDS).toHaveLength(120);
   });
 
-  it('obeys the display constraints the selector promises', () => {
+  it('obeys the display constraints the selector promises, in every locale', () => {
     for (const w of WORDS) {
       expect(w.kanji.length).toBeLessThanOrEqual(3);
-      expect(w.meaning.length).toBeLessThan(40);
-      expect(w.meaning).not.toContain(';');
       expect(w.kanji).not.toBe(w.kana);
+      for (const locale of ['en', 'fr'] as const) {
+        expect(w.meaning[locale].length).toBeLessThan(40);
+        expect(w.meaning[locale]).not.toContain(';');
+      }
     }
   });
 
-  it('has every field populated', () => {
+  it('has every field populated, including both meanings', () => {
     for (const w of WORDS) {
       expect(w.kanji).toBeTruthy();
       expect(w.kana).toBeTruthy();
       expect(w.romaji).toBeTruthy();
-      expect(w.meaning).toBeTruthy();
+      expect(w.meaning.en).toBeTruthy();
+      expect(w.meaning.fr).toBeTruthy();
     }
+  });
+
+  // A French card showing the English gloss is the failure this bilingual
+  // pipeline exists to prevent. A handful of entries legitimately match —
+  // religion, digestion, oral are cognates — so the check is a threshold
+  // rather than zero. A wholesale copy of en into fr would sit near 100%.
+  it('does not reuse the English glosses as the French ones', () => {
+    const identical = WORDS.filter((w) => w.meaning.en === w.meaning.fr);
+    expect(identical.length / WORDS.length).toBeLessThan(0.1);
+  });
+
+  it('keeps words unsuitable for a marketing page out of the display pool', () => {
+    expect(WORDS.map((w) => w.kanji)).not.toContain('自殺');
   });
 });

@@ -5,43 +5,14 @@ import type { SiteWord } from './select-words';
 
 export const WORDS: SiteWord[] = [
   {
-    "id": 2,
-    "kanji": "会う",
-    "kana": "あう",
-    "romaji": "au",
-    "meaning": "to meet, to see",
-    "level": "n5"
-  },
-  {
-    "id": 3,
-    "kanji": "青",
-    "kana": "あお",
-    "romaji": "ao",
-    "meaning": "blue (noun)",
-    "level": "n5"
-  },
-  {
-    "id": 4,
-    "kanji": "青い",
-    "kana": "あおい",
-    "romaji": "aoi",
-    "meaning": "blue (adjective)",
-    "level": "n5"
-  },
-  {
-    "id": 5,
-    "kanji": "赤",
-    "kana": "あか",
-    "romaji": "aka",
-    "meaning": "red (noun)",
-    "level": "n5"
-  },
-  {
     "id": 6,
     "kanji": "赤い",
     "kana": "あかい",
     "romaji": "akai",
-    "meaning": "red (adjective)",
+    "meaning": {
+      "en": "red (adjective)",
+      "fr": "rouge"
+    },
     "level": "n5"
   },
   {
@@ -49,39 +20,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "秋",
     "kana": "あき",
     "romaji": "aki",
-    "meaning": "fall (season)",
-    "level": "n5"
-  },
-  {
-    "id": 9,
-    "kanji": "開く",
-    "kana": "あく",
-    "romaji": "aku",
-    "meaning": "to open, to become open",
-    "level": "n5"
-  },
-  {
-    "id": 10,
-    "kanji": "開ける",
-    "kana": "あける",
-    "romaji": "akeru",
-    "meaning": "to open (v.t.)",
-    "level": "n5"
-  },
-  {
-    "id": 11,
-    "kanji": "上げる",
-    "kana": "あげる",
-    "romaji": "ageru",
-    "meaning": "to raise, to lift",
-    "level": "n5"
-  },
-  {
-    "id": 12,
-    "kanji": "朝",
-    "kana": "あさ",
-    "romaji": "asa",
-    "meaning": "morning",
+    "meaning": {
+      "en": "fall (season)",
+      "fr": "automne"
+    },
     "level": "n5"
   },
   {
@@ -89,7 +31,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "朝御飯",
     "kana": "あさごはん",
     "romaji": "asagohan",
-    "meaning": "breakfast",
+    "meaning": {
+      "en": "breakfast",
+      "fr": "petit déjeuner"
+    },
     "level": "n5"
   },
   {
@@ -97,7 +42,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "明後日",
     "kana": "あさって",
     "romaji": "asatte",
-    "meaning": "day after tomorrow",
+    "meaning": {
+      "en": "day after tomorrow",
+      "fr": "après-demain"
+    },
     "level": "n5"
   },
   {
@@ -105,7 +53,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "明日",
     "kana": "あした",
     "romaji": "ashita",
-    "meaning": "tomorrow",
+    "meaning": {
+      "en": "tomorrow",
+      "fr": "demain"
+    },
     "level": "n5"
   },
   {
@@ -113,7 +64,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "暖かい",
     "kana": "あたたかい",
     "romaji": "atatakai",
-    "meaning": "warm",
+    "meaning": {
+      "en": "warm",
+      "fr": "chaud"
+    },
     "level": "n5"
   },
   {
@@ -121,23 +75,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "頭",
     "kana": "あたま",
     "romaji": "atama",
-    "meaning": "head",
-    "level": "n5"
-  },
-  {
-    "id": 21,
-    "kanji": "新しい",
-    "kana": "あたらしい",
-    "romaji": "atarashii",
-    "meaning": "new",
-    "level": "n5"
-  },
-  {
-    "id": 23,
-    "kanji": "暑い",
-    "kana": "あつい",
-    "romaji": "atsui",
-    "meaning": "hot (in reference to weather), warm",
+    "meaning": {
+      "en": "head",
+      "fr": "tête"
+    },
     "level": "n5"
   },
   {
@@ -145,15 +86,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "熱い",
     "kana": "あつい",
     "romaji": "atsui",
-    "meaning": "hot (objects)",
-    "level": "n5"
-  },
-  {
-    "id": 25,
-    "kanji": "厚い",
-    "kana": "あつい",
-    "romaji": "atsui",
-    "meaning": "kind, warm(hearted), thick, deep",
+    "meaning": {
+      "en": "hot (objects)",
+      "fr": "chaud (objet)"
+    },
     "level": "n5"
   },
   {
@@ -161,7 +97,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "兄",
     "kana": "あに",
     "romaji": "ani",
-    "meaning": "(my) older brother (humble)",
+    "meaning": {
+      "en": "(my) older brother (humble)",
+      "fr": "frère ainé"
+    },
     "level": "n5"
   },
   {
@@ -169,95 +108,175 @@ export const WORDS: SiteWord[] = [
     "kanji": "姉",
     "kana": "あね",
     "romaji": "ane",
-    "meaning": "(my) older sister (humble)",
+    "meaning": {
+      "en": "(my) older sister (humble)",
+      "fr": "sœur aînée"
+    },
     "level": "n5"
   },
   {
-    "id": 33,
-    "kanji": "浴びる",
-    "kana": "あびる",
-    "romaji": "abiru",
-    "meaning": "to bathe, to shower",
+    "id": 37,
+    "kanji": "雨",
+    "kana": "あめ",
+    "romaji": "ame",
+    "meaning": {
+      "en": "rain",
+      "fr": "pluie"
+    },
     "level": "n5"
   },
   {
-    "id": 34,
-    "kanji": "危ない",
-    "kana": "あぶない",
-    "romaji": "abunai",
-    "meaning": "dangerous, critical",
+    "id": 39,
+    "kanji": "洗う",
+    "kana": "あらう",
+    "romaji": "arau",
+    "meaning": {
+      "en": "to wash",
+      "fr": "laver"
+    },
     "level": "n5"
   },
   {
-    "id": 35,
-    "kanji": "甘い",
-    "kana": "あまい",
-    "romaji": "amai",
-    "meaning": "generous, sweet",
+    "id": 42,
+    "kanji": "歩く",
+    "kana": "あるく",
+    "romaji": "aruku",
+    "meaning": {
+      "en": "to walk",
+      "fr": "marcher"
+    },
     "level": "n5"
   },
   {
-    "id": 719,
-    "kanji": "踏む",
-    "kana": "ふむ",
-    "romaji": "fumu",
-    "meaning": "to step on, to tread on",
-    "level": "n4"
+    "id": 46,
+    "kanji": "言う",
+    "kana": "いう",
+    "romaji": "iu",
+    "meaning": {
+      "en": "to say",
+      "fr": "dire"
+    },
+    "level": "n5"
   },
   {
-    "id": 723,
-    "kanji": "大抵",
-    "kana": "たいてい",
-    "romaji": "taitei",
-    "meaning": "generally, usually",
-    "level": "n4"
+    "id": 47,
+    "kanji": "家",
+    "kana": "いえ",
+    "romaji": "ie",
+    "meaning": {
+      "en": "house, home",
+      "fr": "maison"
+    },
+    "level": "n5"
   },
   {
-    "id": 726,
-    "kanji": "鳴る",
-    "kana": "なる",
-    "romaji": "naru",
-    "meaning": "to sound, to ring (v.i.)",
-    "level": "n4"
+    "id": 54,
+    "kanji": "椅子",
+    "kana": "いす",
+    "romaji": "isu",
+    "meaning": {
+      "en": "chair",
+      "fr": "chaise"
+    },
+    "level": "n5"
   },
   {
-    "id": 728,
-    "kanji": "生きる",
-    "kana": "いきる",
-    "romaji": "ikiru",
-    "meaning": "to live",
-    "level": "n4"
+    "id": 55,
+    "kanji": "忙しい",
+    "kana": "いそがしい",
+    "romaji": "isogashii",
+    "meaning": {
+      "en": "busy (people, days)",
+      "fr": "être occupé"
+    },
+    "level": "n5"
+  },
+  {
+    "id": 57,
+    "kanji": "一",
+    "kana": "いち",
+    "romaji": "ichi",
+    "meaning": {
+      "en": "one",
+      "fr": "un"
+    },
+    "level": "n5"
+  },
+  {
+    "id": 62,
+    "kanji": "一緒",
+    "kana": "いっしょ",
+    "romaji": "issho",
+    "meaning": {
+      "en": "together",
+      "fr": "ensemble"
+    },
+    "level": "n5"
+  },
+  {
+    "id": 63,
+    "kanji": "五つ",
+    "kana": "いつつ",
+    "romaji": "itsutsu",
+    "meaning": {
+      "en": "five things",
+      "fr": "cinq"
+    },
+    "level": "n5"
+  },
+  {
+    "id": 65,
+    "kanji": "犬",
+    "kana": "いぬ",
+    "romaji": "inu",
+    "meaning": {
+      "en": "dog",
+      "fr": "chien"
+    },
+    "level": "n5"
+  },
+  {
+    "id": 68,
+    "kanji": "妹",
+    "kana": "いもうと",
+    "romaji": "imouto",
+    "meaning": {
+      "en": "younger sister (humble)",
+      "fr": "(ma) sœur cadette"
+    },
+    "level": "n5"
+  },
+  {
+    "id": 72,
+    "kanji": "要る",
+    "kana": "いる",
+    "romaji": "iru",
+    "meaning": {
+      "en": "to need",
+      "fr": "avoir besoin"
+    },
+    "level": "n5"
+  },
+  {
+    "id": 80,
+    "kanji": "歌う",
+    "kana": "うたう",
+    "romaji": "utau",
+    "meaning": {
+      "en": "to sing",
+      "fr": "chanter"
+    },
+    "level": "n5"
   },
   {
     "id": 729,
     "kanji": "苦い",
     "kana": "にがい",
     "romaji": "nigai",
-    "meaning": "bitter",
-    "level": "n4"
-  },
-  {
-    "id": 730,
-    "kanji": "沸く",
-    "kana": "わく",
-    "romaji": "waku",
-    "meaning": "to boil, to grow hot",
-    "level": "n4"
-  },
-  {
-    "id": 731,
-    "kanji": "意見",
-    "kana": "いけん",
-    "romaji": "iken",
-    "meaning": "opinion, view, idea",
-    "level": "n4"
-  },
-  {
-    "id": 733,
-    "kanji": "漫画",
-    "kana": "まんが",
-    "romaji": "manga",
-    "meaning": "comic (book), cartoon",
+    "meaning": {
+      "en": "bitter",
+      "fr": "amer"
+    },
     "level": "n4"
   },
   {
@@ -265,47 +284,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "医学",
     "kana": "いがく",
     "romaji": "igaku",
-    "meaning": "medical science",
-    "level": "n4"
-  },
-  {
-    "id": 743,
-    "kanji": "必ず",
-    "kana": "かならず",
-    "romaji": "kanarazu",
-    "meaning": "surely, certainly",
-    "level": "n4"
-  },
-  {
-    "id": 744,
-    "kanji": "壊す",
-    "kana": "こわす",
-    "romaji": "kowasu",
-    "meaning": "to break, to break down",
-    "level": "n4"
-  },
-  {
-    "id": 746,
-    "kanji": "床屋",
-    "kana": "とこや",
-    "romaji": "tokoya",
-    "meaning": "barber's (shop)",
-    "level": "n4"
-  },
-  {
-    "id": 748,
-    "kanji": "運動",
-    "kana": "うんどうする",
-    "romaji": "undousuru",
-    "meaning": "exercise",
-    "level": "n4"
-  },
-  {
-    "id": 749,
-    "kanji": "止む",
-    "kana": "やむ",
-    "romaji": "yamu",
-    "meaning": "to cease, to stop",
+    "meaning": {
+      "en": "medical science",
+      "fr": "médecine"
+    },
     "level": "n4"
   },
   {
@@ -313,15 +295,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "大学生",
     "kana": "だいがくせい",
     "romaji": "daigakusei",
-    "meaning": "college student, university student",
-    "level": "n4"
-  },
-  {
-    "id": 753,
-    "kanji": "運転手",
-    "kana": "うんてんしゅ",
-    "romaji": "untenshu",
-    "meaning": "driver (by occupation)",
+    "meaning": {
+      "en": "college student, university student",
+      "fr": "étudiant (université)"
+    },
     "level": "n4"
   },
   {
@@ -329,39 +306,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "予習",
     "kana": "よしゅう",
     "romaji": "yoshuu",
-    "meaning": "preparation of lessons (for class)",
-    "level": "n4"
-  },
-  {
-    "id": 755,
-    "kanji": "心配",
-    "kana": "しんぱいする",
-    "romaji": "shinpaisuru",
-    "meaning": "worry, concern",
-    "level": "n4"
-  },
-  {
-    "id": 756,
-    "kanji": "別",
-    "kana": "べつ",
-    "romaji": "betsu",
-    "meaning": "distinction, different",
-    "level": "n4"
-  },
-  {
-    "id": 760,
-    "kanji": "拾う",
-    "kana": "ひろう",
-    "romaji": "hirou",
-    "meaning": "to pick up (something), to find",
-    "level": "n4"
-  },
-  {
-    "id": 762,
-    "kanji": "気",
-    "kana": "き",
-    "romaji": "ki",
-    "meaning": "spirit, mood",
+    "meaning": {
+      "en": "preparation of lessons (for class)",
+      "fr": "préparation pour un cours"
+    },
     "level": "n4"
   },
   {
@@ -369,7 +317,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "比べる",
     "kana": "くらべる",
     "romaji": "kuraberu",
-    "meaning": "to compare",
+    "meaning": {
+      "en": "to compare",
+      "fr": "comparer"
+    },
     "level": "n4"
   },
   {
@@ -377,7 +328,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "郊外",
     "kana": "こうがい",
     "romaji": "kougai",
-    "meaning": "suburb, outskirts",
+    "meaning": {
+      "en": "suburb, outskirts",
+      "fr": "banlieue"
+    },
     "level": "n4"
   },
   {
@@ -385,79 +339,208 @@ export const WORDS: SiteWord[] = [
     "kanji": "売り場",
     "kana": "うりば",
     "romaji": "uriba",
-    "meaning": "place where things are sold",
+    "meaning": {
+      "en": "place where things are sold",
+      "fr": "lieu de vente"
+    },
     "level": "n4"
   },
   {
-    "id": 1387,
-    "kanji": "作法",
-    "kana": "さほう",
-    "romaji": "sahou",
-    "meaning": "manners, etiquette, propriety",
-    "level": "n3"
+    "id": 769,
+    "kanji": "正月",
+    "kana": "しょうがつ",
+    "romaji": "shougatsu",
+    "meaning": {
+      "en": "New Year, New Year's Day",
+      "fr": "le Nouvel An"
+    },
+    "level": "n4"
   },
   {
-    "id": 1388,
-    "kanji": "様々",
-    "kana": "さまざま",
-    "romaji": "samazama",
-    "meaning": "varied, various",
-    "level": "n3"
+    "id": 772,
+    "kanji": "発音",
+    "kana": "はつおん",
+    "romaji": "hatsuon",
+    "meaning": {
+      "en": "pronunciation",
+      "fr": "prononciation"
+    },
+    "level": "n4"
   },
   {
-    "id": 1389,
-    "kanji": "冷ます",
-    "kana": "さます",
-    "romaji": "samasu",
-    "meaning": "to cool, to let cool",
-    "level": "n3"
+    "id": 782,
+    "kanji": "建てる",
+    "kana": "たてる",
+    "romaji": "tateru",
+    "meaning": {
+      "en": "to build",
+      "fr": "construire"
+    },
+    "level": "n4"
   },
   {
-    "id": 1390,
-    "kanji": "覚ます",
-    "kana": "さます",
-    "romaji": "samasu",
-    "meaning": "to awaken",
-    "level": "n3"
+    "id": 786,
+    "kanji": "布団",
+    "kana": "ふとん",
+    "romaji": "futon",
+    "meaning": {
+      "en": "futon",
+      "fr": "futon (sorte de matelas japonais)"
+    },
+    "level": "n4"
   },
   {
-    "id": 1391,
-    "kanji": "冷める",
-    "kana": "さめる",
-    "romaji": "sameru",
-    "meaning": "to become cool, to wear off",
-    "level": "n3"
+    "id": 792,
+    "kanji": "台風",
+    "kana": "たいふう",
+    "romaji": "taifuu",
+    "meaning": {
+      "en": "typhoon",
+      "fr": "typhon"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 796,
+    "kanji": "通る",
+    "kana": "とおる",
+    "romaji": "tooru",
+    "meaning": {
+      "en": "to pass (by), to go through",
+      "fr": "passer à travers"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 799,
+    "kanji": "葉",
+    "kana": "は",
+    "romaji": "ha",
+    "meaning": {
+      "en": "leaf",
+      "fr": "feuille"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 811,
+    "kanji": "絹",
+    "kana": "きぬ",
+    "romaji": "kinu",
+    "meaning": {
+      "en": "silk",
+      "fr": "soie"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 813,
+    "kanji": "深い",
+    "kana": "ふかい",
+    "romaji": "fukai",
+    "meaning": {
+      "en": "deep, profound",
+      "fr": "profond"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 825,
+    "kanji": "致す",
+    "kana": "いたす",
+    "romaji": "itasu",
+    "meaning": {
+      "en": "-- extra-modest expression for する --",
+      "fr": "faire"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 831,
+    "kanji": "親",
+    "kana": "おや",
+    "romaji": "oya",
+    "meaning": {
+      "en": "a parent",
+      "fr": "parents"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 847,
+    "kanji": "季節",
+    "kana": "きせつ",
+    "romaji": "kisetsu",
+    "meaning": {
+      "en": "season (in reference to weather)",
+      "fr": "saison"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 854,
+    "kanji": "畳",
+    "kana": "たたみ",
+    "romaji": "tatami",
+    "meaning": {
+      "en": "tatami mat (Japanese straw mat)",
+      "fr": "tatami"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 856,
+    "kanji": "地理",
+    "kana": "ちり",
+    "romaji": "chiri",
+    "meaning": {
+      "en": "geography",
+      "fr": "géographie"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 868,
+    "kanji": "止める",
+    "kana": "とめる",
+    "romaji": "tomeru",
+    "meaning": {
+      "en": "to stop (something)",
+      "fr": "arrêter (qqchose)"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 882,
+    "kanji": "星",
+    "kana": "ほし",
+    "romaji": "hoshi",
+    "meaning": {
+      "en": "star",
+      "fr": "étoile"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 892,
+    "kanji": "再来月",
+    "kana": "さらいげつ",
+    "romaji": "saraigetsu",
+    "meaning": {
+      "en": "the month after next",
+      "fr": "dans deux mois"
+    },
+    "level": "n4"
   },
   {
     "id": 1392,
     "kanji": "覚める",
     "kana": "さめる",
     "romaji": "sameru",
-    "meaning": "to wake, to wake up",
-    "level": "n3"
-  },
-  {
-    "id": 1394,
-    "kanji": "皿",
-    "kana": "さら",
-    "romaji": "sara",
-    "meaning": "plate, dish",
-    "level": "n3"
-  },
-  {
-    "id": 1395,
-    "kanji": "更に",
-    "kana": "さらに",
-    "romaji": "sarani",
-    "meaning": "furthermore, moreover",
-    "level": "n3"
-  },
-  {
-    "id": 1396,
-    "kanji": "去る",
-    "kana": "さる",
-    "romaji": "saru",
-    "meaning": "to leave, to go away",
+    "meaning": {
+      "en": "to wake, to wake up",
+      "fr": "se réveiller"
+    },
     "level": "n3"
   },
   {
@@ -465,39 +548,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "猿",
     "kana": "さる",
     "romaji": "saru",
-    "meaning": "monkey",
-    "level": "n3"
-  },
-  {
-    "id": 1398,
-    "kanji": "騒ぎ",
-    "kana": "さわぎ",
-    "romaji": "sawagi",
-    "meaning": "uproar, disturbance",
-    "level": "n3"
-  },
-  {
-    "id": 1399,
-    "kanji": "参加",
-    "kana": "さんか",
-    "romaji": "sanka",
-    "meaning": "participation",
-    "level": "n3"
-  },
-  {
-    "id": 1400,
-    "kanji": "参考",
-    "kana": "さんこう",
-    "romaji": "sankou",
-    "meaning": "reference, consultation",
-    "level": "n3"
-  },
-  {
-    "id": 1401,
-    "kanji": "賛成",
-    "kana": "さんせい",
-    "romaji": "sansei",
-    "meaning": "approval, agreement",
+    "meaning": {
+      "en": "monkey",
+      "fr": "singe"
+    },
     "level": "n3"
   },
   {
@@ -505,7 +559,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "酸性",
     "kana": "さんせい",
     "romaji": "sansei",
-    "meaning": "acidity",
+    "meaning": {
+      "en": "acidity",
+      "fr": "acidité"
+    },
     "level": "n3"
   },
   {
@@ -513,23 +570,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "酸素",
     "kana": "さんそ",
     "romaji": "sanso",
-    "meaning": "oxygen",
-    "level": "n3"
-  },
-  {
-    "id": 1404,
-    "kanji": "氏",
-    "kana": "し",
-    "romaji": "shi",
-    "meaning": "family name, lineage",
-    "level": "n3"
-  },
-  {
-    "id": 1406,
-    "kanji": "幸せ",
-    "kana": "しあわせ",
-    "romaji": "shiawase",
-    "meaning": "happiness, blessing",
+    "meaning": {
+      "en": "oxygen",
+      "fr": "oxygène"
+    },
     "level": "n3"
   },
   {
@@ -537,15 +581,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "四角",
     "kana": "しかく",
     "romaji": "shikaku",
-    "meaning": "square (noun)",
-    "level": "n3"
-  },
-  {
-    "id": 1410,
-    "kanji": "直に",
-    "kana": "じかに",
-    "romaji": "jikani",
-    "meaning": "immediately, readily, directly",
+    "meaning": {
+      "en": "square (noun)",
+      "fr": "carré"
+    },
     "level": "n3"
   },
   {
@@ -553,103 +592,219 @@ export const WORDS: SiteWord[] = [
     "kanji": "四季",
     "kana": "しき",
     "romaji": "shiki",
-    "meaning": "four seasons",
+    "meaning": {
+      "en": "four seasons",
+      "fr": "les quatre saisons"
+    },
     "level": "n3"
   },
   {
-    "id": 1413,
-    "kanji": "直",
-    "kana": "じき",
-    "romaji": "jiki",
-    "meaning": "immediately, soon, shortly",
+    "id": 1419,
+    "kanji": "資源",
+    "kana": "しげん",
+    "romaji": "shigen",
+    "meaning": {
+      "en": "resources",
+      "fr": "ressources"
+    },
     "level": "n3"
   },
   {
-    "id": 1414,
-    "kanji": "時期",
-    "kana": "じき",
-    "romaji": "jiki",
-    "meaning": "time, season, period",
+    "id": 1423,
+    "kanji": "事実",
+    "kana": "じじつ",
+    "romaji": "jijitsu",
+    "meaning": {
+      "en": "fact, truth, reality",
+      "fr": "un fait"
+    },
     "level": "n3"
   },
   {
-    "id": 1415,
-    "kanji": "支給",
-    "kana": "しきゅう",
-    "romaji": "shikyuu",
-    "meaning": "payment, allowance",
+    "id": 1426,
+    "kanji": "詩人",
+    "kana": "しじん",
+    "romaji": "shijin",
+    "meaning": {
+      "en": "poet",
+      "fr": "poète"
+    },
     "level": "n3"
   },
   {
-    "id": 3526,
-    "kanji": "就任",
-    "kana": "しゅうにん",
-    "romaji": "shuunin",
-    "meaning": "inauguration, assumption of office",
-    "level": "n2"
+    "id": 1429,
+    "kanji": "自然",
+    "kana": "しぜん",
+    "romaji": "shizen",
+    "meaning": {
+      "en": "nature, spontaneous",
+      "fr": "nature"
+    },
+    "level": "n3"
   },
   {
-    "id": 3527,
-    "kanji": "周辺",
-    "kana": "しゅうへん",
-    "romaji": "shuuhen",
-    "meaning": "circumference, peripheral",
-    "level": "n2"
+    "id": 1431,
+    "kanji": "舌",
+    "kana": "した",
+    "romaji": "shita",
+    "meaning": {
+      "en": "tongue",
+      "fr": "langue (anat.)"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1436,
+    "kanji": "質",
+    "kana": "しつ",
+    "romaji": "shitsu",
+    "meaning": {
+      "en": "quality, nature (of person)",
+      "fr": "qualité"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1438,
+    "kanji": "湿気",
+    "kana": "しっけ",
+    "romaji": "shikke",
+    "meaning": {
+      "en": "moisture, humidity, dampness",
+      "fr": "humidité"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1446,
+    "kanji": "実に",
+    "kana": "じつに",
+    "romaji": "jitsuni",
+    "meaning": {
+      "en": "indeed, truly, surely",
+      "fr": "vraiment, en effet"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1452,
+    "kanji": "自動",
+    "kana": "じどう",
+    "romaji": "jidou",
+    "meaning": {
+      "en": "automatic, self-motion",
+      "fr": "automatique"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1453,
+    "kanji": "児童",
+    "kana": "じどう",
+    "romaji": "jidou",
+    "meaning": {
+      "en": "children, juvenile",
+      "fr": "enfant"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1459,
+    "kanji": "支払",
+    "kana": "しはらい",
+    "romaji": "shiharai",
+    "meaning": {
+      "en": "payment",
+      "fr": "paiement"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1460,
+    "kanji": "支払う",
+    "kana": "しはらう",
+    "romaji": "shiharau",
+    "meaning": {
+      "en": "to pay",
+      "fr": "payer"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1462,
+    "kanji": "資本",
+    "kana": "しほん",
+    "romaji": "shihon",
+    "meaning": {
+      "en": "funds, capital",
+      "fr": "capitaux"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1463,
+    "kanji": "姉妹",
+    "kana": "しまい",
+    "romaji": "shimai",
+    "meaning": {
+      "en": "sisters",
+      "fr": "sœurs"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1474,
+    "kanji": "週",
+    "kana": "しゅう",
+    "romaji": "shuu",
+    "meaning": {
+      "en": "week",
+      "fr": "semaine"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1479,
+    "kanji": "宗教",
+    "kana": "しゅうきょう",
+    "romaji": "shuukyou",
+    "meaning": {
+      "en": "religion",
+      "fr": "religion"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1496,
+    "kanji": "手術",
+    "kana": "しゅじゅつ",
+    "romaji": "shujutsu",
+    "meaning": {
+      "en": "surgical operation",
+      "fr": "opération chirurgicale"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1497,
+    "kanji": "首相",
+    "kana": "しゅしょう",
+    "romaji": "shushou",
+    "meaning": {
+      "en": "Prime Minister",
+      "fr": "Premier Ministre"
+    },
+    "level": "n3"
   },
   {
     "id": 3528,
     "kanji": "重役",
     "kana": "じゅうやく",
     "romaji": "juuyaku",
-    "meaning": "director, high executive",
-    "level": "n2"
-  },
-  {
-    "id": 3529,
-    "kanji": "終了",
-    "kana": "しゅうりょう",
-    "romaji": "shuuryou",
-    "meaning": "end, close, termination",
-    "level": "n2"
-  },
-  {
-    "id": 3530,
-    "kanji": "重量",
-    "kana": "じゅうりょう",
-    "romaji": "juuryou",
-    "meaning": "heavyweight",
-    "level": "n2"
-  },
-  {
-    "id": 3531,
-    "kanji": "重力",
-    "kana": "じゅうりょく",
-    "romaji": "juuryoku",
-    "meaning": "gravity",
-    "level": "n2"
-  },
-  {
-    "id": 3532,
-    "kanji": "熟語",
-    "kana": "じゅくご",
-    "romaji": "jukugo",
-    "meaning": "idiom, kanji compound",
-    "level": "n2"
-  },
-  {
-    "id": 3533,
-    "kanji": "祝日",
-    "kana": "しゅくじつ",
-    "romaji": "shukujitsu",
-    "meaning": "national holiday",
-    "level": "n2"
-  },
-  {
-    "id": 3534,
-    "kanji": "縮小",
-    "kana": "しゅくしょう",
-    "romaji": "shukushou",
-    "meaning": "reduction, curtailment",
+    "meaning": {
+      "en": "director, high executive",
+      "fr": "administrateur (de société)"
+    },
     "level": "n2"
   },
   {
@@ -657,7 +812,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "受験",
     "kana": "じゅけん",
     "romaji": "juken",
-    "meaning": "taking an examination",
+    "meaning": {
+      "en": "taking an examination",
+      "fr": "passer un examen"
+    },
     "level": "n2"
   },
   {
@@ -665,23 +823,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "主語",
     "kana": "しゅご",
     "romaji": "shugo",
-    "meaning": "(gram) subject",
-    "level": "n2"
-  },
-  {
-    "id": 3537,
-    "kanji": "主人",
-    "kana": "しゅじん",
-    "romaji": "shujin",
-    "meaning": "(one's own) husband",
-    "level": "n2"
-  },
-  {
-    "id": 3538,
-    "kanji": "出勤",
-    "kana": "しゅっきん",
-    "romaji": "shukkin",
-    "meaning": "going to work, at work",
+    "meaning": {
+      "en": "(gram) subject",
+      "fr": "sujet"
+    },
     "level": "n2"
   },
   {
@@ -689,23 +834,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "述語",
     "kana": "じゅつご",
     "romaji": "jutsugo",
-    "meaning": "predicate",
-    "level": "n2"
-  },
-  {
-    "id": 3540,
-    "kanji": "出張",
-    "kana": "しゅっちょう",
-    "romaji": "shutchou",
-    "meaning": "official tour, business trip",
-    "level": "n2"
-  },
-  {
-    "id": 3541,
-    "kanji": "寿命",
-    "kana": "じゅみょう",
-    "romaji": "jumyou",
-    "meaning": "life span",
+    "meaning": {
+      "en": "predicate",
+      "fr": "prédicat"
+    },
     "level": "n2"
   },
   {
@@ -713,7 +845,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "主役",
     "kana": "しゅやく",
     "romaji": "shuyaku",
-    "meaning": "leading part",
+    "meaning": {
+      "en": "leading part",
+      "fr": "rôle principal"
+    },
     "level": "n2"
   },
   {
@@ -721,15 +856,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "受話器",
     "kana": "じゅわき",
     "romaji": "juwaki",
-    "meaning": "(telephone) receiver",
-    "level": "n2"
-  },
-  {
-    "id": 3544,
-    "kanji": "循環",
-    "kana": "じゅんかん",
-    "romaji": "junkan",
-    "meaning": "circulation, rotation, cycle",
+    "meaning": {
+      "en": "(telephone) receiver",
+      "fr": "combiné (téléphone)"
+    },
     "level": "n2"
   },
   {
@@ -737,39 +867,197 @@ export const WORDS: SiteWord[] = [
     "kanji": "巡査",
     "kana": "じゅんさ",
     "romaji": "junsa",
-    "meaning": "policeman",
+    "meaning": {
+      "en": "policeman",
+      "fr": "policier"
+    },
     "level": "n2"
   },
   {
-    "id": 3546,
-    "kanji": "順々",
-    "kana": "じゅんじゅん",
-    "romaji": "junjun",
-    "meaning": "in order, in turn",
+    "id": 3563,
+    "kanji": "消化",
+    "kana": "しょうか",
+    "romaji": "shouka",
+    "meaning": {
+      "en": "digestion",
+      "fr": "digestion"
+    },
     "level": "n2"
   },
   {
-    "id": 3547,
-    "kanji": "順序",
-    "kana": "じゅんじょ",
-    "romaji": "junjo",
-    "meaning": "order, sequence, procedure",
+    "id": 3564,
+    "kanji": "小学生",
+    "kana": "しょうがくせい",
+    "romaji": "shougakusei",
+    "meaning": {
+      "en": "elementary school pupil",
+      "fr": "élève d'école primaire"
+    },
     "level": "n2"
   },
   {
-    "id": 3548,
-    "kanji": "純情",
-    "kana": "じゅんじょう",
-    "romaji": "junjou",
-    "meaning": "pure heart",
+    "id": 3566,
+    "kanji": "将棋",
+    "kana": "しょうぎ",
+    "romaji": "shougi",
+    "meaning": {
+      "en": "Japanese chess",
+      "fr": "shôgi (échecs japonais)"
+    },
     "level": "n2"
   },
   {
-    "id": 3549,
-    "kanji": "純粋",
-    "kana": "じゅんすい",
-    "romaji": "junsui",
-    "meaning": "pure, genuine, unmixed",
+    "id": 3567,
+    "kanji": "蒸気",
+    "kana": "じょうき",
+    "romaji": "jouki",
+    "meaning": {
+      "en": "steam, vapor",
+      "fr": "vapeur"
+    },
+    "level": "n2"
+  },
+  {
+    "id": 3568,
+    "kanji": "定規",
+    "kana": "じょうぎ",
+    "romaji": "jougi",
+    "meaning": {
+      "en": "(measuring) ruler",
+      "fr": "règle à mesurer"
+    },
+    "level": "n2"
+  },
+  {
+    "id": 3573,
+    "kanji": "上下",
+    "kana": "じょうげ",
+    "romaji": "jouge",
+    "meaning": {
+      "en": "high and low, up and down",
+      "fr": "haut et bas"
+    },
+    "level": "n2"
+  },
+  {
+    "id": 3574,
+    "kanji": "障子",
+    "kana": "しょうじ",
+    "romaji": "shouji",
+    "meaning": {
+      "en": "paper sliding door",
+      "fr": "porte coulissante japonaise (en papier)"
+    },
+    "level": "n2"
+  },
+  {
+    "id": 3575,
+    "kanji": "商社",
+    "kana": "しょうしゃ",
+    "romaji": "shousha",
+    "meaning": {
+      "en": "trading company",
+      "fr": "société de commerce"
+    },
+    "level": "n2"
+  },
+  {
+    "id": 3576,
+    "kanji": "乗車",
+    "kana": "じょうしゃ",
+    "romaji": "jousha",
+    "meaning": {
+      "en": "taking a train, entraining",
+      "fr": "monter (en voiture, en train...)"
+    },
+    "level": "n2"
+  },
+  {
+    "id": 3579,
+    "kanji": "小数",
+    "kana": "しょうすう",
+    "romaji": "shousuu",
+    "meaning": {
+      "en": "fraction (part of), decimal",
+      "fr": "fraction décimale"
+    },
+    "level": "n2"
+  },
+  {
+    "id": 3587,
+    "kanji": "小便",
+    "kana": "しょうべん",
+    "romaji": "shouben",
+    "meaning": {
+      "en": "(col) urine, piss",
+      "fr": "urine"
+    },
+    "level": "n2"
+  },
+  {
+    "id": 3588,
+    "kanji": "消防署",
+    "kana": "しょうぼうしょ",
+    "romaji": "shoubousho",
+    "meaning": {
+      "en": "fire station",
+      "fr": "caserne de pompiers"
+    },
+    "level": "n2"
+  },
+  {
+    "id": 3589,
+    "kanji": "正味",
+    "kana": "しょうみ",
+    "romaji": "shoumi",
+    "meaning": {
+      "en": "net (weight)",
+      "fr": "net (poids)"
+    },
+    "level": "n2"
+  },
+  {
+    "id": 3592,
+    "kanji": "初級",
+    "kana": "しょきゅう",
+    "romaji": "shokyuu",
+    "meaning": {
+      "en": "elementary level",
+      "fr": "niveau élémentaire"
+    },
+    "level": "n2"
+  },
+  {
+    "id": 3593,
+    "kanji": "助教授",
+    "kana": "じょきょうじゅ",
+    "romaji": "jokyouju",
+    "meaning": {
+      "en": "assistant professor",
+      "fr": "professeur assistant"
+    },
+    "level": "n2"
+  },
+  {
+    "id": 3595,
+    "kanji": "食塩",
+    "kana": "しょくえん",
+    "romaji": "shokuen",
+    "meaning": {
+      "en": "table salt",
+      "fr": "sel de table"
+    },
+    "level": "n2"
+  },
+  {
+    "id": 3598,
+    "kanji": "初旬",
+    "kana": "しょじゅん",
+    "romaji": "shojun",
+    "meaning": {
+      "en": "first 10 days of the month",
+      "fr": "les 10 premiers jours du mois"
+    },
     "level": "n2"
   },
   {
@@ -777,15 +1065,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "現像",
     "kana": "げんぞう",
     "romaji": "genzou",
-    "meaning": "developing (film)",
-    "level": "n1"
-  },
-  {
-    "id": 5275,
-    "kanji": "原則",
-    "kana": "げんそく",
-    "romaji": "gensoku",
-    "meaning": "principle, general rule",
+    "meaning": {
+      "en": "developing (film)",
+      "fr": "développer (photographie)"
+    },
     "level": "n1"
   },
   {
@@ -793,39 +1076,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "見地",
     "kana": "けんち",
     "romaji": "kenchi",
-    "meaning": "point of view",
-    "level": "n1"
-  },
-  {
-    "id": 5277,
-    "kanji": "現地",
-    "kana": "げんち",
-    "romaji": "genchi",
-    "meaning": "actual place, local",
-    "level": "n1"
-  },
-  {
-    "id": 5278,
-    "kanji": "限定",
-    "kana": "げんてい",
-    "romaji": "gentei",
-    "meaning": "limit, restriction",
-    "level": "n1"
-  },
-  {
-    "id": 5279,
-    "kanji": "原点",
-    "kana": "げんてん",
-    "romaji": "genten",
-    "meaning": "origin (coordinates, starting point)",
-    "level": "n1"
-  },
-  {
-    "id": 5280,
-    "kanji": "原典",
-    "kana": "げんてん",
-    "romaji": "genten",
-    "meaning": "original, source",
+    "meaning": {
+      "en": "point of view",
+      "fr": "point de vue"
+    },
     "level": "n1"
   },
   {
@@ -833,39 +1087,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "原爆",
     "kana": "げんばく",
     "romaji": "genbaku",
-    "meaning": "atomic bomb",
-    "level": "n1"
-  },
-  {
-    "id": 5282,
-    "kanji": "原文",
-    "kana": "げんぶん",
-    "romaji": "genbun",
-    "meaning": "the text, original",
-    "level": "n1"
-  },
-  {
-    "id": 5283,
-    "kanji": "厳密",
-    "kana": "げんみつ",
-    "romaji": "genmitsu",
-    "meaning": "strict, close",
-    "level": "n1"
-  },
-  {
-    "id": 5284,
-    "kanji": "賢明",
-    "kana": "けんめい",
-    "romaji": "kenmei",
-    "meaning": "wisdom, intelligence, prudence",
-    "level": "n1"
-  },
-  {
-    "id": 5285,
-    "kanji": "倹約",
-    "kana": "けんやく",
-    "romaji": "ken'yaku",
-    "meaning": "thrift, economy, frugality",
+    "meaning": {
+      "en": "atomic bomb",
+      "fr": "bombe atomique"
+    },
     "level": "n1"
   },
   {
@@ -873,7 +1098,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "原油",
     "kana": "げんゆ",
     "romaji": "gen'yu",
-    "meaning": "crude oil",
+    "meaning": {
+      "en": "crude oil",
+      "fr": "huile non raffinée"
+    },
     "level": "n1"
   },
   {
@@ -881,15 +1109,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "兼用",
     "kana": "けんよう",
     "romaji": "ken'you",
-    "meaning": "multi-use, combined use",
-    "level": "n1"
-  },
-  {
-    "id": 5288,
-    "kanji": "権力",
-    "kana": "けんりょく",
-    "romaji": "kenryoku",
-    "meaning": "(political) power, authority, influence",
+    "meaning": {
+      "en": "multi-use, combined use",
+      "fr": "usage combiné, polyvalent"
+    },
     "level": "n1"
   },
   {
@@ -897,39 +1120,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "言論",
     "kana": "げんろん",
     "romaji": "genron",
-    "meaning": "discussion, speech",
-    "level": "n1"
-  },
-  {
-    "id": 5291,
-    "kanji": "語彙",
-    "kana": "ごい",
-    "romaji": "goi",
-    "meaning": "vocabulary, glossary",
-    "level": "n1"
-  },
-  {
-    "id": 5292,
-    "kanji": "恋する",
-    "kana": "こいする",
-    "romaji": "koisuru",
-    "meaning": "to fall in love with, to love",
-    "level": "n1"
-  },
-  {
-    "id": 5295,
-    "kanji": "好意",
-    "kana": "こうい",
-    "romaji": "koui",
-    "meaning": "good will, favor, courtesy",
-    "level": "n1"
-  },
-  {
-    "id": 5296,
-    "kanji": "行為",
-    "kana": "こうい",
-    "romaji": "koui",
-    "meaning": "act, deed, conduct",
+    "meaning": {
+      "en": "discussion, speech",
+      "fr": "discussion"
+    },
     "level": "n1"
   },
   {
@@ -937,15 +1131,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "工学",
     "kana": "こうがく",
     "romaji": "kougaku",
-    "meaning": "engineering",
-    "level": "n1"
-  },
-  {
-    "id": 5299,
-    "kanji": "抗議",
-    "kana": "こうぎ",
-    "romaji": "kougi",
-    "meaning": "protest, objection",
+    "meaning": {
+      "en": "engineering",
+      "fr": "ingénieur"
+    },
     "level": "n1"
   },
   {
@@ -953,7 +1142,10 @@ export const WORDS: SiteWord[] = [
     "kanji": "合議",
     "kana": "ごうぎ",
     "romaji": "gougi",
-    "meaning": "consultation, conference",
+    "meaning": {
+      "en": "consultation, conference",
+      "fr": "consultation, conférence"
+    },
     "level": "n1"
   },
   {
@@ -961,7 +1153,175 @@ export const WORDS: SiteWord[] = [
     "kanji": "皇居",
     "kana": "こうきょ",
     "romaji": "koukyo",
-    "meaning": "Imperial Palace",
+    "meaning": {
+      "en": "Imperial Palace",
+      "fr": "palais impérial"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5303,
+    "kanji": "鉱業",
+    "kana": "こうぎょう",
+    "romaji": "kougyou",
+    "meaning": {
+      "en": "mining industry",
+      "fr": "industrie minière"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5307,
+    "kanji": "煌々と",
+    "kana": "こうこうと",
+    "romaji": "koukouto",
+    "meaning": {
+      "en": "brightly",
+      "fr": "brillamment"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5308,
+    "kanji": "考古学",
+    "kana": "こうこがく",
+    "romaji": "koukogaku",
+    "meaning": {
+      "en": "archeology",
+      "fr": "archéologie"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5311,
+    "kanji": "鉱山",
+    "kana": "こうざん",
+    "romaji": "kouzan",
+    "meaning": {
+      "en": "mine",
+      "fr": "mine (minerai)"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5312,
+    "kanji": "講習",
+    "kana": "こうしゅう",
+    "romaji": "koushuu",
+    "meaning": {
+      "en": "short course, training",
+      "fr": "public"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5319,
+    "kanji": "香辛料",
+    "kana": "こうしんりょう",
+    "romaji": "koushinryou",
+    "meaning": {
+      "en": "spices",
+      "fr": "épices"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5321,
+    "kanji": "洪水",
+    "kana": "こうずい",
+    "romaji": "kouzui",
+    "meaning": {
+      "en": "flood",
+      "fr": "inondation"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5328,
+    "kanji": "公団",
+    "kana": "こうだん",
+    "romaji": "koudan",
+    "meaning": {
+      "en": "public corporation",
+      "fr": "corporation publique"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5330,
+    "kanji": "口頭",
+    "kana": "こうとう",
+    "romaji": "koutou",
+    "meaning": {
+      "en": "oral",
+      "fr": "oral"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5331,
+    "kanji": "講読",
+    "kana": "こうどく",
+    "romaji": "koudoku",
+    "meaning": {
+      "en": "reading",
+      "fr": "abonnement (pour un journal, magazine)"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5332,
+    "kanji": "購読",
+    "kana": "こうどく",
+    "romaji": "koudoku",
+    "meaning": {
+      "en": "subscription",
+      "fr": "abonnement (pour un journal, magazine)"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5339,
+    "kanji": "公募",
+    "kana": "こうぼ",
+    "romaji": "koubo",
+    "meaning": {
+      "en": "public appeal, public contribution",
+      "fr": "appel public"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5342,
+    "kanji": "小売",
+    "kana": "こうり",
+    "romaji": "kouri",
+    "meaning": {
+      "en": "retail",
+      "fr": "vente au détail"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5343,
+    "kanji": "効率",
+    "kana": "こうりつ",
+    "romaji": "kouritsu",
+    "meaning": {
+      "en": "efficiency",
+      "fr": "efficacité"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5344,
+    "kanji": "公立",
+    "kana": "こうりつ",
+    "romaji": "kouritsu",
+    "meaning": {
+      "en": "public institution",
+      "fr": "publique (institution)"
+    },
     "level": "n1"
   }
 ];

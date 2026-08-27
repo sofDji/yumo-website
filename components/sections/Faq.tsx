@@ -3,37 +3,15 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { useState } from 'react';
 import { Section } from '@/components/layout/Section';
+import type { Dictionary } from '@/lib/i18n';
 import { EASE } from '@/lib/motion';
 
-const QA = [
-  {
-    q: 'Why has the word not changed?',
-    a: 'Yumo rotates on a fixed rhythm — every 6, 12 or 24 hours free, or every 1 to 4 hours with Pro. Between those points the word holds. That is intended: a word you see for a few hours is a word you remember.',
-  },
-  {
-    q: 'Does it work on Android?',
-    a: 'Yes, as a home-screen widget. Android phones have no Lock Screen widgets, so that part is iPhone only.',
-  },
-  {
-    q: 'Is Yumo Pro a subscription?',
-    a: 'No. It is a single purchase tied to your App Store or Google Play account, restorable on any device you sign into.',
-  },
-  {
-    q: 'I hear nothing when I tap the speaker.',
-    a: "Yumo speaks through your device's built-in Japanese voice. If none is installed, add one in Accessibility settings — iPhone under Spoken Content, Android under Text-to-speech output.",
-  },
-  {
-    q: 'How do I get a refund?',
-    a: 'Refunds are handled by Apple and Google, not by us. Use reportaproblem.apple.com, or your Google Play order history.',
-  },
-];
-
-export function Faq() {
+export function Faq({ t }: { t: Dictionary['faq'] }) {
   const [open, setOpen] = useState(0);
   const reduced = useReducedMotion();
 
   return (
-    <Section id="faq" eyebrow="Questions" title="Before you ask">
+    <Section id="faq" eyebrow={t.eyebrow} title={t.title}>
       {/* Panels are collapsed by the markup so there is no flash of every
           answer before hydration. Without JavaScript nothing can expand them,
           so this puts them back. */}
@@ -42,7 +20,7 @@ export function Faq() {
       </noscript>
 
       <div className="mx-auto max-w-3xl divide-y divide-line overflow-hidden rounded-2xl border border-line bg-surface shadow-soft">
-        {QA.map((item, i) => {
+        {t.items.map((item, i) => {
           const isOpen = open === i;
           return (
             <div key={item.q}>
@@ -83,7 +61,10 @@ export function Faq() {
                       }
                 }
               >
-                <p className="px-7 pb-5 text-[14px] leading-relaxed text-muted">{item.a}</p>
+                <p
+                  className="px-7 pb-5 text-[14px] leading-relaxed text-muted"
+                  dangerouslySetInnerHTML={{ __html: item.a }}
+                />
               </motion.div>
             </div>
           );

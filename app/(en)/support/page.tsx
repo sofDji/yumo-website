@@ -11,7 +11,7 @@ export const metadata: Metadata = {
 
 export default function SupportPage() {
   return (
-    <LegalLayout title="Yumo — Support">
+    <LegalLayout locale="en" path="support" title="Yumo — Support">
       <p>
         Yumo shows you a new Japanese word every few hours, on your Lock Screen and
         Home Screen. If something isn&apos;t working, this page covers the common

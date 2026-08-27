@@ -1,3 +1,4 @@
+import type { Locale } from '@/lib/i18n';
 import type { SiteWord } from '@/lib/select-words';
 import { LEVEL_COLORS, LEVEL_LABELS } from '@/lib/tokens';
 import { PhoneFrame, StatusBar } from './PhoneFrame';
@@ -5,7 +6,7 @@ import { PhoneFrame, StatusBar } from './PhoneFrame';
 // The accessoryRectangular widget, which is the placement the app's own store
 // name leads with. Rendered flat and translucent the way iOS renders Lock
 // Screen accessories, rather than as a full-colour tile like the home screen.
-export function LockScreen({ word }: { word: SiteWord }) {
+export function LockScreen({ word, locale }: { word: SiteWord; locale: Locale }) {
   const color = LEVEL_COLORS[word.level];
 
   return (
@@ -32,7 +33,7 @@ export function LockScreen({ word }: { word: SiteWord }) {
           <p className="mt-1.5 font-jp text-[10px] leading-tight text-muted">
             {word.kana} · {word.romaji}
           </p>
-          <p className="text-[10px] font-medium leading-snug">{word.meaning}</p>
+          <p className="text-[10px] font-medium leading-snug">{word.meaning[locale]}</p>
         </div>
 
         <div className="mt-auto flex w-full items-center justify-between">

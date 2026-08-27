@@ -10,7 +10,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalLayout title="Yumo — Privacy Policy" updated="Effective August 17, 2026">
+    <LegalLayout locale="en" title="Yumo — Privacy Policy" updated="Effective August 17, 2026">
       <p>
         Yumo is a Japanese vocabulary app. It is built to work entirely on your
         device: it has no accounts, no analytics, no advertising, and no tracking.

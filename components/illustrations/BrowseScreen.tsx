@@ -1,3 +1,4 @@
+import type { Dictionary, Locale } from '@/lib/i18n';
 import type { SiteWord } from '@/lib/select-words';
 import { LEVELS, LEVEL_COLORS, LEVEL_LABELS } from '@/lib/tokens';
 import { PhoneFrame, StatusBar } from './PhoneFrame';
@@ -9,21 +10,29 @@ import { PhoneFrame, StatusBar } from './PhoneFrame';
 // Deliberately few rows. The point is only "you can look words up" — a dense
 // list at this scale becomes texture nobody reads, and the type has to shrink
 // to fit it.
-export function BrowseScreen({ words }: { words: SiteWord[] }) {
+export function BrowseScreen({
+  words,
+  locale,
+  t,
+}: {
+  words: SiteWord[];
+  locale: Locale;
+  t: Dictionary['browse'];
+}) {
   return (
     <PhoneFrame bloom="#3B82F6">
       <StatusBar time="9:41" />
 
       <div className="flex flex-1 flex-col overflow-hidden px-4 pb-6 pt-3">
-        <p className="mb-3 text-center text-[12px] font-semibold">Browse</p>
+        <p className="mb-3 text-center text-[12px] font-semibold">{t.tabTitle}</p>
 
         <div className="rounded-[0.8rem] border border-line bg-white/90 px-3 py-2 text-[10px] text-muted">
-          Search kanji, kana, romaji, meaning…
+          {t.searchPlaceholder}
         </div>
 
         <div className="mt-2.5 flex gap-1.5">
           <span className="rounded-full bg-ink px-2.5 py-1 text-[9px] font-semibold text-ground">
-            All
+            {t.all}
           </span>
           {LEVELS.map((l) => (
             <span
@@ -49,7 +58,7 @@ export function BrowseScreen({ words }: { words: SiteWord[] }) {
                 <span className="block truncate text-[9.5px] leading-tight text-muted">
                   {w.kana} · {w.romaji}
                 </span>
-                <span className="block truncate text-[9.5px] leading-tight">{w.meaning}</span>
+                <span className="block truncate text-[9.5px] leading-tight">{w.meaning[locale]}</span>
               </span>
               <span
                 className="ml-2 shrink-0 rounded-full px-2 py-0.5 text-[8.5px] font-bold text-white"

@@ -2,6 +2,7 @@
 
 import { motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
+import type { Locale } from '@/lib/i18n';
 import { drift } from '@/lib/motion';
 import { LEVELS } from '@/lib/tokens';
 import { wordsByLevel } from '@/lib/words';
@@ -23,7 +24,7 @@ const SPOTS = [
   'left-[1%] top-[61%]',
 ];
 
-export function FloatingCards() {
+export function FloatingCards({ locale }: { locale: Locale }) {
   const reduced = useReducedMotion();
   // Server and client must agree on first render, so index 0 is fixed and the
   // shuffle happens after mount.
@@ -50,7 +51,7 @@ export function FloatingCards() {
               transition={{ delay: 0.5 + i * 0.1, duration: 0.6 }}
             >
               <motion.div {...motionProps}>
-                <WordCard word={word} size="sm" />
+                <WordCard word={word} locale={locale} size="sm" />
               </motion.div>
             </motion.div>
           );

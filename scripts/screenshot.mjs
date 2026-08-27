@@ -6,7 +6,7 @@
 // reveal mid-blur and looks like a rendering bug.
 import { chromium } from 'playwright';
 
-const URL = process.env.SHOT_URL ?? 'http://localhost:4191/';
+const URL = process.env.SHOT_URL ?? 'http://localhost:4195/';
 const SECTIONS = ['how', 'lockscreen', 'widget', 'features', 'levels', 'browse', 'pricing'];
 
 const browser = await chromium.launch();

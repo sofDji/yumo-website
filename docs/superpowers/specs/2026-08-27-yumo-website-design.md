@@ -283,10 +283,17 @@ edit, one deploy, no code restructuring.
 
 ## Out of scope for v1
 
-Email capture and any form. Dark mode. Blog or changelog. Localised copy —
-the app ships four meaning languages, but the site is English-only until there
-is traffic to justify otherwise. Analytics of any kind, which would contradict
-the privacy section. A custom domain.
+Email capture and any form. Dark mode. Blog or changelog. Analytics of any
+kind, which would contradict the privacy section. A custom domain.
+
+**Superseded 2026-08-28 — French was added.** `/fr` and `/fr/support` render
+from `lib/i18n/`, where `fr.ts` is typed as `typeof en` so a missing key is a
+compile error. Privacy and terms stay English only and binding: translating
+them is a legal act, and the App Store listing cites the English URLs. Two
+root layouts (route groups `(en)` and `(fr)`) exist so each locale gets its
+own `<html lang>`, which one shared layout cannot provide. The word dataset
+now carries `meaning: { en, fr }` and a word must have a usable gloss in both
+to be selected, so a French card can never fall back to English.
 
 ## Success criteria
 

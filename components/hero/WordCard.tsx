@@ -1,7 +1,16 @@
+import type { Locale } from '@/lib/i18n';
 import type { SiteWord } from '@/lib/select-words';
 import { LEVEL_COLORS, LEVEL_LABELS } from '@/lib/tokens';
 
-export function WordCard({ word, size = 'lg' }: { word: SiteWord; size?: 'lg' | 'sm' }) {
+export function WordCard({
+  word,
+  locale,
+  size = 'lg',
+}: {
+  word: SiteWord;
+  locale: Locale;
+  size?: 'lg' | 'sm';
+}) {
   const color = LEVEL_COLORS[word.level];
   const large = size === 'lg';
 
@@ -25,7 +34,7 @@ export function WordCard({ word, size = 'lg' }: { word: SiteWord; size?: 'lg' | 
         {word.kana} · {word.romaji}
       </p>
       <p className={`font-medium ${large ? 'mt-2 text-[17px]' : 'mt-1.5 text-[12px] leading-snug'}`}>
-        {word.meaning}
+        {word.meaning[locale]}
       </p>
     </div>
   );

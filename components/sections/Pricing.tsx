@@ -1,6 +1,7 @@
 import { Reveal } from '@/components/layout/Reveal';
 import { Section } from '@/components/layout/Section';
 import { StoreCta } from '@/components/ui/StoreCta';
+import { fill, type Dictionary } from '@/lib/i18n';
 import { TOTAL_WORDS, WORD_COUNTS } from '@/lib/tokens';
 
 // Every claim below is taken from resolveFrequency and resolveLevelForWindow
@@ -10,21 +11,7 @@ import { TOTAL_WORDS, WORD_COUNTS } from '@/lib/tokens';
 // The price must match PRO_PRICE_LABEL in the app and the product tier set in
 // App Store Connect and Play Console. Those consoles are what customers are
 // actually charged; this is only what the site claims.
-const FREE = [
-  `N5 vocabulary — ${WORD_COUNTS.n5} words`,
-  'A new word every 6, 12 or 24 hours',
-  'Lock Screen and Home Screen widgets',
-  'Pronunciation and stroke practice',
-  'Favourites, notifications and themes',
-];
-
-const PRO = [
-  `Every level, N5 to N1 — all ${TOTAL_WORDS.toLocaleString('en-US')} words`,
-  'A new word every 1, 2, 3 or 4 hours',
-  'The Auto journey, climbing N5 to N1',
-  'Browse the full dictionary',
-  'Widget colours, transparency and text colour',
-];
+const PRICE = '$8.99';
 
 function Tier({
   name,
@@ -70,25 +57,46 @@ function Tier({
   );
 }
 
-export function Pricing() {
+export function Pricing({
+  t,
+  cta,
+  nf,
+}: {
+  t: Dictionary['pricing'];
+  cta: Dictionary['cta'];
+  nf: Intl.NumberFormat;
+}) {
+  const total = nf.format(TOTAL_WORDS);
+  const n5 = nf.format(WORD_COUNTS.n5);
+
   return (
     <Section
       id="pricing"
-      eyebrow="Pricing"
-      title={<>One price, <span className="font-serif font-normal italic">forever</span></>}
-      lede="Yumo Pro is a single purchase. No subscription, no renewal, no account to cancel."
+      eyebrow={t.eyebrow}
+      title={
+        <>
+          {t.titleLead} <span className="font-serif font-normal italic">{t.titleAccent}</span>
+        </>
+      }
+      lede={t.lede}
     >
       <div className="grid gap-5 md:grid-cols-2">
         <Reveal>
-          <Tier name="Free" price="$0" items={FREE} />
+          <Tier name={t.freeName} price="$0" items={t.free.map((s) => fill(s, { n5, total }))} />
         </Reveal>
         <Reveal delay={0.08}>
-          <Tier name="Yumo Pro" price="$8.99" suffix="once" items={PRO} featured />
+          <Tier
+            name={t.proName}
+            price={PRICE}
+            suffix={t.once}
+            items={t.pro.map((s) => fill(s, { n5, total }))}
+            featured
+          />
         </Reveal>
       </div>
 
       <div className="mt-12 flex justify-center">
-        <StoreCta />
+        <StoreCta t={cta} />
       </div>
     </Section>
   );

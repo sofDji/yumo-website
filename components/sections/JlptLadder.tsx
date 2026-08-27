@@ -1,22 +1,19 @@
 import { Reveal } from '@/components/layout/Reveal';
 import { Section } from '@/components/layout/Section';
+import { fill, type Dictionary } from '@/lib/i18n';
 import { LEVELS, LEVEL_COLORS, LEVEL_LABELS, TOTAL_WORDS, WORD_COUNTS } from '@/lib/tokens';
 
-const BLURB: Record<string, string> = {
-  n5: 'The first 718 words. Everything on the free tier.',
-  n4: 'Everyday verbs and adjectives you will actually hear.',
-  n3: 'The bridge level, and the largest jump in vocabulary.',
-  n2: 'Newspaper and workplace Japanese.',
-  n1: 'The long tail — 2,699 words most courses never reach.',
-};
-
-export function JlptLadder() {
+export function JlptLadder({ t, nf }: { t: Dictionary['levels']; nf: Intl.NumberFormat }) {
   return (
     <Section
       id="levels"
-      eyebrow="Levels"
-      title={<>N5 to N1, or let it <span className="font-serif font-normal italic">climb</span></>}
-      lede={`All ${TOTAL_WORDS.toLocaleString('en-US')} words, graded by JLPT level. Pick one and stay there, or turn on Auto and let Yumo move you up as you go, weaving earlier words back in for review.`}
+      eyebrow={t.eyebrow}
+      title={
+        <>
+          {t.titleLead} <span className="font-serif font-normal italic">{t.titleAccent}</span>
+        </>
+      }
+      lede={fill(t.lede, { total: nf.format(TOTAL_WORDS) })}
     >
       <ul className="overflow-hidden rounded-2xl border border-line bg-surface shadow-soft">
         {LEVELS.map((level, i) => (
@@ -33,9 +30,11 @@ export function JlptLadder() {
               >
                 {LEVEL_LABELS[level]}
               </span>
-              <span className="relative z-10 flex-1 text-[15px] font-medium">{BLURB[level]}</span>
+              <span className="relative z-10 flex-1 text-[15px] font-medium">
+                {t.blurbs[level]}
+              </span>
               <span className="relative z-10 shrink-0 text-sm tabular-nums text-muted">
-                {WORD_COUNTS[level].toLocaleString('en-US')} words
+                {fill(t.words, { n: nf.format(WORD_COUNTS[level]) })}
               </span>
             </li>
           </Reveal>

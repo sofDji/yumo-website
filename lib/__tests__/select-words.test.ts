@@ -15,12 +15,26 @@ describe('selectWords', () => {
 
   it('drops meanings of 40 characters or more', () => {
     const long = 'a'.repeat(40);
-    const out = selectWords([raw({ id: 2, meaning: { en: long, fr: '', de: '', es: '' } })], 5);
+    const out = selectWords([raw({ id: 2, meaning: { en: long, fr: 'eau', de: '', es: '' } })], 5);
     expect(out).toHaveLength(0);
   });
 
   it('drops meanings containing a semicolon', () => {
-    const out = selectWords([raw({ id: 3, meaning: { en: 'water; liquid', fr: '', de: '', es: '' } })], 5);
+    const out = selectWords(
+      [raw({ id: 3, meaning: { en: 'water; liquid', fr: 'eau', de: '', es: '' } })],
+      5,
+    );
+    expect(out).toHaveLength(0);
+  });
+
+  // Both rendered locales must be usable, or a French card would silently
+  // fall back to English under a French headline.
+  it('drops a word whose French gloss is unusable even if English is fine', () => {
+    const messy = 'de aquella forma, mais aussi tout autre chose entièrement';
+    const out = selectWords(
+      [raw({ id: 8, meaning: { en: 'water', fr: messy, de: '', es: '' } })],
+      5,
+    );
     expect(out).toHaveLength(0);
   });
 
@@ -29,10 +43,15 @@ describe('selectWords', () => {
     expect(selectWords(many, 24)).toHaveLength(24);
   });
 
-  it('flattens the meaning to English and keeps the level', () => {
+  it('keeps only the rendered locales and preserves the level', () => {
     const [w] = selectWords([raw({ id: 4 })], 5);
     expect(w).toEqual({
-      id: 4, kanji: '水', kana: 'みず', romaji: 'mizu', meaning: 'water', level: 'n5',
+      id: 4,
+      kanji: '水',
+      kana: 'みず',
+      romaji: 'mizu',
+      meaning: { en: 'water', fr: 'eau' },
+      level: 'n5',
     });
   });
 

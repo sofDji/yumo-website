@@ -15,22 +15,29 @@ const LEVELS = ['n5', 'n4', 'n3', 'n2', 'n1'];
 // Mirrors selectWords in lib/select-words.ts. Duplicated because a plain ESM
 // script cannot import the TypeScript module; both copies are pinned by tests
 // (select-words.test.ts and words.test.ts), so a drift fails `npm test`.
+// Both rendered locales must be usable, or French cards fall back to English.
+// Words the app should absolutely still teach — they are real JLPT
+// vocabulary — but which should never land on a marketing page, where a
+// visitor meets them with no context and no reason to expect them. This is a
+// display concern, not a dataset one: nothing is removed from the app.
+const NOT_FOR_DISPLAY = new Set(['自殺']);
+
+const usable = (g) => !!g && g.length > 0 && g.length < 40 && !g.includes(';');
+
 function selectWords(raw, perLevel) {
   const out = [];
   for (const level of LEVELS) {
     const picked = raw
       .filter((w) => w.level === level)
       .filter((w) => w.kanji.length >= 1 && w.kanji.length <= 3)
-      .filter((w) => {
-        const en = w.meaning?.en ?? '';
-        return en.length > 0 && en.length < 40 && !en.includes(';');
-      })
+      .filter((w) => usable(w.meaning?.en) && usable(w.meaning?.fr))
       .filter((w) => w.kanji !== w.kana)
       .filter((w) => !w.kanji.includes('～') && !w.kanji.includes('〜'))
+      .filter((w) => !NOT_FOR_DISPLAY.has(w.kanji))
       .slice(0, perLevel)
       .map((w) => ({
-        id: w.id, kanji: w.kanji, kana: w.kana,
-        romaji: w.romaji, meaning: w.meaning.en, level: w.level,
+        id: w.id, kanji: w.kanji, kana: w.kana, romaji: w.romaji,
+        meaning: { en: w.meaning.en, fr: w.meaning.fr }, level: w.level,
       }));
     out.push(...picked);
   }

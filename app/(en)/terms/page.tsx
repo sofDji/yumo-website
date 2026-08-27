@@ -9,7 +9,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalLayout title="Yumo — Terms of Use" updated="Effective August 17, 2026">
+    <LegalLayout locale="en" title="Yumo — Terms of Use" updated="Effective August 17, 2026">
       <h2>The app</h2>
       <p>
         Yumo helps you learn Japanese vocabulary through widgets, notifications,
