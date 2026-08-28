@@ -23,7 +23,7 @@ export const en = {
   hero: {
     titleLead: 'Japanese, learned',
     titleAccent: 'without trying',
-    lede: 'A new Japanese word appears on your Lock Screen and Home Screen every few hours. No streaks, no lessons, nothing to remember to open.',
+    lede: 'A new Japanese word appears on your Lock Screen and Home Screen every few hours. No streaks, no lessons. It just shows up.',
   },
   how: {
     eyebrow: 'How it works',

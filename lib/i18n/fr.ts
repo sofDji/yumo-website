@@ -24,7 +24,7 @@ export const fr: Dictionary = {
   hero: {
     titleLead: 'Le japonais, appris',
     titleAccent: 'sans effort',
-    lede: "Un nouveau mot japonais apparaît sur votre écran de verrouillage et votre écran d'accueil toutes les quelques heures. Pas de série à tenir, pas de leçon, rien à penser à ouvrir.",
+    lede: "Un nouveau mot japonais apparaît sur votre écran de verrouillage et votre écran d'accueil toutes les quelques heures. Pas de série à tenir, pas de leçon. Il apparaît, c'est tout.",
   },
   how: {
     eyebrow: 'Comment ça marche',
