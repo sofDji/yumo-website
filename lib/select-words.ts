@@ -64,3 +64,22 @@ export function selectWords(raw: RawWord[], perLevel: number): SiteWord[] {
 
   return out;
 }
+
+// One display word per level, for the places that want to put a face on a
+// level rather than list it: the Browse illustration's rows and the levels
+// ladder. Short meanings only — at the size these render, a multi-clause gloss
+// forces the type down until it is texture, and both rendered locales have to
+// fit or a French page shows an English-sized gap.
+export function sampleByLevel(words: SiteWord[], maxMeaning: number): Record<Level, SiteWord> {
+  const out = {} as Record<Level, SiteWord>;
+
+  for (const level of LEVELS) {
+    const ofLevel = words.filter((w) => w.level === level);
+    out[level] =
+      ofLevel.find(
+        (w) => w.meaning.en.length <= maxMeaning && w.meaning.fr.length <= maxMeaning,
+      ) ?? ofLevel[0];
+  }
+
+  return out;
+}

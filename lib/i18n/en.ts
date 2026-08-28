@@ -23,7 +23,7 @@ export const en = {
   hero: {
     titleLead: 'Japanese, learned',
     titleAccent: 'without trying',
-    lede: 'A new JLPT word appears on your Lock Screen and Home Screen every few hours. No streaks, no lessons, nothing to remember to open.',
+    lede: 'A new Japanese word appears on your Lock Screen and Home Screen every few hours. No streaks, no lessons, nothing to remember to open.',
   },
   how: {
     eyebrow: 'How it works',
@@ -95,34 +95,42 @@ export const en = {
     lede: 'Everything below works without an account, without a connection, and without sending anything anywhere.',
     items: [
       {
-        title: 'Hear every word',
-        body: 'Native pronunciation through your device&apos;s Japanese voice. No downloads, no streaming.',
-      },
-      {
+        id: 'strokes',
         title: 'Trace the strokes',
         body: 'Practise writing kanji and kana with guided stroke order from KanjiVG.',
       },
       {
-        title: 'Four meaning languages',
-        body: 'English, French, German and Spanish, all bundled in the app.',
+        id: 'audio',
+        title: 'Hear every word',
+        body: 'Native pronunciation through your device&apos;s Japanese voice. No downloads, no streaming.',
       },
       {
+        id: 'favourites',
         title: 'Save what matters',
         body: 'Keep the words you want to revisit; they stay on your device.',
       },
       {
-        title: 'Notifications, same rhythm',
-        body: 'Optional word notifications on the widget schedule, scheduled locally.',
+        id: 'languages',
+        title: 'Four meaning languages',
+        body: 'English, French, German and Spanish, all bundled in the app.',
       },
       {
-        title: 'Themes',
-        body: 'Light, dark or system, plus widget colours, transparency and text colour with Pro.',
-      },
-      {
+        id: 'browse',
         title: 'Browse the dictionary',
         body: '7,972 words with readings and meanings. N5 on the free tier, every level with Pro.',
       },
       {
+        id: 'themes',
+        title: 'Themes',
+        body: 'Light, dark or system, plus widget colours, transparency and text colour with Pro.',
+      },
+      {
+        id: 'notifications',
+        title: 'Notifications, same rhythm',
+        body: 'Optional word notifications on the widget schedule, scheduled locally.',
+      },
+      {
+        id: 'offline',
         title: 'Completely offline',
         body: 'The whole dataset ships inside the app. Yumo makes no network requests of its own.',
       },
@@ -149,9 +157,20 @@ export const en = {
     tabTitle: 'Browse',
     searchPlaceholder: 'Search kanji, kana, romaji, meaning…',
     all: 'All',
-    p1: 'Search {total} words by kanji, kana, romaji or meaning. Every entry carries its reading, its romaji, its JLPT level and meanings in English, French, German and Spanish.',
-    p2: 'On the free tier Browse covers N5 — {n5} words. Yumo Pro opens every level above it.',
-    p3: 'It all ships inside the app, so search works with no connection at all.',
+    points: [
+      {
+        h: 'Search however you remember it',
+        p: 'Search {total} words by kanji, kana, romaji or meaning. Every entry carries its reading, its romaji, its JLPT level and meanings in English, French, German and Spanish.',
+      },
+      {
+        h: 'N5 free, every level with Pro',
+        p: 'On the free tier Browse covers N5 — {n5} words. Yumo Pro opens every level above it.',
+      },
+      {
+        h: 'Offline, like the rest of Yumo',
+        p: 'It all ships inside the app, so search works with no connection at all.',
+      },
+    ],
   },
   pricing: {
     eyebrow: 'Pricing',
@@ -244,9 +263,9 @@ export const en = {
   meta: {
     title: 'Yumo — Japanese on your Lock Screen',
     description:
-      'A new JLPT word on your Lock Screen and Home Screen every few hours. 7,972 words, fully offline, no accounts, no tracking.',
+      'A new Japanese word on your Lock Screen and Home Screen every few hours. 7,972 words, fully offline, no accounts, no tracking.',
     ogDescription:
-      'A new JLPT word every few hours. 7,972 words, fully offline, no accounts.',
+      'A new Japanese word every few hours. 7,972 words, fully offline, no accounts.',
   },
 };
 

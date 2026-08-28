@@ -22,3 +22,11 @@ export const WORD_COUNTS: Record<Level, number> = {
 };
 
 export const TOTAL_WORDS = 7972;
+
+// The dictionary assembling itself: the running total as each level unlocks,
+// N5 first. The last entry is TOTAL_WORDS by construction rather than by being
+// written down a second time and left to drift.
+export function cumulativeWords(): number[] {
+  let running = 0;
+  return LEVELS.map((level) => (running += WORD_COUNTS[level]));
+}

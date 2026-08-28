@@ -3,7 +3,7 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import type { Locale } from '@/lib/i18n';
-import { drift } from '@/lib/motion';
+import { cardEnter, CARD_ENTER, drift } from '@/lib/motion';
 import { LEVELS } from '@/lib/tokens';
 import { wordsByLevel } from '@/lib/words';
 import { WordCard } from './WordCard';
@@ -24,6 +24,14 @@ const SPOTS = [
   'left-[1%] top-[61%]',
 ];
 
+// The cards belong to the same arrival as the headline, not to a second wave
+// behind it. These interleave with the hero's own delays — 0.05 title, 0.15
+// lede, 0.25 card, 0.35 button — so the whole hero resolves as one gesture.
+// The previous 0.5 + i * 0.1 did not start the first card until the middle
+// column had almost finished, and then popped them in one at a time.
+const ENTER_FROM = 0.12;
+const ENTER_STEP = 0.09;
+
 export function FloatingCards({ locale }: { locale: Locale }) {
   const reduced = useReducedMotion();
   // Server and client must agree on first render, so index 0 is fixed and the
@@ -40,17 +48,19 @@ export function FloatingCards({ locale }: { locale: Locale }) {
         {LEVELS.map((level, i) => {
           const pool = wordsByLevel(level);
           const word = pool[(seed + i * 5) % pool.length];
-          const motionProps = reduced ? {} : drift(i);
+          const delay = ENTER_FROM + i * ENTER_STEP;
 
           return (
             <motion.div
               key={level}
               className={`absolute ${SPOTS[i]}`}
-              initial={{ opacity: 0, scale: 0.92 }}
-              animate={{ opacity: 1, scale: 1 }}
-              transition={{ delay: 0.5 + i * 0.1, duration: 0.6 }}
+              // Shared with the hero's middle card, so all six word cards
+              // arrive the same way. These used to scale up on framer's default
+              // easing over 0.6s, half a second after the middle column had
+              // finished — a separate animation that happened to be nearby.
+              {...(reduced ? {} : cardEnter(delay))}
             >
-              <motion.div {...motionProps}>
+              <motion.div {...(reduced ? {} : drift(i, delay + CARD_ENTER))}>
                 <WordCard word={word} locale={locale} size="sm" />
               </motion.div>
             </motion.div>

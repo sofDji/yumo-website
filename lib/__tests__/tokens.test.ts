@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { LEVELS, LEVEL_COLORS, TOTAL_WORDS, WORD_COUNTS } from '../tokens';
+import { cumulativeWords, LEVELS, LEVEL_COLORS, TOTAL_WORDS, WORD_COUNTS } from '../tokens';
 
 describe('tokens', () => {
   it('lists levels from easiest to hardest', () => {
@@ -26,5 +26,18 @@ describe('tokens', () => {
     const summed = LEVELS.reduce((n, l) => n + WORD_COUNTS[l], 0);
     expect(summed).toBe(TOTAL_WORDS);
     expect(TOTAL_WORDS).toBe(7972);
+  });
+
+  // The pricing strip counts up these steps as its level pills fill, so the
+  // last one has to be the whole dictionary or the animation stops short of
+  // the number the card claims.
+  it('accumulates level by level up to that total', () => {
+    const steps = cumulativeWords();
+    expect(steps).toHaveLength(LEVELS.length);
+    expect(steps[0]).toBe(WORD_COUNTS.n5);
+    expect(steps[steps.length - 1]).toBe(TOTAL_WORDS);
+    for (let i = 1; i < steps.length; i += 1) {
+      expect(steps[i]).toBeGreaterThan(steps[i - 1]);
+    }
   });
 });

@@ -23,13 +23,13 @@ export function Landing({ locale }: { locale: Locale }) {
       <NavBar locale={locale} t={t.nav} />
       <main>
         <Hero locale={locale} t={t.hero} cta={t.cta} />
-        <HowItWorks t={t.how} />
+        <HowItWorks locale={locale} t={t.how} />
         <LockScreenSection locale={locale} t={t.lockScreen} />
         <WidgetSection locale={locale} t={t.homeScreen} />
         <Features t={t.features} />
-        <JlptLadder t={t.levels} nf={nf} />
+        <JlptLadder locale={locale} t={t.levels} nf={nf} />
         <BrowseSection locale={locale} t={t.browse} nf={nf} />
-        <Pricing t={t.pricing} cta={t.cta} nf={nf} />
+        <Pricing t={t.pricing} cta={t.cta} nf={nf} words={t.levels.words} />
         <PrivacySection t={t.privacy} />
         <Faq t={t.faq} />
       </main>

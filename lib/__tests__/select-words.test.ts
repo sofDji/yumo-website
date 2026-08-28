@@ -1,5 +1,7 @@
 import { describe, expect, it } from 'vitest';
-import { selectWords, type RawWord } from '../select-words';
+import { sampleByLevel, selectWords, type RawWord } from '../select-words';
+import { LEVELS } from '../tokens';
+import { WORDS } from '../words';
 
 const raw = (over: Partial<RawWord> & { id: number }): RawWord => ({
   kanji: '水', kana: 'みず', romaji: 'mizu', level: 'n5',
@@ -75,5 +77,22 @@ describe('selectWords', () => {
     const out = selectWords(input, 24);
     expect(out.filter((w) => w.level === 'n5')).toHaveLength(24);
     expect(out.filter((w) => w.level === 'n1')).toHaveLength(1);
+  });
+});
+
+describe('sampleByLevel', () => {
+  const samples = sampleByLevel(WORDS, 22);
+
+  it('returns one word for every level', () => {
+    expect(Object.keys(samples).sort()).toEqual([...LEVELS].sort());
+    for (const level of LEVELS) expect(samples[level].level).toBe(level);
+  });
+
+  it('keeps meanings short enough for a row in both locales', () => {
+    for (const level of LEVELS) {
+      const { meaning } = samples[level];
+      expect(meaning.en.length, `en gloss for ${level}`).toBeLessThanOrEqual(22);
+      expect(meaning.fr.length, `fr gloss for ${level}`).toBeLessThanOrEqual(22);
+    }
   });
 });

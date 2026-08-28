@@ -19,9 +19,39 @@ export const riseBlur: Variants = {
   },
 };
 
+// How a word card arrives — the hero's middle card and the five that float
+// beside it, so those six always match each other.
+//
+// No blur here, and that is the whole point. The page's entrance clears an 8px
+// blur, which works on a 64px headline: the glyphs stay legible throughout, so
+// the eye follows the entire movement. On a 172px card with 26px type the same
+// blur is a smudge — the card is unreadable until the blur is nearly gone, and
+// then it resolves into legibility over the last fraction of the animation.
+// Measured on the painted frames, that late snap is what reads as popping, and
+// no amount of re-pacing the opacity fixes it, because the opacity was never
+// what was hiding the card.
+//
+// So these fade and rise, plainly, over a long window with nothing obscuring
+// them. Dropping the filter also lets the card's own backdrop-blur work: an
+// ancestor with any filter — blur(0px) included — makes its descendants stop
+// sampling the backdrop.
+export const CARD_ENTER = 0.9;
+
+export function cardEnter(delay: number) {
+  return {
+    initial: { opacity: 0, y: 24, scale: 0.97 },
+    animate: { opacity: 1, y: 0, scale: 1 },
+    transition: { duration: CARD_ENTER, ease: 'easeOut' as const, delay },
+  };
+}
+
 // Independent periods so the five floating cards never synchronise into a
 // visible pulse. Transform-only, so it stays on the compositor.
-export function drift(i: number) {
+//
+// `after` holds the drift until the card has finished arriving. Starting both
+// at mount had a card sliding sideways while it was still fading in, which is
+// what made the entrance read as unsettled.
+export function drift(i: number, after = 0) {
   const period = 7 + i * 1.7;
   return {
     animate: {
@@ -33,6 +63,7 @@ export function drift(i: number) {
       duration: period,
       repeat: Infinity,
       ease: 'easeInOut' as const,
+      delay: after,
     },
   };
 }

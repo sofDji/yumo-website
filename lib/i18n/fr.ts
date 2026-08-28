@@ -24,7 +24,7 @@ export const fr: Dictionary = {
   hero: {
     titleLead: 'Le japonais, appris',
     titleAccent: 'sans effort',
-    lede: "Un nouveau mot JLPT apparaît sur votre écran de verrouillage et votre écran d'accueil toutes les quelques heures. Pas de série à tenir, pas de leçon, rien à penser à ouvrir.",
+    lede: "Un nouveau mot japonais apparaît sur votre écran de verrouillage et votre écran d'accueil toutes les quelques heures. Pas de série à tenir, pas de leçon, rien à penser à ouvrir.",
   },
   how: {
     eyebrow: 'Comment ça marche',
@@ -96,34 +96,42 @@ export const fr: Dictionary = {
     lede: "Tout ce qui suit fonctionne sans compte, sans connexion, et sans rien envoyer nulle part.",
     items: [
       {
-        title: 'Écoutez chaque mot',
-        body: "Prononciation par la voix japonaise de votre appareil. Aucun téléchargement, aucun streaming.",
-      },
-      {
+        id: 'strokes',
         title: 'Tracez les traits',
         body: "Entraînez-vous à écrire les kanji et les kana, ordre des traits guidé par KanjiVG.",
       },
       {
-        title: 'Quatre langues de traduction',
-        body: "Anglais, français, allemand et espagnol, tous inclus dans l'application.",
+        id: 'audio',
+        title: 'Écoutez chaque mot',
+        body: "Prononciation par la voix japonaise de votre appareil. Aucun téléchargement, aucun streaming.",
       },
       {
+        id: 'favourites',
         title: 'Gardez ce qui compte',
         body: 'Conservez les mots à revoir ; ils restent sur votre appareil.',
       },
       {
-        title: 'Notifications, même rythme',
-        body: 'Notifications de mots optionnelles, au rythme du widget, programmées localement.',
+        id: 'languages',
+        title: 'Quatre langues de traduction',
+        body: "Anglais, français, allemand et espagnol, tous inclus dans l'application.",
       },
       {
-        title: 'Thèmes',
-        body: 'Clair, sombre ou système, plus les couleurs, la transparence et la couleur du texte du widget avec Pro.',
-      },
-      {
+        id: 'browse',
         title: 'Parcourez le dictionnaire',
         body: '7 972 mots avec lectures et traductions. N5 en version gratuite, tous les niveaux avec Pro.',
       },
       {
+        id: 'themes',
+        title: 'Thèmes',
+        body: 'Clair, sombre ou système, plus les couleurs, la transparence et la couleur du texte du widget avec Pro.',
+      },
+      {
+        id: 'notifications',
+        title: 'Notifications, même rythme',
+        body: 'Notifications de mots optionnelles, au rythme du widget, programmées localement.',
+      },
+      {
+        id: 'offline',
         title: 'Entièrement hors ligne',
         body: "Tout le jeu de données est embarqué dans l'application. Yumo n'effectue aucune requête réseau.",
       },
@@ -150,9 +158,20 @@ export const fr: Dictionary = {
     tabTitle: 'Dictionnaire',
     searchPlaceholder: 'Rechercher kanji, kana, romaji, sens…',
     all: 'Tous',
-    p1: 'Recherchez parmi {total} mots par kanji, kana, romaji ou sens. Chaque entrée porte sa lecture, son romaji, son niveau JLPT et ses traductions en anglais, français, allemand et espagnol.',
-    p2: 'En version gratuite, le dictionnaire couvre le N5 — {n5} mots. Yumo Pro ouvre tous les niveaux au-dessus.',
-    p3: "Tout est embarqué dans l'application : la recherche fonctionne sans aucune connexion.",
+    points: [
+      {
+        h: 'Cherchez comme le mot vous revient',
+        p: 'Recherchez parmi {total} mots par kanji, kana, romaji ou sens. Chaque entrée porte sa lecture, son romaji, son niveau JLPT et ses traductions en anglais, français, allemand et espagnol.',
+      },
+      {
+        h: 'N5 gratuit, tous les niveaux avec Pro',
+        p: 'En version gratuite, le dictionnaire couvre le N5 — {n5} mots. Yumo Pro ouvre tous les niveaux au-dessus.',
+      },
+      {
+        h: 'Hors ligne, comme le reste de Yumo',
+        p: "Tout est embarqué dans l'application : la recherche fonctionne sans aucune connexion.",
+      },
+    ],
   },
   pricing: {
     eyebrow: 'Tarif',
@@ -244,8 +263,8 @@ export const fr: Dictionary = {
   meta: {
     title: 'Yumo — Le japonais sur votre écran de verrouillage',
     description:
-      "Un nouveau mot JLPT sur votre écran de verrouillage et votre écran d'accueil toutes les quelques heures. 7 972 mots, entièrement hors ligne, sans compte ni suivi.",
+      "Un nouveau mot japonais sur votre écran de verrouillage et votre écran d'accueil toutes les quelques heures. 7 972 mots, entièrement hors ligne, sans compte ni suivi.",
     ogDescription:
-      'Un nouveau mot JLPT toutes les quelques heures. 7 972 mots, entièrement hors ligne, sans compte.',
+      'Un nouveau mot japonais toutes les quelques heures. 7 972 mots, entièrement hors ligne, sans compte.',
   },
 };

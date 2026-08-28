@@ -1,14 +1,32 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
-import { useEffect, useState } from 'react';
 import { StoreCta } from '@/components/ui/StoreCta';
 import type { Dictionary, Locale } from '@/lib/i18n';
-import { DURATION, EASE } from '@/lib/motion';
-import { WORDS } from '@/lib/words';
+import { cardEnter, DURATION, EASE } from '@/lib/motion';
+import type { SiteWord } from '@/lib/select-words';
 import { Blooms } from './Blooms';
 import { FloatingCards } from './FloatingCards';
 import { WordCard } from './WordCard';
+
+// The card the page opens on. Fixed rather than drawn at random from the
+// dataset: this one is addressed to whoever just arrived, and an N1 compound
+// pulled out of a hat is a worse greeting than the word that means greeting.
+// Fixing it also retires the hydration dance the random pick needed — server
+// and client now render the same card.
+//
+// Record 2055 of the app's word-data.json. The glosses are trimmed to the
+// clause that fits a card: "welcome, reception" and "accueil; bienvenue;
+// réception" are both right for 歓迎, and these are the halves a visitor is
+// actually being told. Same display trim lib/select-words.ts documents.
+const GREETING: SiteWord = {
+  id: 2055,
+  kanji: '歓迎',
+  kana: 'かんげい',
+  romaji: 'kangei',
+  meaning: { en: 'welcome', fr: 'bienvenue' },
+  level: 'n3',
+};
 
 export function Hero({
   locale,
@@ -20,13 +38,6 @@ export function Hero({
   cta: Dictionary['cta'];
 }) {
   const reduced = useReducedMotion();
-  // Index 0 on the server, a random word once mounted — anything else is a
-  // hydration mismatch.
-  const [index, setIndex] = useState(0);
-
-  useEffect(() => {
-    setIndex(Math.floor(Math.random() * WORDS.length));
-  }, []);
 
   const enter = (delay: number) =>
     reduced
@@ -58,8 +69,10 @@ export function Hero({
           {t.lede}
         </motion.p>
 
-        <motion.div {...enter(0.25)} className="mt-10">
-          <WordCard word={WORDS[index]} locale={locale} />
+        {/* The card arrives as a card, not as a paragraph — same entrance
+            as the five floating beside it. */}
+        <motion.div {...(reduced ? {} : cardEnter(0.25))} className="mt-10">
+          <WordCard word={GREETING} locale={locale} />
         </motion.div>
 
         <motion.div {...enter(0.35)} className="mt-10">
