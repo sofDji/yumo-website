@@ -258,7 +258,7 @@ export const fr: Dictionary = {
     contact: 'Contact',
     englishOnly: ' (EN)',
     attribution:
-      '© 2026 Yumo. Diagrammes d’ordre des traits © KanjiVG (Ulrich Apel), CC BY-SA 4.0. Les traductions française, allemande et espagnole intègrent des données de JMdict/EDICT (EDRDG), utilisées sous licence CC BY-SA 4.0.',
+      '© 2026 Yumo par SofDji. Diagrammes d’ordre des traits © KanjiVG (Ulrich Apel), CC BY-SA 4.0. Les traductions française, allemande et espagnole intègrent des données de JMdict/EDICT (EDRDG), utilisées sous licence CC BY-SA 4.0.',
   },
   meta: {
     title: 'Yumo — Le japonais sur votre écran de verrouillage',

@@ -258,7 +258,7 @@ export const en = {
     /** Marker appended to links that leave the reader's language. */
     englishOnly: '',
     attribution:
-      '© 2026 Yumo. Stroke order diagrams © KanjiVG (Ulrich Apel), CC BY-SA 4.0. French, German and Spanish translations include data from JMdict/EDICT (EDRDG), used under CC BY-SA 4.0.',
+      '© 2026 Yumo by SofDji. Stroke order diagrams © KanjiVG (Ulrich Apel), CC BY-SA 4.0. French, German and Spanish translations include data from JMdict/EDICT (EDRDG), used under CC BY-SA 4.0.',
   },
   meta: {
     title: 'Yumo — Japanese on your Lock Screen',
