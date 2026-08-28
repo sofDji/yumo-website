@@ -8,7 +8,7 @@ export function Footer({ locale, t }: { locale: Locale; t: Dictionary['footer'] 
     <footer className="border-t border-line">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 py-14 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-3">
-          <Logo className="h-6 w-auto text-ink" />
+          <Logo height={26} />
           <div>
             <p className="font-semibold">Yumo</p>
             <p className="text-sm text-muted">{t.tagline}</p>

@@ -25,10 +25,10 @@ export function NavBar({
       <nav className="flex w-full max-w-3xl items-center gap-2 rounded-full border border-line bg-[rgba(255,252,246,0.72)] p-2 shadow-soft backdrop-blur-xl">
         <Link
           href={localePath(locale)}
-          className="shrink-0 px-2.5 py-1 text-ink transition-colors duration-200 hover:text-accent"
+          className="shrink-0 px-2.5 py-1"
           aria-label={t.home}
         >
-          <Logo className="h-[22px] w-auto" />
+          <Logo height={22} priority />
         </Link>
 
         <ul className="ml-1 hidden items-center gap-1 md:flex">

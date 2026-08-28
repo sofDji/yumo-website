@@ -1,44 +1,37 @@
-// The Yumo mark, drawn rather than served as an image. It is a dozen strokes,
-// so as SVG it costs less than the PNG it replaces, stays crisp at any size,
-// and — the point of it — takes its colour from the text around it instead of
-// arriving welded to a plate.
-//
-// The paths are lifted verbatim from public/icon.svg, which is the same mark
-// on a terracotta plate for the app icon. Only two things differ here: the
-// plate is gone, and the strokes are currentColor.
-//
-// The viewBox is the mark's own bounding box, measured off a render rather
-// than guessed. icon.svg is a 1024 square laid out around the plate, and
-// reusing that box would surround the logo with all the padding the plate used
-// to fill.
-const STROKES = [
-  'M250,440 C256,512 276,562 306,598',
-  'M360,438 C352,522 332,624 306,694 C292,732 266,750 238,742',
-  'M378,442 C372,522 378,580 404,598 C432,616 462,592 472,554',
-  'M474,438 C468,502 466,558 472,600',
-  'M500,442 C498,500 500,550 502,598',
-  'M500,478 C510,452 532,438 552,454 C568,466 570,496 570,522 C571,556 570,578 572,598',
-  'M570,500 C578,470 598,444 620,454 C638,462 644,494 644,522 C645,556 644,578 646,598',
-  'M739,433 C690,426 663,482 664,531 C672,581 703,612 741,607 C779,603 799,556 795,509 C790,464 768,440 739,433',
-];
+import Image from 'next/image';
 
-export function Logo({ className = '' }: { className?: string }) {
+// The lettering as drawn, not as redrawn. An earlier version rebuilt the mark
+// from icon.svg's stroke paths; those are uniform 30px strokes and lose the
+// brush modulation — the thick downstrokes and hairline joins — that the real
+// artwork is made of.
+//
+// public/logo-mark.png is generated from the app's source art
+// (assets/source-art/1e8290f3-e116-4641-a394-50e3a792b961.png), which is white
+// lettering on a black plate. The plate is not keyed out after the fact: the
+// artwork's own luminance becomes the alpha channel, so every anti-aliased
+// edge survives intact, with a floor at 8 to discard the plate's noise (a third
+// of it sits at luminance 1, not 0) and a ceiling at 230 so the strokes are
+// fully opaque. The colour is the site's ink.
+const SRC_W = 720;
+const SRC_H = 458;
+
+export function Logo({
+  height = 24,
+  priority = false,
+  className = '',
+}: {
+  height?: number;
+  priority?: boolean;
+  className?: string;
+}) {
   return (
-    <svg viewBox="218 341 588 342" fill="none" aria-hidden className={className}>
-      <g
-        transform="translate(-5,-76)"
-        stroke="currentColor"
-        strokeLinecap="round"
-        strokeLinejoin="round"
-      >
-        <g strokeWidth={30}>
-          {STROKES.map((d) => (
-            <path key={d} d={d} />
-          ))}
-        </g>
-        {/* the smile inside the o */}
-        <path d="M700,532 C714,506 752,504 764,528" strokeWidth={17} />
-      </g>
-    </svg>
+    <Image
+      src="/logo-mark.png"
+      alt=""
+      width={Math.round((height * SRC_W) / SRC_H)}
+      height={height}
+      priority={priority}
+      className={className}
+    />
   );
 }
