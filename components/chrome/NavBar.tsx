@@ -1,7 +1,7 @@
 'use client';
 
-import Image from 'next/image';
 import Link from 'next/link';
+import { Logo } from '@/components/ui/Logo';
 import { Pill } from '@/components/ui/Pill';
 import { localePath, type Dictionary, type Locale } from '@/lib/i18n';
 import { LOCALE_LABEL, LOCALES } from '@/lib/i18n/locales';
@@ -23,8 +23,12 @@ export function NavBar({
   return (
     <div className="sticky top-4 z-50 flex justify-center px-4">
       <nav className="flex w-full max-w-3xl items-center gap-2 rounded-full border border-line bg-[rgba(255,252,246,0.72)] p-2 shadow-soft backdrop-blur-xl">
-        <Link href={localePath(locale)} className="shrink-0" aria-label={t.home}>
-          <Image src="/logo.png" alt="Yumo" width={36} height={36} className="rounded-xl" priority />
+        <Link
+          href={localePath(locale)}
+          className="shrink-0 px-2.5 py-1 text-ink transition-colors duration-200 hover:text-accent"
+          aria-label={t.home}
+        >
+          <Logo className="h-[22px] w-auto" />
         </Link>
 
         <ul className="ml-1 hidden items-center gap-1 md:flex">

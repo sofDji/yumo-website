@@ -1,5 +1,5 @@
-import Image from 'next/image';
 import Link from 'next/link';
+import { Logo } from '@/components/ui/Logo';
 import { localePath, type Dictionary, type Locale } from '@/lib/i18n';
 import { SUPPORT_EMAIL } from '@/lib/site';
 
@@ -8,7 +8,7 @@ export function Footer({ locale, t }: { locale: Locale; t: Dictionary['footer'] 
     <footer className="border-t border-line">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 py-14 md:flex-row md:items-center md:justify-between">
         <div className="flex items-center gap-3">
-          <Image src="/logo.png" alt="" width={40} height={40} className="rounded-xl" />
+          <Logo className="h-6 w-auto text-ink" />
           <div>
             <p className="font-semibold">Yumo</p>
             <p className="text-sm text-muted">{t.tagline}</p>
