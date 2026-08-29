@@ -1,6 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { en } from '../i18n/en';
 import { fr } from '../i18n/fr';
+import sitemap from '../../app/sitemap';
 import { ROUTES } from '../routes';
 import { homeGraph, pageGraph } from '../schema';
 import { PRICE_CURRENCY, PRO_PRICE, PRO_PRICE_LABEL, SITE_URL } from '../site';
@@ -61,6 +62,33 @@ describe('routes', () => {
       for (const path of Object.values(route.alternates)) {
         expect(known.has(path)).toBe(true);
       }
+    }
+  });
+});
+
+describe('sitemap', () => {
+  const entries = sitemap();
+
+  it('lists every route', () => {
+    expect(entries.map((e) => e.url).sort()).toEqual(
+      ROUTES.map((r) => `${SITE_URL}${r.path}`).sort(),
+    );
+  });
+
+  it('carries no alternates, which would break XSD element order', () => {
+    // Next emits hreflang as <xhtml:link> directly after <loc>, but the
+    // sitemap schema allows foreign-namespace elements only after <priority>.
+    // The resulting file fails validation on the <lastmod> that follows, and
+    // Search Console rejects it with "Sitemap could not be read". hreflang
+    // lives in each page's <head> instead, which Google treats as equivalent.
+    for (const entry of entries) {
+      expect(entry).not.toHaveProperty('alternates');
+    }
+  });
+
+  it('emits the fields the schema expects, in the order it expects them', () => {
+    for (const entry of entries) {
+      expect(Object.keys(entry)).toEqual(['url', 'lastModified', 'changeFrequency', 'priority']);
     }
   });
 });

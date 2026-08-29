@@ -8,6 +8,18 @@ import { SITE_URL } from '@/lib/site';
 // content only changes when it is rebuilt and redeployed.
 export const dynamic = 'force-static';
 
+// No `alternates` here, deliberately. Next emits hreflang as <xhtml:link>
+// immediately after <loc>, but the sitemap XSD declares <url> as the strict
+// sequence loc, lastmod, changefreq, priority — with the wildcard that admits
+// foreign-namespace elements only at the END. Injecting xhtml:link after loc
+// breaks that sequence, and a validator reports the following <lastmod> as
+// "not expected". Google Search Console read the file and answered "Sitemap
+// could not be read".
+//
+// Dropping it costs nothing: hreflang is already declared in every page's
+// <head> via alternates.languages in the route metadata, and Google treats the
+// HTML-tag and sitemap forms as equivalent — either alone is sufficient. The
+// pages are static HTML, so the tags are read without rendering.
 export default function sitemap(): MetadataRoute.Sitemap {
   const lastModified = new Date();
 
@@ -16,12 +28,5 @@ export default function sitemap(): MetadataRoute.Sitemap {
     lastModified,
     changeFrequency: 'monthly' as const,
     priority: route.priority,
-    ...(Object.keys(route.alternates).length > 0 && {
-      alternates: {
-        languages: Object.fromEntries(
-          Object.entries(route.alternates).map(([lang, path]) => [lang, `${SITE_URL}${path}`]),
-        ),
-      },
-    }),
   }));
 }
