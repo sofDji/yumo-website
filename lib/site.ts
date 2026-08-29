@@ -9,6 +9,13 @@ export const PLAY_STORE_URL = '';
 // deployments — 307s here, so naming one of those instead points crawlers at a
 // redirect and hands the ranking signal to a hostname we don't own long-term.
 // Must be the scheme + host with no trailing slash; metadataBase joins paths.
+//
+// www.yumo.lol resolves here too, via the wildcard DNS record, and is 308'd
+// back to the apex by the redirect in vercel.json. That redirect is not
+// optional decoration: without it the same document answers on two hostnames,
+// which is the duplicate-content split this constant exists to prevent. It
+// lives in vercel.json rather than next.config because `output: 'export'`
+// leaves no server to run a Next redirect.
 export const SITE_URL = 'https://yumo.lol';
 export const SUPPORT_EMAIL = 'sofianeenf85@gmail.com';
 
