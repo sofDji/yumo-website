@@ -57,6 +57,20 @@ export default function PrivacyPage() {
         its own — the entire word dataset ships inside the app and works offline.
       </p>
 
+      <h2>This website</h2>
+      <p>
+        Everything above describes the app. This website is a separate thing, and
+        it does measure traffic: we use{' '}
+        <a href="https://vercel.com/docs/analytics/privacy-policy">
+          Vercel Web Analytics
+        </a>
+        , which counts page views and referrers without cookies, without a device
+        or browser fingerprint, and without any identifier that could follow you
+        to another site. We can see that a page was visited. We cannot see who
+        visited it, and we cannot recognise you on a second visit. Installing the
+        app carries none of this with it.
+      </p>
+
       <h2>Children</h2>
       <p>Yumo collects no personal data from anyone, including children.</p>
 

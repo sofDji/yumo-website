@@ -22,7 +22,26 @@ const serif = Instrument_Serif({
 export function RootShell({ locale, children }: { locale: Locale; children: ReactNode }) {
   return (
     <html lang={locale} className={`${sans.variable} ${serif.variable}`}>
-      <body>{children}</body>
+      <body>
+        {children}
+
+        {/*
+          Vercel Web Analytics, as the script tag rather than @vercel/analytics.
+          The package will not install here: it declares an optional peer on
+          @sveltejs/kit, npm tries to satisfy it anyway, and SvelteKit's
+          toolchain wants vite@8 while vitest holds vite@5. Forcing past that
+          locally would leave Vercel's own `npm install` resolving the same
+          impossible tree at build time.
+
+          Nothing is lost. This is the file the package injects, and it is
+          already served from the project. The package's one real advantage is
+          reporting route patterns (/blog/[slug]) in place of raw paths, which
+          needs dynamic segments to mean anything — this site has six static
+          routes. The script patches the history API itself, so client-side
+          navigation between them is still counted.
+        */}
+        <script defer src="/_vercel/insights/script.js" />
+      </body>
     </html>
   );
 }
