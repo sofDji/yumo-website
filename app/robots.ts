@@ -18,6 +18,8 @@ export default function robots(): MetadataRoute.Robots {
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,
-    host: SITE_URL,
+    // No `host:` line. It is a Yandex extension that Google ignores, and an
+    // unrecognised directive in robots.txt is noise in a file whose whole job
+    // is being unambiguous to a parser.
   };
 }
