@@ -9,7 +9,11 @@ export function Pill({
 }) {
   const tones = {
     neutral: 'border-line bg-surface/70 text-muted',
-    accent: 'border-accent/25 bg-accent/10 text-accent',
+    // /5 rather than /10. Accent text on a 10% accent wash over the ground
+    // colour composites to 4.31:1, just under the 4.5 WCAG AA needs for text
+    // this size; halving the tint lifts it to 4.63 and leaves the brand colour
+    // itself untouched, which darkening the text would not.
+    accent: 'border-accent/25 bg-accent/5 text-accent',
   };
   return (
     <span
