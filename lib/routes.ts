@@ -28,6 +28,10 @@ export const ROUTES: Route[] = [
   { path: '/fr', alternates: BILINGUAL, priority: 1 },
   { path: '/support', alternates: BILINGUAL_SUPPORT, priority: 0.6 },
   { path: '/fr/support', alternates: BILINGUAL_SUPPORT, priority: 0.6 },
+  // Reference content. Ranked above the legal pages and below the home page:
+  // it is the only thing on the site someone might search for without already
+  // knowing the product exists.
+  { path: '/jlpt/n5', alternates: {}, priority: 0.8 },
   // Privacy and Terms are English-only for now: there is no /fr/privacy to
   // point at, and claiming one that 404s is worse than claiming none.
   { path: '/privacy', alternates: {}, priority: 0.3 },

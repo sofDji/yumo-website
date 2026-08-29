@@ -35,7 +35,7 @@ describe('site URL', () => {
 describe('routes', () => {
   it('covers every page the site builds', () => {
     expect(ROUTES.map((r) => r.path).sort()).toEqual(
-      ['', '/fr', '/fr/support', '/privacy', '/support', '/terms'].sort(),
+      ['', '/fr', '/fr/support', '/jlpt/n5', '/privacy', '/support', '/terms'].sort(),
     );
   });
 

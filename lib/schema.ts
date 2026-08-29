@@ -195,3 +195,63 @@ export function pageGraph({
     ],
   };
 }
+
+/**
+ * The JLPT reference pages. Same WebPage + BreadcrumbList spine as pageGraph,
+ * plus the page's own FAQ — these are reference pages people arrive at from a
+ * question ("how many words do you need for N5?"), so the answers are the part
+ * worth making machine-readable.
+ *
+ * Deliberately no ItemList of the vocabulary. Google produces no rich result
+ * from a 718-entry list, and serialising it would roughly double the page
+ * weight to say in JSON-LD exactly what the table already says in HTML.
+ */
+export function jlptGraph({
+  path,
+  name,
+  description,
+  faq,
+}: {
+  path: string;
+  name: string;
+  description: string;
+  faq: { q: string; a: string }[];
+}) {
+  const url = `${SITE_URL}${path}`;
+
+  return {
+    '@context': 'https://schema.org',
+    '@graph': [
+      organization(),
+      {
+        '@type': 'WebPage',
+        '@id': `${url}#page`,
+        url,
+        name,
+        description,
+        inLanguage: LOCALE_TAG.en,
+        isPartOf: { '@id': SITE_ID },
+        publisher: { '@id': ORG_ID },
+        license: 'https://creativecommons.org/licenses/by-sa/4.0/',
+      },
+      {
+        '@type': 'BreadcrumbList',
+        '@id': `${url}#breadcrumb`,
+        itemListElement: [
+          { '@type': 'ListItem', position: 1, name: 'Yumo', item: `${SITE_URL}/` },
+          { '@type': 'ListItem', position: 2, name },
+        ],
+      },
+      {
+        '@type': 'FAQPage',
+        '@id': `${url}#faq`,
+        inLanguage: LOCALE_TAG.en,
+        mainEntity: faq.map((item) => ({
+          '@type': 'Question',
+          name: toPlainText(item.q),
+          acceptedAnswer: { '@type': 'Answer', text: toPlainText(item.a) },
+        })),
+      },
+    ],
+  };
+}
