@@ -22,6 +22,10 @@ export function Footer({ locale, t }: { locale: Locale; t: Dictionary['footer'] 
           >
             {t.support}
           </Link>
+          <Link href="/jlpt/n5" className="text-muted transition-colors hover:text-ink">
+            {t.jlpt}
+            {t.englishOnly}
+          </Link>
           {/* Privacy and terms are English only and binding. On the French
               pages they are marked so the language change is not a surprise. */}
           <Link href="/privacy" className="text-muted transition-colors hover:text-ink">

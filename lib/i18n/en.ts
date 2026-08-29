@@ -142,6 +142,8 @@ export const en = {
     titleAccent: 'climb',
     lede: 'All {total} words, graded by JLPT level. Pick one and stay there, or turn on Auto and let Yumo move you up as you go, weaving earlier words back in for review.',
     words: '{n} words',
+    /** Link out to the N5 reference page. */
+    reference: 'Browse the full N5 vocabulary list',
     blurbs: {
       n5: 'The first 718 words. Everything on the free tier.',
       n4: 'Everyday verbs and adjectives you will actually hear.',
@@ -252,6 +254,7 @@ export const en = {
   footer: {
     tagline: 'Japanese, without opening an app.',
     support: 'Support',
+    jlpt: 'N5 word list',
     privacy: 'Privacy',
     terms: 'Terms',
     contact: 'Contact',

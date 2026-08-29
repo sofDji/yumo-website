@@ -143,6 +143,10 @@ export const fr: Dictionary = {
     titleAccent: 'progresser',
     lede: "Les {total} mots, classés par niveau JLPT. Choisissez-en un et restez-y, ou activez le mode Auto : Yumo vous fait monter au fil du temps, en réintroduisant les mots précédents pour les réviser.",
     words: '{n} mots',
+    // The reference page is English-only, so the marker is carried inline
+    // here rather than through footer.englishOnly — this string is the whole
+    // link label, and a reader deserves the warning before the click.
+    reference: 'Voir la liste complète du vocabulaire N5 (EN)',
     blurbs: {
       n5: 'Les 718 premiers mots. Tout est inclus dans la version gratuite.',
       n4: 'Les verbes et adjectifs du quotidien, ceux que vous entendrez vraiment.',
@@ -253,6 +257,7 @@ export const fr: Dictionary = {
   footer: {
     tagline: "Le japonais, sans ouvrir d'application.",
     support: 'Assistance',
+    jlpt: 'Liste de mots N5',
     privacy: 'Confidentialité',
     terms: 'Conditions',
     contact: 'Contact',
