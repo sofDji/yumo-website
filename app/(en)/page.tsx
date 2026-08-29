@@ -21,7 +21,14 @@ export const metadata: Metadata = {
     siteName: 'Yumo',
     locale: 'en_US',
     type: 'website',
-    images: ['/og.png'],
+    images: [
+      {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+        alt: 'Yumo showing a Japanese word on an iPhone Lock Screen',
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',

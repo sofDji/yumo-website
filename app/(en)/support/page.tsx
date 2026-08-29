@@ -9,7 +9,7 @@ const DESCRIPTION =
   'Help with the Yumo widget, pronunciation, notifications, restoring Yumo Pro and refunds.';
 
 export const metadata: Metadata = {
-  title: 'Support — Yumo',
+  title: 'Yumo Support — widget setup, audio and Pro',
   description: DESCRIPTION,
   alternates: {
     canonical: '/support',

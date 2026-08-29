@@ -5,10 +5,10 @@ import { pageGraph } from '@/lib/schema';
 import { SUPPORT_EMAIL } from '@/lib/site';
 
 const DESCRIPTION =
-  'The terms covering Yumo, Yumo Pro, acceptable use and attribution.';
+  'The terms covering Yumo and the one-time Yumo Pro purchase: acceptable use, refunds, and the open dictionary data Yumo credits.';
 
 export const metadata: Metadata = {
-  title: 'Terms of Use — Yumo',
+  title: 'Yumo Terms of Use — the app, Pro and attribution',
   description: DESCRIPTION,
   alternates: { canonical: '/terms' },
 };

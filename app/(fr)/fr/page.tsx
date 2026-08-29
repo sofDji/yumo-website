@@ -21,7 +21,14 @@ export const metadata: Metadata = {
     siteName: 'Yumo',
     locale: 'fr_FR',
     type: 'website',
-    images: ['/og.png'],
+    images: [
+      {
+        url: '/og.png',
+        width: 1200,
+        height: 630,
+        alt: "Yumo affichant un mot japonais sur l'écran de verrouillage d'un iPhone",
+      },
+    ],
   },
   twitter: {
     card: 'summary_large_image',

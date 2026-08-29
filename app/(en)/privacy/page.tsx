@@ -5,10 +5,10 @@ import { pageGraph } from '@/lib/schema';
 import { SUPPORT_EMAIL } from '@/lib/site';
 
 const DESCRIPTION =
-  'Yumo has no accounts, no analytics and no tracking. Here is exactly what that means.';
+  'Yumo has no accounts, no analytics and no tracking, because it has no server to send anything to. What that means, and what this website measures.';
 
 export const metadata: Metadata = {
-  title: 'Privacy Policy — Yumo',
+  title: 'Yumo Privacy Policy — no accounts, no tracking',
   description: DESCRIPTION,
   alternates: { canonical: '/privacy' },
 };

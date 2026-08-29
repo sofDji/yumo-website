@@ -263,7 +263,7 @@ export const fr: Dictionary = {
   meta: {
     title: 'Yumo — Le japonais sur votre écran de verrouillage',
     description:
-      "Un nouveau mot japonais sur votre écran de verrouillage et votre écran d'accueil toutes les quelques heures. 7 972 mots, entièrement hors ligne, sans compte ni suivi.",
+      "Un nouveau mot japonais sur votre écran de verrouillage toutes les quelques heures. 7 972 mots, entièrement hors ligne, sans compte ni suivi.",
     ogDescription:
       'Un nouveau mot japonais toutes les quelques heures. 7 972 mots, entièrement hors ligne, sans compte.',
   },
