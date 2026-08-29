@@ -23,7 +23,7 @@ export const metadata: Metadata = {
     type: 'website',
     images: [
       {
-        url: '/og.png',
+        url: '/og-fr.png',
         width: 1200,
         height: 630,
         alt: "Yumo affichant un mot japonais sur l'écran de verrouillage d'un iPhone",
@@ -34,7 +34,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: t.meta.title,
     description: t.meta.ogDescription,
-    images: ['/og.png'],
+    images: ['/og-fr.png'],
   },
 };
 
