@@ -1,16 +1,29 @@
 import type { Metadata } from 'next';
 import { LegalLayout } from '@/components/layout/LegalLayout';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { pageGraph } from '@/lib/schema';
 import { SUPPORT_EMAIL } from '@/lib/site';
+
+const DESCRIPTION =
+  'Yumo has no accounts, no analytics and no tracking. Here is exactly what that means.';
 
 export const metadata: Metadata = {
   title: 'Privacy Policy — Yumo',
-  description:
-    'Yumo has no accounts, no analytics and no tracking. Here is exactly what that means.',
+  description: DESCRIPTION,
+  alternates: { canonical: '/privacy' },
 };
 
 export default function PrivacyPage() {
   return (
     <LegalLayout locale="en" title="Yumo — Privacy Policy" updated="Effective August 17, 2026">
+      <JsonLd
+        data={pageGraph({
+          locale: 'en',
+          path: '/privacy',
+          name: 'Privacy Policy',
+          description: DESCRIPTION,
+        })}
+      />
       <p>
         Yumo is a Japanese vocabulary app. It is built to work entirely on your
         device: it has no accounts, no analytics, no advertising, and no tracking.

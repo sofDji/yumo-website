@@ -4,16 +4,13 @@ import { Section } from '@/components/layout/Section';
 import { LevelStrip } from '@/components/pricing/LevelStrip';
 import { StoreCta } from '@/components/ui/StoreCta';
 import { fill, type Dictionary } from '@/lib/i18n';
+import { PRO_PRICE_LABEL } from '@/lib/site';
 import { cumulativeWords, LEVEL_COLORS, TOTAL_WORDS, WORD_COUNTS } from '@/lib/tokens';
 
 // Every claim below is taken from resolveFrequency and resolveLevelForWindow
 // in the app's src/lib/scheduler.ts. Do not adjust without re-reading them —
 // an earlier design doc described Browse as fully free and the code does not.
-//
-// The price must match PRO_PRICE_LABEL in the app and the product tier set in
-// App Store Connect and Play Console. Those consoles are what customers are
-// actually charged; this is only what the site claims.
-const PRICE = '$8.99';
+
 
 function Tier({
   name,
@@ -133,7 +130,7 @@ export function Pricing({
             <div className="relative h-full">
               <Tier
                 name={t.proName}
-                price={PRICE}
+                price={PRO_PRICE_LABEL}
                 suffix={t.once}
                 strip={<LevelStrip counts={counts} pro />}
                 items={t.pro.map((s) => fill(s, { n5, total }))}

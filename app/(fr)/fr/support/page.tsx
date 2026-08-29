@@ -1,21 +1,33 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { LegalLayout } from '@/components/layout/LegalLayout';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { pageGraph } from '@/lib/schema';
 import { SUPPORT_EMAIL } from '@/lib/site';
+
+const DESCRIPTION =
+  'Aide pour le widget Yumo, la prononciation, les notifications, la restauration de Yumo Pro et les remboursements.';
 
 export const metadata: Metadata = {
   title: 'Assistance — Yumo',
-  description:
-    'Aide pour le widget Yumo, la prononciation, les notifications, la restauration de Yumo Pro et les remboursements.',
+  description: DESCRIPTION,
   alternates: {
     canonical: '/fr/support',
-    languages: { en: '/support', fr: '/fr/support' },
+    languages: { en: '/support', fr: '/fr/support', 'x-default': '/support' },
   },
 };
 
 export default function SupportFrPage() {
   return (
     <LegalLayout locale="fr" path="support" title="Yumo — Assistance">
+      <JsonLd
+        data={pageGraph({
+          locale: 'fr',
+          path: '/fr/support',
+          name: 'Assistance',
+          description: DESCRIPTION,
+        })}
+      />
       <p>
         Yumo vous montre un nouveau mot japonais toutes les quelques heures, sur
         votre écran de verrouillage et votre écran d&apos;accueil. Si quelque

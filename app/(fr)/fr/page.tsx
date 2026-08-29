@@ -1,6 +1,8 @@
 import type { Metadata } from 'next';
+import { JsonLd } from '@/components/seo/JsonLd';
 import { Landing } from '@/components/Landing';
 import { getDictionary } from '@/lib/i18n';
+import { homeGraph } from '@/lib/schema';
 import { SITE_URL } from '@/lib/site';
 
 const t = getDictionary('fr');
@@ -10,7 +12,7 @@ export const metadata: Metadata = {
   description: t.meta.description,
   alternates: {
     canonical: '/fr',
-    languages: { en: '/', fr: '/fr' },
+    languages: { en: '/', fr: '/fr', 'x-default': '/' },
   },
   openGraph: {
     title: t.meta.title,
@@ -30,5 +32,10 @@ export const metadata: Metadata = {
 };
 
 export default function AccueilFr() {
-  return <Landing locale="fr" />;
+  return (
+    <>
+      <JsonLd data={homeGraph('fr', t)} />
+      <Landing locale="fr" />
+    </>
+  );
 }

@@ -4,13 +4,24 @@ export const LAUNCHED = false;
 export const APP_STORE_URL = '';
 export const PLAY_STORE_URL = '';
 
-// The project's real production alias. NOT yumo-website.vercel.app — Vercel
-// subdomains are globally unique and that one belongs to someone else's
-// project, so pointing metadataBase and the canonical URL at it sent every
-// crawler to a stranger's site. Check `vercel inspect <deployment>` for the
-// alias list before changing this.
-export const SITE_URL = 'https://yumo-website-sable.vercel.app';
+// The apex domain, and the only URL that may appear in a canonical tag.
+// Everything else Vercel answers on — the *.vercel.app aliases, preview
+// deployments — 307s here, so naming one of those instead points crawlers at a
+// redirect and hands the ranking signal to a hostname we don't own long-term.
+// Must be the scheme + host with no trailing slash; metadataBase joins paths.
+export const SITE_URL = 'https://yumo.lol';
 export const SUPPORT_EMAIL = 'sofianeenf85@gmail.com';
+
+// Yumo Pro's one-time price. Shared by the pricing card and the JSON-LD offer
+// so structured data can never quote a number the page itself doesn't show —
+// a mismatch Google treats as misleading markup, not a typo.
+//
+// Must match PRO_PRICE_LABEL in the app and the product tier set in App Store
+// Connect and Play Console. Those consoles are what customers are actually
+// charged; this is only what the site claims.
+export const PRO_PRICE = '8.99';
+export const PRO_PRICE_LABEL = '$8.99';
+export const PRICE_CURRENCY = 'USD';
 
 // Fails safe: a half-configured launch renders "coming soon" rather than a
 // badge linking nowhere.

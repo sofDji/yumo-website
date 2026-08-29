@@ -1,15 +1,29 @@
 import type { Metadata } from 'next';
 import { LegalLayout } from '@/components/layout/LegalLayout';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { pageGraph } from '@/lib/schema';
 import { SUPPORT_EMAIL } from '@/lib/site';
+
+const DESCRIPTION =
+  'The terms covering Yumo, Yumo Pro, acceptable use and attribution.';
 
 export const metadata: Metadata = {
   title: 'Terms of Use — Yumo',
-  description: 'The terms covering Yumo, Yumo Pro, acceptable use and attribution.',
+  description: DESCRIPTION,
+  alternates: { canonical: '/terms' },
 };
 
 export default function TermsPage() {
   return (
     <LegalLayout locale="en" title="Yumo — Terms of Use" updated="Effective August 17, 2026">
+      <JsonLd
+        data={pageGraph({
+          locale: 'en',
+          path: '/terms',
+          name: 'Terms of Use',
+          description: DESCRIPTION,
+        })}
+      />
       <h2>The app</h2>
       <p>
         Yumo helps you learn Japanese vocabulary through widgets, notifications,

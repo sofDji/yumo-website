@@ -1,17 +1,33 @@
 import type { Metadata } from 'next';
 import Link from 'next/link';
 import { LegalLayout } from '@/components/layout/LegalLayout';
+import { JsonLd } from '@/components/seo/JsonLd';
+import { pageGraph } from '@/lib/schema';
 import { SUPPORT_EMAIL } from '@/lib/site';
+
+const DESCRIPTION =
+  'Help with the Yumo widget, pronunciation, notifications, restoring Yumo Pro and refunds.';
 
 export const metadata: Metadata = {
   title: 'Support — Yumo',
-  description:
-    'Help with the Yumo widget, pronunciation, notifications, restoring Yumo Pro and refunds.',
+  description: DESCRIPTION,
+  alternates: {
+    canonical: '/support',
+    languages: { en: '/support', fr: '/fr/support', 'x-default': '/support' },
+  },
 };
 
 export default function SupportPage() {
   return (
     <LegalLayout locale="en" path="support" title="Yumo — Support">
+      <JsonLd
+        data={pageGraph({
+          locale: 'en',
+          path: '/support',
+          name: 'Support',
+          description: DESCRIPTION,
+        })}
+      />
       <p>
         Yumo shows you a new Japanese word every few hours, on your Lock Screen and
         Home Screen. If something isn&apos;t working, this page covers the common
