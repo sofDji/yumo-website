@@ -142,8 +142,12 @@ export const en = {
     titleAccent: 'climb',
     lede: 'All {total} words, graded by JLPT level. Pick one and stay there, or turn on Auto and let Yumo move you up as you go, weaving earlier words back in for review.',
     words: '{n} words',
-    /** Link out to the N5 reference page. */
-    reference: 'Browse the full N5 vocabulary list',
+    /** The invitation out to the N5 reference page. */
+    reference: {
+      title: 'See the whole N5 list',
+      body: 'All {n} words at the level everyone starts at — free to read, no account, nothing to install.',
+      cta: 'Browse N5 vocabulary',
+    },
     blurbs: {
       n5: 'The first 718 words. Everything on the free tier.',
       n4: 'Everyday verbs and adjectives you will actually hear.',
