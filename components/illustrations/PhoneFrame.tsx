@@ -9,6 +9,32 @@ import type { ReactNode } from 'react';
 // the device look wrong — the fix is to fill the height with content.
 const DISSOLVE = 'linear-gradient(to bottom, #000 0%, #000 74%, rgba(0,0,0,0.55) 90%, transparent 100%)';
 
+// The blooms are painted as gradients rather than as blurred circles. Safari
+// draws a large `filter: blur()` into a finite rectangle around the element
+// and clips whatever falls outside it, so on macOS the glow ended in straight
+// edges — the "faint rounded rectangle" the bloom layer below is written to
+// avoid. Blink spills far enough that it never showed in Chrome.
+//
+// A gradient has no filter region to run out of, so there is nothing to clip,
+// and it costs a gradient fill instead of a large convolution on every paint.
+//
+// The stops are not hand-picked: they are the measured radial alpha of the
+// blur they replace, sampled off a Chromium render at 1/6 of the radius, so
+// browsers that were already correct see the same wash they saw before. That
+// is also why the peak is 0.167 rather than the old 0.20 — a 64px blur spreads
+// a 224px disc thin enough that its centre never reached full opacity.
+function bloomGradient(hex: string, stops: readonly number[]) {
+  const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
+  const ramp = stops
+    .map((a, i) => `rgba(${r},${g},${b},${a}) ${((i * 100) / (stops.length - 1)).toFixed(1)}%`)
+    .join(', ');
+  return `radial-gradient(circle closest-side, ${ramp})`;
+}
+
+// Measured off `224px @ blur(64px) @ .20` and `208px @ blur(66px) @ .13`.
+const GREEN_STOPS = [0.1674, 0.1548, 0.1192, 0.0753, 0.0377, 0.0126, 0] as const;
+const VIOLET_STOPS = [0.0982, 0.092, 0.0736, 0.0491, 0.0276, 0.0123, 0] as const;
+
 export function PhoneFrame({
   children,
   bloom = '#10B981',
@@ -46,15 +72,19 @@ export function PhoneFrame({
         {/* Ambient light, deliberately NOT clipped to the phone's bounds. A
             clipped glow draws a faint rounded rectangle — the ghost of the
             screen we just removed — which defeats the point. Spilling past
-            the edges reads as page light instead. */}
+            the edges reads as page light instead.
+
+            Each box is sized to the full extent of the wash it carries and
+            centred where the blurred circle it replaces used to sit, so the
+            light lands in the same place it always did. */}
         <div aria-hidden className="pointer-events-none absolute inset-0">
           <div
-            className="absolute -left-20 -top-16 h-56 w-56 rounded-full opacity-[0.20] blur-[64px]"
-            style={{ background: bloom }}
+            className="absolute -left-[194px] -top-[178px] h-[452px] w-[452px]"
+            style={{ background: bloomGradient(bloom, GREEN_STOPS) }}
           />
           <div
-            className="absolute -right-20 top-[45%] h-52 w-52 rounded-full opacity-[0.13] blur-[66px]"
-            style={{ background: '#8B5CF6' }}
+            className="absolute -right-[184px] top-[calc(45%-104px)] h-[416px] w-[416px]"
+            style={{ background: bloomGradient('#8B5CF6', VIOLET_STOPS) }}
           />
         </div>
 
