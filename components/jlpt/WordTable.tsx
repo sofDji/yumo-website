@@ -63,11 +63,14 @@ export function WordTable({ words }: { words: JlptWord[] }) {
                it, or a jumped-to heading lands hidden behind them. */
             className="scroll-mt-[150px]"
           >
+            {/* The spaces are for the text, not the layout: a flex container
+                drops whitespace-only runs when painting, but without them the
+                heading's text is "あa141 words" to a crawler or screen reader. */}
             <h2 className="mb-5 flex items-baseline gap-3 border-b border-line pb-3">
               <span lang="ja" className="text-2xl font-semibold">
                 {row}
-              </span>
-              <span className="text-sm uppercase tracking-wider text-muted">{ROW_ROMAJI[row]}</span>
+              </span>{' '}
+              <span className="text-sm uppercase tracking-wider text-muted">{ROW_ROMAJI[row]}</span>{' '}
               <span className="ml-auto text-sm text-muted">{rowWords.length} words</span>
             </h2>
 

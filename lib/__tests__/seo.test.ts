@@ -1,18 +1,26 @@
 import { describe, expect, it } from 'vitest';
+import { existsSync, readFileSync } from 'node:fs';
 import { en } from '../i18n/en';
 import { fr } from '../i18n/fr';
+import robots from '../../app/robots';
 import sitemap from '../../app/sitemap';
+import { N5_WORDS } from '../jlpt/n5';
+import { SHARE_IMAGES, shareMetadata } from '../metadata';
 import { ROUTES } from '../routes';
 import { homeGraph, pageGraph } from '../schema';
-import { PRICE_CURRENCY, PRO_PRICE, PRO_PRICE_LABEL, SITE_URL, SOCIAL } from '../site';
+import { PRICE_CURRENCY, PRO_PRICE, PRO_PRICE_LABEL, SITE_URL, SOCIAL, SUPPORT_EMAIL } from '../site';
 
 type Node = Record<string, unknown>;
 
-function nodes(graph: ReturnType<typeof homeGraph>): Node[] {
+// Any of the graph builders — home, inner page, JLPT — each of which returns
+// its own literal node union, so the helpers accept the shape they share.
+type Graph = { '@graph': readonly unknown[] };
+
+function nodes(graph: Graph): Node[] {
   return graph['@graph'] as Node[];
 }
 
-function ofType(graph: ReturnType<typeof homeGraph>, type: string): Node {
+function ofType(graph: Graph, type: string): Node {
   const found = nodes(graph).find((n) => n['@type'] === type);
   if (!found) throw new Error(`no ${type} node in graph`);
   return found;
@@ -155,6 +163,16 @@ describe('home JSON-LD', () => {
     }
   });
 
+  it('names the support address as the contact point', () => {
+    const org = ofType(graphs.en, 'Organization');
+    expect((org.contactPoint as Node).email).toBe(SUPPORT_EMAIL);
+  });
+
+  it('uses no property schema.org does not define on an application', () => {
+    // numberOfItems belongs to ItemList; on MobileApplication validators flag it.
+    expect(ofType(graphs.en, 'MobileApplication')).not.toHaveProperty('numberOfItems');
+  });
+
   it('anchors every node under the real domain', () => {
     for (const graph of Object.values(graphs)) {
       for (const node of nodes(graph)) {
@@ -190,5 +208,52 @@ describe('inner page JSON-LD', () => {
     });
     const items = ofType(fr, 'BreadcrumbList').itemListElement as Node[];
     expect(items[0].item).toBe(`${SITE_URL}/fr`);
+  });
+});
+
+describe('robots.txt', () => {
+  it('never blocks the CSS, JS and fonts Google renders pages with', () => {
+    // Googlebot renders before indexing. Disallowing /_next/ hid every
+    // stylesheet and font from it, so the site was judged unstyled.
+    const rules = [robots().rules].flat();
+    for (const rule of rules) {
+      const disallowed = [rule.disallow ?? []].flat();
+      expect(disallowed.some((p) => '/_next/static/css/x.css'.startsWith(p))).toBe(false);
+    }
+  });
+});
+
+describe('share cards', () => {
+  it('ship every image they point at', () => {
+    for (const image of Object.values(SHARE_IMAGES)) {
+      expect(existsSync(`public${image.url}`), image.url).toBe(true);
+    }
+  });
+
+  it('carry an image, the site name and the X account on every page', () => {
+    const tags = shareMetadata({ locale: 'fr', path: '/fr/support', title: 'T', description: 'D' });
+    const og = tags.openGraph as Record<string, unknown>;
+    expect(og.siteName).toBe('Yumo');
+    expect(og.images).toEqual([expect.objectContaining({ url: SHARE_IMAGES.fr.url, width: 1200 })]);
+    expect(tags.twitter).toMatchObject({
+      card: 'summary_large_image',
+      site: `@${SOCIAL.x.handle}`,
+    });
+  });
+
+  it('quote the N5 word count the page itself quotes', () => {
+    // scripts/build-og.mjs is plain JS and cannot import the word list, so
+    // the number on the card is typed out; this is what catches it drifting.
+    const script = readFileSync('scripts/build-og.mjs', 'utf8');
+    expect(script).toContain(`All ${N5_WORDS.length} words`);
+  });
+});
+
+describe('home page titles', () => {
+  it('fit a search result without truncating', () => {
+    // Google cuts titles at roughly 600px, which is about 60 characters.
+    for (const dict of [en, fr]) {
+      expect([...dict.meta.title].length, dict.meta.title).toBeLessThanOrEqual(60);
+    }
   });
 });

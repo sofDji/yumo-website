@@ -1,16 +1,20 @@
 import type { Metadata } from 'next';
 import { LegalLayout } from '@/components/layout/LegalLayout';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { shareMetadata } from '@/lib/metadata';
 import { pageGraph } from '@/lib/schema';
 import { SUPPORT_EMAIL } from '@/lib/site';
 
 const DESCRIPTION =
   'The terms covering Yumo and the one-time Yumo Pro purchase: acceptable use, refunds, and the open dictionary data Yumo credits.';
 
+const TITLE = 'Yumo Terms of Use — the app, Pro and attribution';
+
 export const metadata: Metadata = {
-  title: 'Yumo Terms of Use — the app, Pro and attribution',
+  title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: '/terms' },
+  ...shareMetadata({ locale: 'en', path: '/terms', title: TITLE, description: DESCRIPTION }),
 };
 
 export default function TermsPage() {

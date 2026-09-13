@@ -12,9 +12,12 @@ export default function robots(): MetadataRoute.Robots {
       {
         userAgent: '*',
         allow: '/',
-        // Next's build output. Nothing under it is a document, and letting
-        // crawlers spend budget on hashed JS chunks helps no one.
-        disallow: '/_next/',
+        // Deliberately no `disallow: '/_next/'`. That directory holds the CSS,
+        // the fonts and the JS every page loads, and Googlebot renders pages
+        // before indexing them: block it and Google sees an unstyled document,
+        // which it can judge not mobile-friendly. Google's own guidance is to
+        // never block rendering resources. Crawl budget is not a concern at
+        // seven pages; nothing under /_next/ is linked, so nothing is indexed.
       },
     ],
     sitemap: `${SITE_URL}/sitemap.xml`,

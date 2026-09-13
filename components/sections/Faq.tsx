@@ -33,14 +33,20 @@ export function Faq({ t }: { t: Dictionary['faq'] }) {
                   className="flex w-full items-center justify-between gap-4 px-7 py-5 text-left text-[15px] font-medium transition-colors duration-200 hover:text-accent"
                 >
                   {item.q}
-                  <motion.span
+                  {/* Drawn, not typed. A literal "+" is text inside the <h3>,
+                      and aria-hidden does not hide it from crawlers — every
+                      question was being indexed as "…refund?+". */}
+                  <motion.svg
                     aria-hidden
-                    className="shrink-0 text-xl leading-none text-muted"
+                    viewBox="0 0 16 16"
+                    width="16"
+                    height="16"
+                    className="shrink-0 text-muted"
                     animate={{ rotate: isOpen ? 45 : 0 }}
                     transition={reduced ? { duration: 0 } : { duration: 0.3, ease: EASE }}
                   >
-                    +
-                  </motion.span>
+                    <path d="M8 2v12M2 8h12" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" />
+                  </motion.svg>
                 </button>
               </h3>
 

@@ -42,6 +42,14 @@ const CARDS = [
     headline: 'Le japonais sur<br>votre &eacute;cran',
     sub: 'Un nouveau mot toutes les heures<br>7 972 mots &middot; hors ligne',
   },
+  {
+    // For /jlpt/n5. The count must match N5_WORDS.length in lib/jlpt/n5.ts —
+    // the page title quotes the same number.
+    out: 'public/og-n5.png',
+    lang: 'en',
+    headline: 'JLPT N5<br>vocabulary list',
+    sub: 'All 718 words<br>kanji &middot; kana &middot; meanings',
+  },
 ];
 
 const html = (card) => `<!doctype html>

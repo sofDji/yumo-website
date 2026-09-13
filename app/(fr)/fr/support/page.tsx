@@ -2,19 +2,23 @@ import type { Metadata } from 'next';
 import Link from 'next/link';
 import { LegalLayout } from '@/components/layout/LegalLayout';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { shareMetadata } from '@/lib/metadata';
 import { pageGraph } from '@/lib/schema';
 import { SUPPORT_EMAIL } from '@/lib/site';
 
 const DESCRIPTION =
   'Aide pour le widget Yumo, la prononciation, les notifications, la restauration de Yumo Pro et les remboursements.';
 
+const TITLE = 'Assistance Yumo — widget, audio et achat Pro';
+
 export const metadata: Metadata = {
-  title: 'Assistance Yumo — widget, audio et achat Pro',
+  title: TITLE,
   description: DESCRIPTION,
   alternates: {
     canonical: '/fr/support',
     languages: { en: '/support', fr: '/fr/support', 'x-default': '/support' },
   },
+  ...shareMetadata({ locale: 'fr', path: '/fr/support', title: TITLE, description: DESCRIPTION }),
 };
 
 export default function SupportFrPage() {

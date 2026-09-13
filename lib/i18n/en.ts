@@ -270,9 +270,9 @@ export const en = {
       '© 2026 Yumo by SofDji. Stroke order diagrams © KanjiVG (Ulrich Apel), CC BY-SA 4.0. French, German and Spanish translations include data from JMdict/EDICT (EDRDG), used under CC BY-SA 4.0.',
   },
   meta: {
-    title: 'Yumo — Japanese on your Lock Screen',
+    title: 'Yumo — Japanese vocabulary widget for your Lock Screen',
     description:
-      'A new Japanese word on your Lock Screen and Home Screen every few hours. 7,972 words, fully offline, no accounts, no tracking.',
+      'A new Japanese word on your iPhone Lock Screen or Android home screen every few hours. 7,972 words from JLPT N5 to N1, fully offline, no account, no tracking.',
     ogDescription:
       'A new Japanese word every few hours. 7,972 words, fully offline, no accounts.',
   },

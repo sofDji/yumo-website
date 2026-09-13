@@ -3,8 +3,7 @@
 // answers.
 //
 // Every value here is derived from something the page already renders — the
-// price from lib/site, the word count from lib/tokens, the questions from the
-// dictionaries. Nothing is written twice, because structured data that
+// price from lib/site, the word count and the questions from the dictionaries. Nothing is written twice, because structured data that
 // disagrees with the visible page is worse than none: Google treats it as
 // misleading markup and can demote the whole domain for it.
 //
@@ -18,11 +17,11 @@ import {
   PRO_PRICE,
   SITE_URL,
   SOCIAL,
+  SUPPORT_EMAIL,
   storeState,
   APP_STORE_URL,
   PLAY_STORE_URL,
 } from './site';
-import { TOTAL_WORDS } from './tokens';
 
 /** Stable @id anchors, so the nodes below can reference each other by URI. */
 const ORG_ID = `${SITE_URL}/#organization`;
@@ -63,6 +62,14 @@ function organization() {
     // The same profiles the footer links, so the markup never claims an
     // account the page doesn't show.
     sameAs: Object.values(SOCIAL).map((profile) => profile.url),
+    // The address the support page and footer already publish, and the only
+    // channel there is — so it is stated as the one contact point.
+    contactPoint: {
+      '@type': 'ContactPoint',
+      contactType: 'customer support',
+      email: SUPPORT_EMAIL,
+      availableLanguage: ['English', 'French'],
+    },
   };
 }
 
@@ -118,8 +125,9 @@ function application(locale: Locale, t: Dictionary) {
       },
     ],
     featureList: t.features.items.map((item) => item.title),
-    // A number worth exposing: it is the site's most citable hard fact.
-    numberOfItems: TOTAL_WORDS,
+    // The word count is the site's most citable hard fact, and it reaches the
+    // markup through `description`. Not as numberOfItems: schema.org defines
+    // that on ItemList, not on applications, so validators flag it.
     ...(live && {
       downloadUrl: [APP_STORE_URL, PLAY_STORE_URL].filter(Boolean),
     }),

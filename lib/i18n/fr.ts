@@ -270,9 +270,9 @@ export const fr: Dictionary = {
       '© 2026 Yumo par SofDji. Diagrammes d’ordre des traits © KanjiVG (Ulrich Apel), CC BY-SA 4.0. Les traductions française, allemande et espagnole intègrent des données de JMdict/EDICT (EDRDG), utilisées sous licence CC BY-SA 4.0.',
   },
   meta: {
-    title: 'Yumo — Le japonais sur votre écran de verrouillage',
+    title: 'Yumo — Vocabulaire japonais sur votre écran de verrouillage',
     description:
-      "Un nouveau mot japonais sur votre écran de verrouillage toutes les quelques heures. 7 972 mots, entièrement hors ligne, sans compte ni suivi.",
+      "Un nouveau mot japonais toutes les quelques heures, sur l'écran verrouillé de l'iPhone ou l'écran d'accueil Android. 7 972 mots du N5 au N1, hors ligne, sans compte.",
     ogDescription:
       'Un nouveau mot japonais toutes les quelques heures. 7 972 mots, entièrement hors ligne, sans compte.',
   },

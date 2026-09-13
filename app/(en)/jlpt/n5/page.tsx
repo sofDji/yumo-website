@@ -6,6 +6,7 @@ import { WordTable } from '@/components/jlpt/WordTable';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { getDictionary } from '@/lib/i18n';
 import { N5_WORDS } from '@/lib/jlpt/n5';
+import { SHARE_IMAGES, shareMetadata } from '@/lib/metadata';
 import { jlptGraph } from '@/lib/schema';
 
 const COUNT = N5_WORDS.length;
@@ -42,12 +43,14 @@ export const metadata: Metadata = {
   title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: '/jlpt/n5' },
-  openGraph: {
+  ...shareMetadata({
+    locale: 'en',
+    path: '/jlpt/n5',
     title: TITLE,
     description: DESCRIPTION,
-    url: '/jlpt/n5',
+    image: SHARE_IMAGES.n5,
     type: 'article',
-  },
+  }),
 };
 
 export default function JlptN5Page() {

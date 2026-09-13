@@ -1,16 +1,20 @@
 import type { Metadata } from 'next';
 import { LegalLayout } from '@/components/layout/LegalLayout';
 import { JsonLd } from '@/components/seo/JsonLd';
+import { shareMetadata } from '@/lib/metadata';
 import { pageGraph } from '@/lib/schema';
 import { SUPPORT_EMAIL } from '@/lib/site';
 
 const DESCRIPTION =
   'Yumo has no accounts, no analytics and no tracking, because it has no server to send anything to. What that means, and what this website measures.';
 
+const TITLE = 'Yumo Privacy Policy — no accounts, no tracking';
+
 export const metadata: Metadata = {
-  title: 'Yumo Privacy Policy — no accounts, no tracking',
+  title: TITLE,
   description: DESCRIPTION,
   alternates: { canonical: '/privacy' },
+  ...shareMetadata({ locale: 'en', path: '/privacy', title: TITLE, description: DESCRIPTION }),
 };
 
 export default function PrivacyPage() {
