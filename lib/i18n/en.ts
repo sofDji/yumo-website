@@ -262,6 +262,8 @@ export const en = {
     privacy: 'Privacy',
     terms: 'Terms',
     contact: 'Contact',
+    /** Accessible name for each icon-only social link. */
+    social: 'Yumo on {network}',
     /** Marker appended to links that leave the reader's language. */
     englishOnly: '',
     attribution:

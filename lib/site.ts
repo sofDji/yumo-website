@@ -19,6 +19,30 @@ export const PLAY_STORE_URL = '';
 export const SITE_URL = 'https://yumo.lol';
 export const SUPPORT_EMAIL = 'sofianeenf85@gmail.com';
 
+// Yumo's public profiles. The footer links them, and the Organization node in
+// lib/schema lists them as sameAs — which is how search engines tie these
+// accounts to this site instead of treating them as unrelated namesakes.
+// Handles carry no leading @; each URL is the profile's canonical form.
+export const SOCIAL = {
+  instagram: {
+    name: 'Instagram',
+    handle: 'japaneseyumo',
+    url: 'https://www.instagram.com/japaneseyumo/',
+  },
+  tiktok: {
+    name: 'TikTok',
+    handle: 'japaneseyumo',
+    url: 'https://www.tiktok.com/@japaneseyumo',
+  },
+  x: {
+    name: 'X',
+    handle: 'dji1380910',
+    url: 'https://x.com/dji1380910',
+  },
+} as const;
+
+export type SocialNetwork = keyof typeof SOCIAL;
+
 // Yumo Pro's one-time price. Shared by the pricing card and the JSON-LD offer
 // so structured data can never quote a number the page itself doesn't show —
 // a mismatch Google treats as misleading markup, not a typo.

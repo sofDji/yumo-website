@@ -4,7 +4,7 @@ import { fr } from '../i18n/fr';
 import sitemap from '../../app/sitemap';
 import { ROUTES } from '../routes';
 import { homeGraph, pageGraph } from '../schema';
-import { PRICE_CURRENCY, PRO_PRICE, PRO_PRICE_LABEL, SITE_URL } from '../site';
+import { PRICE_CURRENCY, PRO_PRICE, PRO_PRICE_LABEL, SITE_URL, SOCIAL } from '../site';
 
 type Node = Record<string, unknown>;
 
@@ -144,6 +144,14 @@ describe('home JSON-LD', () => {
         expect(text).not.toMatch(/&[a-z]+;/);
         expect(text).not.toMatch(/<[^>]+>/);
       }
+    }
+  });
+
+  it('ties the organization to exactly the profiles the footer links', () => {
+    const org = ofType(graphs.en, 'Organization');
+    expect(org.sameAs).toEqual(Object.values(SOCIAL).map((p) => p.url));
+    for (const url of org.sameAs as string[]) {
+      expect(url).toMatch(/^https:\/\//);
     }
   });
 

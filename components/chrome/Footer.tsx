@@ -2,17 +2,21 @@ import Link from 'next/link';
 import { Logo } from '@/components/ui/Logo';
 import { localePath, type Dictionary, type Locale } from '@/lib/i18n';
 import { SUPPORT_EMAIL } from '@/lib/site';
+import { SocialLinks } from './SocialLinks';
 
 export function Footer({ locale, t }: { locale: Locale; t: Dictionary['footer'] }) {
   return (
     <footer className="border-t border-line">
       <div className="mx-auto flex w-full max-w-6xl flex-col gap-8 px-6 py-14 md:flex-row md:items-center md:justify-between">
-        <div className="flex items-center gap-3">
-          <Logo height={26} />
-          <div>
-            <p className="font-semibold">Yumo</p>
-            <p className="text-sm text-muted">{t.tagline}</p>
+        <div className="flex flex-col gap-5">
+          <div className="flex items-center gap-3">
+            <Logo height={26} />
+            <div>
+              <p className="font-semibold">Yumo</p>
+              <p className="text-sm text-muted">{t.tagline}</p>
+            </div>
           </div>
+          <SocialLinks label={t.social} />
         </div>
 
         <nav className="flex flex-wrap items-center gap-x-6 gap-y-2 text-sm">

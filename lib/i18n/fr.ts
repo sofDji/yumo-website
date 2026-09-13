@@ -264,6 +264,7 @@ export const fr: Dictionary = {
     privacy: 'Confidentialité',
     terms: 'Conditions',
     contact: 'Contact',
+    social: 'Yumo sur {network}',
     englishOnly: ' (EN)',
     attribution:
       '© 2026 Yumo par SofDji. Diagrammes d’ordre des traits © KanjiVG (Ulrich Apel), CC BY-SA 4.0. Les traductions française, allemande et espagnole intègrent des données de JMdict/EDICT (EDRDG), utilisées sous licence CC BY-SA 4.0.',

@@ -13,7 +13,15 @@
 // that reliably earns a manual action.
 
 import type { Dictionary, Locale } from './i18n';
-import { PRICE_CURRENCY, PRO_PRICE, SITE_URL, storeState, APP_STORE_URL, PLAY_STORE_URL } from './site';
+import {
+  PRICE_CURRENCY,
+  PRO_PRICE,
+  SITE_URL,
+  SOCIAL,
+  storeState,
+  APP_STORE_URL,
+  PLAY_STORE_URL,
+} from './site';
 import { TOTAL_WORDS } from './tokens';
 
 /** Stable @id anchors, so the nodes below can reference each other by URI. */
@@ -52,6 +60,9 @@ function organization() {
     // The person behind the app, named because E-E-A-T rewards a site that
     // says who is accountable for it rather than hiding behind a brand.
     founder: { '@type': 'Person', name: 'SofDji' },
+    // The same profiles the footer links, so the markup never claims an
+    // account the page doesn't show.
+    sameAs: Object.values(SOCIAL).map((profile) => profile.url),
   };
 }
 

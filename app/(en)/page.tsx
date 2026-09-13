@@ -3,7 +3,7 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { Landing } from '@/components/Landing';
 import { getDictionary } from '@/lib/i18n';
 import { homeGraph } from '@/lib/schema';
-import { SITE_URL } from '@/lib/site';
+import { SITE_URL, SOCIAL } from '@/lib/site';
 
 const t = getDictionary('en');
 
@@ -32,6 +32,7 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: 'summary_large_image',
+    site: `@${SOCIAL.x.handle}`,
     title: t.meta.title,
     description: t.meta.ogDescription,
     images: ['/og.png'],
