@@ -10,6 +10,7 @@ import { LockScreenSection } from '@/components/sections/LockScreenSection';
 import { Pricing } from '@/components/sections/Pricing';
 import { PrivacySection } from '@/components/sections/PrivacySection';
 import { WidgetSection } from '@/components/sections/WidgetSection';
+import { faqItems } from '@/lib/faq';
 import { getDictionary, type Locale } from '@/lib/i18n';
 
 // Both locale routes render this; the only difference is the dictionary and
@@ -31,7 +32,7 @@ export function Landing({ locale }: { locale: Locale }) {
         <BrowseSection locale={locale} t={t.browse} nf={nf} />
         <Pricing t={t.pricing} cta={t.cta} nf={nf} words={t.levels.words} />
         <PrivacySection t={t.privacy} />
-        <Faq t={t.faq} />
+        <Faq t={{ ...t.faq, items: faqItems(locale, t.faq) }} />
       </main>
       <Footer locale={locale} t={t.footer} />
     </>

@@ -7,6 +7,7 @@ import sitemap from '../../app/sitemap';
 import { N5_WORDS } from '../jlpt/n5';
 import { SHARE_IMAGES, shareMetadata } from '../metadata';
 import { ROUTES } from '../routes';
+import { TOTAL_WORDS } from '../tokens';
 import { homeGraph, pageGraph } from '../schema';
 import { PRICE_CURRENCY, PRO_PRICE, PRO_PRICE_LABEL, SITE_URL, SOCIAL, SUPPORT_EMAIL } from '../site';
 
@@ -151,7 +152,22 @@ describe('home JSON-LD', () => {
         // dangerouslySetInnerHTML; inside a script block nothing decodes them.
         expect(text).not.toMatch(/&[a-z]+;/);
         expect(text).not.toMatch(/<[^>]+>/);
+        // Answers carry {total} and {price}; one left raw is a claim with a hole in it.
+        expect(text).not.toMatch(/\{\w+\}/);
       }
+    }
+  });
+
+  it('opens the FAQ by saying what Yumo is, with the real figures', () => {
+    // The definition answer engines lift. Its numbers come from the same
+    // constants the pricing card renders, so the two cannot disagree.
+    const formats = { en: 'en-US', fr: 'fr-FR' } as const;
+    for (const [locale, graph] of Object.entries(graphs) as [keyof typeof formats, Graph][]) {
+      const first = (ofType(graph, 'FAQPage').mainEntity as Node[])[0];
+      const text = (first.acceptedAnswer as Node).text as string;
+      expect(text.startsWith('Yumo ')).toBe(true);
+      expect(text).toContain(PRO_PRICE_LABEL);
+      expect(text).toContain(new Intl.NumberFormat(formats[locale]).format(TOTAL_WORDS));
     }
   });
 

@@ -24,7 +24,7 @@ export const fr: Dictionary = {
   hero: {
     titleLead: 'Le japonais, appris',
     titleAccent: 'sans effort',
-    lede: "Un nouveau mot japonais apparaît sur votre écran de verrouillage et votre écran d'accueil toutes les quelques heures. Pas de série à tenir, pas de leçon. Il apparaît, c'est tout.",
+    lede: "Yumo affiche un nouveau mot japonais sur votre écran de verrouillage et votre écran d'accueil toutes les quelques heures. Pas de série à tenir, pas de leçon. Il apparaît, c'est tout.",
   },
   how: {
     eyebrow: 'Comment ça marche',
@@ -235,6 +235,10 @@ export const fr: Dictionary = {
     eyebrow: 'Questions',
     title: 'Avant de demander',
     items: [
+      {
+        q: "Qu'est-ce que Yumo ?",
+        a: "Yumo est une application de vocabulaire japonais pour iPhone et Android. Son widget affiche un nouveau mot japonais sur votre écran de verrouillage ou d'accueil toutes les quelques heures, entièrement hors ligne. Le niveau N5 est gratuit ; un achat unique de {price} pour Yumo Pro débloque les {total} mots, du N5 au N1.",
+      },
       {
         q: "Pourquoi le mot n'a-t-il pas changé ?",
         a: "Yumo tourne à un rythme fixe — toutes les 6, 12 ou 24 heures en gratuit, ou toutes les 1 à 4 heures avec Pro. Entre deux, le mot reste. C'est voulu : un mot vu pendant quelques heures est un mot retenu.",

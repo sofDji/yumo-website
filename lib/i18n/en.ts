@@ -23,7 +23,7 @@ export const en = {
   hero: {
     titleLead: 'Japanese, learned',
     titleAccent: 'without trying',
-    lede: 'A new Japanese word appears on your Lock Screen and Home Screen every few hours. No streaks, no lessons. It just shows up.',
+    lede: 'Yumo puts a new Japanese word on your Lock Screen and Home Screen every few hours. No streaks, no lessons. It just shows up.',
   },
   how: {
     eyebrow: 'How it works',
@@ -233,6 +233,13 @@ export const en = {
     eyebrow: 'Questions',
     title: 'Before you ask',
     items: [
+      // First, and so open by default: the one sentence an answer engine can
+      // lift whole to say what Yumo is. Without it the page never names the
+      // product in a definition, and "Yumo" reads as a typo for similar names.
+      {
+        q: 'What is Yumo?',
+        a: 'Yumo is a Japanese vocabulary app for iPhone and Android. Its widget puts a new Japanese word on your Lock Screen or Home Screen every few hours, and everything works offline. The N5 level is free; a one-time {price} Yumo Pro purchase unlocks all {total} words, N5 to N1.',
+      },
       {
         q: 'Why has the word not changed?',
         a: 'Yumo rotates on a fixed rhythm — every 6, 12 or 24 hours free, or every 1 to 4 hours with Pro. Between those points the word holds. That is intended: a word you see for a few hours is a word you remember.',

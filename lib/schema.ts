@@ -11,6 +11,7 @@
 // there are no ratings, and inventing them is the one structured-data offence
 // that reliably earns a manual action.
 
+import { faqItems } from './faq';
 import type { Dictionary, Locale } from './i18n';
 import {
   PRICE_CURRENCY,
@@ -146,7 +147,7 @@ function faqPage(locale: Locale, t: Dictionary) {
     '@type': 'FAQPage',
     '@id': `${SITE_URL}${locale === 'fr' ? '/fr' : ''}/#faq`,
     inLanguage: LOCALE_TAG[locale],
-    mainEntity: t.faq.items.map((item) => ({
+    mainEntity: faqItems(locale, t.faq).map((item) => ({
       '@type': 'Question',
       name: toPlainText(item.q),
       acceptedAnswer: {
