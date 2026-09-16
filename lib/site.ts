@@ -1,7 +1,8 @@
 // Where Yumo is on sale. Each store's listing is its own launch switch: an
 // empty value means the app is not on that store yet, and nothing on the site
-// (buttons, the nav pill, the JSON-LD, the Smart App Banner) links to it or
-// claims it. Fill PLAY_STORE_URL on the day Google Play goes live.
+// (buttons, the nav button, the floating banner, the JSON-LD, the Smart App
+// Banner) links to it or claims it. Fill PLAY_STORE_URL on the day Google Play
+// goes live.
 //
 // The App Store link carries no country segment, so Apple sends every visitor
 // to their own storefront and one URL serves the English and French pages.
@@ -79,4 +80,38 @@ export function storeState(ios = APP_STORE_URL, android = PLAY_STORE_URL): Store
 /** The listings that exist, App Store first. */
 export function storeUrls(): string[] {
   return [APP_STORE_URL, PLAY_STORE_URL].filter((url) => url !== '');
+}
+
+export type Store = 'ios' | 'android';
+
+export const STORE_URL: Record<Store, string> = { ios: APP_STORE_URL, android: PLAY_STORE_URL };
+
+// Each listing's title exactly as its store shows it. They differ on purpose:
+// Android has no Lock Screen widgets, so Play's title says "Word Widget".
+export const STORE_NAME: Record<Store, string> = {
+  ios: 'Yumo: Japanese On Lock Screen',
+  android: 'Yumo: Japanese Word Widget',
+};
+
+/**
+ * The store the floating banner offers this visitor, or null for no banner.
+ * A phone is only ever offered its own store: an Android phone that meets an
+ * iPhone-only launch gets nothing, rather than an App Store link it cannot
+ * use. Desktop visitors are offered whichever store is live, the App Store
+ * first.
+ */
+export function bannerStore(userAgent: string, state: StoreState = storeState()): Store | null {
+  const android = /Android/i.test(userAgent);
+  const ios = /iPhone|iPad|iPod/i.test(userAgent);
+
+  switch (state) {
+    case 'coming-soon':
+      return null;
+    case 'ios':
+      return android ? null : 'ios';
+    case 'android':
+      return ios ? null : 'android';
+    case 'live':
+      return android ? 'android' : 'ios';
+  }
 }

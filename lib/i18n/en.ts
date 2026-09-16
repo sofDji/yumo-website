@@ -26,6 +26,14 @@ export const en = {
     iphone: 'Download for iPhone',
     android: 'Get it on Android',
   },
+  // The floating install card along the bottom edge. The listing's own name
+  // comes from STORE_NAME in lib/site, because the stores show it in English
+  // everywhere. "Get" is the stores' own word for a free download.
+  appBanner: {
+    label: 'Get the Yumo app',
+    get: 'Get',
+    dismiss: 'Dismiss',
+  },
   hero: {
     titleLead: 'Japanese, learned',
     titleAccent: 'without trying',

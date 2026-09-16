@@ -11,15 +11,16 @@ export function StoreCta({ t }: { t: Dictionary['cta'] }) {
 
   if (state === 'coming-soon') {
     return (
-      <div className="flex flex-col items-center gap-3">
+      <div data-store-cta className="flex flex-col items-center gap-3">
         <Button>{t.comingSoon}</Button>
         <p className="text-sm text-muted">{t.freeOn}</p>
       </div>
     );
   }
 
+  // data-store-cta tells the floating AppBanner to step aside while this is on screen.
   return (
-    <div className="flex flex-col items-center gap-3">
+    <div data-store-cta className="flex flex-col items-center gap-3">
       <div className="flex flex-wrap items-center justify-center gap-3">
         {APP_STORE_URL !== '' && <Button href={APP_STORE_URL}>{t.iphone}</Button>}
         {PLAY_STORE_URL !== '' && (

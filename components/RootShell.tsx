@@ -1,6 +1,7 @@
 import { Instrument_Serif, Schibsted_Grotesk } from 'next/font/google';
 import type { ReactNode } from 'react';
-import type { Locale } from '@/lib/i18n';
+import { AppBanner } from '@/components/chrome/AppBanner';
+import { getDictionary, type Locale } from '@/lib/i18n';
 
 const sans = Schibsted_Grotesk({
   subsets: ['latin'],
@@ -24,6 +25,9 @@ export function RootShell({ locale, children }: { locale: Locale; children: Reac
     <html lang={locale} className={`${sans.variable} ${serif.variable}`}>
       <body>
         {children}
+
+        {/* Here rather than per page, so every page, legal ones included, offers the app. */}
+        <AppBanner t={getDictionary(locale).appBanner} />
 
         {/*
           Vercel Web Analytics, as the script tag rather than @vercel/analytics.

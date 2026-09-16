@@ -25,6 +25,11 @@ export const fr: Dictionary = {
     iphone: 'Télécharger pour iPhone',
     android: 'Télécharger pour Android',
   },
+  appBanner: {
+    label: "Obtenir l'app Yumo",
+    get: 'Obtenir',
+    dismiss: 'Fermer',
+  },
   hero: {
     titleLead: 'Le japonais, appris',
     titleAccent: 'sans effort',
