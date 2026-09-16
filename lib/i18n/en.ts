@@ -11,12 +11,18 @@ export const en = {
       { href: '#pricing', label: 'Pricing' },
     ],
     comingSoon: 'Coming soon',
+    onIphone: 'Now on iPhone',
+    onAndroid: 'Now on Android',
     availableNow: 'Available now',
     switchTo: 'Passer en français',
   },
   cta: {
     comingSoon: 'Coming soon',
     freeOn: 'Free on the App Store and Google Play',
+    // Under the one button there is while only one store lists Yumo, so no
+    // visitor goes looking for a version that is not out yet.
+    androidSoon: 'Free on the App Store. Android coming soon.',
+    iphoneSoon: 'Free on Google Play. iPhone coming soon.',
     iphone: 'Download for iPhone',
     android: 'Get it on Android',
   },
@@ -232,6 +238,9 @@ export const en = {
   faq: {
     eyebrow: 'Questions',
     title: 'Before you ask',
+    // Fills {playSoon} in the Android answer until Google Play lists the app,
+    // then lib/faq drops it.
+    playSoon: 'The Android version is coming to Google Play soon.',
     items: [
       // First, and so open by default: the one sentence an answer engine can
       // lift whole to say what Yumo is. Without it the page never names the
@@ -246,7 +255,7 @@ export const en = {
       },
       {
         q: 'Does it work on Android?',
-        a: 'Yes, as a home-screen widget. Android phones have no Lock Screen widgets, so that part is iPhone only.',
+        a: 'Yes, as a home-screen widget. Android phones have no Lock Screen widgets, so that part is iPhone only. {playSoon}',
       },
       {
         q: 'Is Yumo Pro a subscription?',

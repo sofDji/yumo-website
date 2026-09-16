@@ -5,11 +5,24 @@ import { fr } from '../i18n/fr';
 import robots from '../../app/robots';
 import sitemap from '../../app/sitemap';
 import { N5_WORDS } from '../jlpt/n5';
-import { SHARE_IMAGES, shareMetadata } from '../metadata';
+import { faqItems } from '../faq';
+import { SHARE_IMAGES, appBannerMetadata, shareMetadata } from '../metadata';
 import { ROUTES } from '../routes';
 import { TOTAL_WORDS } from '../tokens';
 import { homeGraph, pageGraph } from '../schema';
-import { PRICE_CURRENCY, PRO_PRICE, PRO_PRICE_LABEL, SITE_URL, SOCIAL, SUPPORT_EMAIL } from '../site';
+import {
+  APP_STORE_ID,
+  APP_STORE_URL,
+  PLAY_STORE_URL,
+  PRICE_CURRENCY,
+  PRO_PRICE,
+  PRO_PRICE_LABEL,
+  SITE_URL,
+  SOCIAL,
+  SUPPORT_EMAIL,
+  storeState,
+  storeUrls,
+} from '../site';
 
 type Node = Record<string, unknown>;
 
@@ -126,16 +139,27 @@ describe('home JSON-LD', () => {
   });
 
   it('never invents a rating', () => {
-    // The app has not shipped. Fabricated review markup is the one
-    // structured-data offence that reliably earns a manual action.
+    // The page shows no ratings, so the markup claims none. Review markup the
+    // page does not back up is the one structured-data offence that reliably
+    // earns a manual action.
     const json = JSON.stringify(graphs.en);
     expect(json).not.toContain('aggregateRating');
     expect(json).not.toContain('reviewCount');
   });
 
-  it('omits store links until the app is actually launched', () => {
+  it('links exactly the stores the app is on', () => {
     const app = ofType(graphs.en, 'MobileApplication');
-    expect(app.downloadUrl).toBeUndefined();
+    if (storeState() === 'coming-soon') {
+      expect(app.downloadUrl).toBeUndefined();
+    } else {
+      expect(app.downloadUrl).toEqual(storeUrls());
+    }
+  });
+
+  it('claims only the platforms a visitor can install on today', () => {
+    const os = ofType(graphs.en, 'MobileApplication').operatingSystem as string;
+    expect(os.includes('iOS')).toBe(APP_STORE_URL !== '' || storeState() === 'coming-soon');
+    expect(os.includes('Android')).toBe(PLAY_STORE_URL !== '' || storeState() === 'coming-soon');
   });
 
   it('carries every FAQ answer as plain text', () => {
@@ -262,6 +286,34 @@ describe('share cards', () => {
     // the number on the card is typed out; this is what catches it drifting.
     const script = readFileSync('scripts/build-og.mjs', 'utf8');
     expect(script).toContain(`All ${N5_WORDS.length} words`);
+  });
+});
+
+describe('Smart App Banner', () => {
+  it('offers the App Store listing to iPhone visitors', () => {
+    // Safari turns this into the "Get" bar above the page. It must name the
+    // listing the buttons link, or the bar and the buttons send people to
+    // different apps.
+    expect(appBannerMetadata()).toEqual(
+      APP_STORE_ID === '' ? {} : { itunes: { appId: APP_STORE_ID } },
+    );
+  });
+});
+
+describe('Android FAQ answer', () => {
+  function androidAnswer(locale: 'en' | 'fr') {
+    const dict = locale === 'fr' ? fr : en;
+    return faqItems(locale, dict.faq).find((item) => item.q.includes('Android'))!.a;
+  }
+
+  it('says Android is still to come until Play lists the app, and stops saying it after', () => {
+    // "Does it work on Android? Yes" with no Play listing sends Android
+    // visitors to search for an app they cannot find.
+    for (const locale of ['en', 'fr'] as const) {
+      const soon = (locale === 'fr' ? fr : en).faq.playSoon;
+      expect(androidAnswer(locale).includes(soon)).toBe(PLAY_STORE_URL === '');
+      expect(androidAnswer(locale)).toBe(androidAnswer(locale).trim());
+    }
   });
 });
 

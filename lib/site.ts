@@ -1,8 +1,18 @@
-// The single switch that turns the site from pre-launch to launched.
-// Flip LAUNCHED to true and fill both URLs on the day the app ships.
-export const LAUNCHED = false;
-export const APP_STORE_URL = '';
-export const PLAY_STORE_URL = '';
+// Where Yumo is on sale. Each store's listing is its own launch switch: an
+// empty value means the app is not on that store yet, and nothing on the site
+// (buttons, the nav pill, the JSON-LD, the Smart App Banner) links to it or
+// claims it. Fill PLAY_STORE_URL on the day Google Play goes live.
+//
+// The App Store link carries no country segment, so Apple sends every visitor
+// to their own storefront and one URL serves the English and French pages.
+//
+// Typed as string rather than left as literals: TypeScript rejects comparing a
+// literal with '' as impossible, so filling or clearing a listing would
+// otherwise break the build in every file that checks for it.
+export const APP_STORE_ID: string = '6805975318';
+export const APP_STORE_URL: string =
+  APP_STORE_ID === '' ? '' : `https://apps.apple.com/app/id${APP_STORE_ID}`;
+export const PLAY_STORE_URL: string = '';
 
 // The apex domain, and the only URL that may appear in a canonical tag.
 // Everything else Vercel answers on — the *.vercel.app aliases, preview
@@ -54,10 +64,19 @@ export const PRO_PRICE = '8.99';
 export const PRO_PRICE_LABEL = '$8.99';
 export const PRICE_CURRENCY = 'USD';
 
-// Fails safe: a half-configured launch renders "coming soon" rather than a
-// badge linking nowhere.
-export function storeState(): 'coming-soon' | 'live' {
-  return LAUNCHED && APP_STORE_URL !== '' && PLAY_STORE_URL !== ''
-    ? 'live'
-    : 'coming-soon';
+export type StoreState = 'coming-soon' | 'ios' | 'android' | 'live';
+
+// Derived from the listings rather than set by hand, so the site can never
+// announce a store it has no link for. The arguments default to the real
+// listings; tests pass their own to cover every combination.
+export function storeState(ios = APP_STORE_URL, android = PLAY_STORE_URL): StoreState {
+  if (ios !== '' && android !== '') return 'live';
+  if (ios !== '') return 'ios';
+  if (android !== '') return 'android';
+  return 'coming-soon';
+}
+
+/** The listings that exist, App Store first. */
+export function storeUrls(): string[] {
+  return [APP_STORE_URL, PLAY_STORE_URL].filter((url) => url !== '');
 }

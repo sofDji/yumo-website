@@ -8,7 +8,7 @@
 
 import type { Metadata } from 'next';
 import type { Locale } from './i18n';
-import { SOCIAL } from './site';
+import { APP_STORE_ID, SOCIAL } from './site';
 
 const OG_LOCALE: Record<Locale, string> = { en: 'en_US', fr: 'fr_FR' };
 
@@ -23,6 +23,17 @@ export const SHARE_IMAGES = {
   },
   n5: { url: '/og-n5.png', alt: 'The JLPT N5 vocabulary list on Yumo' },
 } as const satisfies Record<string, ShareImage>;
+
+/**
+ * Safari's Smart App Banner: on an iPhone, the bar above the page that opens
+ * or installs Yumo in one tap. Both root layouts set it, and no page sets
+ * `itunes`, so Next's key-by-key merge carries it onto every page. Absent while
+ * the app has no App Store listing, since a banner for a missing app shows an
+ * error.
+ */
+export function appBannerMetadata(): Pick<Metadata, 'itunes'> {
+  return APP_STORE_ID === '' ? {} : { itunes: { appId: APP_STORE_ID } };
+}
 
 export function shareMetadata({
   locale,

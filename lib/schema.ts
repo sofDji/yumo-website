@@ -7,9 +7,9 @@
 // disagrees with the visible page is worse than none: Google treats it as
 // misleading markup and can demote the whole domain for it.
 //
-// Deliberately absent: aggregateRating and review. The app has not shipped, so
-// there are no ratings, and inventing them is the one structured-data offence
-// that reliably earns a manual action.
+// Deliberately absent: aggregateRating and review. The page shows no ratings,
+// and review markup the page does not back up is the one structured-data
+// offence that reliably earns a manual action.
 
 import { faqItems } from './faq';
 import type { Dictionary, Locale } from './i18n';
@@ -20,8 +20,8 @@ import {
   SOCIAL,
   SUPPORT_EMAIL,
   storeState,
-  APP_STORE_URL,
-  PLAY_STORE_URL,
+  storeUrls,
+  type StoreState,
 } from './site';
 
 /** Stable @id anchors, so the nodes below can reference each other by URI. */
@@ -87,12 +87,25 @@ function webSite(locale: Locale, t: Dictionary) {
 }
 
 /**
+ * The platforms someone can install Yumo on today. An answer engine that reads
+ * "iOS, Android" tells Android users to go and get an app Google Play does not
+ * list yet. Before any store listed it, the app was described by what it was
+ * built for.
+ */
+const OPERATING_SYSTEM: Record<StoreState, string> = {
+  'coming-soon': 'iOS, Android',
+  ios: 'iOS',
+  android: 'Android',
+  live: 'iOS, Android',
+};
+
+/**
  * The product entity. This is the node an AI engine cites when someone asks
  * "what app puts Japanese words on my Lock Screen" — so it carries the
  * concrete, checkable facts rather than marketing lines.
  */
 function application(locale: Locale, t: Dictionary) {
-  const live = storeState() === 'live';
+  const state = storeState();
 
   return {
     '@type': 'MobileApplication',
@@ -102,7 +115,7 @@ function application(locale: Locale, t: Dictionary) {
     url: `${SITE_URL}/`,
     applicationCategory: 'EducationalApplication',
     applicationSubCategory: 'Language Learning',
-    operatingSystem: 'iOS, Android',
+    operatingSystem: OPERATING_SYSTEM[state],
     inLanguage: LOCALE_TAG[locale],
     publisher: { '@id': ORG_ID },
     isAccessibleForFree: true,
@@ -129,9 +142,7 @@ function application(locale: Locale, t: Dictionary) {
     // The word count is the site's most citable hard fact, and it reaches the
     // markup through `description`. Not as numberOfItems: schema.org defines
     // that on ItemList, not on applications, so validators flag it.
-    ...(live && {
-      downloadUrl: [APP_STORE_URL, PLAY_STORE_URL].filter(Boolean),
-    }),
+    ...(state !== 'coming-soon' && { downloadUrl: storeUrls() }),
   };
 }
 

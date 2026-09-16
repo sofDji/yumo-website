@@ -5,7 +5,7 @@ import { Logo } from '@/components/ui/Logo';
 import { Pill } from '@/components/ui/Pill';
 import { localePath, type Dictionary, type Locale } from '@/lib/i18n';
 import { LOCALE_LABEL, LOCALES } from '@/lib/i18n/locales';
-import { storeState } from '@/lib/site';
+import { storeState, type StoreState } from '@/lib/site';
 
 export function NavBar({
   locale,
@@ -19,6 +19,14 @@ export function NavBar({
   path?: string;
 }) {
   const other = LOCALES.find((l) => l !== locale) as Locale;
+  // Names the platform while only one store lists Yumo: "Available now" would
+  // send an Android visitor looking for an app they cannot get yet.
+  const availability: Record<StoreState, string> = {
+    'coming-soon': t.comingSoon,
+    ios: t.onIphone,
+    android: t.onAndroid,
+    live: t.availableNow,
+  };
 
   return (
     <div className="sticky top-4 z-50 flex justify-center px-4">
@@ -53,9 +61,7 @@ export function NavBar({
           >
             {LOCALE_LABEL[other]}
           </Link>
-          <Pill tone="accent">
-            {storeState() === 'live' ? t.availableNow : t.comingSoon}
-          </Pill>
+          <Pill tone="accent">{availability[storeState()]}</Pill>
         </span>
       </nav>
     </div>

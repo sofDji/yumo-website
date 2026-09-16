@@ -12,12 +12,16 @@ export const fr: Dictionary = {
       { href: '#pricing', label: 'Tarif' },
     ],
     comingSoon: 'Bientôt disponible',
+    onIphone: 'Disponible sur iPhone',
+    onAndroid: 'Disponible sur Android',
     availableNow: 'Disponible',
     switchTo: 'Switch to English',
   },
   cta: {
     comingSoon: 'Bientôt disponible',
     freeOn: "Gratuit sur l'App Store et Google Play",
+    androidSoon: "Gratuit sur l'App Store. Bientôt sur Android.",
+    iphoneSoon: 'Gratuit sur Google Play. Bientôt sur iPhone.',
     iphone: 'Télécharger pour iPhone',
     android: 'Télécharger pour Android',
   },
@@ -234,6 +238,7 @@ export const fr: Dictionary = {
   faq: {
     eyebrow: 'Questions',
     title: 'Avant de demander',
+    playSoon: 'La version Android arrive bientôt sur Google Play.',
     items: [
       {
         q: "Qu'est-ce que Yumo ?",
@@ -245,7 +250,7 @@ export const fr: Dictionary = {
       },
       {
         q: 'Est-ce que ça marche sur Android ?',
-        a: "Oui, sous forme de widget d'écran d'accueil. Les téléphones Android n'ont pas de widgets d'écran de verrouillage : cette partie est réservée à l'iPhone.",
+        a: "Oui, sous forme de widget d'écran d'accueil. Les téléphones Android n'ont pas de widgets d'écran de verrouillage : cette partie est réservée à l'iPhone. {playSoon}",
       },
       {
         q: 'Yumo Pro est-il un abonnement ?',
