@@ -12,9 +12,9 @@ export const fr: Dictionary = {
       { href: '#pricing', label: 'Tarif' },
     ],
     comingSoon: 'Bientôt disponible',
-    onIphone: 'Disponible sur iPhone',
-    onAndroid: 'Disponible sur Android',
-    availableNow: 'Disponible',
+    getIphone: 'Télécharger pour iPhone',
+    getAndroid: 'Télécharger pour Android',
+    getApp: "Obtenir l'app",
     switchTo: 'Switch to English',
   },
   cta: {

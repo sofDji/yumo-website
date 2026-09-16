@@ -11,9 +11,9 @@ export const en = {
       { href: '#pricing', label: 'Pricing' },
     ],
     comingSoon: 'Coming soon',
-    onIphone: 'Now on iPhone',
-    onAndroid: 'Now on Android',
-    availableNow: 'Available now',
+    getIphone: 'Get it for iPhone',
+    getAndroid: 'Get it on Android',
+    getApp: 'Get the app',
     switchTo: 'Passer en français',
   },
   cta: {

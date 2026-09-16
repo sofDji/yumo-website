@@ -1,11 +1,12 @@
 'use client';
 
 import Link from 'next/link';
+import { AppleLogo } from '@/components/ui/AppleLogo';
 import { Logo } from '@/components/ui/Logo';
 import { Pill } from '@/components/ui/Pill';
 import { localePath, type Dictionary, type Locale } from '@/lib/i18n';
 import { LOCALE_LABEL, LOCALES } from '@/lib/i18n/locales';
-import { storeState, type StoreState } from '@/lib/site';
+import { APP_STORE_URL, PLAY_STORE_URL, storeState, type StoreState } from '@/lib/site';
 
 export function NavBar({
   locale,
@@ -19,13 +20,15 @@ export function NavBar({
   path?: string;
 }) {
   const other = LOCALES.find((l) => l !== locale) as Locale;
-  // Names the platform while only one store lists Yumo: "Available now" would
-  // send an Android visitor looking for an app they cannot get yet.
-  const availability: Record<StoreState, string> = {
-    'coming-soon': t.comingSoon,
-    ios: t.onIphone,
-    android: t.onAndroid,
-    live: t.availableNow,
+  const state = storeState();
+  // Where the nav's store button goes. With one store it goes straight to that
+  // listing and names the platform, so an Android visitor is never sent after
+  // an iPhone-only app. With both, one button cannot pick, so it goes to the
+  // pricing section, where both store buttons sit.
+  const store: Record<Exclude<StoreState, 'coming-soon'>, { href: string; label: string }> = {
+    ios: { href: APP_STORE_URL, label: t.getIphone },
+    android: { href: PLAY_STORE_URL, label: t.getAndroid },
+    live: { href: `${localePath(locale)}#pricing`, label: t.getApp },
   };
 
   return (
@@ -61,7 +64,21 @@ export function NavBar({
           >
             {LOCALE_LABEL[other]}
           </Link>
-          <Pill tone="accent">{availability[storeState()]}</Pill>
+          {state === 'coming-soon' ? (
+            <Pill tone="accent">{t.comingSoon}</Pill>
+          ) : (
+            <Link
+              href={store[state].href}
+              className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-ink px-3.5 py-1.5 text-xs font-semibold text-ground shadow-soft transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:shadow-lift"
+            >
+              {state === 'ios' && <AppleLogo className="-mt-0.5 h-3.5 w-3.5" />}
+              {/* Under 400px the platform label crowds the logo and the language
+                  switch ("Télécharger pour iPhone" clips at 320px), so small
+                  phones get the short label. The Apple mark still names the platform. */}
+              <span className="hidden min-[400px]:inline">{store[state].label}</span>
+              <span className="min-[400px]:hidden">{t.getApp}</span>
+            </Link>
+          )}
         </span>
       </nav>
     </div>
