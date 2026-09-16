@@ -22,7 +22,15 @@ export function Landing({ locale }: { locale: Locale }) {
   return (
     <>
       <NavBar locale={locale} t={t.nav} />
-      <main>
+      {/* overflow-x: clip, because the illustration blooms in PhoneFrame
+          deliberately spill past their phones, up to 184px beyond the right edge
+          of the screen on a phone. body's overflow-x: hidden does not contain
+          that on mobile: the browser widens the layout viewport to fit the spill
+          (515px on a 390px iPhone) and the page pans sideways. Clipping here
+          cuts at the same edge the screen already did, so nothing visible
+          changes. `clip` rather than `hidden`, because hidden would make main a
+          scroll container and break every position: sticky inside it. */}
+      <main className="overflow-x-clip">
         <Hero locale={locale} t={t.hero} cta={t.cta} />
         <HowItWorks locale={locale} t={t.how} />
         <LockScreenSection locale={locale} t={t.lockScreen} />
