@@ -37,8 +37,8 @@ export const SUPPORT_EMAIL = 'sofianeenf85@gmail.com';
 export const SOCIAL = {
   instagram: {
     name: 'Instagram',
-    handle: 'japaneseyumo',
-    url: 'https://www.instagram.com/japaneseyumo/',
+    handle: 'yumolearningapp',
+    url: 'https://www.instagram.com/yumolearningapp/',
   },
   tiktok: {
     name: 'TikTok',
