@@ -8,6 +8,7 @@ export const fr: Dictionary = {
     links: [
       { href: '#how', label: 'Comment ça marche' },
       { href: '#features', label: 'Fonctionnalités' },
+      { href: '#kana', label: 'Kana' },
       { href: '#levels', label: 'Niveaux' },
       { href: '#pricing', label: 'Tarif' },
     ],
@@ -146,11 +147,34 @@ export const fr: Dictionary = {
       },
     ],
   },
+  kana: {
+    eyebrow: 'Kana',
+    titleLead: 'Commencez là où le japonais',
+    titleAccent: 'commence',
+    tabTitle: 'Kana',
+    hiragana: 'Hiragana',
+    katakana: 'Katakana',
+    basic: 'De base',
+    points: [
+      {
+        h: 'Les deux alphabets, tous les kana',
+        p: 'Hiragana et katakana côte à côte : les {basic} caractères de base, {dakuten} avec dakuten et handakuten, et {combo} combinaisons, chacun avec son romaji.',
+      },
+      {
+        h: "Touchez-en un pour l'écrire",
+        p: "Chaque caractère ouvre un entraînement à l'ordre des traits, de あ à ヲ. Les combinaisons comme きゃ se travaillent caractère par caractère.",
+      },
+      {
+        h: 'Gratuit pour tous',
+        p: "L'onglet Kana fait partie de la version gratuite. Pas de Pro, pas de compte, et il fonctionne hors ligne comme le reste de Yumo.",
+      },
+    ],
+  },
   levels: {
     eyebrow: 'Niveaux',
     titleLead: 'Du N5 au N1, ou laissez-le',
     titleAccent: 'progresser',
-    lede: "Les {total} mots, classés par niveau JLPT. Choisissez-en un et restez-y, ou activez le mode Auto : Yumo vous fait monter au fil du temps, en réintroduisant les mots précédents pour les réviser.",
+    lede: "Les {total} mots, classés par niveau JLPT. Yumo vous lance en mode Auto au N5 ; avec Yumo Pro, il vous fait monter au fil des jours, en réintroduisant les mots précédents pour les réviser. Ou choisissez un niveau et restez-y.",
     words: '{n} mots',
     // The reference page is English-only, so the marker rides on the button —
     // the thing actually being clicked — rather than through footer.englishOnly.
@@ -201,6 +225,7 @@ export const fr: Dictionary = {
       'Vocabulaire N5 — {n5} mots',
       'Un nouveau mot toutes les 6, 12 ou 24 heures',
       "Widgets écran de verrouillage et écran d'accueil",
+      'Tableau des hiragana et katakana',
       'Prononciation et tracé des traits',
       'Favoris, notifications et thèmes',
     ],
@@ -250,6 +275,10 @@ export const fr: Dictionary = {
         a: "Yumo est une application de vocabulaire japonais pour iPhone et Android. Son widget affiche un nouveau mot japonais sur votre écran de verrouillage ou d'accueil toutes les quelques heures, entièrement hors ligne. Le niveau N5 est gratuit ; un achat unique de {price} pour Yumo Pro débloque les {total} mots, du N5 au N1.",
       },
       {
+        q: 'Puis-je apprendre les hiragana et les katakana ?',
+        a: "Oui. L'onglet Kana présente les deux alphabets avec leur romaji — caractères de base, dakuten et handakuten, et combinaisons — et toucher un kana ouvre l'entraînement à l'ordre des traits. C'est gratuit, sans achat de Yumo Pro.",
+      },
+      {
         q: "Pourquoi le mot n'a-t-il pas changé ?",
         a: "Yumo tourne à un rythme fixe — toutes les 6, 12 ou 24 heures en gratuit, ou toutes les 1 à 4 heures avec Pro. Entre deux, le mot reste. C'est voulu : un mot vu pendant quelques heures est un mot retenu.",
       },
@@ -286,7 +315,7 @@ export const fr: Dictionary = {
   meta: {
     title: 'Yumo — Vocabulaire japonais sur votre écran de verrouillage',
     description:
-      "Un nouveau mot japonais toutes les quelques heures, sur l'écran verrouillé de l'iPhone ou l'écran d'accueil Android. 7 972 mots du N5 au N1, hors ligne, sans compte.",
+      "Un nouveau mot japonais toutes les quelques heures, sur l'écran verrouillé de l'iPhone ou l'écran d'accueil Android. 7 972 mots du N5 au N1, les hiragana et katakana, hors ligne.",
     ogDescription:
       'Un nouveau mot japonais toutes les quelques heures. 7 972 mots, entièrement hors ligne, sans compte.',
   },

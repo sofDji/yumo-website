@@ -1,5 +1,5 @@
 import { describe, expect, it } from 'vitest';
-import { cumulativeWords, LEVELS, LEVEL_COLORS, TOTAL_WORDS, WORD_COUNTS } from '../tokens';
+import { APP_CARD, cumulativeWords, LEVELS, LEVEL_COLORS, TOTAL_WORDS, WORD_COUNTS } from '../tokens';
 
 describe('tokens', () => {
   it('lists levels from easiest to hardest', () => {
@@ -39,5 +39,15 @@ describe('tokens', () => {
     for (let i = 1; i < steps.length; i += 1) {
       expect(steps[i]).toBeGreaterThan(steps[i - 1]);
     }
+  });
+});
+
+describe('app card colours', () => {
+  it('match the app word card in both themes', () => {
+    expect(APP_CARD).toEqual({
+      light: { bg: '#FFFFFF', line: '#E8DFD0', ink: '#201C17', sub: '#6E6354' },
+      // The app's dark mode is neutral true black since 1.1 — no warm brown.
+      dark: { bg: '#1C1C1E', line: '#2C2C2E', ink: '#F5F5F7', sub: '#98989F' },
+    });
   });
 });

@@ -6,6 +6,7 @@ import { Faq } from '@/components/sections/Faq';
 import { Features } from '@/components/sections/Features';
 import { HowItWorks } from '@/components/sections/HowItWorks';
 import { JlptLadder } from '@/components/sections/JlptLadder';
+import { KanaSection } from '@/components/sections/KanaSection';
 import { LockScreenSection } from '@/components/sections/LockScreenSection';
 import { Pricing } from '@/components/sections/Pricing';
 import { PrivacySection } from '@/components/sections/PrivacySection';
@@ -36,6 +37,7 @@ export function Landing({ locale }: { locale: Locale }) {
         <LockScreenSection locale={locale} t={t.lockScreen} />
         <WidgetSection locale={locale} t={t.homeScreen} />
         <Features t={t.features} />
+        <KanaSection locale={locale} t={t.kana} />
         <JlptLadder locale={locale} t={t.levels} nf={nf} />
         <BrowseSection locale={locale} t={t.browse} nf={nf} />
         <Pricing t={t.pricing} cta={t.cta} nf={nf} words={t.levels.words} />

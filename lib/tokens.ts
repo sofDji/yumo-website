@@ -30,3 +30,11 @@ export function cumulativeWords(): number[] {
   let running = 0;
   return LEVELS.map((level) => (running += WORD_COUNTS[level]));
 }
+
+// The app's word card surface in each theme, verbatim from its
+// src/theme/colors.ts (card, border, text, subtext). Dark is neutral true
+// black since app 1.1 — the old warm brown no longer exists in the app.
+export const APP_CARD = {
+  light: { bg: '#FFFFFF', line: '#E8DFD0', ink: '#201C17', sub: '#6E6354' },
+  dark: { bg: '#1C1C1E', line: '#2C2C2E', ink: '#F5F5F7', sub: '#98989F' },
+} as const;

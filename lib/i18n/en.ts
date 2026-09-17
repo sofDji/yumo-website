@@ -7,6 +7,7 @@ export const en = {
     links: [
       { href: '#how', label: 'How it works' },
       { href: '#features', label: 'Features' },
+      { href: '#kana', label: 'Kana' },
       { href: '#levels', label: 'Levels' },
       { href: '#pricing', label: 'Pricing' },
     ],
@@ -150,11 +151,34 @@ export const en = {
       },
     ],
   },
+  kana: {
+    eyebrow: 'Kana',
+    titleLead: 'Start where Japanese',
+    titleAccent: 'starts',
+    tabTitle: 'Kana',
+    hiragana: 'Hiragana',
+    katakana: 'Katakana',
+    basic: 'Basic',
+    points: [
+      {
+        h: 'Both scripts, every kana',
+        p: 'Hiragana and katakana side by side: the {basic} basic characters, {dakuten} with dakuten and handakuten, and {combo} combinations, each with its romaji.',
+      },
+      {
+        h: 'Tap one to write it',
+        p: 'Every character opens stroke-order practice, from あ to ヲ. Combinations like きゃ are practised one character at a time.',
+      },
+      {
+        h: 'Free for everyone',
+        p: 'The Kana tab is part of the free tier. No Pro, no account, and it works offline like the rest of Yumo.',
+      },
+    ],
+  },
   levels: {
     eyebrow: 'Levels',
     titleLead: 'N5 to N1, or let it',
     titleAccent: 'climb',
-    lede: 'All {total} words, graded by JLPT level. Pick one and stay there, or turn on Auto and let Yumo move you up as you go, weaving earlier words back in for review.',
+    lede: 'All {total} words, graded by JLPT level. Yumo starts you on Auto at N5; with Yumo Pro it moves you up as the days pass, weaving earlier words back in for review. Or pick a level and stay there.',
     words: '{n} words',
     /** The invitation out to the N5 reference page. */
     reference: {
@@ -204,6 +228,7 @@ export const en = {
       'N5 vocabulary — {n5} words',
       'A new word every 6, 12 or 24 hours',
       'Lock Screen and Home Screen widgets',
+      'Hiragana and katakana chart',
       'Pronunciation and stroke practice',
       'Favourites, notifications and themes',
     ],
@@ -258,6 +283,10 @@ export const en = {
         a: 'Yumo is a Japanese vocabulary app for iPhone and Android. Its widget puts a new Japanese word on your Lock Screen or Home Screen every few hours, and everything works offline. The N5 level is free; a one-time {price} Yumo Pro purchase unlocks all {total} words, N5 to N1.',
       },
       {
+        q: 'Can I learn hiragana and katakana?',
+        a: 'Yes. The Kana tab shows both scripts with their romaji — the basic characters, dakuten and handakuten, and combinations — and tapping any kana opens stroke-order practice. It is free, with no Yumo Pro purchase needed.',
+      },
+      {
         q: 'Why has the word not changed?',
         a: 'Yumo rotates on a fixed rhythm — every 6, 12 or 24 hours free, or every 1 to 4 hours with Pro. Between those points the word holds. That is intended: a word you see for a few hours is a word you remember.',
       },
@@ -296,7 +325,7 @@ export const en = {
   meta: {
     title: 'Yumo — Japanese vocabulary widget for your Lock Screen',
     description:
-      'A new Japanese word on your iPhone Lock Screen or Android home screen every few hours. 7,972 words from JLPT N5 to N1, fully offline, no account, no tracking.',
+      'A new Japanese word on your iPhone Lock Screen or Android home screen every few hours. 7,972 words from JLPT N5 to N1, a hiragana and katakana chart, fully offline, no account.',
     ogDescription:
       'A new Japanese word every few hours. 7,972 words, fully offline, no accounts.',
   },

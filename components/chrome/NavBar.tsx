@@ -33,7 +33,7 @@ export function NavBar({
 
   return (
     <div className="sticky top-4 z-50 flex justify-center px-4">
-      <nav className="flex w-full max-w-3xl items-center gap-2 rounded-full border border-line bg-[rgba(255,252,246,0.72)] p-2 shadow-soft backdrop-blur-xl">
+      <nav className="flex w-full max-w-3xl items-center lg:max-w-4xl gap-2 rounded-full border border-line bg-[rgba(255,252,246,0.72)] p-2 shadow-soft backdrop-blur-xl">
         <Link
           href={localePath(locale)}
           className="shrink-0 px-2.5 py-1"
@@ -42,12 +42,15 @@ export function NavBar({
           <Logo height={22} priority />
         </Link>
 
-        <ul className="ml-1 hidden items-center gap-1 md:flex">
+        {/* From lg, not md: with five links the French row needs ~830px, more
+            than a tablet-width pill has, and a wrapped "Comment ça marche"
+            breaks the pill. Below lg the section links are dropped, as on phones. */}
+        <ul className="ml-1 hidden items-center gap-1 lg:flex">
           {t.links.map((l) => (
             <li key={l.href}>
               <Link
                 href={`${localePath(locale)}${l.href}`}
-                className="rounded-full px-3 py-2 text-sm text-muted transition-colors duration-200 hover:bg-ground hover:text-ink"
+                className="whitespace-nowrap rounded-full px-3 py-2 text-sm text-muted transition-colors duration-200 hover:bg-ground hover:text-ink"
               >
                 {l.label}
               </Link>

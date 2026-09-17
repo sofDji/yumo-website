@@ -2,13 +2,13 @@
 
 import { useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { LEVEL_COLORS } from '@/lib/tokens';
+import { APP_CARD, LEVEL_COLORS } from '@/lib/tokens';
 
 // A miniature of the app's word card, changing its mind about the theme. Only
 // colours transition — nothing here moves or resizes, so a card that flips
 // every few seconds costs the page nothing.
-const LIGHT = { bg: '#FFFFFF', line: '#E8DFD0', ink: '#201C17', sub: '#6E6354' };
-const DARK = { bg: '#221E19', line: '#3A342C', ink: '#F6F1E8', sub: '#A79B88' };
+const LIGHT = APP_CARD.light;
+const DARK = APP_CARD.dark;
 
 const STEP = 2600;
 
