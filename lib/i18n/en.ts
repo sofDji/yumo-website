@@ -147,7 +147,7 @@ export const en = {
       {
         id: 'offline',
         title: 'Completely offline',
-        body: 'The whole dataset ships inside the app. Yumo makes no network requests of its own.',
+        body: 'The whole dataset ships inside the app. Learning needs no connection.',
       },
     ],
   },
@@ -244,27 +244,27 @@ export const en = {
     eyebrow: 'Privacy',
     titleLead: 'It collects',
     titleAccent: 'nothing',
-    lede: 'Not as a policy decision that could change, but because there is no server to send anything to.',
+    lede: 'No account, no profile, no advertising. Your words and progress never leave your phone.',
     claims: [
       {
         title: 'No account',
         body: 'There is nothing to sign up for. Yumo has no login, no profile and no cloud sync.',
       },
       {
-        title: 'No analytics',
-        body: 'No usage tracking, no crash reporting, no advertising identifiers, no third-party SDKs beyond billing.',
+        title: 'No tracking',
+        body: 'No usage analytics, no crash reporting, no advertising identifiers. Nothing follows you across apps.',
       },
       {
         title: 'Nothing leaves the device',
         body: 'Settings, saved words and progress are stored locally. Deleting the app deletes all of it.',
       },
       {
-        title: 'No network requests',
-        body: 'The whole dataset ships inside the app. Yumo makes no requests of its own, so it works offline by design rather than by accident.',
+        title: 'Offline by design',
+        body: 'The whole dataset ships inside the app, so learning works in aeroplane mode by design rather than by accident.',
       },
     ],
     exceptionBefore:
-      'The one exception: buying Yumo Pro sends your purchase to Apple or Google and to RevenueCat, which validates it so you can restore it later. That is described in full in the ',
+      'Two exceptions: buying Yumo Pro sends your purchase to Apple or Google and to RevenueCat, which validates it so you can restore it later; and on iPhone, the optional News & updates notifications go through OneSignal, which receives your device’s push token. Both are described in full in the ',
     exceptionLink: 'privacy policy',
     exceptionAfter: '.',
   },

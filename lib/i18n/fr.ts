@@ -143,7 +143,7 @@ export const fr: Dictionary = {
       {
         id: 'offline',
         title: 'Entièrement hors ligne',
-        body: "Tout le jeu de données est embarqué dans l'application. Yumo n'effectue aucune requête réseau.",
+        body: "Tout le jeu de données est embarqué dans l'application. Apprendre ne demande aucune connexion.",
       },
     ],
   },
@@ -241,27 +241,27 @@ export const fr: Dictionary = {
     eyebrow: 'Confidentialité',
     titleLead: 'Elle ne collecte',
     titleAccent: 'rien',
-    lede: "Non pas par choix de politique, qui pourrait changer, mais parce qu'il n'y a aucun serveur à qui envoyer quoi que ce soit.",
+    lede: "Aucun compte, aucun profil, aucune publicité. Vos mots et votre progression ne quittent jamais votre téléphone.",
     claims: [
       {
         title: 'Aucun compte',
         body: "Il n'y a rien à créer. Yumo n'a ni connexion, ni profil, ni synchronisation dans le cloud.",
       },
       {
-        title: 'Aucune analyse',
-        body: "Aucun suivi d'usage, aucun rapport de plantage, aucun identifiant publicitaire, aucun SDK tiers en dehors de la facturation.",
+        title: 'Aucun pistage',
+        body: "Aucune analyse d'usage, aucun rapport de plantage, aucun identifiant publicitaire. Rien ne vous suit d'une app à l'autre.",
       },
       {
         title: 'Rien ne quitte l’appareil',
         body: "Réglages, mots enregistrés et progression sont stockés localement. Supprimer l'application supprime tout.",
       },
       {
-        title: 'Aucune requête réseau',
-        body: "Tout le jeu de données est embarqué dans l'application. Yumo n'émet aucune requête : le hors-ligne est un choix de conception, pas un hasard.",
+        title: 'Hors ligne par conception',
+        body: "Tout le jeu de données est embarqué dans l'application : apprendre fonctionne en mode avion, par choix de conception et non par hasard.",
       },
     ],
     exceptionBefore:
-      "La seule exception : l'achat de Yumo Pro transmet votre achat à Apple ou Google et à RevenueCat, qui le valide pour vous permettre de le restaurer ensuite. Tout est détaillé dans la ",
+      "Deux exceptions : l'achat de Yumo Pro transmet votre achat à Apple ou Google et à RevenueCat, qui le valide pour vous permettre de le restaurer ensuite ; et sur iPhone, les notifications facultatives « News & updates » passent par OneSignal, qui reçoit le jeton de notification de votre appareil. Tout est détaillé dans la ",
     exceptionLink: 'politique de confidentialité',
     exceptionAfter: ' (en anglais).',
   },
