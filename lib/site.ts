@@ -28,7 +28,7 @@ export const PLAY_STORE_URL: string = '';
 // lives in vercel.json rather than next.config because `output: 'export'`
 // leaves no server to run a Next redirect.
 export const SITE_URL = 'https://yumo.lol';
-export const SUPPORT_EMAIL = 'sofianeenf85@gmail.com';
+export const SUPPORT_EMAIL = 'yumojapanese@gmail.com';
 
 // Yumo's public profiles. The footer links them, and the Organization node in
 // lib/schema lists them as sameAs — which is how search engines tie these
