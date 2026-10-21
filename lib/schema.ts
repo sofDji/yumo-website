@@ -12,7 +12,7 @@
 // offence that reliably earns a manual action.
 
 import { faqItems } from './faq';
-import type { Dictionary, Locale } from './i18n';
+import { LOCALE_TAG, localePath, type Dictionary, type Locale } from './i18n';
 import {
   PRICE_CURRENCY,
   PRO_PRICE,
@@ -28,8 +28,6 @@ import {
 const ORG_ID = `${SITE_URL}/#organization`;
 const SITE_ID = `${SITE_URL}/#website`;
 const APP_ID = `${SITE_URL}/#app`;
-
-const LOCALE_TAG: Record<Locale, string> = { en: 'en-US', fr: 'fr-FR' };
 
 /**
  * The dictionaries hold a couple of `&apos;` escapes because the FAQ renders
@@ -156,7 +154,7 @@ function application(locale: Locale, t: Dictionary) {
 function faqPage(locale: Locale, t: Dictionary) {
   return {
     '@type': 'FAQPage',
-    '@id': `${SITE_URL}${locale === 'fr' ? '/fr' : ''}/#faq`,
+    '@id': `${SITE_URL}${locale === 'en' ? '' : localePath(locale)}/#faq`,
     inLanguage: LOCALE_TAG[locale],
     mainEntity: faqItems(locale, t.faq).map((item) => ({
       '@type': 'Question',
@@ -198,7 +196,7 @@ export function pageGraph({
   description: string;
 }) {
   const url = `${SITE_URL}${path}`;
-  const home = `${SITE_URL}${locale === 'fr' ? '/fr' : '/'}`;
+  const home = `${SITE_URL}${localePath(locale)}`;
 
   return {
     '@context': 'https://schema.org',

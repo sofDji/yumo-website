@@ -12,7 +12,9 @@
     "build:words": "node scripts/build-words.mjs",
     "shot": "node scripts/screenshot.mjs",
     "build:og": "node scripts/build-og.mjs",
-    "build:jlpt": "node scripts/build-jlpt.mjs"
+    "build:jlpt": "node scripts/build-jlpt.mjs",
+    "build:prices": "node scripts/build-prices.mjs",
+    "build:timezones": "node scripts/build-timezones.mjs"
   },
   "dependencies": {
     "framer-motion": "^12.0.0",

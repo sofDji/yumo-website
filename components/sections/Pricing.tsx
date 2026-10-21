@@ -3,8 +3,8 @@ import { Reveal } from '@/components/layout/Reveal';
 import { Section } from '@/components/layout/Section';
 import { LevelStrip } from '@/components/pricing/LevelStrip';
 import { StoreCta } from '@/components/ui/StoreCta';
-import { fill, type Dictionary } from '@/lib/i18n';
-import { PRO_PRICE_LABEL } from '@/lib/site';
+import { LocalPrice } from '@/components/ui/LocalPrice';
+import { fill, type Dictionary, type Locale } from '@/lib/i18n';
 import { cumulativeWords, LEVEL_COLORS, TOTAL_WORDS, WORD_COUNTS } from '@/lib/tokens';
 
 // Every claim below is taken from resolveFrequency and resolveLevelForWindow
@@ -21,7 +21,7 @@ function Tier({
   featured = false,
 }: {
   name: string;
-  price: string;
+  price: ReactNode;
   suffix?: string;
   strip: ReactNode;
   items: string[];
@@ -68,11 +68,13 @@ function Tier({
 }
 
 export function Pricing({
+  locale,
   t,
   cta,
   nf,
   words,
 }: {
+  locale: Locale;
   t: Dictionary['pricing'];
   cta: Dictionary['cta'];
   nf: Intl.NumberFormat;
@@ -102,7 +104,7 @@ export function Pricing({
         <Reveal>
           <Tier
             name={t.freeName}
-            price="$0"
+            price={<LocalPrice locale={locale} free />}
             strip={<LevelStrip counts={counts} />}
             items={t.free.map((s) => fill(s, { n5, total }))}
           />
@@ -130,7 +132,9 @@ export function Pricing({
             <div className="relative h-full">
               <Tier
                 name={t.proName}
-                price={PRO_PRICE_LABEL}
+                // The visitor's own storefront price, from the App Store
+                // Connect schedule in lib/app-store-prices.
+                price={<LocalPrice locale={locale} />}
                 suffix={t.once}
                 strip={<LevelStrip counts={counts} pro />}
                 items={t.pro.map((s) => fill(s, { n5, total }))}

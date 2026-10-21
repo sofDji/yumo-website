@@ -16,7 +16,7 @@ export const fr: Dictionary = {
     getIphone: 'Télécharger pour iPhone',
     getAndroid: 'Télécharger pour Android',
     getApp: "Obtenir l'app",
-    switchTo: 'Switch to English',
+    language: 'Langue',
   },
   cta: {
     comingSoon: 'Bientôt disponible',
@@ -122,8 +122,8 @@ export const fr: Dictionary = {
       },
       {
         id: 'languages',
-        title: 'Quatre langues de traduction',
-        body: "Anglais, français, allemand et espagnol, tous inclus dans l'application.",
+        title: 'Cinq langues de traduction',
+        body: "Anglais, français, allemand, espagnol et coréen, tous inclus dans l'application.",
       },
       {
         id: 'browse',
@@ -201,7 +201,7 @@ export const fr: Dictionary = {
     points: [
       {
         h: 'Cherchez comme le mot vous revient',
-        p: 'Recherchez parmi {total} mots par kanji, kana, romaji ou sens. Chaque entrée porte sa lecture, son romaji, son niveau JLPT et ses traductions en anglais, français, allemand et espagnol.',
+        p: 'Recherchez parmi {total} mots par kanji, kana, romaji ou sens. Chaque entrée porte sa lecture, son romaji, son niveau JLPT et ses traductions en anglais, français, allemand, espagnol et coréen.',
       },
       {
         h: 'N5 gratuit, tous les niveaux avec Pro',

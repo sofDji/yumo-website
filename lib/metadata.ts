@@ -10,7 +10,13 @@ import type { Metadata } from 'next';
 import type { Locale } from './i18n';
 import { APP_STORE_ID, SOCIAL } from './site';
 
-const OG_LOCALE: Record<Locale, string> = { en: 'en_US', fr: 'fr_FR' };
+const OG_LOCALE: Record<Locale, string> = {
+  en: 'en_US',
+  fr: 'fr_FR',
+  de: 'de_DE',
+  es: 'es_ES',
+  ko: 'ko_KR',
+};
 
 export type ShareImage = { url: string; alt: string };
 
@@ -21,6 +27,15 @@ export const SHARE_IMAGES = {
     url: '/og-fr.png',
     alt: "Yumo affichant un mot japonais sur l'écran de verrouillage d'un iPhone",
   },
+  de: {
+    url: '/og-de.png',
+    alt: 'Yumo zeigt ein japanisches Wort auf dem Sperrbildschirm eines iPhone',
+  },
+  es: {
+    url: '/og-es.png',
+    alt: 'Yumo mostrando una palabra japonesa en la pantalla de bloqueo de un iPhone',
+  },
+  ko: { url: '/og-ko.png', alt: 'iPhone 잠금 화면에 일본어 단어를 보여 주는 Yumo' },
   n5: { url: '/og-n5.png', alt: 'The JLPT N5 vocabulary list on Yumo' },
 } as const satisfies Record<string, ShareImage>;
 

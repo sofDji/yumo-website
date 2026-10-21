@@ -1,13 +1,12 @@
+import { LOCALES, type Locale } from './i18n/locales';
 import { LEVELS, type Level } from './tokens';
-
-export type Locale = 'en' | 'fr';
 
 export interface RawWord {
   id: number;
   kanji: string;
   kana: string;
   romaji: string;
-  meaning: { en: string; fr: string; de: string; es: string };
+  meaning: Record<Locale, string>;
   level: Level;
 }
 
@@ -16,7 +15,7 @@ export interface SiteWord {
   kanji: string;
   kana: string;
   romaji: string;
-  /** Only the locales the site renders. The dataset carries de and es too. */
+  /** One gloss per locale the site renders. */
   meaning: Record<Locale, string>;
   level: Level;
 }
@@ -40,9 +39,9 @@ export function selectWords(raw: RawWord[], perLevel: number): SiteWord[] {
     const picked = raw
       .filter((w) => w.level === level)
       .filter((w) => w.kanji.length >= 1 && w.kanji.length <= 3)
-      // Both rendered locales must be usable, or the French cards would fall
-      // back to English under a French headline.
-      .filter((w) => usable(w.meaning?.en) && usable(w.meaning?.fr))
+      // Every rendered locale must be usable, or a German card would fall
+      // back to English under a German headline.
+      .filter((w) => LOCALES.every((locale) => usable(w.meaning?.[locale])))
       // Require a real kanji form. Where kanji === kana the dataset is storing
       // a kana-only word, and a card reading ああ over ああ looks broken.
       .filter((w) => w.kanji !== w.kana)
@@ -55,7 +54,9 @@ export function selectWords(raw: RawWord[], perLevel: number): SiteWord[] {
         kanji: w.kanji,
         kana: w.kana,
         romaji: w.romaji,
-        meaning: { en: w.meaning.en, fr: w.meaning.fr },
+        meaning: Object.fromEntries(
+          LOCALES.map((locale) => [locale, w.meaning[locale]]),
+        ) as Record<Locale, string>,
         level: w.level,
       }));
 
@@ -68,7 +69,7 @@ export function selectWords(raw: RawWord[], perLevel: number): SiteWord[] {
 // One display word per level, for the places that want to put a face on a
 // level rather than list it: the Browse illustration's rows and the levels
 // ladder. Short meanings only — at the size these render, a multi-clause gloss
-// forces the type down until it is texture, and both rendered locales have to
+// forces the type down until it is texture, and every rendered locale has to
 // fit or a French page shows an English-sized gap.
 export function sampleByLevel(words: SiteWord[], maxMeaning: number): Record<Level, SiteWord> {
   const out = {} as Record<Level, SiteWord>;
@@ -77,7 +78,7 @@ export function sampleByLevel(words: SiteWord[], maxMeaning: number): Record<Lev
     const ofLevel = words.filter((w) => w.level === level);
     out[level] =
       ofLevel.find(
-        (w) => w.meaning.en.length <= maxMeaning && w.meaning.fr.length <= maxMeaning,
+        (w) => LOCALES.every((locale) => w.meaning[locale].length <= maxMeaning),
       ) ?? ofLevel[0];
   }
 

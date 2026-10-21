@@ -3,6 +3,7 @@ import Link from 'next/link';
 import { LegalLayout } from '@/components/layout/LegalLayout';
 import { JsonLd } from '@/components/seo/JsonLd';
 import { shareMetadata } from '@/lib/metadata';
+import { hreflang } from '@/lib/routes';
 import { pageGraph } from '@/lib/schema';
 import { SUPPORT_EMAIL } from '@/lib/site';
 
@@ -16,7 +17,7 @@ export const metadata: Metadata = {
   description: DESCRIPTION,
   alternates: {
     canonical: '/fr/support',
-    languages: { en: '/support', fr: '/fr/support', 'x-default': '/support' },
+    languages: hreflang('support'),
   },
   ...shareMetadata({ locale: 'fr', path: '/fr/support', title: TITLE, description: DESCRIPTION }),
 };

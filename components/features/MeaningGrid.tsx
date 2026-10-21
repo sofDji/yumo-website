@@ -3,19 +3,20 @@
 import { useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-// 赤い, from the app's dataset. All four glosses are shown at once — the claim
-// is "four languages", and four languages arriving one at a time would be a
-// worse picture of it than four sitting there together. What moves is only
+// 赤い, from the app's dataset. All five glosses are shown at once — the claim
+// is "five languages", and five languages arriving one at a time would be a
+// worse picture of it than five sitting there together. What moves is only
 // which one is lit.
 //
 // The dataset stores several senses per language ("rot; kommunistisch") and a
-// part-of-speech note on the English; the head sense is what fits a card this
+// part-of-speech note on the English and Korean; the head sense is what fits a card this
 // size, which is the same display trim lib/select-words.ts already makes.
 const GLOSSES = [
   { code: 'EN', gloss: 'red' },
   { code: 'FR', gloss: 'rouge' },
   { code: 'DE', gloss: 'rot' },
   { code: 'ES', gloss: 'rojo' },
+  { code: 'KO', gloss: '빨갛다' },
 ];
 
 const STEP = 1400;

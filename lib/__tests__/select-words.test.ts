@@ -1,11 +1,12 @@
 import { describe, expect, it } from 'vitest';
+import { LOCALES } from '../i18n/locales';
 import { sampleByLevel, selectWords, type RawWord } from '../select-words';
 import { LEVELS } from '../tokens';
 import { WORDS } from '../words';
 
 const raw = (over: Partial<RawWord> & { id: number }): RawWord => ({
   kanji: '水', kana: 'みず', romaji: 'mizu', level: 'n5',
-  meaning: { en: 'water', fr: 'eau', de: 'Wasser', es: 'agua' },
+  meaning: { en: 'water', fr: 'eau', de: 'Wasser', es: 'agua', ko: '물' },
   ...over,
 });
 
@@ -17,24 +18,32 @@ describe('selectWords', () => {
 
   it('drops meanings of 40 characters or more', () => {
     const long = 'a'.repeat(40);
-    const out = selectWords([raw({ id: 2, meaning: { en: long, fr: 'eau', de: '', es: '' } })], 5);
+    const out = selectWords([raw({ id: 2, meaning: { en: long, fr: 'eau', de: 'Wasser', es: 'agua', ko: '물' } })], 5);
     expect(out).toHaveLength(0);
   });
 
   it('drops meanings containing a semicolon', () => {
     const out = selectWords(
-      [raw({ id: 3, meaning: { en: 'water; liquid', fr: 'eau', de: '', es: '' } })],
+      [raw({ id: 3, meaning: { en: 'water; liquid', fr: 'eau', de: 'Wasser', es: 'agua', ko: '물' } })],
       5,
     );
     expect(out).toHaveLength(0);
   });
 
-  // Both rendered locales must be usable, or a French card would silently
+  // Every rendered locale must be usable, or a French card would silently
   // fall back to English under a French headline.
   it('drops a word whose French gloss is unusable even if English is fine', () => {
     const messy = 'de aquella forma, mais aussi tout autre chose entièrement';
     const out = selectWords(
-      [raw({ id: 8, meaning: { en: 'water', fr: messy, de: '', es: '' } })],
+      [raw({ id: 8, meaning: { en: 'water', fr: messy, de: 'Wasser', es: 'agua', ko: '물' } })],
+      5,
+    );
+    expect(out).toHaveLength(0);
+  });
+
+  it('drops a word whose Korean gloss is missing', () => {
+    const out = selectWords(
+      [raw({ id: 9, meaning: { en: 'water', fr: 'eau', de: 'Wasser', es: 'agua', ko: '' } })],
       5,
     );
     expect(out).toHaveLength(0);
@@ -52,7 +61,7 @@ describe('selectWords', () => {
       kanji: '水',
       kana: 'みず',
       romaji: 'mizu',
-      meaning: { en: 'water', fr: 'eau' },
+      meaning: { en: 'water', fr: 'eau', de: 'Wasser', es: 'agua', ko: '물' },
       level: 'n5',
     });
   });
@@ -88,11 +97,12 @@ describe('sampleByLevel', () => {
     for (const level of LEVELS) expect(samples[level].level).toBe(level);
   });
 
-  it('keeps meanings short enough for a row in both locales', () => {
+  it('keeps meanings short enough for a row in every locale', () => {
     for (const level of LEVELS) {
-      const { meaning } = samples[level];
-      expect(meaning.en.length, `en gloss for ${level}`).toBeLessThanOrEqual(22);
-      expect(meaning.fr.length, `fr gloss for ${level}`).toBeLessThanOrEqual(22);
+      for (const locale of LOCALES) {
+        const gloss = samples[level].meaning[locale];
+        expect(gloss.length, `${locale} gloss for ${level}`).toBeLessThanOrEqual(22);
+      }
     }
   });
 });

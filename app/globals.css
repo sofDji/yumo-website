@@ -27,6 +27,22 @@ body {
 
 h1, h2, h3 { text-wrap: balance; }
 
+/* Korean wraps between words, not between syllables: the default lets a line
+   break inside 일본어 and strand 어 on the next line. */
+:lang(ko) {
+  word-break: keep-all;
+  overflow-wrap: break-word;
+}
+
+/* Instrument Serif has no Hangul, so a Korean accent word falls through to a
+   system face and the browser slants it artificially. Korean typography has
+   no italic; the serif contrast is carried by Myeongjo, upright. No webfont,
+   for the same reason tailwind.config gives for Japanese. */
+:lang(ko) .font-serif {
+  font-family: var(--font-serif), 'AppleMyungjo', 'Nanum Myeongjo', 'Noto Serif KR', 'Batang', serif;
+  font-style: normal;
+}
+
 :focus-visible {
   outline: 2px solid var(--accent);
   outline-offset: 3px;

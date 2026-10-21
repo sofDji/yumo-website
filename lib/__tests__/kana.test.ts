@@ -1,7 +1,6 @@
 import { describe, expect, it } from 'vitest';
-import { en } from '../i18n/en';
-import { fr } from '../i18n/fr';
-import { fill } from '../i18n';
+import { fill, getDictionary } from '../i18n';
+import { LOCALES } from '../i18n/locales';
 import { BASIC_ROWS, KANA_COUNTS, kanaCounts, toKatakana } from '../kana';
 
 describe('kana chart', () => {
@@ -21,12 +20,9 @@ describe('kana chart', () => {
     expect(toKatakana('を')).toBe('ヲ');
   });
 
-  it('fills every count the Kana section quotes, in both locales', () => {
-    for (const [locale, dict] of [
-      ['en', en],
-      ['fr', fr],
-    ] as const) {
-      const text = dict.kana.points.map((p) => fill(p.p, kanaCounts(locale))).join(' ');
+  it('fills every count the Kana section quotes, in every locale', () => {
+    for (const locale of LOCALES) {
+      const text = getDictionary(locale).kana.points.map((p) => fill(p.p, kanaCounts(locale))).join(' ');
       expect(text, `unfilled placeholder in ${locale}`).not.toMatch(/\{\w+\}/);
       expect(text).toContain('46');
       expect(text).toContain('25');
@@ -37,8 +33,8 @@ describe('kana chart', () => {
 
 describe('nav', () => {
   it('links the Kana section between Features and Levels', () => {
-    for (const dict of [en, fr]) {
-      expect(dict.nav.links.map((l) => l.href)).toEqual([
+    for (const locale of LOCALES) {
+      expect(getDictionary(locale).nav.links.map((l) => l.href)).toEqual([
         '#how',
         '#features',
         '#kana',

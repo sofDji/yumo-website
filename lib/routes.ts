@@ -1,3 +1,5 @@
+import { LOCALES, LOCALISED_ROUTES, localePath } from './i18n/locales';
+
 // Every indexable route the site ships, and how the locales pair up.
 //
 // This is the single source the sitemap and the hreflang tags read from, so a
@@ -20,14 +22,36 @@ export type Route = {
   priority: number;
 };
 
-const BILINGUAL = { en: '', fr: '/fr' } as const;
-const BILINGUAL_SUPPORT = { en: '/support', fr: '/fr/support' } as const;
+/** Every language version of a localised page, keyed by its hreflang code. */
+function versions(page: (typeof LOCALISED_ROUTES)[number]): Record<string, string> {
+  return Object.fromEntries(
+    LOCALES.map((locale) => [locale, page === '' && locale === 'en' ? '' : localePath(locale, page)]),
+  );
+}
+
+/**
+ * The `alternates.languages` a localised page declares: every version,
+ * itself included, plus x-default on the English one for visitors whose
+ * language is none of them.
+ */
+export function hreflang(page: (typeof LOCALISED_ROUTES)[number]): Record<string, string> {
+  return {
+    ...Object.fromEntries(LOCALES.map((locale) => [locale, localePath(locale, page)])),
+    'x-default': localePath('en', page),
+  };
+}
+
+const LOCALISED: Route[] = LOCALISED_ROUTES.flatMap((page) => {
+  const alternates = versions(page);
+  return Object.values(alternates).map((path) => ({
+    path,
+    alternates,
+    priority: page === '' ? 1 : 0.6,
+  }));
+});
 
 export const ROUTES: Route[] = [
-  { path: '', alternates: BILINGUAL, priority: 1 },
-  { path: '/fr', alternates: BILINGUAL, priority: 1 },
-  { path: '/support', alternates: BILINGUAL_SUPPORT, priority: 0.6 },
-  { path: '/fr/support', alternates: BILINGUAL_SUPPORT, priority: 0.6 },
+  ...LOCALISED,
   // Reference content. Ranked above the legal pages and below the home page:
   // it is the only thing on the site someone might search for without already
   // knowing the product exists.

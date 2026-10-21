@@ -12,13 +12,13 @@ import { Pricing } from '@/components/sections/Pricing';
 import { PrivacySection } from '@/components/sections/PrivacySection';
 import { WidgetSection } from '@/components/sections/WidgetSection';
 import { faqItems } from '@/lib/faq';
-import { getDictionary, type Locale } from '@/lib/i18n';
+import { getDictionary, numberFormat, type Locale } from '@/lib/i18n';
 
-// Both locale routes render this; the only difference is the dictionary and
-// the number formatter, so the two pages cannot drift structurally.
+// Every locale route renders this; the only difference is the dictionary and
+// the number formatter, so the pages cannot drift structurally.
 export function Landing({ locale }: { locale: Locale }) {
   const t = getDictionary(locale);
-  const nf = new Intl.NumberFormat(locale === 'fr' ? 'fr-FR' : 'en-US');
+  const nf = numberFormat(locale);
 
   return (
     <>
@@ -40,9 +40,11 @@ export function Landing({ locale }: { locale: Locale }) {
         <KanaSection locale={locale} t={t.kana} />
         <JlptLadder locale={locale} t={t.levels} nf={nf} />
         <BrowseSection locale={locale} t={t.browse} nf={nf} />
-        <Pricing t={t.pricing} cta={t.cta} nf={nf} words={t.levels.words} />
+        <Pricing locale={locale} t={t.pricing} cta={t.cta} nf={nf} words={t.levels.words} />
         <PrivacySection t={t.privacy} />
-        <Faq t={{ ...t.faq, items: faqItems(locale, t.faq) }} />
+        {/* {price} stays a placeholder here: the FAQ fills it with the visitor's
+            storefront price once it knows it. */}
+        <Faq locale={locale} t={{ ...t.faq, items: faqItems(locale, t.faq, '{price}') }} />
       </main>
       <Footer locale={locale} t={t.footer} />
     </>

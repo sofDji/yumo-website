@@ -1,5 +1,5 @@
-// Every string the site renders, in the source language. `fr.ts` is typed
-// against this shape, so a key added here and forgotten there is a compile
+// Every string the site renders, in the source language. The other locales
+// are typed against this shape, so a key added here and forgotten there is a compile
 // error rather than a silent fallback to English.
 export const en = {
   nav: {
@@ -15,7 +15,8 @@ export const en = {
     getIphone: 'Get it for iPhone',
     getAndroid: 'Get it on Android',
     getApp: 'Get the app',
-    switchTo: 'Passer en français',
+    /** Accessible name for the language menu button. */
+    language: 'Language',
   },
   cta: {
     comingSoon: 'Coming soon',
@@ -126,8 +127,8 @@ export const en = {
       },
       {
         id: 'languages',
-        title: 'Four meaning languages',
-        body: 'English, French, German and Spanish, all bundled in the app.',
+        title: 'Five meaning languages',
+        body: 'English, French, German, Spanish and Korean, all bundled in the app.',
       },
       {
         id: 'browse',
@@ -204,7 +205,7 @@ export const en = {
     points: [
       {
         h: 'Search however you remember it',
-        p: 'Search {total} words by kanji, kana, romaji or meaning. Every entry carries its reading, its romaji, its JLPT level and meanings in English, French, German and Spanish.',
+        p: 'Search {total} words by kanji, kana, romaji or meaning. Every entry carries its reading, its romaji, its JLPT level and meanings in English, French, German, Spanish and Korean.',
       },
       {
         h: 'N5 free, every level with Pro',

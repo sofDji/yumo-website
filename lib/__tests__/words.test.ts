@@ -1,4 +1,5 @@
 import { describe, expect, it } from 'vitest';
+import { LOCALES } from '../i18n/locales';
 import { LEVELS } from '../tokens';
 import { WORDS, wordsByLevel } from '../words';
 
@@ -17,30 +18,31 @@ describe('generated words', () => {
     for (const w of WORDS) {
       expect(w.kanji.length).toBeLessThanOrEqual(3);
       expect(w.kanji).not.toBe(w.kana);
-      for (const locale of ['en', 'fr'] as const) {
+      for (const locale of LOCALES) {
         expect(w.meaning[locale].length).toBeLessThan(40);
         expect(w.meaning[locale]).not.toContain(';');
       }
     }
   });
 
-  it('has every field populated, including both meanings', () => {
+  it('has every field populated, including every meaning', () => {
     for (const w of WORDS) {
       expect(w.kanji).toBeTruthy();
       expect(w.kana).toBeTruthy();
       expect(w.romaji).toBeTruthy();
-      expect(w.meaning.en).toBeTruthy();
-      expect(w.meaning.fr).toBeTruthy();
+      for (const locale of LOCALES) expect(w.meaning[locale], locale).toBeTruthy();
     }
   });
 
-  // A French card showing the English gloss is the failure this bilingual
+  // A French card showing the English gloss is the failure this multilingual
   // pipeline exists to prevent. A handful of entries legitimately match —
   // religion, digestion, oral are cognates — so the check is a threshold
   // rather than zero. A wholesale copy of en into fr would sit near 100%.
-  it('does not reuse the English glosses as the French ones', () => {
-    const identical = WORDS.filter((w) => w.meaning.en === w.meaning.fr);
-    expect(identical.length / WORDS.length).toBeLessThan(0.1);
+  it('does not reuse the English glosses for another locale', () => {
+    for (const locale of LOCALES.filter((l) => l !== 'en')) {
+      const identical = WORDS.filter((w) => w.meaning.en === w.meaning[locale]);
+      expect(identical.length / WORDS.length, locale).toBeLessThan(0.1);
+    }
   });
 
   it('keeps words unsuitable for a marketing page out of the display pool', () => {

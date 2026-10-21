@@ -1,4 +1,5 @@
-// Renders the Open Graph cards to public/og.png and public/og-fr.png.
+// Renders the Open Graph cards to public/og.png, og-fr.png, og-de.png,
+// og-es.png, og-ko.png and og-n5.png.
 //
 //   npm run build:og      (needs no dev server — the HTML is self-contained)
 //
@@ -43,6 +44,27 @@ const CARDS = [
     sub: 'Un nouveau mot toutes les heures<br>7 972 mots &middot; hors ligne',
   },
   {
+    out: 'public/og-de.png',
+    lang: 'de',
+    headline: 'Japanisch auf<br>deinem Sperrbildschirm',
+    sub: 'Alle paar Stunden ein neues Wort<br>7.972 W&ouml;rter &middot; komplett offline',
+  },
+  {
+    out: 'public/og-es.png',
+    lang: 'es',
+    headline: 'Japon&eacute;s en tu<br>pantalla de bloqueo',
+    sub: 'Una palabra nueva cada pocas horas<br>7972 palabras &middot; sin conexi&oacute;n',
+  },
+  {
+    // Schibsted Grotesk has no Hangul, so these lines fall through to the
+    // system's Korean face — Malgun Gothic on Windows, Apple SD Gothic Neo on
+    // a Mac. word-break: keep-all stops a line breaking mid-word.
+    out: 'public/og-ko.png',
+    lang: 'ko',
+    headline: '잠금 화면에서<br>만나는 일본어',
+    sub: '몇 시간마다 새로운 단어<br>7,972개 단어 &middot; 완전한 오프라인',
+  },
+  {
     // For /jlpt/n5. The count must match N5_WORDS.length in lib/jlpt/n5.ts —
     // the page title quotes the same number.
     out: 'public/og-n5.png',
@@ -66,7 +88,7 @@ const html = (card) => `<!doctype html>
   .blob{position:absolute;border-radius:50%}
   .tl{width:760px;height:760px;background:${T.mint};top:-430px;left:-300px}
   .br{width:820px;height:820px;background:${T.haze};bottom:-470px;right:-320px}
-  .safe{width:${SAFE}px;text-align:center;position:relative;z-index:1}
+  .safe{width:${SAFE}px;text-align:center;position:relative;z-index:1;word-break:keep-all}
   .mark{font-size:22px;font-weight:700;letter-spacing:.34em;color:${T.accent};
         text-indent:.34em;margin-bottom:30px}
   h1{font-size:66px;font-weight:700;line-height:1.1;color:${T.ink};

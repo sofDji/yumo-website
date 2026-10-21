@@ -1,8 +1,9 @@
 import { describe, expect, it } from 'vitest';
 import { en } from '../i18n/en';
-import { fr } from '../i18n/fr';
-import { fill } from '../i18n';
-import { localePath } from '../i18n/locales';
+import { fill, getDictionary } from '../i18n';
+import { LOCALES, localePath } from '../i18n/locales';
+
+const TRANSLATIONS = LOCALES.filter((l) => l !== 'en').map((l) => [l, getDictionary(l)] as const);
 
 // Walks both dictionaries and collects every leaf path, so a key that exists
 // in one and not the other is caught even though TypeScript already forbids
@@ -24,26 +25,26 @@ function leaves(node: unknown, prefix = ''): [string, string][] {
   return [[prefix, String(node)]];
 }
 
-describe('dictionaries', () => {
-  it('have exactly the same shape', () => {
-    expect(paths(fr)).toEqual(paths(en));
+describe.each(TRANSLATIONS)('%s dictionary', (_, dict) => {
+  it('has exactly the shape of English', () => {
+    expect(paths(dict)).toEqual(paths(en));
   });
 
-  it('leave no placeholder unfilled between locales', () => {
+  it('leaves no placeholder unfilled', () => {
     const enTokens = leaves(en).map(([p, v]) => [p, (v.match(/\{\w+\}/g) ?? []).sort()] as const);
-    const frMap = new Map(leaves(fr));
+    const map = new Map(leaves(dict));
     for (const [path, tokens] of enTokens) {
-      const frTokens = (frMap.get(path)?.match(/\{\w+\}/g) ?? []).sort();
-      expect(frTokens, `placeholders differ at ${path}`).toEqual(tokens);
+      const ownTokens = (map.get(path)?.match(/\{\w+\}/g) ?? []).sort();
+      expect(ownTokens, `placeholders differ at ${path}`).toEqual(tokens);
     }
   });
 
   it('actually translates the strings that carry meaning', () => {
     // Proper nouns and short labels legitimately match across locales; long
-    // prose that is byte-identical means someone copied English into fr.ts.
-    const frMap = new Map(leaves(fr));
+    // prose that is byte-identical means someone copied English across.
+    const map = new Map(leaves(dict));
     const untranslated = leaves(en)
-      .filter(([p, v]) => v.length > 40 && frMap.get(p) === v)
+      .filter(([p, v]) => v.length > 40 && map.get(p) === v)
       .map(([p]) => p);
     expect(untranslated).toEqual([]);
   });
@@ -55,9 +56,11 @@ describe('localePath', () => {
     expect(localePath('en', 'support')).toBe('/support');
   });
 
-  it('prefixes French', () => {
+  it('prefixes every other locale with its code', () => {
     expect(localePath('fr')).toBe('/fr');
     expect(localePath('fr', 'support')).toBe('/fr/support');
+    expect(localePath('ko')).toBe('/ko');
+    expect(localePath('de', 'support')).toBe('/de/support');
   });
 
   it('tolerates slashes on either end', () => {

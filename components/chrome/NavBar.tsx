@@ -5,13 +5,13 @@ import { AppleLogo } from '@/components/ui/AppleLogo';
 import { Logo } from '@/components/ui/Logo';
 import { Pill } from '@/components/ui/Pill';
 import { localePath, type Dictionary, type Locale } from '@/lib/i18n';
-import { LOCALE_LABEL, LOCALES } from '@/lib/i18n/locales';
 import { APP_STORE_URL, PLAY_STORE_URL, storeState, type StoreState } from '@/lib/site';
+import { LanguageMenu } from './LanguageMenu';
 
 export function NavBar({
   locale,
   t,
-  /** Path within the locale, so the switch lands on the counterpart page
+  /** Path within the locale, so the language menu lands on the counterpart page
    *  rather than dumping the reader back on the home page. */
   path = '',
 }: {
@@ -19,7 +19,6 @@ export function NavBar({
   t: Dictionary['nav'];
   path?: string;
 }) {
-  const other = LOCALES.find((l) => l !== locale) as Locale;
   const state = storeState();
   // Where the nav's store button goes. With one store it goes straight to that
   // listing and names the platform, so an Android visitor is never sent after
@@ -59,14 +58,7 @@ export function NavBar({
         </ul>
 
         <span className="ml-auto flex items-center gap-2 pr-1">
-          <Link
-            href={localePath(other, path)}
-            hrefLang={other}
-            aria-label={t.switchTo}
-            className="rounded-full border border-line px-2.5 py-1 text-xs font-semibold tracking-wide text-muted transition-colors duration-200 hover:border-accent/40 hover:text-accent"
-          >
-            {LOCALE_LABEL[other]}
-          </Link>
+          <LanguageMenu locale={locale} path={path} label={t.language} />
           {state === 'coming-soon' ? (
             <Pill tone="accent">{t.comingSoon}</Pill>
           ) : (

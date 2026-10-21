@@ -1,7 +1,7 @@
 import { describe, expect, it } from 'vitest';
 import { existsSync, readFileSync } from 'node:fs';
-import { en } from '../i18n/en';
-import { fr } from '../i18n/fr';
+import { getDictionary } from '../i18n';
+import { LOCALES, LOCALE_TAG } from '../i18n/locales';
 import robots from '../../app/robots';
 import sitemap from '../../app/sitemap';
 import { N5_WORDS } from '../jlpt/n5';
@@ -57,7 +57,21 @@ describe('site URL', () => {
 describe('routes', () => {
   it('covers every page the site builds', () => {
     expect(ROUTES.map((r) => r.path).sort()).toEqual(
-      ['', '/fr', '/fr/support', '/jlpt/n5', '/privacy', '/support', '/terms'].sort(),
+      [
+        '',
+        '/fr',
+        '/de',
+        '/es',
+        '/ko',
+        '/support',
+        '/fr/support',
+        '/de/support',
+        '/es/support',
+        '/ko/support',
+        '/jlpt/n5',
+        '/privacy',
+        '/terms',
+      ].sort(),
     );
   });
 
@@ -116,7 +130,9 @@ describe('sitemap', () => {
 });
 
 describe('home JSON-LD', () => {
-  const graphs = { en: homeGraph('en', en), fr: homeGraph('fr', fr) };
+  const graphs = Object.fromEntries(
+    LOCALES.map((l) => [l, homeGraph(l, getDictionary(l))]),
+  ) as Record<(typeof LOCALES)[number], ReturnType<typeof homeGraph>>;
 
   it('declares the four entity types answer engines read', () => {
     for (const graph of Object.values(graphs)) {
@@ -166,7 +182,7 @@ describe('home JSON-LD', () => {
     for (const [locale, graph] of Object.entries(graphs)) {
       const faq = ofType(graph, 'FAQPage');
       const questions = faq.mainEntity as Node[];
-      const dict = locale === 'fr' ? fr : en;
+      const dict = getDictionary(locale as (typeof LOCALES)[number]);
       expect(questions).toHaveLength(dict.faq.items.length);
 
       for (const q of questions) {
@@ -185,13 +201,14 @@ describe('home JSON-LD', () => {
   it('opens the FAQ by saying what Yumo is, with the real figures', () => {
     // The definition answer engines lift. Its numbers come from the same
     // constants the pricing card renders, so the two cannot disagree.
-    const formats = { en: 'en-US', fr: 'fr-FR' } as const;
-    for (const [locale, graph] of Object.entries(graphs) as [keyof typeof formats, Graph][]) {
+    for (const [locale, graph] of Object.entries(graphs) as [keyof typeof LOCALE_TAG, Graph][]) {
       const first = (ofType(graph, 'FAQPage').mainEntity as Node[])[0];
       const text = (first.acceptedAnswer as Node).text as string;
-      expect(text.startsWith('Yumo ')).toBe(true);
+      // "Yumo is", "Yumo est", "Yumo는" — the product named first, whatever
+      // the grammar attaches to it.
+      expect(text.startsWith('Yumo')).toBe(true);
       expect(text).toContain(PRO_PRICE_LABEL);
-      expect(text).toContain(new Intl.NumberFormat(formats[locale]).format(TOTAL_WORDS));
+      expect(text).toContain(new Intl.NumberFormat(LOCALE_TAG[locale]).format(TOTAL_WORDS));
     }
   });
 
@@ -301,16 +318,16 @@ describe('Smart App Banner', () => {
 });
 
 describe('Android FAQ answer', () => {
-  function androidAnswer(locale: 'en' | 'fr') {
-    const dict = locale === 'fr' ? fr : en;
+  function androidAnswer(locale: (typeof LOCALES)[number]) {
+    const dict = getDictionary(locale);
     return faqItems(locale, dict.faq).find((item) => item.q.includes('Android'))!.a;
   }
 
   it('says Android is still to come until Play lists the app, and stops saying it after', () => {
     // "Does it work on Android? Yes" with no Play listing sends Android
     // visitors to search for an app they cannot find.
-    for (const locale of ['en', 'fr'] as const) {
-      const soon = (locale === 'fr' ? fr : en).faq.playSoon;
+    for (const locale of LOCALES) {
+      const soon = getDictionary(locale).faq.playSoon;
       expect(androidAnswer(locale).includes(soon)).toBe(PLAY_STORE_URL === '');
       expect(androidAnswer(locale)).toBe(androidAnswer(locale).trim());
     }
@@ -320,7 +337,7 @@ describe('Android FAQ answer', () => {
 describe('home page titles', () => {
   it('fit a search result without truncating', () => {
     // Google cuts titles at roughly 600px, which is about 60 characters.
-    for (const dict of [en, fr]) {
+    for (const dict of LOCALES.map(getDictionary)) {
       expect([...dict.meta.title].length, dict.meta.title).toBeLessThanOrEqual(60);
     }
   });

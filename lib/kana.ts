@@ -1,7 +1,7 @@
 // The kana chart the Kana section draws. Mirrors the app's src/lib/kana.ts:
 // written once in hiragana, with katakana as the same chart shifted by code
 // point, so the two scripts on the page cannot disagree.
-import type { Locale } from './i18n/locales';
+import { numberFormat, type Locale } from './i18n/locales';
 
 export interface KanaCell {
   kana: string;
@@ -36,7 +36,7 @@ export const BASIC_ROWS: (KanaCell | null)[][] = [
 export const KANA_COUNTS = { basic: 46, dakuten: 25, combo: 33 } as const;
 
 export function kanaCounts(locale: Locale): Record<keyof typeof KANA_COUNTS, string> {
-  const nf = new Intl.NumberFormat(locale === 'fr' ? 'fr-FR' : 'en-US');
+  const nf = numberFormat(locale);
   return {
     basic: nf.format(KANA_COUNTS.basic),
     dakuten: nf.format(KANA_COUNTS.dakuten),

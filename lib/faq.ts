@@ -9,15 +9,20 @@
 // what stops a raw "{price}" reaching either one, where it would be a visible
 // bug in the first and misleading markup in the second.
 
-import { fill, type Dictionary, type Locale } from './i18n';
+import { fill, numberFormat, type Dictionary, type Locale } from './i18n';
 import { PLAY_STORE_URL, PRO_PRICE_LABEL } from './site';
 import { TOTAL_WORDS } from './tokens';
 
-export function faqItems(locale: Locale, t: Dictionary['faq']): Dictionary['faq']['items'] {
-  const nf = new Intl.NumberFormat(locale === 'fr' ? 'fr-FR' : 'en-US');
+export function faqItems(
+  locale: Locale,
+  t: Dictionary['faq'],
+  /** What fills {price}. The page passes '{price}' through to localise it later. */
+  price: string = PRO_PRICE_LABEL,
+): Dictionary['faq']['items'] {
+  const nf = numberFormat(locale);
   const values = {
     total: nf.format(TOTAL_WORDS),
-    price: PRO_PRICE_LABEL,
+    price,
     playSoon: PLAY_STORE_URL === '' ? t.playSoon : '',
   };
   // Trimmed, because an emptied trailing placeholder leaves its space behind.

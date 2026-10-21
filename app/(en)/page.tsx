@@ -3,6 +3,7 @@ import { JsonLd } from '@/components/seo/JsonLd';
 import { Landing } from '@/components/Landing';
 import { getDictionary } from '@/lib/i18n';
 import { shareMetadata } from '@/lib/metadata';
+import { hreflang } from '@/lib/routes';
 import { homeGraph } from '@/lib/schema';
 
 const t = getDictionary('en');
@@ -12,7 +13,7 @@ export const metadata: Metadata = {
   description: t.meta.description,
   alternates: {
     canonical: '/',
-    languages: { en: '/', fr: '/fr', 'x-default': '/' },
+    languages: hreflang(''),
   },
   ...shareMetadata({
     locale: 'en',

@@ -5,13 +5,58 @@ import type { SiteWord } from './select-words';
 
 export const WORDS: SiteWord[] = [
   {
+    "id": 3,
+    "kanji": "青",
+    "kana": "あお",
+    "romaji": "ao",
+    "meaning": {
+      "en": "blue (noun)",
+      "fr": "bleu (nom)",
+      "de": "Blau",
+      "es": "azul (sustantivo)",
+      "ko": "파랑 (명사)"
+    },
+    "level": "n5"
+  },
+  {
+    "id": 4,
+    "kanji": "青い",
+    "kana": "あおい",
+    "romaji": "aoi",
+    "meaning": {
+      "en": "blue (adjective)",
+      "fr": "bleu (adjectif)",
+      "de": "blau",
+      "es": "azul (adjetivo)",
+      "ko": "파랗다 (형용사)"
+    },
+    "level": "n5"
+  },
+  {
+    "id": 5,
+    "kanji": "赤",
+    "kana": "あか",
+    "romaji": "aka",
+    "meaning": {
+      "en": "red (noun)",
+      "fr": "rouge (nom)",
+      "de": "Rot",
+      "es": "rojo (sustantivo)",
+      "ko": "빨강 (명사)"
+    },
+    "level": "n5"
+  },
+  {
     "id": 6,
     "kanji": "赤い",
     "kana": "あかい",
     "romaji": "akai",
     "meaning": {
       "en": "red (adjective)",
-      "fr": "rouge"
+      "fr": "rouge (adjectif)",
+      "de": "rot",
+      "es": "rojo (adjetivo)",
+      "ko": "빨갛다 (형용사)"
     },
     "level": "n5"
   },
@@ -22,7 +67,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "aki",
     "meaning": {
       "en": "fall (season)",
-      "fr": "automne"
+      "fr": "automne",
+      "de": "Herbst",
+      "es": "otoño",
+      "ko": "가을"
+    },
+    "level": "n5"
+  },
+  {
+    "id": 12,
+    "kanji": "朝",
+    "kana": "あさ",
+    "romaji": "asa",
+    "meaning": {
+      "en": "morning",
+      "fr": "matin",
+      "de": "Morgen",
+      "es": "mañana (parte del día)",
+      "ko": "아침"
     },
     "level": "n5"
   },
@@ -33,7 +95,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "asagohan",
     "meaning": {
       "en": "breakfast",
-      "fr": "petit déjeuner"
+      "fr": "petit-déjeuner",
+      "de": "Frühstück",
+      "es": "desayuno",
+      "ko": "아침밥"
     },
     "level": "n5"
   },
@@ -44,7 +109,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "asatte",
     "meaning": {
       "en": "day after tomorrow",
-      "fr": "après-demain"
+      "fr": "après-demain",
+      "de": "übermorgen",
+      "es": "pasado mañana",
+      "ko": "모레"
     },
     "level": "n5"
   },
@@ -55,18 +123,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "ashita",
     "meaning": {
       "en": "tomorrow",
-      "fr": "demain"
-    },
-    "level": "n5"
-  },
-  {
-    "id": 19,
-    "kanji": "暖かい",
-    "kana": "あたたかい",
-    "romaji": "atatakai",
-    "meaning": {
-      "en": "warm",
-      "fr": "chaud"
+      "fr": "demain",
+      "de": "morgen",
+      "es": "mañana (día siguiente)",
+      "ko": "내일"
     },
     "level": "n5"
   },
@@ -77,7 +137,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "atama",
     "meaning": {
       "en": "head",
-      "fr": "tête"
+      "fr": "tête",
+      "de": "Kopf",
+      "es": "cabeza",
+      "ko": "머리"
+    },
+    "level": "n5"
+  },
+  {
+    "id": 23,
+    "kanji": "暑い",
+    "kana": "あつい",
+    "romaji": "atsui",
+    "meaning": {
+      "en": "hot (in reference to weather), warm",
+      "fr": "chaud (temps)",
+      "de": "heiß (Wetter)",
+      "es": "caluroso (tiempo)",
+      "ko": "덥다 (날씨)"
     },
     "level": "n5"
   },
@@ -88,29 +165,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "atsui",
     "meaning": {
       "en": "hot (objects)",
-      "fr": "chaud (objet)"
+      "fr": "chaud, brûlant (objets)",
+      "de": "heiß (Gegenstände)",
+      "es": "caliente (objetos)",
+      "ko": "뜨겁다 (물체)"
     },
     "level": "n5"
   },
   {
-    "id": 29,
-    "kanji": "兄",
-    "kana": "あに",
-    "romaji": "ani",
+    "id": 34,
+    "kanji": "危ない",
+    "kana": "あぶない",
+    "romaji": "abunai",
     "meaning": {
-      "en": "(my) older brother (humble)",
-      "fr": "frère ainé"
-    },
-    "level": "n5"
-  },
-  {
-    "id": 30,
-    "kanji": "姉",
-    "kana": "あね",
-    "romaji": "ane",
-    "meaning": {
-      "en": "(my) older sister (humble)",
-      "fr": "sœur aînée"
+      "en": "dangerous, critical",
+      "fr": "dangereux",
+      "de": "gefährlich",
+      "es": "peligroso",
+      "ko": "위험하다"
     },
     "level": "n5"
   },
@@ -121,29 +193,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "ame",
     "meaning": {
       "en": "rain",
-      "fr": "pluie"
+      "fr": "pluie",
+      "de": "Regen",
+      "es": "lluvia",
+      "ko": "비"
     },
     "level": "n5"
   },
   {
-    "id": 39,
-    "kanji": "洗う",
-    "kana": "あらう",
-    "romaji": "arau",
+    "id": 38,
+    "kanji": "飴",
+    "kana": "あめ",
+    "romaji": "ame",
     "meaning": {
-      "en": "to wash",
-      "fr": "laver"
-    },
-    "level": "n5"
-  },
-  {
-    "id": 42,
-    "kanji": "歩く",
-    "kana": "あるく",
-    "romaji": "aruku",
-    "meaning": {
-      "en": "to walk",
-      "fr": "marcher"
+      "en": "(hard) candy",
+      "fr": "bonbon",
+      "de": "Bonbon",
+      "es": "caramelo",
+      "ko": "사탕"
     },
     "level": "n5"
   },
@@ -154,18 +221,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "iu",
     "meaning": {
       "en": "to say",
-      "fr": "dire"
+      "fr": "dire",
+      "de": "sagen",
+      "es": "decir",
+      "ko": "말하다"
     },
     "level": "n5"
   },
   {
-    "id": 47,
-    "kanji": "家",
-    "kana": "いえ",
-    "romaji": "ie",
+    "id": 52,
+    "kanji": "池",
+    "kana": "いけ",
+    "romaji": "ike",
     "meaning": {
-      "en": "house, home",
-      "fr": "maison"
+      "en": "pond",
+      "fr": "étang",
+      "de": "Teich",
+      "es": "estanque",
+      "ko": "연못"
     },
     "level": "n5"
   },
@@ -176,7 +249,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "isu",
     "meaning": {
       "en": "chair",
-      "fr": "chaise"
+      "fr": "chaise",
+      "de": "Stuhl",
+      "es": "silla",
+      "ko": "의자"
     },
     "level": "n5"
   },
@@ -187,29 +263,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "isogashii",
     "meaning": {
       "en": "busy (people, days)",
-      "fr": "être occupé"
+      "fr": "occupé (personnes, journées)",
+      "de": "beschäftigt (Personen, Tage)",
+      "es": "ocupado (personas, días)",
+      "ko": "바쁘다"
     },
     "level": "n5"
   },
   {
-    "id": 57,
-    "kanji": "一",
-    "kana": "いち",
-    "romaji": "ichi",
+    "id": 58,
+    "kanji": "一日",
+    "kana": "いちにち",
+    "romaji": "ichinichi",
     "meaning": {
-      "en": "one",
-      "fr": "un"
-    },
-    "level": "n5"
-  },
-  {
-    "id": 62,
-    "kanji": "一緒",
-    "kana": "いっしょ",
-    "romaji": "issho",
-    "meaning": {
-      "en": "together",
-      "fr": "ensemble"
+      "en": "one day (duration)",
+      "fr": "une journée (durée)",
+      "de": "ein Tag (Dauer)",
+      "es": "un día (duración)",
+      "ko": "하루"
     },
     "level": "n5"
   },
@@ -220,7 +291,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "itsutsu",
     "meaning": {
       "en": "five things",
-      "fr": "cinq"
+      "fr": "cinq (objets)",
+      "de": "fünf (Dinge)",
+      "es": "cinco (cosas)",
+      "ko": "다섯 개"
     },
     "level": "n5"
   },
@@ -231,7 +305,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "inu",
     "meaning": {
       "en": "dog",
-      "fr": "chien"
+      "fr": "chien",
+      "de": "Hund",
+      "es": "perro",
+      "ko": "개"
+    },
+    "level": "n5"
+  },
+  {
+    "id": 66,
+    "kanji": "今",
+    "kana": "いま",
+    "romaji": "ima",
+    "meaning": {
+      "en": "now",
+      "fr": "maintenant",
+      "de": "jetzt",
+      "es": "ahora",
+      "ko": "지금"
     },
     "level": "n5"
   },
@@ -242,31 +333,40 @@ export const WORDS: SiteWord[] = [
     "romaji": "imouto",
     "meaning": {
       "en": "younger sister (humble)",
-      "fr": "(ma) sœur cadette"
+      "fr": "(ma) petite sœur",
+      "de": "(meine) jüngere Schwester",
+      "es": "(mi) hermana menor",
+      "ko": "여동생 (자기 가족)"
     },
     "level": "n5"
   },
   {
-    "id": 72,
-    "kanji": "要る",
-    "kana": "いる",
-    "romaji": "iru",
+    "id": 719,
+    "kanji": "踏む",
+    "kana": "ふむ",
+    "romaji": "fumu",
     "meaning": {
-      "en": "to need",
-      "fr": "avoir besoin"
+      "en": "to step on, to tread on",
+      "fr": "marcher sur",
+      "de": "treten auf",
+      "es": "pisar",
+      "ko": "밟다"
     },
-    "level": "n5"
+    "level": "n4"
   },
   {
-    "id": 80,
-    "kanji": "歌う",
-    "kana": "うたう",
-    "romaji": "utau",
+    "id": 728,
+    "kanji": "生きる",
+    "kana": "いきる",
+    "romaji": "ikiru",
     "meaning": {
-      "en": "to sing",
-      "fr": "chanter"
+      "en": "to live",
+      "fr": "vivre",
+      "de": "leben",
+      "es": "vivir",
+      "ko": "살다"
     },
-    "level": "n5"
+    "level": "n4"
   },
   {
     "id": 729,
@@ -275,7 +375,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "nigai",
     "meaning": {
       "en": "bitter",
-      "fr": "amer"
+      "fr": "amer",
+      "de": "bitter",
+      "es": "amargo",
+      "ko": "쓰다 (맛이)"
     },
     "level": "n4"
   },
@@ -286,7 +389,38 @@ export const WORDS: SiteWord[] = [
     "romaji": "igaku",
     "meaning": {
       "en": "medical science",
-      "fr": "médecine"
+      "fr": "médecine (science)",
+      "de": "Medizin (Wissenschaft)",
+      "es": "medicina (ciencia)",
+      "ko": "의학"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 746,
+    "kanji": "床屋",
+    "kana": "とこや",
+    "romaji": "tokoya",
+    "meaning": {
+      "en": "barber's (shop)",
+      "fr": "coiffeur (pour hommes)",
+      "de": "Friseur (für Herren)",
+      "es": "barbería",
+      "ko": "이발소"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 748,
+    "kanji": "運動",
+    "kana": "うんどうする",
+    "romaji": "undousuru",
+    "meaning": {
+      "en": "exercise",
+      "fr": "exercice physique (faire du sport)",
+      "de": "Bewegung (Sport treiben)",
+      "es": "ejercicio (hacer ejercicio)",
+      "ko": "운동 (하다)"
     },
     "level": "n4"
   },
@@ -297,7 +431,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "daigakusei",
     "meaning": {
       "en": "college student, university student",
-      "fr": "étudiant (université)"
+      "fr": "étudiant (à l'université)",
+      "de": "Student (Universität)",
+      "es": "estudiante universitario",
+      "ko": "대학생"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 753,
+    "kanji": "運転手",
+    "kana": "うんてんしゅ",
+    "romaji": "untenshu",
+    "meaning": {
+      "en": "driver (by occupation)",
+      "fr": "chauffeur (métier)",
+      "de": "Fahrer (Beruf)",
+      "es": "conductor (oficio)",
+      "ko": "운전기사"
     },
     "level": "n4"
   },
@@ -308,7 +459,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "yoshuu",
     "meaning": {
       "en": "preparation of lessons (for class)",
-      "fr": "préparation pour un cours"
+      "fr": "préparation des leçons",
+      "de": "Vorbereitung (auf den Unterricht)",
+      "es": "preparación de las clases",
+      "ko": "예습"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 755,
+    "kanji": "心配",
+    "kana": "しんぱいする",
+    "romaji": "shinpaisuru",
+    "meaning": {
+      "en": "worry, concern",
+      "fr": "inquiétude (s'inquiéter)",
+      "de": "Sorge (sich Sorgen machen)",
+      "es": "preocupación (preocuparse)",
+      "ko": "걱정 (하다)"
     },
     "level": "n4"
   },
@@ -319,18 +487,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "kuraberu",
     "meaning": {
       "en": "to compare",
-      "fr": "comparer"
-    },
-    "level": "n4"
-  },
-  {
-    "id": 766,
-    "kanji": "郊外",
-    "kana": "こうがい",
-    "romaji": "kougai",
-    "meaning": {
-      "en": "suburb, outskirts",
-      "fr": "banlieue"
+      "fr": "comparer",
+      "de": "vergleichen",
+      "es": "comparar",
+      "ko": "비교하다"
     },
     "level": "n4"
   },
@@ -341,18 +501,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "uriba",
     "meaning": {
       "en": "place where things are sold",
-      "fr": "lieu de vente"
-    },
-    "level": "n4"
-  },
-  {
-    "id": 769,
-    "kanji": "正月",
-    "kana": "しょうがつ",
-    "romaji": "shougatsu",
-    "meaning": {
-      "en": "New Year, New Year's Day",
-      "fr": "le Nouvel An"
+      "fr": "rayon (de magasin)",
+      "de": "Verkaufsabteilung",
+      "es": "sección (de una tienda)",
+      "ko": "매장"
     },
     "level": "n4"
   },
@@ -363,29 +515,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "hatsuon",
     "meaning": {
       "en": "pronunciation",
-      "fr": "prononciation"
-    },
-    "level": "n4"
-  },
-  {
-    "id": 782,
-    "kanji": "建てる",
-    "kana": "たてる",
-    "romaji": "tateru",
-    "meaning": {
-      "en": "to build",
-      "fr": "construire"
-    },
-    "level": "n4"
-  },
-  {
-    "id": 786,
-    "kanji": "布団",
-    "kana": "ふとん",
-    "romaji": "futon",
-    "meaning": {
-      "en": "futon",
-      "fr": "futon (sorte de matelas japonais)"
+      "fr": "prononciation",
+      "de": "Aussprache",
+      "es": "pronunciación",
+      "ko": "발음"
     },
     "level": "n4"
   },
@@ -396,18 +529,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "taifuu",
     "meaning": {
       "en": "typhoon",
-      "fr": "typhon"
-    },
-    "level": "n4"
-  },
-  {
-    "id": 796,
-    "kanji": "通る",
-    "kana": "とおる",
-    "romaji": "tooru",
-    "meaning": {
-      "en": "to pass (by), to go through",
-      "fr": "passer à travers"
+      "fr": "typhon",
+      "de": "Taifun",
+      "es": "tifón",
+      "ko": "태풍"
     },
     "level": "n4"
   },
@@ -418,18 +543,66 @@ export const WORDS: SiteWord[] = [
     "romaji": "ha",
     "meaning": {
       "en": "leaf",
-      "fr": "feuille"
+      "fr": "feuille (de plante)",
+      "de": "Blatt",
+      "es": "hoja (de planta)",
+      "ko": "잎"
     },
     "level": "n4"
   },
   {
-    "id": 811,
-    "kanji": "絹",
-    "kana": "きぬ",
-    "romaji": "kinu",
+    "id": 801,
+    "kanji": "課長",
+    "kana": "かちょう",
+    "romaji": "kachou",
     "meaning": {
-      "en": "silk",
-      "fr": "soie"
+      "en": "section manager",
+      "fr": "chef de service",
+      "de": "Abteilungsleiter",
+      "es": "jefe de sección",
+      "ko": "과장"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 802,
+    "kanji": "地震",
+    "kana": "じしん",
+    "romaji": "jishin",
+    "meaning": {
+      "en": "earthquake",
+      "fr": "tremblement de terre",
+      "de": "Erdbeben",
+      "es": "terremoto",
+      "ko": "지진"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 809,
+    "kanji": "人口",
+    "kana": "じんこう",
+    "romaji": "jinkou",
+    "meaning": {
+      "en": "population",
+      "fr": "population",
+      "de": "Bevölkerung",
+      "es": "población",
+      "ko": "인구"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 810,
+    "kanji": "月",
+    "kana": "つき",
+    "romaji": "tsuki",
+    "meaning": {
+      "en": "moon",
+      "fr": "lune",
+      "de": "Mond",
+      "es": "luna",
+      "ko": "달"
     },
     "level": "n4"
   },
@@ -440,7 +613,38 @@ export const WORDS: SiteWord[] = [
     "romaji": "fukai",
     "meaning": {
       "en": "deep, profound",
-      "fr": "profond"
+      "fr": "profond",
+      "de": "tief",
+      "es": "profundo",
+      "ko": "깊다"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 818,
+    "kanji": "悲しい",
+    "kana": "かなしい",
+    "romaji": "kanashii",
+    "meaning": {
+      "en": "sad, sorrowful",
+      "fr": "triste",
+      "de": "traurig",
+      "es": "triste",
+      "ko": "슬프다"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 819,
+    "kanji": "中学校",
+    "kana": "ちゅうがっこう",
+    "romaji": "chuugakkou",
+    "meaning": {
+      "en": "junior high school pupil",
+      "fr": "collège",
+      "de": "Mittelschule",
+      "es": "escuela secundaria",
+      "ko": "중학교"
     },
     "level": "n4"
   },
@@ -450,98 +654,27 @@ export const WORDS: SiteWord[] = [
     "kana": "いたす",
     "romaji": "itasu",
     "meaning": {
-      "en": "-- extra-modest expression for する --",
-      "fr": "faire"
+      "en": "to do (humble form of する)",
+      "fr": "faire (très humble)",
+      "de": "tun (sehr bescheiden)",
+      "es": "hacer (muy humilde)",
+      "ko": "하다 (겸양어)"
     },
     "level": "n4"
   },
   {
-    "id": 831,
-    "kanji": "親",
-    "kana": "おや",
-    "romaji": "oya",
+    "id": 829,
+    "kanji": "嘘",
+    "kana": "うそ",
+    "romaji": "uso",
     "meaning": {
-      "en": "a parent",
-      "fr": "parents"
+      "en": "lie",
+      "fr": "mensonge",
+      "de": "Lüge",
+      "es": "mentira",
+      "ko": "거짓말"
     },
     "level": "n4"
-  },
-  {
-    "id": 847,
-    "kanji": "季節",
-    "kana": "きせつ",
-    "romaji": "kisetsu",
-    "meaning": {
-      "en": "season (in reference to weather)",
-      "fr": "saison"
-    },
-    "level": "n4"
-  },
-  {
-    "id": 854,
-    "kanji": "畳",
-    "kana": "たたみ",
-    "romaji": "tatami",
-    "meaning": {
-      "en": "tatami mat (Japanese straw mat)",
-      "fr": "tatami"
-    },
-    "level": "n4"
-  },
-  {
-    "id": 856,
-    "kanji": "地理",
-    "kana": "ちり",
-    "romaji": "chiri",
-    "meaning": {
-      "en": "geography",
-      "fr": "géographie"
-    },
-    "level": "n4"
-  },
-  {
-    "id": 868,
-    "kanji": "止める",
-    "kana": "とめる",
-    "romaji": "tomeru",
-    "meaning": {
-      "en": "to stop (something)",
-      "fr": "arrêter (qqchose)"
-    },
-    "level": "n4"
-  },
-  {
-    "id": 882,
-    "kanji": "星",
-    "kana": "ほし",
-    "romaji": "hoshi",
-    "meaning": {
-      "en": "star",
-      "fr": "étoile"
-    },
-    "level": "n4"
-  },
-  {
-    "id": 892,
-    "kanji": "再来月",
-    "kana": "さらいげつ",
-    "romaji": "saraigetsu",
-    "meaning": {
-      "en": "the month after next",
-      "fr": "dans deux mois"
-    },
-    "level": "n4"
-  },
-  {
-    "id": 1392,
-    "kanji": "覚める",
-    "kana": "さめる",
-    "romaji": "sameru",
-    "meaning": {
-      "en": "to wake, to wake up",
-      "fr": "se réveiller"
-    },
-    "level": "n3"
   },
   {
     "id": 1397,
@@ -550,18 +683,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "saru",
     "meaning": {
       "en": "monkey",
-      "fr": "singe"
+      "fr": "singe",
+      "de": "Affe",
+      "es": "mono",
+      "ko": "원숭이"
     },
     "level": "n3"
   },
   {
-    "id": 1402,
-    "kanji": "酸性",
-    "kana": "さんせい",
-    "romaji": "sansei",
+    "id": 1399,
+    "kanji": "参加",
+    "kana": "さんか",
+    "romaji": "sanka",
     "meaning": {
-      "en": "acidity",
-      "fr": "acidité"
+      "en": "participation",
+      "fr": "participation",
+      "de": "Teilnahme",
+      "es": "participación",
+      "ko": "참가"
     },
     "level": "n3"
   },
@@ -572,18 +711,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "sanso",
     "meaning": {
       "en": "oxygen",
-      "fr": "oxygène"
-    },
-    "level": "n3"
-  },
-  {
-    "id": 1409,
-    "kanji": "四角",
-    "kana": "しかく",
-    "romaji": "shikaku",
-    "meaning": {
-      "en": "square (noun)",
-      "fr": "carré"
+      "fr": "oxygène",
+      "de": "Sauerstoff",
+      "es": "oxígeno",
+      "ko": "산소"
     },
     "level": "n3"
   },
@@ -594,29 +725,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "shiki",
     "meaning": {
       "en": "four seasons",
-      "fr": "les quatre saisons"
+      "fr": "les quatre saisons",
+      "de": "die vier Jahreszeiten",
+      "es": "las cuatro estaciones",
+      "ko": "사계절"
     },
     "level": "n3"
   },
   {
-    "id": 1419,
-    "kanji": "資源",
-    "kana": "しげん",
-    "romaji": "shigen",
+    "id": 1424,
+    "kanji": "支出",
+    "kana": "ししゅつ",
+    "romaji": "shishutsu",
     "meaning": {
-      "en": "resources",
-      "fr": "ressources"
-    },
-    "level": "n3"
-  },
-  {
-    "id": 1423,
-    "kanji": "事実",
-    "kana": "じじつ",
-    "romaji": "jijitsu",
-    "meaning": {
-      "en": "fact, truth, reality",
-      "fr": "un fait"
+      "en": "expenditure, expenses",
+      "fr": "dépenses",
+      "de": "Ausgaben",
+      "es": "gastos",
+      "ko": "지출"
     },
     "level": "n3"
   },
@@ -627,18 +753,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "shijin",
     "meaning": {
       "en": "poet",
-      "fr": "poète"
-    },
-    "level": "n3"
-  },
-  {
-    "id": 1429,
-    "kanji": "自然",
-    "kana": "しぜん",
-    "romaji": "shizen",
-    "meaning": {
-      "en": "nature, spontaneous",
-      "fr": "nature"
+      "fr": "poète",
+      "de": "Dichter",
+      "es": "poeta",
+      "ko": "시인"
     },
     "level": "n3"
   },
@@ -649,18 +767,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "shita",
     "meaning": {
       "en": "tongue",
-      "fr": "langue (anat.)"
+      "fr": "langue (organe)",
+      "de": "Zunge",
+      "es": "lengua (órgano)",
+      "ko": "혀"
     },
     "level": "n3"
   },
   {
-    "id": 1436,
-    "kanji": "質",
-    "kana": "しつ",
-    "romaji": "shitsu",
+    "id": 1437,
+    "kanji": "失業",
+    "kana": "しつぎょう",
+    "romaji": "shitsugyou",
     "meaning": {
-      "en": "quality, nature (of person)",
-      "fr": "qualité"
+      "en": "unemployment",
+      "fr": "chômage",
+      "de": "Arbeitslosigkeit",
+      "es": "desempleo",
+      "ko": "실업"
     },
     "level": "n3"
   },
@@ -671,18 +795,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "shikke",
     "meaning": {
       "en": "moisture, humidity, dampness",
-      "fr": "humidité"
+      "fr": "humidité",
+      "de": "Feuchtigkeit",
+      "es": "humedad",
+      "ko": "습기"
     },
     "level": "n3"
   },
   {
-    "id": 1446,
-    "kanji": "実に",
-    "kana": "じつに",
-    "romaji": "jitsuni",
+    "id": 1444,
+    "kanji": "湿度",
+    "kana": "しつど",
+    "romaji": "shitsudo",
     "meaning": {
-      "en": "indeed, truly, surely",
-      "fr": "vraiment, en effet"
+      "en": "humidity",
+      "fr": "taux d'humidité",
+      "de": "Luftfeuchtigkeit",
+      "es": "humedad (relativa)",
+      "ko": "습도"
     },
     "level": "n3"
   },
@@ -693,18 +823,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "jidou",
     "meaning": {
       "en": "automatic, self-motion",
-      "fr": "automatique"
+      "fr": "automatique",
+      "de": "automatisch",
+      "es": "automático",
+      "ko": "자동"
     },
     "level": "n3"
   },
   {
-    "id": 1453,
-    "kanji": "児童",
-    "kana": "じどう",
-    "romaji": "jidou",
+    "id": 1458,
+    "kanji": "芝生",
+    "kana": "しばふ",
+    "romaji": "shibafu",
     "meaning": {
-      "en": "children, juvenile",
-      "fr": "enfant"
+      "en": "lawn",
+      "fr": "pelouse",
+      "de": "Rasen",
+      "es": "césped",
+      "ko": "잔디밭"
     },
     "level": "n3"
   },
@@ -715,7 +851,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "shiharai",
     "meaning": {
       "en": "payment",
-      "fr": "paiement"
+      "fr": "paiement",
+      "de": "Zahlung",
+      "es": "pago",
+      "ko": "지불"
     },
     "level": "n3"
   },
@@ -726,18 +865,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "shiharau",
     "meaning": {
       "en": "to pay",
-      "fr": "payer"
-    },
-    "level": "n3"
-  },
-  {
-    "id": 1462,
-    "kanji": "資本",
-    "kana": "しほん",
-    "romaji": "shihon",
-    "meaning": {
-      "en": "funds, capital",
-      "fr": "capitaux"
+      "fr": "payer",
+      "de": "bezahlen",
+      "es": "pagar",
+      "ko": "지불하다"
     },
     "level": "n3"
   },
@@ -748,18 +879,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "shimai",
     "meaning": {
       "en": "sisters",
-      "fr": "sœurs"
-    },
-    "level": "n3"
-  },
-  {
-    "id": 1474,
-    "kanji": "週",
-    "kana": "しゅう",
-    "romaji": "shuu",
-    "meaning": {
-      "en": "week",
-      "fr": "semaine"
+      "fr": "sœurs",
+      "de": "Schwestern",
+      "es": "hermanas",
+      "ko": "자매"
     },
     "level": "n3"
   },
@@ -770,7 +893,66 @@ export const WORDS: SiteWord[] = [
     "romaji": "shuukyou",
     "meaning": {
       "en": "religion",
-      "fr": "religion"
+      "fr": "religion",
+      "de": "Religion",
+      "es": "religión",
+      "ko": "종교"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1480,
+    "kanji": "重視",
+    "kana": "じゅうし",
+    "romaji": "juushi",
+    "meaning": {
+      "en": "importance, stress",
+      "fr": "accorder de l'importance",
+      "de": "großen Wert legen auf",
+      "es": "dar importancia",
+      "ko": "중시"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1489,
+    "kanji": "集中",
+    "kana": "しゅうちゅう",
+    "romaji": "shuuchuu",
+    "meaning": {
+      "en": "concentration, focusing the mind",
+      "fr": "concentration",
+      "de": "Konzentration",
+      "es": "concentración",
+      "ko": "집중"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1490,
+    "kanji": "収入",
+    "kana": "しゅうにゅう",
+    "romaji": "shuunyuu",
+    "meaning": {
+      "en": "income, revenue",
+      "fr": "revenu",
+      "de": "Einkommen",
+      "es": "ingresos",
+      "ko": "수입 (소득)"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1493,
+    "kanji": "修理",
+    "kana": "しゅうり",
+    "romaji": "shuuri",
+    "meaning": {
+      "en": "repairing, mending",
+      "fr": "réparation",
+      "de": "Reparatur",
+      "es": "reparación",
+      "ko": "수리"
     },
     "level": "n3"
   },
@@ -781,7 +963,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "shujutsu",
     "meaning": {
       "en": "surgical operation",
-      "fr": "opération chirurgicale"
+      "fr": "opération chirurgicale",
+      "de": "Operation",
+      "es": "operación quirúrgica",
+      "ko": "수술"
     },
     "level": "n3"
   },
@@ -792,29 +977,52 @@ export const WORDS: SiteWord[] = [
     "romaji": "shushou",
     "meaning": {
       "en": "Prime Minister",
-      "fr": "Premier Ministre"
+      "fr": "Premier ministre",
+      "de": "Premierminister",
+      "es": "primer ministro",
+      "ko": "총리"
     },
     "level": "n3"
   },
   {
-    "id": 3528,
-    "kanji": "重役",
-    "kana": "じゅうやく",
-    "romaji": "juuyaku",
+    "id": 1500,
+    "kanji": "出場",
+    "kana": "しゅつじょう",
+    "romaji": "shutsujou",
     "meaning": {
-      "en": "director, high executive",
-      "fr": "administrateur (de société)"
+      "en": "participation",
+      "fr": "participation (à une compétition)",
+      "de": "Teilnahme (am Wettkampf)",
+      "es": "participación (en una competición)",
+      "ko": "출전"
     },
-    "level": "n2"
+    "level": "n3"
   },
   {
-    "id": 3535,
-    "kanji": "受験",
-    "kana": "じゅけん",
-    "romaji": "juken",
+    "id": 1503,
+    "kanji": "首都",
+    "kana": "しゅと",
+    "romaji": "shuto",
     "meaning": {
-      "en": "taking an examination",
-      "fr": "passer un examen"
+      "en": "capital city",
+      "fr": "capitale",
+      "de": "Hauptstadt",
+      "es": "capital",
+      "ko": "수도"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 3526,
+    "kanji": "就任",
+    "kana": "しゅうにん",
+    "romaji": "shuunin",
+    "meaning": {
+      "en": "inauguration, assumption of office",
+      "fr": "entrée en fonctions",
+      "de": "Amtsantritt",
+      "es": "toma de posesión",
+      "ko": "취임"
     },
     "level": "n2"
   },
@@ -824,8 +1032,11 @@ export const WORDS: SiteWord[] = [
     "kana": "しゅご",
     "romaji": "shugo",
     "meaning": {
-      "en": "(gram) subject",
-      "fr": "sujet"
+      "en": "subject (grammar)",
+      "fr": "sujet (grammaire)",
+      "de": "Subjekt",
+      "es": "sujeto (gramática)",
+      "ko": "주어 (문법)"
     },
     "level": "n2"
   },
@@ -836,18 +1047,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "jutsugo",
     "meaning": {
       "en": "predicate",
-      "fr": "prédicat"
+      "fr": "prédicat",
+      "de": "Prädikat",
+      "es": "predicado",
+      "ko": "술어 (문법)"
     },
     "level": "n2"
   },
   {
-    "id": 3542,
-    "kanji": "主役",
-    "kana": "しゅやく",
-    "romaji": "shuyaku",
+    "id": 3540,
+    "kanji": "出張",
+    "kana": "しゅっちょう",
+    "romaji": "shutchou",
     "meaning": {
-      "en": "leading part",
-      "fr": "rôle principal"
+      "en": "official tour, business trip",
+      "fr": "voyage d'affaires",
+      "de": "Geschäftsreise",
+      "es": "viaje de negocios",
+      "ko": "출장"
     },
     "level": "n2"
   },
@@ -858,18 +1075,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "juwaki",
     "meaning": {
       "en": "(telephone) receiver",
-      "fr": "combiné (téléphone)"
-    },
-    "level": "n2"
-  },
-  {
-    "id": 3545,
-    "kanji": "巡査",
-    "kana": "じゅんさ",
-    "romaji": "junsa",
-    "meaning": {
-      "en": "policeman",
-      "fr": "policier"
+      "fr": "combiné (téléphone)",
+      "de": "Telefonhörer",
+      "es": "auricular (de teléfono)",
+      "ko": "수화기"
     },
     "level": "n2"
   },
@@ -880,7 +1089,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "shouka",
     "meaning": {
       "en": "digestion",
-      "fr": "digestion"
+      "fr": "digestion",
+      "de": "Verdauung",
+      "es": "digestión",
+      "ko": "소화"
     },
     "level": "n2"
   },
@@ -891,7 +1103,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "shougakusei",
     "meaning": {
       "en": "elementary school pupil",
-      "fr": "élève d'école primaire"
+      "fr": "écolier (primaire)",
+      "de": "Grundschüler",
+      "es": "alumno de primaria",
+      "ko": "초등학생"
     },
     "level": "n2"
   },
@@ -902,7 +1117,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "shougi",
     "meaning": {
       "en": "Japanese chess",
-      "fr": "shôgi (échecs japonais)"
+      "fr": "shōgi (échecs japonais)",
+      "de": "Shōgi (japanisches Schach)",
+      "es": "shogi (ajedrez japonés)",
+      "ko": "쇼기 (일본 장기)"
     },
     "level": "n2"
   },
@@ -913,7 +1131,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "jouki",
     "meaning": {
       "en": "steam, vapor",
-      "fr": "vapeur"
+      "fr": "vapeur",
+      "de": "Dampf",
+      "es": "vapor",
+      "ko": "증기"
     },
     "level": "n2"
   },
@@ -924,29 +1145,38 @@ export const WORDS: SiteWord[] = [
     "romaji": "jougi",
     "meaning": {
       "en": "(measuring) ruler",
-      "fr": "règle à mesurer"
+      "fr": "règle (instrument)",
+      "de": "Lineal",
+      "es": "regla (instrumento)",
+      "ko": "자"
     },
     "level": "n2"
   },
   {
-    "id": 3573,
-    "kanji": "上下",
-    "kana": "じょうげ",
-    "romaji": "jouge",
+    "id": 3570,
+    "kanji": "商業",
+    "kana": "しょうぎょう",
+    "romaji": "shougyou",
     "meaning": {
-      "en": "high and low, up and down",
-      "fr": "haut et bas"
+      "en": "commerce, trade, business",
+      "fr": "commerce",
+      "de": "Handel",
+      "es": "comercio",
+      "ko": "상업"
     },
     "level": "n2"
   },
   {
-    "id": 3574,
-    "kanji": "障子",
-    "kana": "しょうじ",
-    "romaji": "shouji",
+    "id": 3572,
+    "kanji": "賞金",
+    "kana": "しょうきん",
+    "romaji": "shoukin",
     "meaning": {
-      "en": "paper sliding door",
-      "fr": "porte coulissante japonaise (en papier)"
+      "en": "prize, monetary award",
+      "fr": "prix en argent",
+      "de": "Preisgeld",
+      "es": "premio en metálico",
+      "ko": "상금"
     },
     "level": "n2"
   },
@@ -957,7 +1187,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "shousha",
     "meaning": {
       "en": "trading company",
-      "fr": "société de commerce"
+      "fr": "société de commerce",
+      "de": "Handelsgesellschaft",
+      "es": "empresa comercial",
+      "ko": "상사 (무역 회사)"
     },
     "level": "n2"
   },
@@ -967,8 +1200,25 @@ export const WORDS: SiteWord[] = [
     "kana": "じょうしゃ",
     "romaji": "jousha",
     "meaning": {
-      "en": "taking a train, entraining",
-      "fr": "monter (en voiture, en train...)"
+      "en": "boarding (a train), getting on",
+      "fr": "montée (dans un train, une voiture)",
+      "de": "Einsteigen",
+      "es": "subida (al tren, coche)",
+      "ko": "승차"
+    },
+    "level": "n2"
+  },
+  {
+    "id": 3577,
+    "kanji": "上旬",
+    "kana": "じょうじゅん",
+    "romaji": "joujun",
+    "meaning": {
+      "en": "first 10 days of month",
+      "fr": "début du mois (1er au 10)",
+      "de": "Monatsanfang (1.–10.)",
+      "es": "primeros diez días del mes",
+      "ko": "상순"
     },
     "level": "n2"
   },
@@ -979,18 +1229,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "shousuu",
     "meaning": {
       "en": "fraction (part of), decimal",
-      "fr": "fraction décimale"
+      "fr": "nombre décimal",
+      "de": "Dezimalzahl",
+      "es": "número decimal",
+      "ko": "소수 (수학)"
     },
     "level": "n2"
   },
   {
-    "id": 3587,
-    "kanji": "小便",
-    "kana": "しょうべん",
-    "romaji": "shouben",
+    "id": 3582,
+    "kanji": "消毒",
+    "kana": "しょうどく",
+    "romaji": "shoudoku",
     "meaning": {
-      "en": "(col) urine, piss",
-      "fr": "urine"
+      "en": "disinfection",
+      "fr": "désinfection",
+      "de": "Desinfektion",
+      "es": "desinfección",
+      "ko": "소독"
     },
     "level": "n2"
   },
@@ -1001,18 +1257,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "shoubousho",
     "meaning": {
       "en": "fire station",
-      "fr": "caserne de pompiers"
-    },
-    "level": "n2"
-  },
-  {
-    "id": 3589,
-    "kanji": "正味",
-    "kana": "しょうみ",
-    "romaji": "shoumi",
-    "meaning": {
-      "en": "net (weight)",
-      "fr": "net (poids)"
+      "fr": "caserne de pompiers",
+      "de": "Feuerwache",
+      "es": "estación de bomberos",
+      "ko": "소방서"
     },
     "level": "n2"
   },
@@ -1023,7 +1271,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "shokyuu",
     "meaning": {
       "en": "elementary level",
-      "fr": "niveau élémentaire"
+      "fr": "niveau débutant",
+      "de": "Anfängerstufe",
+      "es": "nivel principiante",
+      "ko": "초급"
     },
     "level": "n2"
   },
@@ -1034,18 +1285,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "jokyouju",
     "meaning": {
       "en": "assistant professor",
-      "fr": "professeur assistant"
+      "fr": "maître de conférences",
+      "de": "außerordentlicher Professor",
+      "es": "profesor adjunto",
+      "ko": "조교수"
     },
     "level": "n2"
   },
   {
-    "id": 3595,
-    "kanji": "食塩",
-    "kana": "しょくえん",
-    "romaji": "shokuen",
+    "id": 3597,
+    "kanji": "職場",
+    "kana": "しょくば",
+    "romaji": "shokuba",
     "meaning": {
-      "en": "table salt",
-      "fr": "sel de table"
+      "en": "workplace",
+      "fr": "lieu de travail",
+      "de": "Arbeitsplatz",
+      "es": "lugar de trabajo",
+      "ko": "직장"
     },
     "level": "n2"
   },
@@ -1056,7 +1313,38 @@ export const WORDS: SiteWord[] = [
     "romaji": "shojun",
     "meaning": {
       "en": "first 10 days of the month",
-      "fr": "les 10 premiers jours du mois"
+      "fr": "début du mois",
+      "de": "Monatsanfang",
+      "es": "principios de mes",
+      "ko": "초순"
+    },
+    "level": "n2"
+  },
+  {
+    "id": 3600,
+    "kanji": "食器",
+    "kana": "しょっき",
+    "romaji": "shokki",
+    "meaning": {
+      "en": "tableware",
+      "fr": "vaisselle",
+      "de": "Geschirr",
+      "es": "vajilla",
+      "ko": "식기"
+    },
+    "level": "n2"
+  },
+  {
+    "id": 3602,
+    "kanji": "書店",
+    "kana": "しょてん",
+    "romaji": "shoten",
+    "meaning": {
+      "en": "bookshop",
+      "fr": "librairie",
+      "de": "Buchhandlung",
+      "es": "librería",
+      "ko": "서점"
     },
     "level": "n2"
   },
@@ -1067,29 +1355,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "genzou",
     "meaning": {
       "en": "developing (film)",
-      "fr": "développer (photographie)"
+      "fr": "développement (photo)",
+      "de": "Entwicklung (Film)",
+      "es": "revelado (fotográfico)",
+      "ko": "현상 (필름)"
     },
     "level": "n1"
   },
   {
-    "id": 5276,
-    "kanji": "見地",
-    "kana": "けんち",
-    "romaji": "kenchi",
+    "id": 5282,
+    "kanji": "原文",
+    "kana": "げんぶん",
+    "romaji": "genbun",
     "meaning": {
-      "en": "point of view",
-      "fr": "point de vue"
-    },
-    "level": "n1"
-  },
-  {
-    "id": 5281,
-    "kanji": "原爆",
-    "kana": "げんばく",
-    "romaji": "genbaku",
-    "meaning": {
-      "en": "atomic bomb",
-      "fr": "bombe atomique"
+      "en": "the text, original",
+      "fr": "texte original",
+      "de": "Originaltext",
+      "es": "texto original",
+      "ko": "원문"
     },
     "level": "n1"
   },
@@ -1100,29 +1383,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "gen'yu",
     "meaning": {
       "en": "crude oil",
-      "fr": "huile non raffinée"
+      "fr": "pétrole brut",
+      "de": "Rohöl",
+      "es": "petróleo crudo",
+      "ko": "원유"
     },
     "level": "n1"
   },
   {
-    "id": 5287,
-    "kanji": "兼用",
-    "kana": "けんよう",
-    "romaji": "ken'you",
+    "id": 5291,
+    "kanji": "語彙",
+    "kana": "ごい",
+    "romaji": "goi",
     "meaning": {
-      "en": "multi-use, combined use",
-      "fr": "usage combiné, polyvalent"
-    },
-    "level": "n1"
-  },
-  {
-    "id": 5289,
-    "kanji": "言論",
-    "kana": "げんろん",
-    "romaji": "genron",
-    "meaning": {
-      "en": "discussion, speech",
-      "fr": "discussion"
+      "en": "vocabulary, glossary",
+      "fr": "vocabulaire",
+      "de": "Wortschatz",
+      "es": "vocabulario",
+      "ko": "어휘"
     },
     "level": "n1"
   },
@@ -1133,29 +1411,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "kougaku",
     "meaning": {
       "en": "engineering",
-      "fr": "ingénieur"
+      "fr": "ingénierie",
+      "de": "Ingenieurwesen",
+      "es": "ingeniería",
+      "ko": "공학"
     },
     "level": "n1"
   },
   {
-    "id": 5300,
-    "kanji": "合議",
-    "kana": "ごうぎ",
-    "romaji": "gougi",
+    "id": 5302,
+    "kanji": "好況",
+    "kana": "こうきょう",
+    "romaji": "koukyou",
     "meaning": {
-      "en": "consultation, conference",
-      "fr": "consultation, conférence"
-    },
-    "level": "n1"
-  },
-  {
-    "id": 5301,
-    "kanji": "皇居",
-    "kana": "こうきょ",
-    "romaji": "koukyo",
-    "meaning": {
-      "en": "Imperial Palace",
-      "fr": "palais impérial"
+      "en": "prosperous conditions, healthy economy",
+      "fr": "prospérité économique",
+      "de": "Hochkonjunktur",
+      "es": "bonanza económica",
+      "ko": "호황"
     },
     "level": "n1"
   },
@@ -1166,18 +1439,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "kougyou",
     "meaning": {
       "en": "mining industry",
-      "fr": "industrie minière"
+      "fr": "industrie minière",
+      "de": "Bergbau",
+      "es": "minería",
+      "ko": "광업"
     },
     "level": "n1"
   },
   {
-    "id": 5307,
-    "kanji": "煌々と",
-    "kana": "こうこうと",
-    "romaji": "koukouto",
+    "id": 5305,
+    "kanji": "高原",
+    "kana": "こうげん",
+    "romaji": "kougen",
     "meaning": {
-      "en": "brightly",
-      "fr": "brillamment"
+      "en": "tableland, plateau",
+      "fr": "plateau (géographie)",
+      "de": "Hochebene",
+      "es": "meseta",
+      "ko": "고원"
     },
     "level": "n1"
   },
@@ -1188,29 +1467,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "koukogaku",
     "meaning": {
       "en": "archeology",
-      "fr": "archéologie"
+      "fr": "archéologie",
+      "de": "Archäologie",
+      "es": "arqueología",
+      "ko": "고고학"
     },
     "level": "n1"
   },
   {
-    "id": 5311,
-    "kanji": "鉱山",
-    "kana": "こうざん",
-    "romaji": "kouzan",
+    "id": 5314,
+    "kanji": "控除",
+    "kana": "こうじょ",
+    "romaji": "koujo",
     "meaning": {
-      "en": "mine",
-      "fr": "mine (minerai)"
-    },
-    "level": "n1"
-  },
-  {
-    "id": 5312,
-    "kanji": "講習",
-    "kana": "こうしゅう",
-    "romaji": "koushuu",
-    "meaning": {
-      "en": "short course, training",
-      "fr": "public"
+      "en": "subsidy, deduction",
+      "fr": "déduction (fiscale)",
+      "de": "Abzug (Steuer)",
+      "es": "deducción (fiscal)",
+      "ko": "공제"
     },
     "level": "n1"
   },
@@ -1221,7 +1495,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "koushinryou",
     "meaning": {
       "en": "spices",
-      "fr": "épices"
+      "fr": "épices",
+      "de": "Gewürze",
+      "es": "especias",
+      "ko": "향신료"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5320,
+    "kanji": "降水",
+    "kana": "こうすい",
+    "romaji": "kousui",
+    "meaning": {
+      "en": "rainfall, precipitation",
+      "fr": "précipitations",
+      "de": "Niederschlag",
+      "es": "precipitaciones",
+      "ko": "강수"
     },
     "level": "n1"
   },
@@ -1232,7 +1523,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "kouzui",
     "meaning": {
       "en": "flood",
-      "fr": "inondation"
+      "fr": "inondation",
+      "de": "Überschwemmung",
+      "es": "inundación",
+      "ko": "홍수"
     },
     "level": "n1"
   },
@@ -1243,18 +1537,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "koudan",
     "meaning": {
       "en": "public corporation",
-      "fr": "corporation publique"
-    },
-    "level": "n1"
-  },
-  {
-    "id": 5330,
-    "kanji": "口頭",
-    "kana": "こうとう",
-    "romaji": "koutou",
-    "meaning": {
-      "en": "oral",
-      "fr": "oral"
+      "fr": "société publique",
+      "de": "öffentliche Körperschaft",
+      "es": "corporación pública",
+      "ko": "공단 (공공 법인)"
     },
     "level": "n1"
   },
@@ -1265,7 +1551,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "koudoku",
     "meaning": {
       "en": "reading",
-      "fr": "abonnement (pour un journal, magazine)"
+      "fr": "lecture commentée",
+      "de": "Lektüre (Seminar)",
+      "es": "lectura comentada",
+      "ko": "강독"
     },
     "level": "n1"
   },
@@ -1276,7 +1565,24 @@ export const WORDS: SiteWord[] = [
     "romaji": "koudoku",
     "meaning": {
       "en": "subscription",
-      "fr": "abonnement (pour un journal, magazine)"
+      "fr": "abonnement (journal, magazine)",
+      "de": "Abonnement",
+      "es": "suscripción",
+      "ko": "구독"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5335,
+    "kanji": "光熱費",
+    "kana": "こうねつひ",
+    "romaji": "kounetsuhi",
+    "meaning": {
+      "en": "cost of fuel and light",
+      "fr": "frais de chauffage et d'électricité",
+      "de": "Strom- und Heizkosten",
+      "es": "gastos de luz y calefacción",
+      "ko": "광열비"
     },
     "level": "n1"
   },
@@ -1287,7 +1593,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "koubo",
     "meaning": {
       "en": "public appeal, public contribution",
-      "fr": "appel public"
+      "fr": "appel public (à candidatures)",
+      "de": "öffentliche Ausschreibung",
+      "es": "convocatoria pública",
+      "ko": "공모"
     },
     "level": "n1"
   },
@@ -1298,18 +1607,10 @@ export const WORDS: SiteWord[] = [
     "romaji": "kouri",
     "meaning": {
       "en": "retail",
-      "fr": "vente au détail"
-    },
-    "level": "n1"
-  },
-  {
-    "id": 5343,
-    "kanji": "効率",
-    "kana": "こうりつ",
-    "romaji": "kouritsu",
-    "meaning": {
-      "en": "efficiency",
-      "fr": "efficacité"
+      "fr": "vente au détail",
+      "de": "Einzelhandel",
+      "es": "venta al por menor",
+      "ko": "소매"
     },
     "level": "n1"
   },
@@ -1320,7 +1621,66 @@ export const WORDS: SiteWord[] = [
     "romaji": "kouritsu",
     "meaning": {
       "en": "public institution",
-      "fr": "publique (institution)"
+      "fr": "public (établissement)",
+      "de": "öffentlich (Einrichtung)",
+      "es": "público (centro)",
+      "ko": "공립"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5348,
+    "kanji": "小切手",
+    "kana": "こぎって",
+    "romaji": "kogitte",
+    "meaning": {
+      "en": "cheque, check",
+      "fr": "chèque",
+      "de": "Scheck",
+      "es": "cheque",
+      "ko": "수표"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5352,
+    "kanji": "国防",
+    "kana": "こくぼう",
+    "romaji": "kokubou",
+    "meaning": {
+      "en": "national defense",
+      "fr": "défense nationale",
+      "de": "Landesverteidigung",
+      "es": "defensa nacional",
+      "ko": "국방"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5353,
+    "kanji": "国有",
+    "kana": "こくゆう",
+    "romaji": "kokuyuu",
+    "meaning": {
+      "en": "national ownership",
+      "fr": "propriété de l'État",
+      "de": "Staatseigentum",
+      "es": "propiedad estatal",
+      "ko": "국유"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5354,
+    "kanji": "極楽",
+    "kana": "ごくらく",
+    "romaji": "gokuraku",
+    "meaning": {
+      "en": "paradise",
+      "fr": "paradis",
+      "de": "Paradies",
+      "es": "paraíso",
+      "ko": "극락"
     },
     "level": "n1"
   }

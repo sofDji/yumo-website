@@ -3,11 +3,14 @@
 import { motion, useReducedMotion } from 'framer-motion';
 import { useState } from 'react';
 import { Section } from '@/components/layout/Section';
-import type { Dictionary } from '@/lib/i18n';
+import { useLocalPrice } from '@/components/ui/LocalPrice';
+import { fill, type Dictionary, type Locale } from '@/lib/i18n';
+import { formatPrice } from '@/lib/local-price';
 import { EASE } from '@/lib/motion';
 
-export function Faq({ t }: { t: Dictionary['faq'] }) {
+export function Faq({ locale, t }: { locale: Locale; t: Dictionary['faq'] }) {
   const [open, setOpen] = useState(0);
+  const price = formatPrice(useLocalPrice(), locale);
   const reduced = useReducedMotion();
 
   return (
@@ -69,7 +72,7 @@ export function Faq({ t }: { t: Dictionary['faq'] }) {
               >
                 <p
                   className="px-7 pb-5 text-[14px] leading-relaxed text-muted"
-                  dangerouslySetInnerHTML={{ __html: item.a }}
+                  dangerouslySetInnerHTML={{ __html: fill(item.a, { price }) }}
                 />
               </motion.div>
             </div>

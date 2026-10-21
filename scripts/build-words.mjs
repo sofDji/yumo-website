@@ -11,11 +11,13 @@ const OUT = resolve(here, '../lib/words.ts');
 const PER_LEVEL = 24;
 
 const LEVELS = ['n5', 'n4', 'n3', 'n2', 'n1'];
+// Mirrors LOCALES in lib/i18n/locales.ts.
+const LOCALES = ['en', 'fr', 'de', 'es', 'ko'];
 
 // Mirrors selectWords in lib/select-words.ts. Duplicated because a plain ESM
 // script cannot import the TypeScript module; both copies are pinned by tests
 // (select-words.test.ts and words.test.ts), so a drift fails `npm test`.
-// Both rendered locales must be usable, or French cards fall back to English.
+// Every rendered locale must be usable, or its cards fall back to English.
 // Words the app should absolutely still teach — they are real JLPT
 // vocabulary — but which should never land on a marketing page, where a
 // visitor meets them with no context and no reason to expect them. This is a
@@ -30,14 +32,14 @@ function selectWords(raw, perLevel) {
     const picked = raw
       .filter((w) => w.level === level)
       .filter((w) => w.kanji.length >= 1 && w.kanji.length <= 3)
-      .filter((w) => usable(w.meaning?.en) && usable(w.meaning?.fr))
+      .filter((w) => LOCALES.every((l) => usable(w.meaning?.[l])))
       .filter((w) => w.kanji !== w.kana)
       .filter((w) => !w.kanji.includes('～') && !w.kanji.includes('〜'))
       .filter((w) => !NOT_FOR_DISPLAY.has(w.kanji))
       .slice(0, perLevel)
       .map((w) => ({
         id: w.id, kanji: w.kanji, kana: w.kana, romaji: w.romaji,
-        meaning: { en: w.meaning.en, fr: w.meaning.fr }, level: w.level,
+        meaning: Object.fromEntries(LOCALES.map((l) => [l, w.meaning[l]])), level: w.level,
       }));
     out.push(...picked);
   }
