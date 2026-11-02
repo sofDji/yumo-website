@@ -1,12 +1,18 @@
-import type { Locale } from '@/lib/i18n';
+import type { Dictionary, Locale } from '@/lib/i18n';
 import type { SiteWord } from '@/lib/select-words';
 import { LEVEL_COLORS, LEVEL_LABELS } from '@/lib/tokens';
 import { PhoneFrame, StatusBar } from './PhoneFrame';
 
+// The Live Activity's sentence, as the widget extension draws it: black at 75 %,
+// the word in the app's lime on all three lines. Illustrative copy rather than
+// one of the app's own sentences. Colours are literal because the card keeps
+// them whatever the page's theme, as it does on a real Lock Screen.
+const LIVE_LIME = '#E9ECA5';
+
 // The accessoryRectangular widget, which is the placement the app's own store
 // name leads with. Rendered flat and translucent the way iOS renders Lock
 // Screen accessories, rather than as a full-colour tile like the home screen.
-export function LockScreen({ word, locale }: { word: SiteWord; locale: Locale }) {
+export function LockScreen({ word, locale, t }: { word: SiteWord; locale: Locale; t: Dictionary['lockScreen'] }) {
   const color = LEVEL_COLORS[word.level];
 
   return (
@@ -14,7 +20,7 @@ export function LockScreen({ word, locale }: { word: SiteWord; locale: Locale })
       <StatusBar time="9:41" />
 
       <div className="flex flex-1 flex-col items-center px-5 pb-8 pt-12">
-        <p className="text-[11px] font-medium text-ink/60">Sunday, 9 February</p>
+        <p className="text-[11px] font-medium text-ink/60">{t.date}</p>
         <p className="mt-0.5 text-[62px] font-semibold leading-none tracking-tight text-ink/85">
           9:41
         </p>
@@ -34,6 +40,32 @@ export function LockScreen({ word, locale }: { word: SiteWord; locale: Locale })
             {word.kana} · {word.romaji}
           </p>
           <p className="text-[10px] font-medium leading-snug">{word.meaning[locale]}</p>
+        </div>
+
+        {/* The Lock Screen sentence (Yumo Pro) */}
+        <div
+          className="mt-3 w-full rounded-[1rem] px-3 py-2.5 text-left"
+          style={{ background: 'rgba(0,0,0,.75)', boxShadow: 'inset 0 0 0 .5px rgba(255,255,255,.25)' }}
+        >
+          <p lang="ja" className="font-jp text-[12.5px] font-semibold leading-snug text-white">
+            <span style={{ color: LIVE_LIME }} className="font-bold">
+              月曜日
+            </span>
+            は法律で禁止すべきだ。
+          </p>
+          <p lang="ja-Latn" className="mt-1 text-[8.5px] italic leading-tight" style={{ color: 'rgba(255,255,255,.74)' }}>
+            <span style={{ color: LIVE_LIME }} className="font-bold">
+              getsuyoubi
+            </span>{' '}
+            wa houritsu de kinshi subeki da.
+          </p>
+          <p className="mt-1 text-[10px] leading-tight" style={{ color: 'rgba(255,255,255,.74)' }}>
+            {t.sentence.before}
+            <span style={{ color: LIVE_LIME }} className="font-bold">
+              {t.sentence.word}
+            </span>
+            {t.sentence.after}
+          </p>
         </div>
 
         <div className="mt-auto flex w-full items-center justify-between">

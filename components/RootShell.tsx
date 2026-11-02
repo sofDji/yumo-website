@@ -1,4 +1,4 @@
-import { Instrument_Serif, Schibsted_Grotesk } from 'next/font/google';
+import { Be_Vietnam_Pro, Instrument_Serif, Lora, Schibsted_Grotesk } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { AppBanner } from '@/components/chrome/AppBanner';
 import { getDictionary, type Locale } from '@/lib/i18n';
@@ -18,12 +18,34 @@ const serif = Instrument_Serif({
   display: 'swap',
 });
 
+// Neither face above has Vietnamese glyphs, and letting the browser fall back
+// letter by letter breaks words apart mid-syllable. So Vietnamese pages get
+// their own pair, under the same CSS variables, and never preload on the others.
+const viSans = Be_Vietnam_Pro({
+  subsets: ['latin', 'vietnamese'],
+  weight: ['400', '500', '600', '700'],
+  variable: '--font-sans',
+  display: 'swap',
+  preload: false,
+});
+
+const viSerif = Lora({
+  subsets: ['latin', 'vietnamese'],
+  style: 'italic',
+  variable: '--font-serif',
+  display: 'swap',
+  preload: false,
+});
+
 // One <html> per locale is why the app uses a root layout per locale rather
 // than one: a French page served as lang="en" makes screen readers pronounce it with an
 // English voice, and Next only lets the root layout own the html element.
 export function RootShell({ locale, children }: { locale: Locale; children: ReactNode }) {
   return (
-    <html lang={locale} className={`${sans.variable} ${serif.variable}`}>
+    <html
+      lang={locale}
+      className={locale === 'vi' ? `${viSans.variable} ${viSerif.variable}` : `${sans.variable} ${serif.variable}`}
+    >
       {/* English is the unprefixed default every visitor lands on, so only its
           pages carry the script that moves a first visit to the visitor's own
           language. Inline and in the head, so it runs before anything paints.

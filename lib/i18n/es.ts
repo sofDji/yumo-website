@@ -66,10 +66,16 @@ export const es: Dictionary = {
     eyebrow: 'Pantalla de bloqueo',
     titleLead: 'Aprendida antes incluso de',
     titleAccent: 'desbloquear',
+    date: 'lunes, 2 de noviembre',
+    sentence: { before: 'Los ', word: 'lunes', after: ' deberían ser ilegales.' },
     points: [
       {
         h: 'La pantalla que más miras',
         p: 'Miras la pantalla de bloqueo decenas de veces al día sin proponértelo. Yumo pone ahí una palabra, así que la lees antes de haber pensado en estudiar.',
+      },
+      {
+        h: 'Una frase de ejemplo, ahí mismo',
+        p: 'Con Yumo Pro, activa una actividad en vivo y cada palabra nueva traerá una frase de ejemplo a tu pantalla de bloqueo, en japonés, en romaji y en tu idioma, con la palabra resaltada. Necesita un iPhone con iOS 17.2 o posterior y conexión a internet.',
       },
       {
         h: 'Rectangular o en línea',
@@ -125,8 +131,8 @@ export const es: Dictionary = {
       },
       {
         id: 'languages',
-        title: 'Cinco idiomas de significado',
-        body: 'Inglés, francés, alemán, español y coreano, todos incluidos en la app.',
+        title: 'Seis idiomas de significado',
+        body: 'Inglés, francés, alemán, español, coreano y vietnamita, todos incluidos en la app.',
       },
       {
         id: 'browse',
@@ -203,7 +209,7 @@ export const es: Dictionary = {
     points: [
       {
         h: 'Busca como lo recuerdes',
-        p: 'Busca entre {total} palabras por kanji, kana, romaji o significado. Cada entrada incluye su lectura, su romaji, su nivel del JLPT y significados en inglés, francés, alemán, español y coreano.',
+        p: 'Busca entre {total} palabras por kanji, kana, romaji o significado. Cada entrada incluye su lectura, su romaji, su nivel del JLPT y significados en inglés, francés, alemán, español, coreano y vietnamita.',
       },
       {
         h: 'N5 gratis, todos los niveles con Pro',
@@ -234,6 +240,7 @@ export const es: Dictionary = {
     pro: [
       'Todos los niveles, de N5 a N1: las {total} palabras',
       'Una palabra nueva cada 1, 2, 3 o 4 horas',
+      'Frases de ejemplo en la pantalla de bloqueo (iPhone)',
       'El recorrido Auto, de N5 a N1',
       'Explora el diccionario completo',
       'Colores, transparencia y color de texto del widget',

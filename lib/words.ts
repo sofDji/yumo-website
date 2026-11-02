@@ -14,7 +14,8 @@ export const WORDS: SiteWord[] = [
       "fr": "bleu (nom)",
       "de": "Blau",
       "es": "azul (sustantivo)",
-      "ko": "파랑 (명사)"
+      "ko": "파랑 (명사)",
+      "vi": "màu xanh (danh từ)"
     },
     "level": "n5"
   },
@@ -28,7 +29,8 @@ export const WORDS: SiteWord[] = [
       "fr": "bleu (adjectif)",
       "de": "blau",
       "es": "azul (adjetivo)",
-      "ko": "파랗다 (형용사)"
+      "ko": "파랗다 (형용사)",
+      "vi": "xanh (tính từ)"
     },
     "level": "n5"
   },
@@ -42,7 +44,8 @@ export const WORDS: SiteWord[] = [
       "fr": "rouge (nom)",
       "de": "Rot",
       "es": "rojo (sustantivo)",
-      "ko": "빨강 (명사)"
+      "ko": "빨강 (명사)",
+      "vi": "màu đỏ (danh từ)"
     },
     "level": "n5"
   },
@@ -56,7 +59,8 @@ export const WORDS: SiteWord[] = [
       "fr": "rouge (adjectif)",
       "de": "rot",
       "es": "rojo (adjetivo)",
-      "ko": "빨갛다 (형용사)"
+      "ko": "빨갛다 (형용사)",
+      "vi": "đỏ (tính từ)"
     },
     "level": "n5"
   },
@@ -70,7 +74,8 @@ export const WORDS: SiteWord[] = [
       "fr": "automne",
       "de": "Herbst",
       "es": "otoño",
-      "ko": "가을"
+      "ko": "가을",
+      "vi": "mùa thu"
     },
     "level": "n5"
   },
@@ -84,7 +89,8 @@ export const WORDS: SiteWord[] = [
       "fr": "matin",
       "de": "Morgen",
       "es": "mañana (parte del día)",
-      "ko": "아침"
+      "ko": "아침",
+      "vi": "buổi sáng"
     },
     "level": "n5"
   },
@@ -98,7 +104,8 @@ export const WORDS: SiteWord[] = [
       "fr": "petit-déjeuner",
       "de": "Frühstück",
       "es": "desayuno",
-      "ko": "아침밥"
+      "ko": "아침밥",
+      "vi": "bữa sáng"
     },
     "level": "n5"
   },
@@ -112,7 +119,8 @@ export const WORDS: SiteWord[] = [
       "fr": "après-demain",
       "de": "übermorgen",
       "es": "pasado mañana",
-      "ko": "모레"
+      "ko": "모레",
+      "vi": "ngày kia"
     },
     "level": "n5"
   },
@@ -126,7 +134,8 @@ export const WORDS: SiteWord[] = [
       "fr": "demain",
       "de": "morgen",
       "es": "mañana (día siguiente)",
-      "ko": "내일"
+      "ko": "내일",
+      "vi": "ngày mai"
     },
     "level": "n5"
   },
@@ -140,7 +149,8 @@ export const WORDS: SiteWord[] = [
       "fr": "tête",
       "de": "Kopf",
       "es": "cabeza",
-      "ko": "머리"
+      "ko": "머리",
+      "vi": "đầu"
     },
     "level": "n5"
   },
@@ -154,7 +164,8 @@ export const WORDS: SiteWord[] = [
       "fr": "chaud (temps)",
       "de": "heiß (Wetter)",
       "es": "caluroso (tiempo)",
-      "ko": "덥다 (날씨)"
+      "ko": "덥다 (날씨)",
+      "vi": "nóng (thời tiết)"
     },
     "level": "n5"
   },
@@ -168,21 +179,8 @@ export const WORDS: SiteWord[] = [
       "fr": "chaud, brûlant (objets)",
       "de": "heiß (Gegenstände)",
       "es": "caliente (objetos)",
-      "ko": "뜨겁다 (물체)"
-    },
-    "level": "n5"
-  },
-  {
-    "id": 34,
-    "kanji": "危ない",
-    "kana": "あぶない",
-    "romaji": "abunai",
-    "meaning": {
-      "en": "dangerous, critical",
-      "fr": "dangereux",
-      "de": "gefährlich",
-      "es": "peligroso",
-      "ko": "위험하다"
+      "ko": "뜨겁다 (물체)",
+      "vi": "nóng (đồ vật)"
     },
     "level": "n5"
   },
@@ -196,7 +194,8 @@ export const WORDS: SiteWord[] = [
       "fr": "pluie",
       "de": "Regen",
       "es": "lluvia",
-      "ko": "비"
+      "ko": "비",
+      "vi": "mưa"
     },
     "level": "n5"
   },
@@ -210,7 +209,8 @@ export const WORDS: SiteWord[] = [
       "fr": "bonbon",
       "de": "Bonbon",
       "es": "caramelo",
-      "ko": "사탕"
+      "ko": "사탕",
+      "vi": "kẹo"
     },
     "level": "n5"
   },
@@ -224,7 +224,8 @@ export const WORDS: SiteWord[] = [
       "fr": "dire",
       "de": "sagen",
       "es": "decir",
-      "ko": "말하다"
+      "ko": "말하다",
+      "vi": "nói"
     },
     "level": "n5"
   },
@@ -238,7 +239,8 @@ export const WORDS: SiteWord[] = [
       "fr": "étang",
       "de": "Teich",
       "es": "estanque",
-      "ko": "연못"
+      "ko": "연못",
+      "vi": "cái ao"
     },
     "level": "n5"
   },
@@ -252,7 +254,8 @@ export const WORDS: SiteWord[] = [
       "fr": "chaise",
       "de": "Stuhl",
       "es": "silla",
-      "ko": "의자"
+      "ko": "의자",
+      "vi": "cái ghế"
     },
     "level": "n5"
   },
@@ -266,7 +269,8 @@ export const WORDS: SiteWord[] = [
       "fr": "occupé (personnes, journées)",
       "de": "beschäftigt (Personen, Tage)",
       "es": "ocupado (personas, días)",
-      "ko": "바쁘다"
+      "ko": "바쁘다",
+      "vi": "bận rộn"
     },
     "level": "n5"
   },
@@ -280,7 +284,8 @@ export const WORDS: SiteWord[] = [
       "fr": "une journée (durée)",
       "de": "ein Tag (Dauer)",
       "es": "un día (duración)",
-      "ko": "하루"
+      "ko": "하루",
+      "vi": "một ngày"
     },
     "level": "n5"
   },
@@ -294,7 +299,8 @@ export const WORDS: SiteWord[] = [
       "fr": "cinq (objets)",
       "de": "fünf (Dinge)",
       "es": "cinco (cosas)",
-      "ko": "다섯 개"
+      "ko": "다섯 개",
+      "vi": "năm cái"
     },
     "level": "n5"
   },
@@ -308,7 +314,8 @@ export const WORDS: SiteWord[] = [
       "fr": "chien",
       "de": "Hund",
       "es": "perro",
-      "ko": "개"
+      "ko": "개",
+      "vi": "con chó"
     },
     "level": "n5"
   },
@@ -322,7 +329,8 @@ export const WORDS: SiteWord[] = [
       "fr": "maintenant",
       "de": "jetzt",
       "es": "ahora",
-      "ko": "지금"
+      "ko": "지금",
+      "vi": "bây giờ"
     },
     "level": "n5"
   },
@@ -336,7 +344,23 @@ export const WORDS: SiteWord[] = [
       "fr": "(ma) petite sœur",
       "de": "(meine) jüngere Schwester",
       "es": "(mi) hermana menor",
-      "ko": "여동생 (자기 가족)"
+      "ko": "여동생 (자기 가족)",
+      "vi": "em gái (của mình)"
+    },
+    "level": "n5"
+  },
+  {
+    "id": 70,
+    "kanji": "入口",
+    "kana": "いりぐち",
+    "romaji": "iriguchi",
+    "meaning": {
+      "en": "entrance",
+      "fr": "entrée",
+      "de": "Eingang",
+      "es": "entrada",
+      "ko": "입구",
+      "vi": "lối vào"
     },
     "level": "n5"
   },
@@ -350,7 +374,8 @@ export const WORDS: SiteWord[] = [
       "fr": "marcher sur",
       "de": "treten auf",
       "es": "pisar",
-      "ko": "밟다"
+      "ko": "밟다",
+      "vi": "giẫm lên"
     },
     "level": "n4"
   },
@@ -364,7 +389,8 @@ export const WORDS: SiteWord[] = [
       "fr": "vivre",
       "de": "leben",
       "es": "vivir",
-      "ko": "살다"
+      "ko": "살다",
+      "vi": "sống"
     },
     "level": "n4"
   },
@@ -378,7 +404,8 @@ export const WORDS: SiteWord[] = [
       "fr": "amer",
       "de": "bitter",
       "es": "amargo",
-      "ko": "쓰다 (맛이)"
+      "ko": "쓰다 (맛이)",
+      "vi": "đắng"
     },
     "level": "n4"
   },
@@ -392,7 +419,8 @@ export const WORDS: SiteWord[] = [
       "fr": "médecine (science)",
       "de": "Medizin (Wissenschaft)",
       "es": "medicina (ciencia)",
-      "ko": "의학"
+      "ko": "의학",
+      "vi": "y học"
     },
     "level": "n4"
   },
@@ -406,21 +434,8 @@ export const WORDS: SiteWord[] = [
       "fr": "coiffeur (pour hommes)",
       "de": "Friseur (für Herren)",
       "es": "barbería",
-      "ko": "이발소"
-    },
-    "level": "n4"
-  },
-  {
-    "id": 748,
-    "kanji": "運動",
-    "kana": "うんどうする",
-    "romaji": "undousuru",
-    "meaning": {
-      "en": "exercise",
-      "fr": "exercice physique (faire du sport)",
-      "de": "Bewegung (Sport treiben)",
-      "es": "ejercicio (hacer ejercicio)",
-      "ko": "운동 (하다)"
+      "ko": "이발소",
+      "vi": "hiệu cắt tóc"
     },
     "level": "n4"
   },
@@ -434,7 +449,8 @@ export const WORDS: SiteWord[] = [
       "fr": "étudiant (à l'université)",
       "de": "Student (Universität)",
       "es": "estudiante universitario",
-      "ko": "대학생"
+      "ko": "대학생",
+      "vi": "sinh viên đại học"
     },
     "level": "n4"
   },
@@ -448,7 +464,8 @@ export const WORDS: SiteWord[] = [
       "fr": "chauffeur (métier)",
       "de": "Fahrer (Beruf)",
       "es": "conductor (oficio)",
-      "ko": "운전기사"
+      "ko": "운전기사",
+      "vi": "tài xế"
     },
     "level": "n4"
   },
@@ -462,7 +479,8 @@ export const WORDS: SiteWord[] = [
       "fr": "préparation des leçons",
       "de": "Vorbereitung (auf den Unterricht)",
       "es": "preparación de las clases",
-      "ko": "예습"
+      "ko": "예습",
+      "vi": "chuẩn bị bài"
     },
     "level": "n4"
   },
@@ -476,7 +494,8 @@ export const WORDS: SiteWord[] = [
       "fr": "inquiétude (s'inquiéter)",
       "de": "Sorge (sich Sorgen machen)",
       "es": "preocupación (preocuparse)",
-      "ko": "걱정 (하다)"
+      "ko": "걱정 (하다)",
+      "vi": "lo lắng"
     },
     "level": "n4"
   },
@@ -490,7 +509,8 @@ export const WORDS: SiteWord[] = [
       "fr": "comparer",
       "de": "vergleichen",
       "es": "comparar",
-      "ko": "비교하다"
+      "ko": "비교하다",
+      "vi": "so sánh"
     },
     "level": "n4"
   },
@@ -504,7 +524,8 @@ export const WORDS: SiteWord[] = [
       "fr": "rayon (de magasin)",
       "de": "Verkaufsabteilung",
       "es": "sección (de una tienda)",
-      "ko": "매장"
+      "ko": "매장",
+      "vi": "quầy bán hàng"
     },
     "level": "n4"
   },
@@ -518,7 +539,8 @@ export const WORDS: SiteWord[] = [
       "fr": "prononciation",
       "de": "Aussprache",
       "es": "pronunciación",
-      "ko": "발음"
+      "ko": "발음",
+      "vi": "phát âm"
     },
     "level": "n4"
   },
@@ -532,7 +554,8 @@ export const WORDS: SiteWord[] = [
       "fr": "typhon",
       "de": "Taifun",
       "es": "tifón",
-      "ko": "태풍"
+      "ko": "태풍",
+      "vi": "bão"
     },
     "level": "n4"
   },
@@ -546,7 +569,8 @@ export const WORDS: SiteWord[] = [
       "fr": "feuille (de plante)",
       "de": "Blatt",
       "es": "hoja (de planta)",
-      "ko": "잎"
+      "ko": "잎",
+      "vi": "lá cây"
     },
     "level": "n4"
   },
@@ -560,7 +584,8 @@ export const WORDS: SiteWord[] = [
       "fr": "chef de service",
       "de": "Abteilungsleiter",
       "es": "jefe de sección",
-      "ko": "과장"
+      "ko": "과장",
+      "vi": "trưởng phòng"
     },
     "level": "n4"
   },
@@ -574,7 +599,8 @@ export const WORDS: SiteWord[] = [
       "fr": "tremblement de terre",
       "de": "Erdbeben",
       "es": "terremoto",
-      "ko": "지진"
+      "ko": "지진",
+      "vi": "động đất"
     },
     "level": "n4"
   },
@@ -588,7 +614,8 @@ export const WORDS: SiteWord[] = [
       "fr": "population",
       "de": "Bevölkerung",
       "es": "población",
-      "ko": "인구"
+      "ko": "인구",
+      "vi": "dân số"
     },
     "level": "n4"
   },
@@ -602,7 +629,8 @@ export const WORDS: SiteWord[] = [
       "fr": "lune",
       "de": "Mond",
       "es": "luna",
-      "ko": "달"
+      "ko": "달",
+      "vi": "mặt trăng"
     },
     "level": "n4"
   },
@@ -616,7 +644,8 @@ export const WORDS: SiteWord[] = [
       "fr": "profond",
       "de": "tief",
       "es": "profundo",
-      "ko": "깊다"
+      "ko": "깊다",
+      "vi": "sâu"
     },
     "level": "n4"
   },
@@ -630,7 +659,8 @@ export const WORDS: SiteWord[] = [
       "fr": "triste",
       "de": "traurig",
       "es": "triste",
-      "ko": "슬프다"
+      "ko": "슬프다",
+      "vi": "buồn"
     },
     "level": "n4"
   },
@@ -644,7 +674,8 @@ export const WORDS: SiteWord[] = [
       "fr": "collège",
       "de": "Mittelschule",
       "es": "escuela secundaria",
-      "ko": "중학교"
+      "ko": "중학교",
+      "vi": "trường trung học cơ sở"
     },
     "level": "n4"
   },
@@ -658,7 +689,8 @@ export const WORDS: SiteWord[] = [
       "fr": "faire (très humble)",
       "de": "tun (sehr bescheiden)",
       "es": "hacer (muy humilde)",
-      "ko": "하다 (겸양어)"
+      "ko": "하다 (겸양어)",
+      "vi": "làm (khiêm nhường)"
     },
     "level": "n4"
   },
@@ -672,7 +704,23 @@ export const WORDS: SiteWord[] = [
       "fr": "mensonge",
       "de": "Lüge",
       "es": "mentira",
-      "ko": "거짓말"
+      "ko": "거짓말",
+      "vi": "lời nói dối"
+    },
+    "level": "n4"
+  },
+  {
+    "id": 830,
+    "kanji": "小説",
+    "kana": "しょうせつ",
+    "romaji": "shousetsu",
+    "meaning": {
+      "en": "novel",
+      "fr": "roman",
+      "de": "Roman",
+      "es": "novela",
+      "ko": "소설",
+      "vi": "tiểu thuyết"
     },
     "level": "n4"
   },
@@ -686,7 +734,8 @@ export const WORDS: SiteWord[] = [
       "fr": "singe",
       "de": "Affe",
       "es": "mono",
-      "ko": "원숭이"
+      "ko": "원숭이",
+      "vi": "con khỉ"
     },
     "level": "n3"
   },
@@ -700,7 +749,8 @@ export const WORDS: SiteWord[] = [
       "fr": "participation",
       "de": "Teilnahme",
       "es": "participación",
-      "ko": "참가"
+      "ko": "참가",
+      "vi": "tham gia"
     },
     "level": "n3"
   },
@@ -714,7 +764,8 @@ export const WORDS: SiteWord[] = [
       "fr": "oxygène",
       "de": "Sauerstoff",
       "es": "oxígeno",
-      "ko": "산소"
+      "ko": "산소",
+      "vi": "khí oxy"
     },
     "level": "n3"
   },
@@ -728,7 +779,8 @@ export const WORDS: SiteWord[] = [
       "fr": "les quatre saisons",
       "de": "die vier Jahreszeiten",
       "es": "las cuatro estaciones",
-      "ko": "사계절"
+      "ko": "사계절",
+      "vi": "bốn mùa"
     },
     "level": "n3"
   },
@@ -742,7 +794,8 @@ export const WORDS: SiteWord[] = [
       "fr": "dépenses",
       "de": "Ausgaben",
       "es": "gastos",
-      "ko": "지출"
+      "ko": "지출",
+      "vi": "chi tiêu"
     },
     "level": "n3"
   },
@@ -756,7 +809,8 @@ export const WORDS: SiteWord[] = [
       "fr": "poète",
       "de": "Dichter",
       "es": "poeta",
-      "ko": "시인"
+      "ko": "시인",
+      "vi": "nhà thơ"
     },
     "level": "n3"
   },
@@ -770,7 +824,8 @@ export const WORDS: SiteWord[] = [
       "fr": "langue (organe)",
       "de": "Zunge",
       "es": "lengua (órgano)",
-      "ko": "혀"
+      "ko": "혀",
+      "vi": "cái lưỡi"
     },
     "level": "n3"
   },
@@ -784,21 +839,8 @@ export const WORDS: SiteWord[] = [
       "fr": "chômage",
       "de": "Arbeitslosigkeit",
       "es": "desempleo",
-      "ko": "실업"
-    },
-    "level": "n3"
-  },
-  {
-    "id": 1438,
-    "kanji": "湿気",
-    "kana": "しっけ",
-    "romaji": "shikke",
-    "meaning": {
-      "en": "moisture, humidity, dampness",
-      "fr": "humidité",
-      "de": "Feuchtigkeit",
-      "es": "humedad",
-      "ko": "습기"
+      "ko": "실업",
+      "vi": "thất nghiệp"
     },
     "level": "n3"
   },
@@ -812,7 +854,8 @@ export const WORDS: SiteWord[] = [
       "fr": "taux d'humidité",
       "de": "Luftfeuchtigkeit",
       "es": "humedad (relativa)",
-      "ko": "습도"
+      "ko": "습도",
+      "vi": "độ ẩm"
     },
     "level": "n3"
   },
@@ -826,7 +869,8 @@ export const WORDS: SiteWord[] = [
       "fr": "automatique",
       "de": "automatisch",
       "es": "automático",
-      "ko": "자동"
+      "ko": "자동",
+      "vi": "tự động"
     },
     "level": "n3"
   },
@@ -840,7 +884,8 @@ export const WORDS: SiteWord[] = [
       "fr": "pelouse",
       "de": "Rasen",
       "es": "césped",
-      "ko": "잔디밭"
+      "ko": "잔디밭",
+      "vi": "bãi cỏ"
     },
     "level": "n3"
   },
@@ -854,7 +899,8 @@ export const WORDS: SiteWord[] = [
       "fr": "paiement",
       "de": "Zahlung",
       "es": "pago",
-      "ko": "지불"
+      "ko": "지불",
+      "vi": "sự thanh toán"
     },
     "level": "n3"
   },
@@ -868,7 +914,8 @@ export const WORDS: SiteWord[] = [
       "fr": "payer",
       "de": "bezahlen",
       "es": "pagar",
-      "ko": "지불하다"
+      "ko": "지불하다",
+      "vi": "thanh toán"
     },
     "level": "n3"
   },
@@ -882,7 +929,8 @@ export const WORDS: SiteWord[] = [
       "fr": "sœurs",
       "de": "Schwestern",
       "es": "hermanas",
-      "ko": "자매"
+      "ko": "자매",
+      "vi": "chị em gái"
     },
     "level": "n3"
   },
@@ -896,7 +944,8 @@ export const WORDS: SiteWord[] = [
       "fr": "religion",
       "de": "Religion",
       "es": "religión",
-      "ko": "종교"
+      "ko": "종교",
+      "vi": "tôn giáo"
     },
     "level": "n3"
   },
@@ -910,7 +959,8 @@ export const WORDS: SiteWord[] = [
       "fr": "accorder de l'importance",
       "de": "großen Wert legen auf",
       "es": "dar importancia",
-      "ko": "중시"
+      "ko": "중시",
+      "vi": "coi trọng"
     },
     "level": "n3"
   },
@@ -924,7 +974,8 @@ export const WORDS: SiteWord[] = [
       "fr": "concentration",
       "de": "Konzentration",
       "es": "concentración",
-      "ko": "집중"
+      "ko": "집중",
+      "vi": "tập trung"
     },
     "level": "n3"
   },
@@ -938,7 +989,8 @@ export const WORDS: SiteWord[] = [
       "fr": "revenu",
       "de": "Einkommen",
       "es": "ingresos",
-      "ko": "수입 (소득)"
+      "ko": "수입 (소득)",
+      "vi": "thu nhập"
     },
     "level": "n3"
   },
@@ -952,7 +1004,8 @@ export const WORDS: SiteWord[] = [
       "fr": "réparation",
       "de": "Reparatur",
       "es": "reparación",
-      "ko": "수리"
+      "ko": "수리",
+      "vi": "sửa chữa"
     },
     "level": "n3"
   },
@@ -966,7 +1019,8 @@ export const WORDS: SiteWord[] = [
       "fr": "opération chirurgicale",
       "de": "Operation",
       "es": "operación quirúrgica",
-      "ko": "수술"
+      "ko": "수술",
+      "vi": "phẫu thuật"
     },
     "level": "n3"
   },
@@ -980,21 +1034,8 @@ export const WORDS: SiteWord[] = [
       "fr": "Premier ministre",
       "de": "Premierminister",
       "es": "primer ministro",
-      "ko": "총리"
-    },
-    "level": "n3"
-  },
-  {
-    "id": 1500,
-    "kanji": "出場",
-    "kana": "しゅつじょう",
-    "romaji": "shutsujou",
-    "meaning": {
-      "en": "participation",
-      "fr": "participation (à une compétition)",
-      "de": "Teilnahme (am Wettkampf)",
-      "es": "participación (en una competición)",
-      "ko": "출전"
+      "ko": "총리",
+      "vi": "thủ tướng"
     },
     "level": "n3"
   },
@@ -1008,7 +1049,38 @@ export const WORDS: SiteWord[] = [
       "fr": "capitale",
       "de": "Hauptstadt",
       "es": "capital",
-      "ko": "수도"
+      "ko": "수도",
+      "vi": "thủ đô"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1504,
+    "kanji": "主婦",
+    "kana": "しゅふ",
+    "romaji": "shufu",
+    "meaning": {
+      "en": "housewife",
+      "fr": "femme au foyer",
+      "de": "Hausfrau",
+      "es": "ama de casa",
+      "ko": "주부",
+      "vi": "bà nội trợ"
+    },
+    "level": "n3"
+  },
+  {
+    "id": 1513,
+    "kanji": "小",
+    "kana": "しょう",
+    "romaji": "shou",
+    "meaning": {
+      "en": "small",
+      "fr": "petit",
+      "de": "klein",
+      "es": "pequeño",
+      "ko": "소 (작은 것)",
+      "vi": "nhỏ"
     },
     "level": "n3"
   },
@@ -1022,7 +1094,8 @@ export const WORDS: SiteWord[] = [
       "fr": "entrée en fonctions",
       "de": "Amtsantritt",
       "es": "toma de posesión",
-      "ko": "취임"
+      "ko": "취임",
+      "vi": "nhậm chức"
     },
     "level": "n2"
   },
@@ -1036,7 +1109,8 @@ export const WORDS: SiteWord[] = [
       "fr": "sujet (grammaire)",
       "de": "Subjekt",
       "es": "sujeto (gramática)",
-      "ko": "주어 (문법)"
+      "ko": "주어 (문법)",
+      "vi": "chủ ngữ"
     },
     "level": "n2"
   },
@@ -1050,7 +1124,8 @@ export const WORDS: SiteWord[] = [
       "fr": "prédicat",
       "de": "Prädikat",
       "es": "predicado",
-      "ko": "술어 (문법)"
+      "ko": "술어 (문법)",
+      "vi": "vị ngữ"
     },
     "level": "n2"
   },
@@ -1064,7 +1139,8 @@ export const WORDS: SiteWord[] = [
       "fr": "voyage d'affaires",
       "de": "Geschäftsreise",
       "es": "viaje de negocios",
-      "ko": "출장"
+      "ko": "출장",
+      "vi": "công tác"
     },
     "level": "n2"
   },
@@ -1078,7 +1154,8 @@ export const WORDS: SiteWord[] = [
       "fr": "combiné (téléphone)",
       "de": "Telefonhörer",
       "es": "auricular (de teléfono)",
-      "ko": "수화기"
+      "ko": "수화기",
+      "vi": "ống nghe điện thoại"
     },
     "level": "n2"
   },
@@ -1092,7 +1169,8 @@ export const WORDS: SiteWord[] = [
       "fr": "digestion",
       "de": "Verdauung",
       "es": "digestión",
-      "ko": "소화"
+      "ko": "소화",
+      "vi": "tiêu hóa"
     },
     "level": "n2"
   },
@@ -1106,7 +1184,8 @@ export const WORDS: SiteWord[] = [
       "fr": "écolier (primaire)",
       "de": "Grundschüler",
       "es": "alumno de primaria",
-      "ko": "초등학생"
+      "ko": "초등학생",
+      "vi": "học sinh tiểu học"
     },
     "level": "n2"
   },
@@ -1120,7 +1199,8 @@ export const WORDS: SiteWord[] = [
       "fr": "shōgi (échecs japonais)",
       "de": "Shōgi (japanisches Schach)",
       "es": "shogi (ajedrez japonés)",
-      "ko": "쇼기 (일본 장기)"
+      "ko": "쇼기 (일본 장기)",
+      "vi": "cờ shogi"
     },
     "level": "n2"
   },
@@ -1134,7 +1214,8 @@ export const WORDS: SiteWord[] = [
       "fr": "vapeur",
       "de": "Dampf",
       "es": "vapor",
-      "ko": "증기"
+      "ko": "증기",
+      "vi": "hơi nước"
     },
     "level": "n2"
   },
@@ -1148,7 +1229,8 @@ export const WORDS: SiteWord[] = [
       "fr": "règle (instrument)",
       "de": "Lineal",
       "es": "regla (instrumento)",
-      "ko": "자"
+      "ko": "자",
+      "vi": "cái thước"
     },
     "level": "n2"
   },
@@ -1162,7 +1244,8 @@ export const WORDS: SiteWord[] = [
       "fr": "commerce",
       "de": "Handel",
       "es": "comercio",
-      "ko": "상업"
+      "ko": "상업",
+      "vi": "thương mại"
     },
     "level": "n2"
   },
@@ -1176,7 +1259,8 @@ export const WORDS: SiteWord[] = [
       "fr": "prix en argent",
       "de": "Preisgeld",
       "es": "premio en metálico",
-      "ko": "상금"
+      "ko": "상금",
+      "vi": "tiền thưởng"
     },
     "level": "n2"
   },
@@ -1190,7 +1274,8 @@ export const WORDS: SiteWord[] = [
       "fr": "société de commerce",
       "de": "Handelsgesellschaft",
       "es": "empresa comercial",
-      "ko": "상사 (무역 회사)"
+      "ko": "상사 (무역 회사)",
+      "vi": "công ty thương mại"
     },
     "level": "n2"
   },
@@ -1204,7 +1289,8 @@ export const WORDS: SiteWord[] = [
       "fr": "montée (dans un train, une voiture)",
       "de": "Einsteigen",
       "es": "subida (al tren, coche)",
-      "ko": "승차"
+      "ko": "승차",
+      "vi": "lên tàu xe"
     },
     "level": "n2"
   },
@@ -1218,7 +1304,8 @@ export const WORDS: SiteWord[] = [
       "fr": "début du mois (1er au 10)",
       "de": "Monatsanfang (1.–10.)",
       "es": "primeros diez días del mes",
-      "ko": "상순"
+      "ko": "상순",
+      "vi": "mười ngày đầu tháng"
     },
     "level": "n2"
   },
@@ -1232,7 +1319,8 @@ export const WORDS: SiteWord[] = [
       "fr": "nombre décimal",
       "de": "Dezimalzahl",
       "es": "número decimal",
-      "ko": "소수 (수학)"
+      "ko": "소수 (수학)",
+      "vi": "số thập phân"
     },
     "level": "n2"
   },
@@ -1246,7 +1334,8 @@ export const WORDS: SiteWord[] = [
       "fr": "désinfection",
       "de": "Desinfektion",
       "es": "desinfección",
-      "ko": "소독"
+      "ko": "소독",
+      "vi": "khử trùng"
     },
     "level": "n2"
   },
@@ -1260,7 +1349,8 @@ export const WORDS: SiteWord[] = [
       "fr": "caserne de pompiers",
       "de": "Feuerwache",
       "es": "estación de bomberos",
-      "ko": "소방서"
+      "ko": "소방서",
+      "vi": "trạm cứu hỏa"
     },
     "level": "n2"
   },
@@ -1274,7 +1364,8 @@ export const WORDS: SiteWord[] = [
       "fr": "niveau débutant",
       "de": "Anfängerstufe",
       "es": "nivel principiante",
-      "ko": "초급"
+      "ko": "초급",
+      "vi": "sơ cấp"
     },
     "level": "n2"
   },
@@ -1288,7 +1379,8 @@ export const WORDS: SiteWord[] = [
       "fr": "maître de conférences",
       "de": "außerordentlicher Professor",
       "es": "profesor adjunto",
-      "ko": "조교수"
+      "ko": "조교수",
+      "vi": "phó giáo sư"
     },
     "level": "n2"
   },
@@ -1302,7 +1394,8 @@ export const WORDS: SiteWord[] = [
       "fr": "lieu de travail",
       "de": "Arbeitsplatz",
       "es": "lugar de trabajo",
-      "ko": "직장"
+      "ko": "직장",
+      "vi": "nơi làm việc"
     },
     "level": "n2"
   },
@@ -1316,7 +1409,8 @@ export const WORDS: SiteWord[] = [
       "fr": "début du mois",
       "de": "Monatsanfang",
       "es": "principios de mes",
-      "ko": "초순"
+      "ko": "초순",
+      "vi": "mười ngày đầu tháng"
     },
     "level": "n2"
   },
@@ -1330,7 +1424,8 @@ export const WORDS: SiteWord[] = [
       "fr": "vaisselle",
       "de": "Geschirr",
       "es": "vajilla",
-      "ko": "식기"
+      "ko": "식기",
+      "vi": "bát đĩa"
     },
     "level": "n2"
   },
@@ -1344,23 +1439,10 @@ export const WORDS: SiteWord[] = [
       "fr": "librairie",
       "de": "Buchhandlung",
       "es": "librería",
-      "ko": "서점"
+      "ko": "서점",
+      "vi": "hiệu sách"
     },
     "level": "n2"
-  },
-  {
-    "id": 5274,
-    "kanji": "現像",
-    "kana": "げんぞう",
-    "romaji": "genzou",
-    "meaning": {
-      "en": "developing (film)",
-      "fr": "développement (photo)",
-      "de": "Entwicklung (Film)",
-      "es": "revelado (fotográfico)",
-      "ko": "현상 (필름)"
-    },
-    "level": "n1"
   },
   {
     "id": 5282,
@@ -1372,7 +1454,8 @@ export const WORDS: SiteWord[] = [
       "fr": "texte original",
       "de": "Originaltext",
       "es": "texto original",
-      "ko": "원문"
+      "ko": "원문",
+      "vi": "bản gốc"
     },
     "level": "n1"
   },
@@ -1386,7 +1469,8 @@ export const WORDS: SiteWord[] = [
       "fr": "pétrole brut",
       "de": "Rohöl",
       "es": "petróleo crudo",
-      "ko": "원유"
+      "ko": "원유",
+      "vi": "dầu thô"
     },
     "level": "n1"
   },
@@ -1400,21 +1484,8 @@ export const WORDS: SiteWord[] = [
       "fr": "vocabulaire",
       "de": "Wortschatz",
       "es": "vocabulario",
-      "ko": "어휘"
-    },
-    "level": "n1"
-  },
-  {
-    "id": 5298,
-    "kanji": "工学",
-    "kana": "こうがく",
-    "romaji": "kougaku",
-    "meaning": {
-      "en": "engineering",
-      "fr": "ingénierie",
-      "de": "Ingenieurwesen",
-      "es": "ingeniería",
-      "ko": "공학"
+      "ko": "어휘",
+      "vi": "từ vựng"
     },
     "level": "n1"
   },
@@ -1428,7 +1499,8 @@ export const WORDS: SiteWord[] = [
       "fr": "prospérité économique",
       "de": "Hochkonjunktur",
       "es": "bonanza económica",
-      "ko": "호황"
+      "ko": "호황",
+      "vi": "kinh tế tốt"
     },
     "level": "n1"
   },
@@ -1442,7 +1514,8 @@ export const WORDS: SiteWord[] = [
       "fr": "industrie minière",
       "de": "Bergbau",
       "es": "minería",
-      "ko": "광업"
+      "ko": "광업",
+      "vi": "ngành khai khoáng"
     },
     "level": "n1"
   },
@@ -1456,7 +1529,8 @@ export const WORDS: SiteWord[] = [
       "fr": "plateau (géographie)",
       "de": "Hochebene",
       "es": "meseta",
-      "ko": "고원"
+      "ko": "고원",
+      "vi": "cao nguyên"
     },
     "level": "n1"
   },
@@ -1470,7 +1544,8 @@ export const WORDS: SiteWord[] = [
       "fr": "archéologie",
       "de": "Archäologie",
       "es": "arqueología",
-      "ko": "고고학"
+      "ko": "고고학",
+      "vi": "khảo cổ học"
     },
     "level": "n1"
   },
@@ -1484,7 +1559,8 @@ export const WORDS: SiteWord[] = [
       "fr": "déduction (fiscale)",
       "de": "Abzug (Steuer)",
       "es": "deducción (fiscal)",
-      "ko": "공제"
+      "ko": "공제",
+      "vi": "khấu trừ"
     },
     "level": "n1"
   },
@@ -1498,7 +1574,8 @@ export const WORDS: SiteWord[] = [
       "fr": "épices",
       "de": "Gewürze",
       "es": "especias",
-      "ko": "향신료"
+      "ko": "향신료",
+      "vi": "hương liệu"
     },
     "level": "n1"
   },
@@ -1512,7 +1589,8 @@ export const WORDS: SiteWord[] = [
       "fr": "précipitations",
       "de": "Niederschlag",
       "es": "precipitaciones",
-      "ko": "강수"
+      "ko": "강수",
+      "vi": "lượng mưa"
     },
     "level": "n1"
   },
@@ -1526,7 +1604,8 @@ export const WORDS: SiteWord[] = [
       "fr": "inondation",
       "de": "Überschwemmung",
       "es": "inundación",
-      "ko": "홍수"
+      "ko": "홍수",
+      "vi": "lũ lụt"
     },
     "level": "n1"
   },
@@ -1540,7 +1619,8 @@ export const WORDS: SiteWord[] = [
       "fr": "société publique",
       "de": "öffentliche Körperschaft",
       "es": "corporación pública",
-      "ko": "공단 (공공 법인)"
+      "ko": "공단 (공공 법인)",
+      "vi": "công ty nhà nước"
     },
     "level": "n1"
   },
@@ -1554,7 +1634,8 @@ export const WORDS: SiteWord[] = [
       "fr": "lecture commentée",
       "de": "Lektüre (Seminar)",
       "es": "lectura comentada",
-      "ko": "강독"
+      "ko": "강독",
+      "vi": "đọc hiểu (giờ học)"
     },
     "level": "n1"
   },
@@ -1568,7 +1649,8 @@ export const WORDS: SiteWord[] = [
       "fr": "abonnement (journal, magazine)",
       "de": "Abonnement",
       "es": "suscripción",
-      "ko": "구독"
+      "ko": "구독",
+      "vi": "đặt mua dài hạn"
     },
     "level": "n1"
   },
@@ -1582,7 +1664,8 @@ export const WORDS: SiteWord[] = [
       "fr": "frais de chauffage et d'électricité",
       "de": "Strom- und Heizkosten",
       "es": "gastos de luz y calefacción",
-      "ko": "광열비"
+      "ko": "광열비",
+      "vi": "tiền điện, ga"
     },
     "level": "n1"
   },
@@ -1596,7 +1679,8 @@ export const WORDS: SiteWord[] = [
       "fr": "appel public (à candidatures)",
       "de": "öffentliche Ausschreibung",
       "es": "convocatoria pública",
-      "ko": "공모"
+      "ko": "공모",
+      "vi": "mở tuyển công khai"
     },
     "level": "n1"
   },
@@ -1610,7 +1694,8 @@ export const WORDS: SiteWord[] = [
       "fr": "vente au détail",
       "de": "Einzelhandel",
       "es": "venta al por menor",
-      "ko": "소매"
+      "ko": "소매",
+      "vi": "bán lẻ"
     },
     "level": "n1"
   },
@@ -1624,7 +1709,8 @@ export const WORDS: SiteWord[] = [
       "fr": "public (établissement)",
       "de": "öffentlich (Einrichtung)",
       "es": "público (centro)",
-      "ko": "공립"
+      "ko": "공립",
+      "vi": "công lập"
     },
     "level": "n1"
   },
@@ -1638,7 +1724,8 @@ export const WORDS: SiteWord[] = [
       "fr": "chèque",
       "de": "Scheck",
       "es": "cheque",
-      "ko": "수표"
+      "ko": "수표",
+      "vi": "séc"
     },
     "level": "n1"
   },
@@ -1652,7 +1739,8 @@ export const WORDS: SiteWord[] = [
       "fr": "défense nationale",
       "de": "Landesverteidigung",
       "es": "defensa nacional",
-      "ko": "국방"
+      "ko": "국방",
+      "vi": "quốc phòng"
     },
     "level": "n1"
   },
@@ -1666,7 +1754,8 @@ export const WORDS: SiteWord[] = [
       "fr": "propriété de l'État",
       "de": "Staatseigentum",
       "es": "propiedad estatal",
-      "ko": "국유"
+      "ko": "국유",
+      "vi": "quốc hữu"
     },
     "level": "n1"
   },
@@ -1680,7 +1769,38 @@ export const WORDS: SiteWord[] = [
       "fr": "paradis",
       "de": "Paradies",
       "es": "paraíso",
-      "ko": "극락"
+      "ko": "극락",
+      "vi": "cực lạc"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5371,
+    "kanji": "孤児",
+    "kana": "こじ",
+    "romaji": "koji",
+    "meaning": {
+      "en": "orphan",
+      "fr": "orphelin",
+      "de": "Waise",
+      "es": "huérfano",
+      "ko": "고아",
+      "vi": "trẻ mồ côi"
+    },
+    "level": "n1"
+  },
+  {
+    "id": 5376,
+    "kanji": "戸籍",
+    "kana": "こせき",
+    "romaji": "koseki",
+    "meaning": {
+      "en": "census, family register",
+      "fr": "registre d'état civil (famille)",
+      "de": "Familienregister",
+      "es": "registro familiar",
+      "ko": "호적",
+      "vi": "hộ tịch"
     },
     "level": "n1"
   }

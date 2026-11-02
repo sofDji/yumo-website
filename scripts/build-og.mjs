@@ -1,5 +1,5 @@
 // Renders the Open Graph cards to public/og.png, og-fr.png, og-de.png,
-// og-es.png, og-ko.png and og-n5.png.
+// og-es.png, og-ko.png, og-vi.png and og-n5.png.
 //
 //   npm run build:og      (needs no dev server — the HTML is self-contained)
 //
@@ -65,6 +65,12 @@ const CARDS = [
     sub: '몇 시간마다 새로운 단어<br>7,972개 단어 &middot; 완전한 오프라인',
   },
   {
+    out: 'public/og-vi.png',
+    lang: 'vi',
+    headline: 'Tiếng Nhật ngay trên<br>màn hình khóa',
+    sub: 'Cứ vài giờ một từ mới<br>7.972 từ &middot; không cần mạng',
+  },
+  {
     // For /jlpt/n5. The count must match N5_WORDS.length in lib/jlpt/n5.ts —
     // the page title quotes the same number.
     out: 'public/og-n5.png',
@@ -78,11 +84,11 @@ const html = (card) => `<!doctype html>
 <html lang="${card.lang}"><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700&family=Be+Vietnam+Pro:wght@500;700&display=block" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   body{width:${W}px;height:${H}px;background:${T.ground};overflow:hidden;
-       font-family:'Schibsted Grotesk',system-ui,sans-serif;
+       font-family:${card.lang === 'vi' ? "'Be Vietnam Pro'" : "'Schibsted Grotesk'"},system-ui,sans-serif;
        display:flex;align-items:center;justify-content:center;position:relative}
   /* Decoration only. Both sit largely outside the safe square by design. */
   .blob{position:absolute;border-radius:50%}

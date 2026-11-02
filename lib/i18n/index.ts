@@ -3,9 +3,10 @@ import { de } from './de';
 import { es } from './es';
 import { fr } from './fr';
 import { ko } from './ko';
+import { vi } from './vi';
 import type { Locale } from './locales';
 
-const DICTIONARIES: Record<Locale, Dictionary> = { en, fr, de, es, ko };
+const DICTIONARIES: Record<Locale, Dictionary> = { en, fr, de, es, ko, vi };
 
 export function getDictionary(locale: Locale): Dictionary {
   return DICTIONARIES[locale];

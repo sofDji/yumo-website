@@ -2,9 +2,18 @@ import { LockScreen } from '@/components/illustrations/LockScreen';
 import { Reveal } from '@/components/layout/Reveal';
 import { Section } from '@/components/layout/Section';
 import type { Dictionary, Locale } from '@/lib/i18n';
-import { WORDS } from '@/lib/words';
+import type { SiteWord } from '@/lib/select-words';
 
-const WORD = WORDS.find((w) => w.kanji === '明日') ?? WORDS[0];
+// From the app's dataset, spelled out because the card below is about this
+// word and the generated site sample may not include it.
+const WORD: SiteWord = {
+  id: 239,
+  kanji: '月曜日',
+  kana: 'げつようび',
+  romaji: 'getsuyoubi',
+  meaning: { en: 'Monday', fr: 'lundi', de: 'Montag', es: 'lunes', ko: '월요일', vi: 'thứ hai' },
+  level: 'n5',
+};
 
 export function LockScreenSection({
   locale,
@@ -25,7 +34,7 @@ export function LockScreenSection({
     >
       <div className="grid items-center gap-12 md:grid-cols-2">
         <Reveal>
-          <LockScreen word={WORD} locale={locale} />
+          <LockScreen word={WORD} locale={locale} t={t} />
         </Reveal>
 
         <Reveal delay={0.1}>

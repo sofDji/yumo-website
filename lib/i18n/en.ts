@@ -68,10 +68,16 @@ export const en = {
     eyebrow: 'Lock Screen',
     titleLead: 'Learned before you even',
     titleAccent: 'unlock',
+    date: 'Monday, 2 November',
+    sentence: { before: '', word: 'Monday', after: ' should be illegal.' },
     points: [
       {
         h: 'The screen you check most',
         p: 'You look at your Lock Screen dozens of times a day without deciding to. Yumo puts a word there, so the reading happens before you have thought about studying.',
+      },
+      {
+        h: 'An example sentence, right there',
+        p: 'With Yumo Pro, turn on a Live Activity and each new word brings an example sentence to your Lock Screen, in Japanese, romaji and your language, with the word highlighted. It needs an iPhone on iOS 17.2 or later and a connection.',
       },
       {
         h: 'Rectangular or inline',
@@ -127,8 +133,8 @@ export const en = {
       },
       {
         id: 'languages',
-        title: 'Five meaning languages',
-        body: 'English, French, German, Spanish and Korean, all bundled in the app.',
+        title: 'Six meaning languages',
+        body: 'English, French, German, Spanish, Korean and Vietnamese, all bundled in the app.',
       },
       {
         id: 'browse',
@@ -205,7 +211,7 @@ export const en = {
     points: [
       {
         h: 'Search however you remember it',
-        p: 'Search {total} words by kanji, kana, romaji or meaning. Every entry carries its reading, its romaji, its JLPT level and meanings in English, French, German, Spanish and Korean.',
+        p: 'Search {total} words by kanji, kana, romaji or meaning. Every entry carries its reading, its romaji, its JLPT level and meanings in English, French, German, Spanish, Korean and Vietnamese.',
       },
       {
         h: 'N5 free, every level with Pro',
@@ -236,6 +242,7 @@ export const en = {
     pro: [
       'Every level, N5 to N1 — all {total} words',
       'A new word every 1, 2, 3 or 4 hours',
+      'Example sentences on your Lock Screen (iPhone)',
       'The Auto journey, climbing N5 to N1',
       'Browse the full dictionary',
       'Widget colours, transparency and text colour',

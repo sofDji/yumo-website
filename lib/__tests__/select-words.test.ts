@@ -6,7 +6,7 @@ import { WORDS } from '../words';
 
 const raw = (over: Partial<RawWord> & { id: number }): RawWord => ({
   kanji: '水', kana: 'みず', romaji: 'mizu', level: 'n5',
-  meaning: { en: 'water', fr: 'eau', de: 'Wasser', es: 'agua', ko: '물' },
+  meaning: { en: 'water', fr: 'eau', de: 'Wasser', es: 'agua', ko: '물', vi: 'nước' },
   ...over,
 });
 
@@ -18,13 +18,13 @@ describe('selectWords', () => {
 
   it('drops meanings of 40 characters or more', () => {
     const long = 'a'.repeat(40);
-    const out = selectWords([raw({ id: 2, meaning: { en: long, fr: 'eau', de: 'Wasser', es: 'agua', ko: '물' } })], 5);
+    const out = selectWords([raw({ id: 2, meaning: { en: long, fr: 'eau', de: 'Wasser', es: 'agua', ko: '물', vi: 'nước' } })], 5);
     expect(out).toHaveLength(0);
   });
 
   it('drops meanings containing a semicolon', () => {
     const out = selectWords(
-      [raw({ id: 3, meaning: { en: 'water; liquid', fr: 'eau', de: 'Wasser', es: 'agua', ko: '물' } })],
+      [raw({ id: 3, meaning: { en: 'water; liquid', fr: 'eau', de: 'Wasser', es: 'agua', ko: '물', vi: 'nước' } })],
       5,
     );
     expect(out).toHaveLength(0);
@@ -35,7 +35,7 @@ describe('selectWords', () => {
   it('drops a word whose French gloss is unusable even if English is fine', () => {
     const messy = 'de aquella forma, mais aussi tout autre chose entièrement';
     const out = selectWords(
-      [raw({ id: 8, meaning: { en: 'water', fr: messy, de: 'Wasser', es: 'agua', ko: '물' } })],
+      [raw({ id: 8, meaning: { en: 'water', fr: messy, de: 'Wasser', es: 'agua', ko: '물', vi: 'nước' } })],
       5,
     );
     expect(out).toHaveLength(0);
@@ -43,7 +43,7 @@ describe('selectWords', () => {
 
   it('drops a word whose Korean gloss is missing', () => {
     const out = selectWords(
-      [raw({ id: 9, meaning: { en: 'water', fr: 'eau', de: 'Wasser', es: 'agua', ko: '' } })],
+      [raw({ id: 9, meaning: { en: 'water', fr: 'eau', de: 'Wasser', es: 'agua', ko: '', vi: 'nước' } })],
       5,
     );
     expect(out).toHaveLength(0);
@@ -61,7 +61,7 @@ describe('selectWords', () => {
       kanji: '水',
       kana: 'みず',
       romaji: 'mizu',
-      meaning: { en: 'water', fr: 'eau', de: 'Wasser', es: 'agua', ko: '물' },
+      meaning: { en: 'water', fr: 'eau', de: 'Wasser', es: 'agua', ko: '물', vi: 'nước' },
       level: 'n5',
     });
   });

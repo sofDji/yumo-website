@@ -15,6 +15,7 @@ function pick(over: Partial<DetectInput>) {
 describe('pickLocale', () => {
   it('follows the browser language when the site has it', () => {
     expect(pick({ languages: ['ko-KR', 'en-US'], timeZone: 'Asia/Seoul' })).toBe('ko');
+    expect(pick({ languages: ['vi-VN', 'en-US'], timeZone: 'Asia/Ho_Chi_Minh' })).toBe('vi');
     expect(pick({ languages: ['fr-FR'] })).toBe('fr');
     expect(pick({ languages: ['es-MX'] })).toBe('es');
   });
@@ -30,6 +31,7 @@ describe('pickLocale', () => {
   it('falls back to the country of the time zone', () => {
     expect(pick({ languages: ['ja-JP'], timeZone: 'Europe/Paris' })).toBe('fr');
     expect(pick({ languages: ['zh-CN'], timeZone: 'Asia/Seoul' })).toBe('ko');
+    expect(pick({ languages: ['zh-CN'], timeZone: 'Asia/Ho_Chi_Minh' })).toBe('vi');
     expect(pick({ languages: ['it-IT'], timeZone: 'Europe/Zurich' })).toBe('de');
     expect(pick({ languages: ['pt-BR'], timeZone: 'America/Bogota' })).toBe('es');
   });

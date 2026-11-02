@@ -60,6 +60,7 @@ describe('localePath', () => {
     expect(localePath('fr')).toBe('/fr');
     expect(localePath('fr', 'support')).toBe('/fr/support');
     expect(localePath('ko')).toBe('/ko');
+    expect(localePath('vi')).toBe('/vi');
     expect(localePath('de', 'support')).toBe('/de/support');
   });
 

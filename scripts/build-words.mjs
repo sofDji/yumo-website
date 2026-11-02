@@ -12,7 +12,7 @@ const PER_LEVEL = 24;
 
 const LEVELS = ['n5', 'n4', 'n3', 'n2', 'n1'];
 // Mirrors LOCALES in lib/i18n/locales.ts.
-const LOCALES = ['en', 'fr', 'de', 'es', 'ko'];
+const LOCALES = ['en', 'fr', 'de', 'es', 'ko', 'vi'];
 
 // Mirrors selectWords in lib/select-words.ts. Duplicated because a plain ESM
 // script cannot import the TypeScript module; both copies are pinned by tests

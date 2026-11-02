@@ -33,6 +33,7 @@ const COUNTRY_LOCALE: Record<string, Exclude<Locale, 'en'>> = {
     ),
   ),
   KR: 'ko',
+  VN: 'vi',
 };
 
 /** Time zone -> locale, only for zones whose country maps to one. */

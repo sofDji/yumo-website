@@ -24,7 +24,7 @@ const GREETING: SiteWord = {
   kanji: '歓迎',
   kana: 'かんげい',
   romaji: 'kangei',
-  meaning: { en: 'welcome', fr: 'bienvenue', de: 'Willkommen', es: 'bienvenida', ko: '환영' },
+  meaning: { en: 'welcome', fr: 'bienvenue', de: 'Willkommen', es: 'bienvenida', ko: '환영', vi: 'chào đón' },
   level: 'n3',
 };
 

@@ -1,8 +1,8 @@
-export type Locale = 'en' | 'fr' | 'de' | 'es' | 'ko';
+export type Locale = 'en' | 'fr' | 'de' | 'es' | 'ko' | 'vi';
 
 // The order the language menu lists them in: English first as the default,
 // then the others in the order the app added them.
-export const LOCALES: Locale[] = ['en', 'fr', 'de', 'es', 'ko'];
+export const LOCALES: Locale[] = ['en', 'fr', 'de', 'es', 'ko', 'vi'];
 export const DEFAULT_LOCALE: Locale = 'en';
 
 /** localStorage key for the language picked in the menu. See lib/i18n/detect.ts. */
@@ -14,6 +14,7 @@ export const LOCALE_LABEL: Record<Locale, string> = {
   de: 'DE',
   es: 'ES',
   ko: 'KO',
+  vi: 'VI',
 };
 
 /** Each language named in itself, as the language menu lists it. */
@@ -23,6 +24,7 @@ export const LOCALE_NAME: Record<Locale, string> = {
   de: 'Deutsch',
   es: 'Español',
   ko: '한국어',
+  vi: 'Tiếng Việt',
 };
 
 /** BCP 47 tag with region, for Intl number formatting and schema.org inLanguage. */
@@ -32,6 +34,7 @@ export const LOCALE_TAG: Record<Locale, string> = {
   de: 'de-DE',
   es: 'es-ES',
   ko: 'ko-KR',
+  vi: 'vi-VN',
 };
 
 // Privacy and terms exist in English only and are binding: translating them

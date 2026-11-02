@@ -63,10 +63,16 @@ export const fr: Dictionary = {
     eyebrow: 'Écran de verrouillage',
     titleLead: 'Appris avant même de',
     titleAccent: 'déverrouiller',
+    date: 'lundi 2 novembre',
+    sentence: { before: 'Le ', word: 'lundi', after: ' devrait être illégal.' },
     points: [
       {
         h: "L'écran que vous consultez le plus",
         p: "Vous regardez votre écran de verrouillage des dizaines de fois par jour sans y penser. Yumo y place un mot : la lecture se fait avant même que l'idée d'étudier vous vienne.",
+      },
+      {
+        h: 'Une phrase d’exemple, juste là',
+        p: 'Avec Yumo Pro, activez une activité en direct : chaque nouveau mot apporte une phrase d’exemple sur votre écran verrouillé, en japonais, en romaji et dans votre langue, le mot mis en évidence. Nécessite un iPhone sous iOS 17.2 ou plus récent et une connexion.',
       },
       {
         h: 'Rectangulaire ou en ligne',
@@ -122,8 +128,8 @@ export const fr: Dictionary = {
       },
       {
         id: 'languages',
-        title: 'Cinq langues de traduction',
-        body: "Anglais, français, allemand, espagnol et coréen, tous inclus dans l'application.",
+        title: 'Six langues de traduction',
+        body: "Anglais, français, allemand, espagnol, coréen et vietnamien, tous inclus dans l'application.",
       },
       {
         id: 'browse',
@@ -201,7 +207,7 @@ export const fr: Dictionary = {
     points: [
       {
         h: 'Cherchez comme le mot vous revient',
-        p: 'Recherchez parmi {total} mots par kanji, kana, romaji ou sens. Chaque entrée porte sa lecture, son romaji, son niveau JLPT et ses traductions en anglais, français, allemand, espagnol et coréen.',
+        p: 'Recherchez parmi {total} mots par kanji, kana, romaji ou sens. Chaque entrée porte sa lecture, son romaji, son niveau JLPT et ses traductions en anglais, français, allemand, espagnol, coréen et vietnamien.',
       },
       {
         h: 'N5 gratuit, tous les niveaux avec Pro',
@@ -232,6 +238,7 @@ export const fr: Dictionary = {
     pro: [
       'Tous les niveaux, du N5 au N1 — les {total} mots',
       'Un nouveau mot toutes les 1, 2, 3 ou 4 heures',
+      'Des phrases d’exemple sur l’écran verrouillé (iPhone)',
       'Le parcours Auto, du N5 au N1',
       'Le dictionnaire complet',
       'Couleurs, transparence et couleur du texte du widget',

@@ -3,9 +3,9 @@
 import { useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 
-// 赤い, from the app's dataset. All five glosses are shown at once — the claim
-// is "five languages", and five languages arriving one at a time would be a
-// worse picture of it than five sitting there together. What moves is only
+// 赤い, from the app's dataset. All six glosses are shown at once — the claim
+// is "six languages", and six languages arriving one at a time would be a
+// worse picture of it than six sitting there together. What moves is only
 // which one is lit.
 //
 // The dataset stores several senses per language ("rot; kommunistisch") and a
@@ -17,6 +17,7 @@ const GLOSSES = [
   { code: 'DE', gloss: 'rot' },
   { code: 'ES', gloss: 'rojo' },
   { code: 'KO', gloss: '빨갛다' },
+  { code: 'VI', gloss: 'đỏ' },
 ];
 
 const STEP = 1400;

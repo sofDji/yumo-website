@@ -64,10 +64,16 @@ export const de: Dictionary = {
     eyebrow: 'Sperrbildschirm',
     titleLead: 'Gelernt, noch bevor du',
     titleAccent: 'entsperrst',
+    date: 'Montag, 2. November',
+    sentence: { before: 'Der ', word: 'Montag', after: ' gehört verboten.' },
     points: [
       {
         h: 'Der Bildschirm, den du am häufigsten siehst',
         p: 'Du schaust jeden Tag dutzende Male auf deinen Sperrbildschirm, ohne es dir vorzunehmen. Yumo legt dort ein Wort ab – so liest du es, bevor du überhaupt ans Lernen gedacht hast.',
+      },
+      {
+        h: 'Ein Beispielsatz, genau dort',
+        p: 'Mit Yumo Pro schaltest du eine Live-Aktivität ein: Jedes neue Wort bringt einen Beispielsatz auf deinen Sperrbildschirm, auf Japanisch, in Romaji und in deiner Sprache, das Wort hervorgehoben. Dafür brauchst du ein iPhone mit iOS 17.2 oder neuer und eine Internetverbindung.',
       },
       {
         h: 'Rechteckig oder einzeilig',
@@ -123,8 +129,8 @@ export const de: Dictionary = {
       },
       {
         id: 'languages',
-        title: 'Fünf Bedeutungssprachen',
-        body: 'Englisch, Französisch, Deutsch, Spanisch und Koreanisch, alle in der App enthalten.',
+        title: 'Sechs Bedeutungssprachen',
+        body: 'Englisch, Französisch, Deutsch, Spanisch, Koreanisch und Vietnamesisch, alle in der App enthalten.',
       },
       {
         id: 'browse',
@@ -201,7 +207,7 @@ export const de: Dictionary = {
     points: [
       {
         h: 'Such so, wie du dich erinnerst',
-        p: 'Durchsuche {total} Wörter nach Kanji, Kana, Romaji oder Bedeutung. Jeder Eintrag hat seine Lesung, sein Romaji, seine JLPT-Stufe und Bedeutungen auf Englisch, Französisch, Deutsch, Spanisch und Koreanisch.',
+        p: 'Durchsuche {total} Wörter nach Kanji, Kana, Romaji oder Bedeutung. Jeder Eintrag hat seine Lesung, sein Romaji, seine JLPT-Stufe und Bedeutungen auf Englisch, Französisch, Deutsch, Spanisch, Koreanisch und Vietnamesisch.',
       },
       {
         h: 'N5 gratis, alle Stufen mit Pro',
@@ -232,6 +238,7 @@ export const de: Dictionary = {
     pro: [
       'Alle Stufen, N5 bis N1 – alle {total} Wörter',
       'Ein neues Wort alle 1, 2, 3 oder 4 Stunden',
+      'Beispielsätze auf dem Sperrbildschirm (iPhone)',
       'Der Auto-Weg, von N5 bis N1',
       'Das ganze Wörterbuch entdecken',
       'Widget-Farben, Transparenz und Textfarbe',
