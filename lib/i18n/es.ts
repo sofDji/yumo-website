@@ -263,7 +263,7 @@ export const es: Dictionary = {
       },
     ],
     exceptionBefore:
-      'Dos excepciones: al comprar Yumo Pro, tu compra se envía a Apple o Google y a RevenueCat, que la valida para que puedas restaurarla más adelante; y en iPhone, las notificaciones opcionales «News & updates» pasan por OneSignal, que recibe el token de notificaciones de tu dispositivo. Ambas se describen en detalle en la ',
+      'Tres excepciones: al comprar Yumo Pro, tu compra se envía a Apple o Google y a RevenueCat, que la valida para que puedas restaurarla más adelante; en iPhone, las notificaciones opcionales «News & updates» pasan por OneSignal, que recibe el token de notificaciones de tu dispositivo; y si activas la frase en la pantalla de bloqueo (Yumo Pro), tu idioma, tu zona horaria y tus ajustes de palabras se envían al servidor de Yumo para que pueda iniciar la tarjeta. Las tres se describen en detalle en la ',
     exceptionLink: 'política de privacidad',
     exceptionAfter: ' (en inglés).',
   },

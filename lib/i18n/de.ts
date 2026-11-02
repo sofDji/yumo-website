@@ -261,7 +261,7 @@ export const de: Dictionary = {
       },
     ],
     exceptionBefore:
-      'Zwei Ausnahmen: Wenn du Yumo Pro kaufst, geht dein Kauf an Apple oder Google und an RevenueCat, das ihn prüft, damit du ihn später wiederherstellen kannst; und auf dem iPhone laufen die optionalen „News & updates“-Mitteilungen über OneSignal, das den Push-Token deines Geräts erhält. Beides steht ausführlich in der ',
+      'Drei Ausnahmen: Wenn du Yumo Pro kaufst, geht dein Kauf an Apple oder Google und an RevenueCat, das ihn prüft, damit du ihn später wiederherstellen kannst; auf dem iPhone laufen die optionalen „News & updates“-Mitteilungen über OneSignal, das den Push-Token deines Geräts erhält; und wenn du den Satz auf dem Sperrbildschirm (Yumo Pro) einschaltest, gehen deine Sprache, deine Zeitzone und deine Wort-Einstellungen an den Yumo-Server, damit er die Karte starten kann. Alles steht ausführlich in der ',
     exceptionLink: 'Datenschutzerklärung',
     exceptionAfter: ' (auf Englisch).',
   },

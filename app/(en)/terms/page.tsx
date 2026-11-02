@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalLayout locale="en" title="Yumo — Terms of Use" updated="Effective August 17, 2026">
+    <LegalLayout locale="en" title="Yumo — Terms of Use" updated="Effective November 2, 2026">
       <JsonLd
         data={pageGraph({
           locale: 'en',
@@ -40,8 +40,12 @@ export default function TermsPage() {
       <p>
         Yumo Pro is a single one-time purchase — not a subscription — processed by
         Apple&apos;s App Store or Google Play under their respective terms. It
-        unlocks additional JLPT levels, faster word frequencies, and widget styling
-        on devices signed in to the same store account. After reinstalling the app,
+        unlocks additional JLPT levels and Extra everyday words, faster word
+        frequencies, widget styling, full word breakdowns and example sentences,
+        unlimited practice and, on iPhone, the sentence on the Lock Screen, on
+        devices signed in to the same store account. The Lock Screen sentence needs
+        an internet connection and relies on Apple&apos;s and OneSignal&apos;s
+        services, so it may not always arrive on time. After reinstalling the app,
         use &quot;Restore purchase&quot; on the upgrade screen to bring Pro back at
         no charge. Refunds are handled by Apple or Google under their store
         policies.

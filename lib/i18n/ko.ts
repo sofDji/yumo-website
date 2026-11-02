@@ -262,7 +262,7 @@ export const ko: Dictionary = {
       },
     ],
     exceptionBefore:
-      '예외는 두 가지예요. Yumo Pro를 구매하면 구매 정보가 Apple 또는 Google, 그리고 나중에 복원할 수 있도록 구매를 확인하는 RevenueCat에 전달돼요. 또 iPhone에서 선택 사항인 ‘News & updates’ 알림은 OneSignal을 거치며, OneSignal은 기기의 푸시 토큰을 받아요. 두 가지 모두 ',
+      '예외는 세 가지예요. Yumo Pro를 구매하면 구매 정보가 Apple 또는 Google, 그리고 나중에 복원할 수 있도록 구매를 확인하는 RevenueCat에 전달돼요. 또 iPhone에서 선택 사항인 ‘News & updates’ 알림은 OneSignal을 거치며, OneSignal은 기기의 푸시 토큰을 받아요. 그리고 잠금 화면 예문(Yumo Pro)을 켜면 언어, 시간대, 단어 설정이 카드를 시작할 수 있도록 Yumo 서버로 전달돼요. 세 가지 모두 ',
     exceptionLink: '개인정보 처리방침',
     exceptionAfter: '(영어)에 자세히 나와 있어요.',
   },

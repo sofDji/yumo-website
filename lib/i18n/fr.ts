@@ -261,7 +261,7 @@ export const fr: Dictionary = {
       },
     ],
     exceptionBefore:
-      "Deux exceptions : l'achat de Yumo Pro transmet votre achat à Apple ou Google et à RevenueCat, qui le valide pour vous permettre de le restaurer ensuite ; et sur iPhone, les notifications facultatives « News & updates » passent par OneSignal, qui reçoit le jeton de notification de votre appareil. Tout est détaillé dans la ",
+      "Trois exceptions : l'achat de Yumo Pro transmet votre achat à Apple ou Google et à RevenueCat, qui le valide pour vous permettre de le restaurer ensuite ; sur iPhone, les notifications facultatives « News & updates » passent par OneSignal, qui reçoit le jeton de notification de votre appareil ; et si vous activez la phrase sur l'écran verrouillé (Yumo Pro), votre langue, votre fuseau horaire et vos réglages de mots sont envoyés au serveur de Yumo pour lancer la carte. Tout est détaillé dans la ",
     exceptionLink: 'politique de confidentialité',
     exceptionAfter: ' (en anglais).',
   },

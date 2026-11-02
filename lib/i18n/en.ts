@@ -265,7 +265,7 @@ export const en = {
       },
     ],
     exceptionBefore:
-      'Two exceptions: buying Yumo Pro sends your purchase to Apple or Google and to RevenueCat, which validates it so you can restore it later; and on iPhone, the optional News & updates notifications go through OneSignal, which receives your device’s push token. Both are described in full in the ',
+      'Three exceptions: buying Yumo Pro sends your purchase to Apple or Google and to RevenueCat, which validates it so you can restore it later; on iPhone, the optional News & updates notifications go through OneSignal, which receives your device’s push token; and if you turn on Sentence on the Lock Screen (Yumo Pro), your language, time zone and word settings go to Yumo’s server so it can start the card. All three are described in full in the ',
     exceptionLink: 'privacy policy',
     exceptionAfter: '.',
   },

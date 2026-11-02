@@ -61,17 +61,19 @@ export default function PrivacyPage() {
       <p>
         Yumo Pro can show an example sentence for the current word on your Lock
         Screen as a Live Activity. It is off until you turn it on in Settings.
-        Because a Live Activity has to be started while the app is closed, Yumo
-        has to do this from a server of its own. When the feature is on, the app
-        sends that server the anonymous OneSignal identifier of your device, your
-        time zone, your app language, and the settings that decide which word is
-        current (JLPT level, word frequency, active hours, Show romaji,
-        appearance, and whether you have Yumo Pro). The server keeps only this,
-        uses it only to send the right sentence to your Lock Screen at the right
-        time through OneSignal, and deletes nothing else about you because it
-        holds nothing else. Turn the feature off in Settings and the server stops
-        and keeps no card; it is never linked to your name or email, which Yumo
-        never asks for.
+        A Live Activity has to start while the app is closed, so Yumo does this
+        from its own server, hosted on Vercel and Supabase. When the feature is
+        on, the app sends that server the anonymous OneSignal identifier of your
+        device, your time zone, your app language and version, and the settings
+        that decide which word is current and how the card looks (JLPT level,
+        word frequency, active hours, Show romaji, appearance, and whether you
+        have Yumo Pro). The server stores this with a note of the card on your
+        Lock Screen, and uses it only to send the right sentence through
+        OneSignal at the right time. It is never linked to your name or email,
+        which Yumo never asks for. Turning the feature off ends the card and stops
+        these updates; the record stays on the server, marked as off, until you
+        ask us to delete it at{' '}
+        <a href={`mailto:${SUPPORT_EMAIL}`}>{SUPPORT_EMAIL}</a>.
       </p>
 
       <h2>Purchases</h2>
