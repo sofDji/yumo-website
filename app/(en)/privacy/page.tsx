@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalLayout locale="en" title="Yumo — Privacy Policy" updated="Effective September 30, 2026">
+    <LegalLayout locale="en" title="Yumo — Privacy Policy" updated="Effective November 2, 2026">
       <JsonLd
         data={pageGraph({
           locale: 'en',
@@ -37,9 +37,10 @@ export default function PrivacyPage() {
       <p>
         Your settings (JLPT level, word frequency, language, widget style, theme),
         your saved words, and your learning progress are stored only on your
-        device. They are never transmitted to us or anyone else. Word notifications
-        are scheduled locally on your device. Deleting the app deletes all of this
-        data.
+        device. They are never transmitted to us or anyone else, with one
+        exception you choose: the <em>Sentence on the Lock Screen</em> feature
+        described below. Word notifications are scheduled locally on your
+        device. Deleting the app deletes all of this data.
       </p>
 
       <h2>News &amp; updates notifications</h2>
@@ -54,6 +55,23 @@ export default function PrivacyPage() {
         never for advertising, and it is not linked to your name or email, which
         Yumo never asks for. Turn off <em>News &amp; updates</em> in Yumo&apos;s
         Settings to stop them at any time.
+      </p>
+
+      <h2>Sentence on the Lock Screen (Yumo Pro, iPhone)</h2>
+      <p>
+        Yumo Pro can show an example sentence for the current word on your Lock
+        Screen as a Live Activity. It is off until you turn it on in Settings.
+        Because a Live Activity has to be started while the app is closed, Yumo
+        has to do this from a server of its own. When the feature is on, the app
+        sends that server the anonymous OneSignal identifier of your device, your
+        time zone, your app language, and the settings that decide which word is
+        current (JLPT level, word frequency, active hours, Show romaji,
+        appearance, and whether you have Yumo Pro). The server keeps only this,
+        uses it only to send the right sentence to your Lock Screen at the right
+        time through OneSignal, and deletes nothing else about you because it
+        holds nothing else. Turn the feature off in Settings and the server stops
+        and keeps no card; it is never linked to your name or email, which Yumo
+        never asks for.
       </p>
 
       <h2>Purchases</h2>
@@ -72,10 +90,10 @@ export default function PrivacyPage() {
       <p>
         No name, email, location, contacts, photos, microphone audio, or
         advertising identifiers. The entire word dataset ships inside the app and
-        works offline. Besides RevenueCat and OneSignal, as described above,
-        Yumo&apos;s only network request is a daily check of a public file on this
-        website to see whether a newer version is available; it sends nothing
-        about you.
+        works offline. Besides RevenueCat, OneSignal and the Lock Screen feature,
+        as described above, Yumo&apos;s only network request is a daily check of
+        a public file on this website to see whether a newer version is
+        available; it sends nothing about you.
       </p>
 
       <h2>This website</h2>
