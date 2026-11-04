@@ -54,11 +54,6 @@ export const SOCIAL = {
     handle: 'yumojapanese',
     url: 'https://www.tiktok.com/@yumojapanese',
   },
-  x: {
-    name: 'X',
-    handle: 'dji1380910',
-    url: 'https://x.com/dji1380910',
-  },
 } as const;
 
 export type SocialNetwork = keyof typeof SOCIAL;
@@ -96,7 +91,7 @@ export type Store = 'ios' | 'android';
 export const STORE_URL: Record<Store, string> = { ios: APP_STORE_URL, android: PLAY_STORE_URL };
 
 // The title the App Store shows.
-export const STORE_TITLE = 'Yumo: Learn Japanese Kanji';
+export const STORE_TITLE = 'Yumo: Learn Japanese & Kanji';
 
 // Each listing's title exactly as its store shows it. They differ on purpose:
 // Android has no Lock Screen widgets, so Play's title says "Word Widget".

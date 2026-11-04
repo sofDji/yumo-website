@@ -34,12 +34,14 @@ export function ReviewsSection({
         </div>
       </Reveal>
 
-      <div className="mt-12 grid gap-4 md:grid-cols-3">
+      {/* Columns rather than a grid: the reviews run from one line to a paragraph,
+          and equal rows would leave short ones sitting in empty cards. */}
+      <div className="mt-12 gap-4 md:columns-2 lg:columns-3">
         {REVIEWS.map((review) => {
           const shown = reviewFor(review, locale, t);
           return (
-            <Reveal key={review.author}>
-              <figure className="flex h-full flex-col rounded-2xl border border-line bg-white/[0.05] p-6">
+            <Reveal key={review.author} className="mb-4 break-inside-avoid">
+              <figure className="flex flex-col rounded-2xl border border-line bg-white/[0.05] p-6">
                 <p aria-hidden className="text-sm tracking-[0.1em] text-accent">
                   {'★'.repeat(review.stars)}
                 </p>

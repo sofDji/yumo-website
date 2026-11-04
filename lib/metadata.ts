@@ -80,7 +80,6 @@ export function shareMetadata({
     },
     twitter: {
       card: 'summary_large_image',
-      site: `@${SOCIAL.x.handle}`,
       title,
       description,
       images: [image.url],

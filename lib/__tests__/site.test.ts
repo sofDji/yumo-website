@@ -65,7 +65,7 @@ describe('store listings', () => {
   it('names each store listing exactly as the store shows it', () => {
     // Play gets its own title: Android has no Lock Screen widgets.
     expect(STORE_NAME).toEqual({
-      ios: 'Yumo: Learn Japanese Kanji',
+      ios: 'Yumo: Learn Japanese & Kanji',
       android: 'Yumo: Japanese Word Widget',
     });
     for (const name of Object.values(STORE_NAME)) {

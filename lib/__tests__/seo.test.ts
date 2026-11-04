@@ -296,7 +296,6 @@ describe('share cards', () => {
     expect(og.images).toEqual([expect.objectContaining({ url: SHARE_IMAGES.fr.url, width: 1200 })]);
     expect(tags.twitter).toMatchObject({
       card: 'summary_large_image',
-      site: `@${SOCIAL.x.handle}`,
     });
   });
 

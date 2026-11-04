@@ -7,6 +7,13 @@ import { reviewFor, REVIEWS } from '../reviews';
 import { APP_STORE_RATING, APP_STORE_URL, SOCIAL, STORE_TITLE } from '../site';
 
 describe('App Store reviews', () => {
+  it('shows all six 5-star reviews and no lower rating', () => {
+    expect(REVIEWS.map((r) => r.author).sort()).toEqual(
+      ['Bouton d’or 86', 'HY Marwa', 'MatSaka 👌', 'Nada Yousra', 'Princess achiever', 'SevenCoD'].sort(),
+    );
+    for (const review of REVIEWS) expect(review.stars).toBe(5);
+  });
+
   it('has every review in every language', () => {
     for (const review of REVIEWS) {
       for (const locale of LOCALES) {
@@ -44,11 +51,15 @@ describe('the App Store listing', () => {
   });
 
   it('has the app’s store title', () => {
-    expect(STORE_TITLE).toBe('Yumo: Learn Japanese Kanji');
+    expect(STORE_TITLE).toBe('Yumo: Learn Japanese & Kanji');
   });
 });
 
 describe('socials', () => {
+  it('lists only Instagram and TikTok', () => {
+    expect(Object.keys(SOCIAL).sort()).toEqual(['instagram', 'tiktok']);
+  });
+
   it('points at @yumojapanese on Instagram and TikTok', () => {
     expect(SOCIAL.instagram.handle).toBe('yumojapanese');
     expect(SOCIAL.instagram.url).toBe('https://www.instagram.com/yumojapanese/');
