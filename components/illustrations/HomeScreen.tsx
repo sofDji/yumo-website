@@ -1,51 +1,53 @@
 import type { Locale } from '@/lib/i18n';
 import type { SiteWord } from '@/lib/select-words';
 import { LEVEL_COLORS, LEVEL_LABELS } from '@/lib/tokens';
-import { PhoneFrame, StatusBar, Tile } from './PhoneFrame';
+import { Panel, Stage } from './Stage';
 
-// Neighbouring tiles are deliberately abstract — imitating Apple's own app
-// icons would be noisier and a trademark problem.
+// The widget on its own, in its two sizes, floating in space.
 export function HomeScreen({ word, locale }: { word: SiteWord; locale: Locale }) {
   const color = LEVEL_COLORS[word.level];
 
   return (
-    <PhoneFrame bloom={color} wallpaper={`/hero/${word.level}.jpg`}>
-      <StatusBar />
-
-      <div className="flex flex-1 flex-col px-4 pb-5 pt-6">
+    <Stage glow={color}>
+      <Panel plain x={9} y={9} w={52} tilt="rotateY(18deg) rotateX(7deg) rotateZ(-3deg)">
         <div
-          className="relative aspect-square w-[62%] rounded-[1.35rem] p-3.5 text-white shadow-[0_10px_24px_-10px_rgba(0,0,0,.35)]"
-          style={{ background: `linear-gradient(150deg, ${color}, ${color}CC)` }}
+          className="stage-widget aspect-square rounded-[7cqw] p-[5cqw] text-white"
+          style={{ background: `linear-gradient(150deg, ${color}, ${color}B0)` }}
         >
-          <span className="inline-block rounded-full bg-white/25 px-1.5 py-0.5 text-[8px] font-bold tracking-wide">
+          <span className="inline-block rounded-full bg-white/25 px-[2cqw] py-[0.6cqw] text-[2.8cqw] font-bold">
             {LEVEL_LABELS[word.level]}
           </span>
-          <p className="mt-1.5 font-jp text-[26px] font-medium leading-none">{word.kanji}</p>
-          <p className="mt-1 font-jp text-[10px] leading-tight text-white/85">{word.kana}</p>
-          <p className="text-[9px] italic leading-tight text-white/75">{word.romaji}</p>
-          <p className="mt-1 text-[9px] leading-snug text-white/95">{word.meaning[locale]}</p>
+          <p lang="ja" className="mt-[3cqw] font-jp text-[13cqw] font-medium leading-none">
+            {word.kanji}
+          </p>
+          <p className="mt-[2.4cqw] font-jp text-[3.8cqw] leading-tight text-white/90">{word.kana}</p>
+          <p className="text-[3.3cqw] italic leading-tight text-white/80">{word.romaji}</p>
+          <p className="mt-[1.6cqw] text-[4cqw] font-medium leading-snug">{word.meaning[locale]}</p>
         </div>
-        <p className="mb-3 mt-1 pl-1 text-[9px] font-medium text-white/90">Yumo</p>
+      </Panel>
 
-        <div className="grid grid-cols-4 gap-3.5">
-          {Array.from({ length: 12 }).map((_, i) => (
-            <Tile key={i} i={i} className="aspect-square" />
-          ))}
+      <Panel
+        x={32}
+        y={60}
+        w={62}
+        z={2}
+        delay={1}
+        tilt="rotateY(-14deg) rotateX(5deg) rotateZ(2deg)"
+        className="flex items-center gap-[4cqw] rounded-[6cqw] p-[5cqw]"
+      >
+        <p lang="ja" className="font-jp text-[11cqw] font-medium leading-none">
+          {word.kanji}
+        </p>
+        <div className="min-w-0">
+          <span className="inline-block rounded-full px-[2cqw] py-[0.5cqw] text-[2.6cqw] font-bold" style={{ background: color }}>
+            {LEVEL_LABELS[word.level]}
+          </span>
+          <p className="mt-[1.2cqw] truncate font-jp text-[3.4cqw] text-white/70">
+            {word.kana} · {word.romaji}
+          </p>
+          <p className="truncate text-[4cqw] font-medium">{word.meaning[locale]}</p>
         </div>
-
-        <div className="mt-auto">
-          <div className="mx-auto mb-2.5 flex h-5 w-16 items-center justify-center gap-1 rounded-full bg-black/25 backdrop-blur-md">
-            <svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" aria-hidden="true">
-              <path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14ZM20 20l-4-4" />
-            </svg>
-          </div>
-          <div className="flex items-center justify-center gap-2.5 rounded-[1.5rem] bg-white/15 p-2.5 backdrop-blur-md">
-            {Array.from({ length: 4 }).map((_, i) => (
-              <Tile key={i} i={[3, 6, 8, 1][i]} className="h-10 w-10" />
-            ))}
-          </div>
-        </div>
-      </div>
-    </PhoneFrame>
+      </Panel>
+    </Stage>
   );
 }

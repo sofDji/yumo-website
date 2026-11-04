@@ -2,7 +2,7 @@
 
 import { motion, useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
-import { Tile } from '@/components/illustrations/PhoneFrame';
+import { Tile } from '@/components/illustrations/Stage';
 import { EASE } from '@/lib/motion';
 import { LEVEL_COLORS } from '@/lib/tokens';
 

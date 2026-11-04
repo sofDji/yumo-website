@@ -26,9 +26,8 @@ export function Landing({ locale }: { locale: Locale }) {
   return (
     <>
       <NavBar locale={locale} t={t.nav} />
-      {/* overflow-x: clip, because the illustration blooms in PhoneFrame
-          deliberately spill past their phones, up to 184px beyond the right edge
-          of the screen on a phone. body's overflow-x: hidden does not contain
+      {/* overflow-x: clip, because the illustrations' glow deliberately spills past
+          their stages, beyond the right edge of the screen on a phone. body's overflow-x: hidden does not contain
           that on mobile: the browser widens the layout viewport to fit the spill
           (515px on a 390px iPhone) and the page pans sideways. Clipping here
           cuts at the same edge the screen already did, so nothing visible
