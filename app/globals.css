@@ -52,57 +52,49 @@ h1, h2, h3 { text-wrap: balance; }
   container-type: inline-size;
   isolation: isolate;
 }
+/* Each glow is its own circle that reaches zero at its own edge, so it can
+   never be cut off by a box and draw a rectangle. */
 .stage-light {
   position: absolute;
-  inset: -22%;
-  z-index: -2;
-  pointer-events: none;
-  background:
-    radial-gradient(circle 52cqw at 34% 36%, color-mix(in srgb, var(--glow) 34%, transparent), transparent),
-    radial-gradient(circle 46cqw at 70% 66%, rgba(139, 92, 246, 0.2), transparent),
-    radial-gradient(circle 34cqw at 60% 28%, rgba(233, 236, 165, 0.1), transparent);
-}
-.stage-floor {
-  position: absolute;
-  inset: 48% -18% -8%;
+  inset: 0;
   z-index: -1;
   pointer-events: none;
-  background-image:
-    linear-gradient(rgba(255, 255, 255, 0.09) 1px, transparent 1px),
-    linear-gradient(90deg, rgba(255, 255, 255, 0.09) 1px, transparent 1px);
-  background-size: 9cqw 9cqw;
-  transform: perspective(70cqw) rotateX(66deg);
-  transform-origin: top center;
-  -webkit-mask-image: radial-gradient(ellipse at 50% 22%, #000 12%, transparent 68%);
-  mask-image: radial-gradient(ellipse at 50% 22%, #000 12%, transparent 68%);
 }
-.stage-orbits {
-  position: absolute;
-  inset: 4% -2%;
-  z-index: -1;
-  pointer-events: none;
-  transform: perspective(90cqw) rotateX(72deg) rotateZ(-14deg);
-}
-.stage-orbit {
-  position: absolute;
-  border-radius: 50%;
-  border: 1px solid rgba(233, 236, 165, 0.28);
-  animation: stage-spin 36s linear infinite;
-}
-.stage-orbit::after {
+.stage-light::before,
+.stage-light::after {
   content: '';
   position: absolute;
-  top: -1.1cqw;
-  left: 50%;
-  width: 2.2cqw;
-  height: 2.2cqw;
   border-radius: 50%;
-  background: #e9eca5;
-  box-shadow: 0 0 3cqw 0.6cqw rgba(233, 236, 165, 0.65);
+  transform: translate(-50%, -50%);
 }
-.stage-orbit-a { inset: 0; }
-.stage-orbit-b { inset: 16%; border-color: rgba(255, 255, 255, 0.14); animation-duration: 24s; animation-direction: reverse; }
-@keyframes stage-spin { to { transform: rotate(360deg); } }
+.stage-light::before {
+  left: 36%;
+  top: 40%;
+  width: 120cqw;
+  height: 120cqw;
+  background: radial-gradient(
+    circle closest-side,
+    color-mix(in srgb, var(--glow) 13%, transparent) 0%,
+    color-mix(in srgb, var(--glow) 9%, transparent) 30%,
+    color-mix(in srgb, var(--glow) 4%, transparent) 60%,
+    color-mix(in srgb, var(--glow) 1%, transparent) 85%,
+    transparent 100%
+  );
+}
+.stage-light::after {
+  left: 68%;
+  top: 64%;
+  width: 100cqw;
+  height: 100cqw;
+  background: radial-gradient(
+    circle closest-side,
+    rgba(139, 92, 246, 0.07) 0%,
+    rgba(139, 92, 246, 0.05) 30%,
+    rgba(139, 92, 246, 0.02) 60%,
+    rgba(139, 92, 246, 0.005) 85%,
+    transparent 100%
+  );
+}
 .stage-drift { animation: stage-drift 7s ease-in-out infinite; }
 @keyframes stage-drift {
   0%, 100% { transform: translateY(0); }
@@ -124,8 +116,8 @@ h1, h2, h3 { text-wrap: balance; }
   background-clip: text;
   color: transparent;
 }
-.stage-widget { box-shadow: 0 4cqw 12cqw -2cqw color-mix(in srgb, var(--glow) 75%, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.35); }
-.stage-lifted { box-shadow: 0 2cqw 10cqw 0 rgba(233, 236, 165, 0.45); }
+.stage-widget { box-shadow: 0 3cqw 9cqw -3cqw color-mix(in srgb, var(--glow) 35%, transparent), inset 0 1px 0 rgba(255, 255, 255, 0.35); }
+.stage-lifted { box-shadow: 0 2cqw 8cqw -2cqw rgba(233, 236, 165, 0.3); }
 
 .hero-glow {
   background-image:
