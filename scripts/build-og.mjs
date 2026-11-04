@@ -164,7 +164,7 @@ for (const card of CARDS) {
   }
 
   const shot = await page.screenshot();
-  await sharp(shot).resize(W, H).png({ compressionLevel: 9 }).toFile(card.out);
+  await sharp(shot).resize(W, H).png({ compressionLevel: 9, palette: true, colours: 256, dither: 1 }).toFile(card.out);
 
   // What a square-cropping app actually keeps. Written to shots-out/ rather
   // than public/ — it is a check, not an asset, and public/ ships.
