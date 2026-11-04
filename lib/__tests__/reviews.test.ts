@@ -1,5 +1,6 @@
 import { describe, expect, it } from 'vitest';
 import { LOCALES } from '../i18n/locales';
+import { getDictionary } from '../i18n';
 import { en } from '../i18n/en';
 import { fr } from '../i18n/fr';
 import { FAN_WORDS } from '../fan-words';
@@ -9,9 +10,20 @@ import { APP_STORE_RATING, APP_STORE_URL, SOCIAL, STORE_TITLE } from '../site';
 describe('App Store reviews', () => {
   it('shows all six 5-star reviews and no lower rating', () => {
     expect(REVIEWS.map((r) => r.author).sort()).toEqual(
-      ['Bouton d’or 86', 'HY Marwa', 'MatSaka 👌', 'Nada Yousra', 'Princess achiever', 'SevenCoD'].sort(),
+      ['Bouton d’or 86', 'HY Marwa', 'MatSaka', 'Nada Yousra', 'Princess achiever', 'SevenCoD'].sort(),
     );
     for (const review of REVIEWS) expect(review.stars).toBe(5);
+  });
+
+  it('carries no emoji, in any language', () => {
+    const emoji = /\p{Extended_Pictographic}/u;
+    for (const review of REVIEWS) {
+      expect(review.author).not.toMatch(emoji);
+      for (const locale of LOCALES) {
+        expect(review.text[locale].title).not.toMatch(emoji);
+        expect(review.text[locale].body).not.toMatch(emoji);
+      }
+    }
   });
 
   it('has every review in every language', () => {
@@ -52,6 +64,16 @@ describe('the App Store listing', () => {
 
   it('has the app’s store title', () => {
     expect(STORE_TITLE).toBe('Yumo: Learn Japanese & Kanji');
+  });
+});
+
+describe('the review slider', () => {
+  it('names its arrows in every language', () => {
+    for (const locale of LOCALES) {
+      const t = getDictionary(locale).reviews;
+      expect(t.prev.length).toBeGreaterThan(0);
+      expect(t.next.length).toBeGreaterThan(0);
+    }
   });
 });
 

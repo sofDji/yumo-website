@@ -318,6 +318,8 @@ export const ko: Dictionary = {
     titleEnd: "좋아해요",
     translatedFrom: "{language}에서 번역됨",
     languages: { en: "영어", fr: "프랑스어", de: '', es: '', ko: '', vi: '' },
+    prev: "이전 리뷰",
+    next: "다음 리뷰",
   },
   story: {
     eyebrow: "새 기능 · 스토리 메이커",

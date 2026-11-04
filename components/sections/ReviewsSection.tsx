@@ -1,4 +1,5 @@
 import { Reveal } from '@/components/layout/Reveal';
+import { ReviewSlider } from './ReviewSlider';
 import type { Dictionary, Locale } from '@/lib/i18n';
 import { fill } from '@/lib/i18n';
 import { reviewFor, REVIEWS } from '@/lib/reviews';
@@ -34,14 +35,14 @@ export function ReviewsSection({
         </div>
       </Reveal>
 
-      {/* Columns rather than a grid: the reviews run from one line to a paragraph,
-          and equal rows would leave short ones sitting in empty cards. */}
-      <div className="mt-12 gap-4 md:columns-2 lg:columns-3">
+      <ReviewSlider prev={t.prev} next={t.next}>
         {REVIEWS.map((review) => {
           const shown = reviewFor(review, locale, t);
           return (
-            <Reveal key={review.author} className="mb-4 break-inside-avoid">
-              <figure className="flex flex-col rounded-2xl border border-line bg-white/[0.05] p-6">
+            <figure
+              key={review.author}
+              className="flex w-[86%] shrink-0 snap-start flex-col rounded-2xl border border-line bg-white/[0.05] p-6 md:w-[calc(50%-8px)] lg:w-[calc((100%-32px)/3)]"
+            >
                 <p aria-hidden className="text-sm tracking-[0.1em] text-accent">
                   {'★'.repeat(review.stars)}
                 </p>
@@ -51,11 +52,10 @@ export function ReviewsSection({
                   {review.author}
                   {shown.translatedNote && <span className="opacity-70"> · {shown.translatedNote}</span>}
                 </figcaption>
-              </figure>
-            </Reveal>
+            </figure>
           );
         })}
-      </div>
+      </ReviewSlider>
     </section>
   );
 }

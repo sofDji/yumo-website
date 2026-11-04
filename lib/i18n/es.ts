@@ -319,6 +319,8 @@ export const es: Dictionary = {
     titleEnd: "le gusta",
     translatedFrom: "Traducida del {language}",
     languages: { en: "inglés", fr: "francés", de: '', es: '', ko: '', vi: '' },
+    prev: "Reseña anterior",
+    next: "Reseña siguiente",
   },
   story: {
     eyebrow: "Novedad · Creador de stories",

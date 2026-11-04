@@ -326,6 +326,8 @@ export const en = {
     titleEnd: "like it",
     translatedFrom: "Translated from {language}",
     languages: { en: "English", fr: "French", de: '', es: '', ko: '', vi: '' },
+    prev: "Previous review",
+    next: "Next review",
   },
   story: {
     eyebrow: "New · Story maker",

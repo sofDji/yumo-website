@@ -317,6 +317,8 @@ export const fr: Dictionary = {
     titleEnd: "vraiment",
     translatedFrom: "Traduit de {language}",
     languages: { en: "l’anglais", fr: "français", de: '', es: '', ko: '', vi: '' },
+    prev: "Avis précédent",
+    next: "Avis suivant",
   },
   story: {
     eyebrow: "Nouveau · Story maker",

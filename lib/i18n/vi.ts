@@ -317,6 +317,8 @@ export const vi: Dictionary = {
     titleEnd: "yêu thích",
     translatedFrom: "Dịch từ {language}",
     languages: { en: "tiếng Anh", fr: "tiếng Pháp", de: '', es: '', ko: '', vi: '' },
+    prev: "Đánh giá trước",
+    next: "Đánh giá tiếp theo",
   },
   story: {
     eyebrow: "Mới · Tạo Story",

@@ -44,6 +44,9 @@ h1, h2, h3 { text-wrap: balance; }
   font-style: normal;
 }
 
+.no-scrollbar { scrollbar-width: none; }
+.no-scrollbar::-webkit-scrollbar { display: none; }
+
 .hero-glow {
   background-image:
     radial-gradient(circle at 18% 22%, rgba(233, 236, 165, 0.12), transparent 30%),

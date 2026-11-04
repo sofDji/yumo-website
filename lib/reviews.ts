@@ -1,7 +1,8 @@
 // Real App Store reviews, every 5-star one with text, from the public feed for
 // app 6805975318 and the owner's App Store Connect list on 2026-11-04. A review shown in its own language is word for word. In any other
 // language it is a faithful translation with spelling slips left out, and the
-// page says so. Never edit what a review claims.
+// page says so. Emoji are left out everywhere, at the owner's request. Never
+// edit what a review claims.
 import type { Dictionary } from './i18n';
 import { fill } from './i18n';
 import type { Locale } from './i18n/locales';
@@ -108,33 +109,33 @@ export const REVIEWS: Review[] = [
     },
   },
   {
-    author: 'MatSaka 👌',
+    author: 'MatSaka',
     stars: 5,
     language: 'fr',
     text: {
       fr: {
-        title: 'Enfin une application qui me fait vraiment progresser ! 😍',
-        body: 'Franchement, une application exceptionnelle 😱! J’ai essayé plusieurs méthodes pour apprendre le japonais, mais c’est la seule qui fonctionne vraiment pour moi. Son fonctionnement est tellement bien pensé qu’il me permet de mémoriser chaque mot naturellement, sans même avoir l’impression de forcer. Je prends plaisir à apprendre et je vois mes progrès chaque jour. Je la kiffe vraiment ! Un immense bravo pour cette application !',
+        title: 'Enfin une application qui me fait vraiment progresser !',
+        body: 'Franchement, une application exceptionnelle! J’ai essayé plusieurs méthodes pour apprendre le japonais, mais c’est la seule qui fonctionne vraiment pour moi. Son fonctionnement est tellement bien pensé qu’il me permet de mémoriser chaque mot naturellement, sans même avoir l’impression de forcer. Je prends plaisir à apprendre et je vois mes progrès chaque jour. Je la kiffe vraiment ! Un immense bravo pour cette application !',
       },
       en: {
-        title: 'Finally an app that really helps me progress! 😍',
-        body: 'Honestly, an exceptional app 😱! I’ve tried several methods for learning Japanese, but this is the only one that really works for me. It’s so well thought out that I memorize each word naturally, without even feeling like I’m forcing it. I enjoy learning and I see my progress every day. I absolutely love it! Huge congratulations on this app!',
+        title: 'Finally an app that really helps me progress!',
+        body: 'Honestly, an exceptional app! I’ve tried several methods for learning Japanese, but this is the only one that really works for me. It’s so well thought out that I memorize each word naturally, without even feeling like I’m forcing it. I enjoy learning and I see my progress every day. I absolutely love it! Huge congratulations on this app!',
       },
       de: {
-        title: 'Endlich eine App, mit der ich wirklich vorankomme! 😍',
-        body: 'Ehrlich, eine außergewöhnliche App 😱! Ich habe mehrere Methoden ausprobiert, um Japanisch zu lernen, aber das ist die einzige, die bei mir wirklich funktioniert. Sie ist so gut durchdacht, dass ich mir jedes Wort ganz natürlich merke, ohne das Gefühl zu haben, mich anzustrengen. Das Lernen macht mir Spaß und ich sehe jeden Tag Fortschritte. Ich liebe sie wirklich! Ein riesiges Lob für diese App!',
+        title: 'Endlich eine App, mit der ich wirklich vorankomme!',
+        body: 'Ehrlich, eine außergewöhnliche App! Ich habe mehrere Methoden ausprobiert, um Japanisch zu lernen, aber das ist die einzige, die bei mir wirklich funktioniert. Sie ist so gut durchdacht, dass ich mir jedes Wort ganz natürlich merke, ohne das Gefühl zu haben, mich anzustrengen. Das Lernen macht mir Spaß und ich sehe jeden Tag Fortschritte. Ich liebe sie wirklich! Ein riesiges Lob für diese App!',
       },
       es: {
-        title: '¡Por fin una app con la que progreso de verdad! 😍',
-        body: 'Sinceramente, una app excepcional 😱. He probado varios métodos para aprender japonés, pero es el único que me funciona de verdad. Está tan bien pensada que memorizo cada palabra de forma natural, sin sentir que me esfuerzo. Disfruto aprendiendo y veo mis progresos cada día. ¡Me encanta! ¡Enhorabuena por esta app!',
+        title: '¡Por fin una app con la que progreso de verdad!',
+        body: 'Sinceramente, una app excepcional. He probado varios métodos para aprender japonés, pero es el único que me funciona de verdad. Está tan bien pensada que memorizo cada palabra de forma natural, sin sentir que me esfuerzo. Disfruto aprendiendo y veo mis progresos cada día. ¡Me encanta! ¡Enhorabuena por esta app!',
       },
       ko: {
-        title: '드디어 정말 실력이 느는 앱이에요! 😍',
-        body: '솔직히 정말 뛰어난 앱이에요 😱! 일본어를 배우려고 여러 방법을 써 봤지만, 저에게 정말 효과가 있는 건 이것뿐이에요. 아주 잘 설계되어 있어서 애쓴다는 느낌 없이 단어 하나하나를 자연스럽게 외우게 돼요. 배우는 게 즐겁고 매일 실력이 느는 게 보여요. 정말 마음에 들어요! 이 앱에 큰 박수를 보내요!',
+        title: '드디어 정말 실력이 느는 앱이에요!',
+        body: '솔직히 정말 뛰어난 앱이에요! 일본어를 배우려고 여러 방법을 써 봤지만, 저에게 정말 효과가 있는 건 이것뿐이에요. 아주 잘 설계되어 있어서 애쓴다는 느낌 없이 단어 하나하나를 자연스럽게 외우게 돼요. 배우는 게 즐겁고 매일 실력이 느는 게 보여요. 정말 마음에 들어요! 이 앱에 큰 박수를 보내요!',
       },
       vi: {
-        title: 'Cuối cùng cũng có ứng dụng giúp tôi thật sự tiến bộ! 😍',
-        body: 'Thật lòng mà nói, đây là một ứng dụng tuyệt vời 😱! Tôi đã thử nhiều cách học tiếng Nhật, nhưng đây là cách duy nhất thật sự hiệu quả với tôi. Ứng dụng được thiết kế khéo đến mức tôi nhớ từng từ một cách tự nhiên mà không thấy gượng ép. Tôi thích học và thấy mình tiến bộ mỗi ngày. Tôi thật sự rất mê! Xin chúc mừng ứng dụng này!',
+        title: 'Cuối cùng cũng có ứng dụng giúp tôi thật sự tiến bộ!',
+        body: 'Thật lòng mà nói, đây là một ứng dụng tuyệt vời! Tôi đã thử nhiều cách học tiếng Nhật, nhưng đây là cách duy nhất thật sự hiệu quả với tôi. Ứng dụng được thiết kế khéo đến mức tôi nhớ từng từ một cách tự nhiên mà không thấy gượng ép. Tôi thích học và thấy mình tiến bộ mỗi ngày. Tôi thật sự rất mê! Xin chúc mừng ứng dụng này!',
       },
     },
   },
