@@ -8,7 +8,7 @@
 
 import type { Metadata } from 'next';
 import type { Locale } from './i18n';
-import { APP_STORE_ID, SOCIAL } from './site';
+import { APP_STORE_ID } from './site';
 
 const OG_LOCALE: Record<Locale, string> = {
   en: 'en_US',
