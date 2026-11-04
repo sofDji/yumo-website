@@ -14,6 +14,8 @@ export interface FanWord {
   jp: string;
   mark: string;
   sentence: Record<Locale, string>;
+  // The word's own part of the translation, marked in lime.
+  sentenceMark: Record<Locale, string>;
 }
 
 export const FAN_WORDS: FanWord[] = [
@@ -44,6 +46,14 @@ export const FAN_WORDS: FanWord[] = [
       "es": "París es la ciudad de mis sueños.",
       "ko": "파리는 제가 동경하는 도시예요.",
       "vi": "Paris là thành phố mơ ước của tôi."
+    },
+    "sentenceMark": {
+      "en": "dreams",
+      "fr": "rêves",
+      "de": "Träume",
+      "es": "sueños",
+      "ko": "동경",
+      "vi": "mơ ước"
     }
   },
   {
@@ -73,6 +83,14 @@ export const FAN_WORDS: FanWord[] = [
       "es": "Mi sueño es convertirme en doctor.",
       "ko": "내 꿈은 의사가 되는 것이다.",
       "vi": "Ước mơ của tôi là trở thành bác sĩ."
+    },
+    "sentenceMark": {
+      "en": "dream",
+      "fr": "rêve",
+      "de": "Traum",
+      "es": "sueño",
+      "ko": "꿈",
+      "vi": "Ước mơ"
     }
   },
   {
@@ -102,6 +120,14 @@ export const FAN_WORDS: FanWord[] = [
       "es": "Gracias por las hermosas flores.",
       "ko": "예쁜 꽃 고마워.",
       "vi": "Cảm ơn vì những bông hoa đẹp."
+    },
+    "sentenceMark": {
+      "en": "flowers",
+      "fr": "fleurs",
+      "de": "Blumen",
+      "es": "flores",
+      "ko": "꽃",
+      "vi": "bông hoa"
     }
   },
   {
@@ -131,6 +157,14 @@ export const FAN_WORDS: FanWord[] = [
       "es": "Las flores de cerezo son muy bonitas.",
       "ko": "벚꽃은 정말 예뻐요.",
       "vi": "Hoa anh đào rất đẹp."
+    },
+    "sentenceMark": {
+      "en": "Cherry blossoms",
+      "fr": "fleurs de cerisier",
+      "de": "Kirschblüten",
+      "es": "flores de cerezo",
+      "ko": "벚꽃",
+      "vi": "Hoa anh đào"
     }
   },
   {
@@ -160,6 +194,14 @@ export const FAN_WORDS: FanWord[] = [
       "es": "Empezó a tocar una canción antigua.",
       "ko": "그는 옛날 노래를 연주하기 시작했습니다.",
       "vi": "Anh ấy bắt đầu chơi một bài hát xưa gợi nhớ."
+    },
+    "sentenceMark": {
+      "en": "old",
+      "fr": "vieille",
+      "de": "altes",
+      "es": "antigua",
+      "ko": "옛날",
+      "vi": "xưa gợi nhớ"
     }
   }
 ];

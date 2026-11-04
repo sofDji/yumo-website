@@ -4,7 +4,7 @@ import { en } from '../i18n/en';
 import { fr } from '../i18n/fr';
 import { FAN_WORDS } from '../fan-words';
 import { reviewFor, REVIEWS } from '../reviews';
-import { APP_STORE_RATING, SOCIAL, STORY_MAKER_LIVE } from '../site';
+import { APP_STORE_RATING, APP_STORE_URL, SOCIAL, STORE_TITLE } from '../site';
 
 describe('App Store reviews', () => {
   it('has every review in every language', () => {
@@ -38,6 +38,16 @@ describe('App Store reviews', () => {
   });
 });
 
+describe('the App Store listing', () => {
+  it('links to the listing by its full address', () => {
+    expect(APP_STORE_URL).toBe('https://apps.apple.com/app/yumo-learn-japanese-kanji/id6805975318');
+  });
+
+  it('has the app’s store title', () => {
+    expect(STORE_TITLE).toBe('Yumo: Learn Japanese Kanji');
+  });
+});
+
 describe('socials', () => {
   it('points at @yumojapanese on Instagram and TikTok', () => {
     expect(SOCIAL.instagram.handle).toBe('yumojapanese');
@@ -47,11 +57,6 @@ describe('socials', () => {
   });
 });
 
-describe('the story maker', () => {
-  it('stays off until the app version with it is approved', () => {
-    expect(STORY_MAKER_LIVE).toBe(false);
-  });
-});
 
 describe('the hero cards', () => {
   it('shows five words with a sentence, in every language', () => {
@@ -63,6 +68,7 @@ describe('the hero cards', () => {
         expect(w.meaning[locale].length).toBeGreaterThan(0);
         expect(w.meaning[locale]).not.toMatch(/[;(]/);
         expect(w.sentence[locale].length).toBeGreaterThan(0);
+        expect(w.sentence[locale]).toContain(w.sentenceMark[locale]);
       }
     }
   });

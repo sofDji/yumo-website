@@ -53,13 +53,13 @@ export function LockScreen({ word, locale, t }: { word: SiteWord; locale: Locale
             </span>
             は法律で禁止すべきだ。
           </p>
-          <p lang="ja-Latn" className="mt-1 text-[8.5px] italic leading-tight" style={{ color: 'rgba(255,255,255,.1)' }}>
+          <p lang="ja-Latn" className="mt-1 text-[8.5px] italic leading-tight" style={{ color: 'rgba(255,255,255,.74)' }}>
             <span style={{ color: LIVE_LIME }} className="font-bold">
               getsuyoubi
             </span>{' '}
             wa houritsu de kinshi subeki da.
           </p>
-          <p className="mt-1 text-[10px] leading-tight" style={{ color: 'rgba(255,255,255,.1)' }}>
+          <p className="mt-1 text-[10px] leading-tight" style={{ color: 'rgba(255,255,255,.74)' }}>
             {t.sentence.before}
             <span style={{ color: LIVE_LIME }} className="font-bold">
               {t.sentence.word}

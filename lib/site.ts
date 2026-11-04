@@ -12,17 +12,17 @@
 // otherwise break the build in every file that checks for it.
 export const APP_STORE_ID: string = '6805975318';
 export const APP_STORE_URL: string =
-  APP_STORE_ID === '' ? '' : `https://apps.apple.com/app/id${APP_STORE_ID}`;
+  APP_STORE_ID === '' ? '' : `https://apps.apple.com/app/yumo-learn-japanese-kanji/id${APP_STORE_ID}`;
 export const PLAY_STORE_URL: string = '';
 
 // The average App Store rating, shown without a count while the count is small.
 // Update it by hand from App Store Connect.
 export const APP_STORE_RATING = '4.9';
 
-// The story maker's launch switch: the "New" line in the hero and its section.
-// Set this to true once the app version with the story maker is approved.
-// NEXT_PUBLIC_STORY_PREVIEW=1 shows it on a local build, to check how it looks.
-export const STORY_MAKER_LIVE: boolean = process.env.NEXT_PUBLIC_STORY_PREVIEW === '1';
+// The story maker's switch: the "New" line in the hero and its section.
+// While it is true the site advertises the feature, so main should carry it only
+// once the app version with the story maker is approved.
+export const STORY_MAKER_LIVE: boolean = true;
 
 // The apex domain, and the only URL that may appear in a canonical tag.
 // Everything else Vercel answers on — the *.vercel.app aliases, preview
@@ -95,10 +95,13 @@ export type Store = 'ios' | 'android';
 
 export const STORE_URL: Record<Store, string> = { ios: APP_STORE_URL, android: PLAY_STORE_URL };
 
+// The title the App Store shows.
+export const STORE_TITLE = 'Yumo: Learn Japanese Kanji';
+
 // Each listing's title exactly as its store shows it. They differ on purpose:
 // Android has no Lock Screen widgets, so Play's title says "Word Widget".
 export const STORE_NAME: Record<Store, string> = {
-  ios: 'Yumo: Japanese On Lock Screen',
+  ios: STORE_TITLE,
   android: 'Yumo: Japanese Word Widget',
 };
 

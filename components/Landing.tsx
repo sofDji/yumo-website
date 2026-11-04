@@ -36,6 +36,7 @@ export function Landing({ locale }: { locale: Locale }) {
           scroll container and break every position: sticky inside it. */}
       <main className="overflow-x-clip">
         <Hero locale={locale} t={t.hero} getApp={t.nav.getApp} />
+        <ReviewsSection locale={locale} t={t.reviews} rated={t.hero.rated} onStore={t.hero.onStore} />
         <HowItWorks locale={locale} t={t.how} />
         <LockScreenSection locale={locale} t={t.lockScreen} />
         <WidgetSection locale={locale} t={t.homeScreen} />
@@ -44,7 +45,6 @@ export function Landing({ locale }: { locale: Locale }) {
         <KanaSection locale={locale} t={t.kana} />
         <JlptLadder locale={locale} t={t.levels} nf={nf} />
         <BrowseSection locale={locale} t={t.browse} nf={nf} />
-        <ReviewsSection locale={locale} t={t.reviews} rated={t.hero.rated} onStore={t.hero.onStore} />
         <Pricing locale={locale} t={t.pricing} cta={t.cta} nf={nf} words={t.levels.words} />
         <PrivacySection t={t.privacy} />
         {/* {price} stays a placeholder here: the FAQ fills it with the visitor's

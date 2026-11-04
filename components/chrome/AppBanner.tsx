@@ -5,7 +5,7 @@ import Link from 'next/link';
 import { useEffect, useState } from 'react';
 import { AppleLogo } from '@/components/ui/AppleLogo';
 import type { Dictionary } from '@/lib/i18n';
-import { STORE_NAME, STORE_URL, bannerStore, type Store } from '@/lib/site';
+import { APP_STORE_RATING, STORE_NAME, STORE_URL, bannerStore, type Store } from '@/lib/site';
 
 const DISMISSED_KEY = 'yumo.appBanner.dismissed';
 
@@ -55,10 +55,8 @@ export function AppBanner({ t }: { t: Dictionary['appBanner'] }) {
   if (store === null || dismissed) return null;
 
   const visible = !ctaOnScreen;
-  // "Yumo: Japanese On Lock Screen" is too long for one line beside the button
-  // on a phone. It is set out the way the App Store sets out a listing: the app
-  // name, with the rest of the title as a subtitle.
-  const [name, subtitle] = STORE_NAME[store].split(': ');
+  // The full store title, wrapping onto a second line on a narrow phone.
+  const title = STORE_NAME[store];
 
   function dismiss() {
     setDismissed(true);
@@ -80,7 +78,7 @@ export function AppBanner({ t }: { t: Dictionary['appBanner'] }) {
           visible ? 'translate-y-0 opacity-100' : 'pointer-events-none translate-y-full opacity-0'
         }`}
       >
-        <div className="flex w-full max-w-md items-center gap-2.5 rounded-[22px] border border-line bg-[rgba(255,252,246,0.9)] p-2.5 shadow-lift backdrop-blur-xl">
+        <div className="flex w-full max-w-md items-center gap-2.5 rounded-[22px] border border-line bg-[rgba(24,24,24,0.92)] p-2.5 shadow-lift backdrop-blur-xl">
           <Image
             src="/app-icon.png"
             alt=""
@@ -90,13 +88,15 @@ export function AppBanner({ t }: { t: Dictionary['appBanner'] }) {
           />
 
           <div className="min-w-0 flex-1">
-            <p className="truncate text-[15px] font-semibold leading-tight text-ink">{name}</p>
-            <p className="mt-0.5 truncate text-[13px] leading-tight text-muted">{subtitle}</p>
+            <p className="text-[15px] font-semibold leading-tight text-ink">{title}</p>
+            <p className="mt-0.5 text-[12px] leading-tight text-muted">
+              <span aria-hidden className="tracking-[0.08em] text-accent">★★★★★</span> {APP_STORE_RATING}
+            </p>
           </div>
 
           <Link
             href={STORE_URL[store]}
-            className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-ink px-3.5 py-2 text-sm font-semibold text-ground transition-transform duration-300 hover:-translate-y-px"
+            className="inline-flex shrink-0 items-center gap-1.5 rounded-full bg-accent px-3.5 py-2 text-sm font-semibold text-[#15160F] transition-transform duration-300 hover:-translate-y-px"
           >
             {store === 'ios' && <AppleLogo className="-mt-0.5 h-3.5 w-3.5" />}
             {t.get}

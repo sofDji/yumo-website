@@ -14,6 +14,18 @@ const PLACES = [
   { x: 332, r: 10, y: 78, z: 1 },
 ];
 
+function Translation({ word, locale }: { word: FanWord; locale: Locale }) {
+  const mark = word.sentenceMark[locale];
+  const [before, after] = word.sentence[locale].split(mark);
+  return (
+    <p className="mt-1.5 text-[12px] leading-snug text-white/85">
+      {before}
+      <b className="font-bold text-accent">{mark}</b>
+      {after}
+    </p>
+  );
+}
+
 function Sentence({ word }: { word: FanWord }) {
   const [before, after] = word.jp.split(word.mark);
   return (
@@ -43,7 +55,7 @@ function Card({ word, locale, cta }: { word: FanWord; locale: Locale; cta?: { hr
           <b className="font-bold text-accent">{word.romaji.word}</b>
           {word.romaji.after}
         </p>
-        <p className="mt-1.5 text-[12px] leading-snug text-white/85">{word.sentence[locale]}</p>
+        <Translation word={word} locale={locale} />
       </div>
       {cta && (
         <a

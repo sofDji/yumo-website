@@ -45,7 +45,7 @@ describe('store listings', () => {
     // A country-less link lets Apple send each visitor to their own
     // storefront, so one URL serves the English and French pages alike.
     expect(APP_STORE_ID).toMatch(/^\d+$/);
-    expect(APP_STORE_URL).toBe(`https://apps.apple.com/app/id${APP_STORE_ID}`);
+    expect(APP_STORE_URL).toBe(`https://apps.apple.com/app/yumo-learn-japanese-kanji/id${APP_STORE_ID}`);
   });
 
   it('points any Play link at the app package', () => {
@@ -65,7 +65,7 @@ describe('store listings', () => {
   it('names each store listing exactly as the store shows it', () => {
     // Play gets its own title: Android has no Lock Screen widgets.
     expect(STORE_NAME).toEqual({
-      ios: 'Yumo: Japanese On Lock Screen',
+      ios: 'Yumo: Learn Japanese Kanji',
       android: 'Yumo: Japanese Word Widget',
     });
     for (const name of Object.values(STORE_NAME)) {
