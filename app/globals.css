@@ -3,12 +3,13 @@
 @tailwind utilities;
 
 :root {
-  --ground: #FAF6EF;
-  --surface: #FFFFFF;
-  --line: #E8DFD0;
-  --ink: #201C17;
-  --muted: #6E6354;
-  --accent: #BE3F29;
+  color-scheme: dark;
+  --ground: #050505;
+  --surface: #141414;
+  --line: #2A2A2A;
+  --ink: #F5F5F2;
+  --muted: #A3A39D;
+  --accent: #E9ECA5;
   --ease: cubic-bezier(0.22, 1, 0.36, 1);
 }
 
@@ -41,6 +42,83 @@ h1, h2, h3 { text-wrap: balance; }
 :lang(ko) .font-serif {
   font-family: var(--font-serif), 'AppleMyungjo', 'Nanum Myeongjo', 'Noto Serif KR', 'Batang', serif;
   font-style: normal;
+}
+
+.hero-glow {
+  background-image:
+    radial-gradient(circle at 18% 22%, rgba(233, 236, 165, 0.12), transparent 30%),
+    radial-gradient(circle at 82% 55%, rgba(120, 160, 120, 0.1), transparent 34%);
+}
+
+/* The hero's cards, fanned out and cut off by the bottom of the header. */
+.word-fan {
+  --step: 1;
+  height: 352px;
+  width: 100%;
+}
+/* Every card runs off the bottom of the hero, the middle one included. */
+.word-fan::after {
+  content: "";
+  position: absolute;
+  inset: auto 0 0;
+  height: 70px;
+  z-index: 6;
+  pointer-events: none;
+  background: linear-gradient(180deg, rgba(5, 5, 5, 0), #050505);
+}
+.fan-card {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 216px;
+  height: 392px;
+  box-sizing: border-box;
+  padding: 18px;
+  border-radius: 22px;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 -6px 30px rgba(0, 0, 0, 0.55), inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+  transform: translateX(calc(-50% + var(--x) * var(--step))) translateY(var(--y)) rotate(var(--r));
+  transition: transform 0.35s var(--ease);
+  animation: fan-rise 0.9s var(--ease) var(--delay) backwards;
+}
+@keyframes fan-rise {
+  from {
+    opacity: 0;
+    transform: translateX(calc(-50% + var(--x) * var(--step) * 0.3)) translateY(120px) rotate(0deg);
+  }
+}
+@media (hover: hover) and (min-width: 768px) {
+  .fan-card:hover {
+    z-index: 10 !important;
+    transform: translateX(calc(-50% + var(--x) * var(--step))) translateY(calc(var(--y) - 14px)) rotate(0deg);
+  }
+}
+@media (max-width: 900px) {
+  .word-fan { --step: 0.72; }
+}
+@media (max-width: 640px) {
+  .word-fan { --step: 0.56; height: 340px; }
+  .fan-card { width: 196px; height: 372px; padding: 15px; }
+  .fan-card-outer { display: none; }
+}
+
+.story-card {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  width: 200px;
+  height: 356px;
+  border-radius: 20px;
+  color: #fff;
+  background-size: cover;
+  background-position: center;
+  box-shadow: 0 10px 34px rgba(0, 0, 0, 0.6), inset 0 0 0 1px rgba(255, 255, 255, 0.14);
+  transform: translateX(calc(-50% + var(--x))) translateY(var(--y)) rotate(var(--r));
+}
+@media (max-width: 640px) {
+  .story-fan { transform: scale(0.74); transform-origin: top center; height: 320px; }
 }
 
 :focus-visible {

@@ -34,8 +34,8 @@ export function HomeScreen({ word, locale }: { word: SiteWord; locale: Locale })
         </div>
 
         <div className="mt-auto">
-          <div className="mx-auto mb-2 h-4 w-16 rounded-full bg-white/70" />
-          <div className="flex items-center justify-center gap-2.5 rounded-[1.4rem] border border-white/85 bg-white/60 p-2.5">
+          <div className="mx-auto mb-2 h-4 w-16 rounded-full bg-white/10" />
+          <div className="flex items-center justify-center gap-2.5 rounded-[1.4rem] border border-white/15 bg-white/10 p-2.5">
             {Array.from({ length: 4 }).map((_, i) => (
               <Tile key={i} i={i + 1} className="h-8 w-8" />
             ))}

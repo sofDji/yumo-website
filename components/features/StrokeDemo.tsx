@@ -38,7 +38,7 @@ const DRAW = 0.5; // seconds one stroke takes
 const GAP = 0.34; // seconds between the start of one stroke and the next
 const HOLD = 1.5; // seconds the finished character rests before it redraws
 
-const INK = '#201C17';
+const INK = '#F5F5F2';
 const WIDTH = 5.5;
 
 // pathLength only — the page's rule is that blur belongs to an enter
@@ -75,7 +75,7 @@ export function StrokeDemo() {
           height={BOX - 3}
           rx="10"
           fill="none"
-          stroke="#E8DFD0"
+          stroke="#2A2A2A"
           strokeWidth="1.5"
         />
         <line
@@ -83,7 +83,7 @@ export function StrokeDemo() {
           y1="6"
           x2={BOX / 2}
           y2={BOX - 6}
-          stroke="#E8DFD0"
+          stroke="#2A2A2A"
           strokeWidth="1"
           strokeDasharray="3 6"
         />
@@ -92,7 +92,7 @@ export function StrokeDemo() {
           y1={BOX / 2}
           x2={BOX - 6}
           y2={BOX / 2}
-          stroke="#E8DFD0"
+          stroke="#2A2A2A"
           strokeWidth="1"
           strokeDasharray="3 6"
         />
@@ -150,7 +150,7 @@ export function StrokeDemo() {
                 cx={cx}
                 cy={cy}
                 r={3.4}
-                fill="#BE3F29"
+                fill="#E9ECA5"
                 initial={{ opacity: 0, scale: 0 }}
                 animate={{ opacity: [0, 1, 1, 0], scale: [0.4, 1, 1, 0.5] }}
                 transition={{

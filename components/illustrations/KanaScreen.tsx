@@ -31,7 +31,7 @@ export function KanaScreen({ t }: { t: Dictionary['kana'] }) {
 
   const pill = (active: boolean) =>
     `rounded-full px-3 py-1 text-[9.5px] font-semibold transition-colors duration-500 ${
-      active ? 'bg-accent text-white' : 'border border-line bg-white/90 text-ink'
+      active ? 'bg-accent text-white' : 'border border-line bg-white/10 text-ink'
     }`;
 
   return (
@@ -55,7 +55,7 @@ export function KanaScreen({ t }: { t: Dictionary['kana'] }) {
                 cell ? (
                   <div
                     key={cell.kana}
-                    className={`flex flex-col items-center rounded-[0.5rem] border bg-white/90 py-1 ${
+                    className={`flex flex-col items-center rounded-[0.5rem] border bg-white/10 py-1 ${
                       cell.kana === TAPPED ? 'border-accent' : 'border-line'
                     }`}
                   >
@@ -84,7 +84,7 @@ export function KanaScreen({ t }: { t: Dictionary['kana'] }) {
         </div>
 
         {/* the app's floating nav pill — five tabs since the Kana tab, this one lit */}
-        <div className="mt-3 flex items-center justify-around rounded-full border border-line bg-white/85 px-4 py-2.5">
+        <div className="mt-3 flex items-center justify-around rounded-full border border-line bg-white/10 px-4 py-2.5">
           <span aria-hidden className="h-3.5 w-3.5 rounded-full border-2 border-ink/35" />
           <span aria-hidden className="h-3.5 w-3.5 rounded-full border-2 border-ink/35" />
           <span aria-hidden className="h-4 w-4 rounded-full bg-accent" />

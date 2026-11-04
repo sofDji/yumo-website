@@ -39,7 +39,11 @@ export const en = {
   hero: {
     titleLead: 'Japanese, learned',
     titleAccent: 'without trying',
-    lede: 'Yumo puts a new Japanese word on your Lock Screen and Home Screen every few hours. No streaks, no lessons. It just shows up.',
+    lede: "A new Japanese word on your Lock Screen every few hours, with a real sentence to see it in. Practise it, write it, and remember it without trying.",
+    ledeWithShare: "A new Japanese word on your Lock Screen every few hours, with a real sentence to see it in. Practise it, write it, and now share it.",
+    onStore: "on the App Store",
+    isNew: "New: share words as Stories",
+    rated: "Rated {rating} out of 5",
   },
   how: {
     eyebrow: 'How it works',
@@ -315,6 +319,20 @@ export const en = {
         a: 'Refunds are handled by Apple and Google, not by us. Use reportaproblem.apple.com, or your Google Play order history.',
       },
     ],
+  },
+  reviews: {
+    titleLead: "People",
+    titleAccent: "actually",
+    titleEnd: "like it",
+    translatedFrom: "Translated from {language}",
+    languages: { en: "English", fr: "French", de: '', es: '', ko: '', vi: '' },
+  },
+  story: {
+    eyebrow: "New · Story maker",
+    titleLead: "Learned a word?",
+    titleAccent: "Post it.",
+    lede: "Turn any word into an Instagram Story. Pick a photo, frame it, choose the ratio and the colour.",
+    caption: "learn Japanese with Yumo",
   },
   footer: {
     tagline: 'Japanese, without opening an app.',

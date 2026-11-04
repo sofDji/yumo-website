@@ -48,7 +48,7 @@ export function RhythmDial({ active, locale }: { active: boolean; locale: Locale
             key={label}
             className={`rounded-full border px-2.5 py-1 text-[11px] font-semibold transition-colors duration-200 ${
               i === pick
-                ? 'border-accent bg-accent text-white'
+                ? 'border-accent bg-accent text-[#15160F]'
                 : 'border-line bg-surface text-muted'
             }`}
           >

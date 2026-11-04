@@ -58,8 +58,8 @@ export function LevelStrip({
                     }
                   : {
                       background: 'transparent',
-                      borderColor: '#E8DFD0',
-                      color: '#A99C89',
+                      borderColor: '#2A2A2A',
+                      color: '#8A8A84',
                     }
               }
             >

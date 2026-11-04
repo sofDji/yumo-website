@@ -1,10 +1,10 @@
-import { Be_Vietnam_Pro, Instrument_Serif, Lora, Schibsted_Grotesk } from 'next/font/google';
+import { Be_Vietnam_Pro, Geist, Instrument_Serif, Lora } from 'next/font/google';
 import type { ReactNode } from 'react';
 import { AppBanner } from '@/components/chrome/AppBanner';
 import { getDictionary, type Locale } from '@/lib/i18n';
 import { redirectScript } from '@/lib/i18n/detect';
 
-const sans = Schibsted_Grotesk({
+const sans = Geist({
   subsets: ['latin'],
   variable: '--font-sans',
   display: 'swap',

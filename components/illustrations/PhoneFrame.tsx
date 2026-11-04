@@ -52,8 +52,8 @@ export function PhoneFrame({
 }) {
   const surface =
     tone === 'dusk'
-      ? 'linear-gradient(165deg, #ECE7F1 0%, #F2EAEC 40%, #F8F2EC 72%, #FAF6EF 100%)'
-      : 'linear-gradient(160deg, #F1F6F4 0%, #EDF1F7 36%, #F5F0F4 68%, #FAF6EF 100%)';
+      ? 'linear-gradient(165deg, #1B1B20 0%, #141416 55%, #0B0B0C 100%)'
+      : 'linear-gradient(160deg, #18201C 0%, #141416 55%, #0B0B0C 100%)';
 
   return (
     <div className={`relative mx-auto w-full max-w-[272px] ${className}`}>
@@ -134,11 +134,11 @@ export function Tile({ i = 0, className = '' }: { i?: number; className?: string
 
   return (
     <div
-      className={`flex items-center justify-center rounded-[24%] border border-white/90 shadow-[0_2px_6px_rgba(58,46,34,.07)] ${className}`}
+      className={`flex items-center justify-center rounded-[24%] border border-white/15 shadow-[0_2px_6px_rgba(58,46,34,.07)] ${className}`}
       style={{
         background: tinted
-          ? `linear-gradient(150deg, ${tint}1F, rgba(255,255,255,.85))`
-          : 'rgba(255,255,255,.8)',
+          ? `linear-gradient(150deg, ${tint}1F, rgba(255,255,255,.1))`
+          : 'rgba(255,255,255,.1)',
       }}
     >
       {MARKS[i % MARKS.length]}

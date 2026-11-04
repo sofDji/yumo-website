@@ -26,7 +26,7 @@ export function BrowseScreen({
       <div className="flex flex-1 flex-col overflow-hidden px-4 pb-6 pt-3">
         <p className="mb-3 text-center text-[12px] font-semibold">{t.tabTitle}</p>
 
-        <div className="rounded-[0.8rem] border border-line bg-white/90 px-3 py-2 text-[10px] text-muted">
+        <div className="rounded-[0.8rem] border border-line bg-white/10 px-3 py-2 text-[10px] text-muted">
           {t.searchPlaceholder}
         </div>
 
@@ -49,7 +49,7 @@ export function BrowseScreen({
           {words.map((w) => (
             <div
               key={w.id}
-              className="flex items-center justify-between rounded-[0.8rem] border border-line bg-white/90 px-3 py-2.5"
+              className="flex items-center justify-between rounded-[0.8rem] border border-line bg-white/10 px-3 py-2.5"
             >
               <span className="min-w-0">
                 <span className="block font-jp text-[17px] font-medium leading-tight">
@@ -71,7 +71,7 @@ export function BrowseScreen({
         </div>
 
         {/* the app's floating nav pill */}
-        <div className="mt-3 flex items-center justify-around rounded-full border border-line bg-white/85 px-4 py-2.5">
+        <div className="mt-3 flex items-center justify-around rounded-full border border-line bg-white/10 px-4 py-2.5">
           <span aria-hidden className="h-4 w-4 rounded-full bg-accent" />
           <span aria-hidden className="h-3.5 w-3.5 rounded-full border-2 border-ink/35" />
           <span aria-hidden className="h-3.5 w-3.5 rounded-[3px] bg-ink/25" />

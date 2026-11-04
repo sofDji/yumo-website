@@ -29,7 +29,7 @@ const GLYPHS: Record<SocialNetwork, React.ReactNode> = {
 
 export function SocialLinks({ label }: { label: string }) {
   return (
-    <ul className="flex items-center gap-2">
+    <ul className="flex flex-wrap items-center gap-2">
       {(Object.keys(SOCIAL) as SocialNetwork[]).map((network) => {
         const profile = SOCIAL[network];
         return (
@@ -42,11 +42,13 @@ export function SocialLinks({ label }: { label: string }) {
               rel="noopener"
               aria-label={fill(label, { network: profile.name })}
               title={`@${profile.handle}`}
-              className="flex h-10 w-10 items-center justify-center rounded-full border border-line text-muted transition-colors hover:border-ink hover:text-ink"
+              data-network={network}
+              className="flex h-10 min-w-10 items-center justify-center gap-2 rounded-full border px-3 border-line text-muted transition-colors hover:border-ink hover:text-ink"
             >
               <svg viewBox="0 0 24 24" width="18" height="18" aria-hidden="true">
                 {GLYPHS[network]}
               </svg>
+              {network !== 'x' && <span className="text-[13px]">@{profile.handle}</span>}
             </a>
           </li>
         );

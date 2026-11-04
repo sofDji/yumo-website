@@ -15,6 +15,15 @@ export const APP_STORE_URL: string =
   APP_STORE_ID === '' ? '' : `https://apps.apple.com/app/id${APP_STORE_ID}`;
 export const PLAY_STORE_URL: string = '';
 
+// The average App Store rating, shown without a count while the count is small.
+// Update it by hand from App Store Connect.
+export const APP_STORE_RATING = '4.9';
+
+// The story maker's launch switch: the "New" line in the hero and its section.
+// Set this to true once the app version with the story maker is approved.
+// NEXT_PUBLIC_STORY_PREVIEW=1 shows it on a local build, to check how it looks.
+export const STORY_MAKER_LIVE: boolean = process.env.NEXT_PUBLIC_STORY_PREVIEW === '1';
+
 // The apex domain, and the only URL that may appear in a canonical tag.
 // Everything else Vercel answers on — the *.vercel.app aliases, preview
 // deployments — 307s here, so naming one of those instead points crawlers at a
@@ -37,13 +46,13 @@ export const SUPPORT_EMAIL = 'yumojapanese@gmail.com';
 export const SOCIAL = {
   instagram: {
     name: 'Instagram',
-    handle: 'yumolearningapp',
-    url: 'https://www.instagram.com/yumolearningapp/',
+    handle: 'yumojapanese',
+    url: 'https://www.instagram.com/yumojapanese/',
   },
   tiktok: {
     name: 'TikTok',
-    handle: 'japaneseyumo',
-    url: 'https://www.tiktok.com/@japaneseyumo',
+    handle: 'yumojapanese',
+    url: 'https://www.tiktok.com/@yumojapanese',
   },
   x: {
     name: 'X',

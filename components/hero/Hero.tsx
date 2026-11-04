@@ -1,41 +1,19 @@
 'use client';
 
 import { motion, useReducedMotion } from 'framer-motion';
-import { StoreCta } from '@/components/ui/StoreCta';
 import type { Dictionary, Locale } from '@/lib/i18n';
-import { cardEnter, DURATION, EASE } from '@/lib/motion';
-import type { SiteWord } from '@/lib/select-words';
-import { Blooms } from './Blooms';
-import { FloatingCards } from './FloatingCards';
-import { WordCard } from './WordCard';
-
-// The card the page opens on. Fixed rather than drawn at random from the
-// dataset: this one is addressed to whoever just arrived, and an N1 compound
-// pulled out of a hat is a worse greeting than the word that means greeting.
-// Fixing it also retires the hydration dance the random pick needed — server
-// and client now render the same card.
-//
-// Record 2055 of the app's word-data.json. The glosses are trimmed to the
-// clause that fits a card: "welcome, reception" and "accueil; bienvenue;
-// réception" are both right for 歓迎, and these are the halves a visitor is
-// actually being told. Same display trim lib/select-words.ts documents.
-const GREETING: SiteWord = {
-  id: 2055,
-  kanji: '歓迎',
-  kana: 'かんげい',
-  romaji: 'kangei',
-  meaning: { en: 'welcome', fr: 'bienvenue', de: 'Willkommen', es: 'bienvenida', ko: '환영', vi: 'chào đón' },
-  level: 'n3',
-};
+import { DURATION, EASE } from '@/lib/motion';
+import { APP_STORE_RATING, STORY_MAKER_LIVE } from '@/lib/site';
+import { WordFan } from './WordFan';
 
 export function Hero({
   locale,
   t,
-  cta,
+  getApp,
 }: {
   locale: Locale;
   t: Dictionary['hero'];
-  cta: Dictionary['cta'];
+  getApp: string;
 }) {
   const reduced = useReducedMotion();
 
@@ -49,36 +27,42 @@ export function Hero({
         };
 
   return (
-    <header className="relative overflow-hidden pb-24 pt-16 md:pb-32 md:pt-24">
-      <Blooms />
-      <FloatingCards locale={locale} />
-
-      <div className="relative mx-auto flex w-full max-w-3xl flex-col items-center px-6 text-center">
-        <motion.h1
-          {...enter(0.05)}
-          className="text-[40px] font-semibold leading-[1.06] tracking-tight md:text-[64px]"
-        >
-          {t.titleLead}{' '}
-          <span className="font-serif font-normal italic">{t.titleAccent}</span>
-        </motion.h1>
-
-        <motion.p
-          {...enter(0.15)}
-          className="mt-5 max-w-prose text-[18px] leading-relaxed text-muted"
-        >
-          {t.lede}
+    <header className="hero-glow relative -mt-[72px] overflow-hidden pt-[112px] md:pt-[128px]">
+      <div className="relative mx-auto flex w-full max-w-4xl flex-col items-center px-6 text-center">
+        <motion.p {...enter(0)} className="flex flex-wrap items-center justify-center gap-x-2 gap-y-1 text-[13px] text-muted">
+          <span aria-hidden className="tracking-[0.1em] text-accent">
+            ★★★★★
+          </span>
+          <span>
+            <b className="font-semibold text-ink">{APP_STORE_RATING}</b> {t.onStore}
+          </span>
+          {STORY_MAKER_LIVE && (
+            <>
+              <span aria-hidden className="opacity-40">
+                —
+              </span>
+              <span>{t.isNew}</span>
+            </>
+          )}
         </motion.p>
 
-        {/* The card arrives as a card, not as a paragraph — same entrance
-            as the five floating beside it. */}
-        <motion.div {...(reduced ? {} : cardEnter(0.25))} className="mt-10">
-          <WordCard word={GREETING} locale={locale} />
-        </motion.div>
+        <motion.h1
+          {...enter(0.05)}
+          className="mt-5 text-[44px] font-semibold leading-[1.05] tracking-[-0.03em] md:text-[76px]"
+        >
+          {t.titleLead}
+          <br />
+          <span className="font-serif text-[1.1em] font-normal italic tracking-[-0.01em] text-accent">
+            {t.titleAccent}
+          </span>
+        </motion.h1>
 
-        <motion.div {...enter(0.35)} className="mt-10">
-          <StoreCta t={cta} />
-        </motion.div>
+        <motion.p {...enter(0.15)} className="mt-6 max-w-[38rem] text-[17px] leading-relaxed text-muted">
+          {STORY_MAKER_LIVE ? t.ledeWithShare : t.lede}
+        </motion.p>
       </div>
+
+      <WordFan locale={locale} getApp={getApp} />
     </header>
   );
 }

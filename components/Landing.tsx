@@ -10,9 +10,12 @@ import { KanaSection } from '@/components/sections/KanaSection';
 import { LockScreenSection } from '@/components/sections/LockScreenSection';
 import { Pricing } from '@/components/sections/Pricing';
 import { PrivacySection } from '@/components/sections/PrivacySection';
+import { ReviewsSection } from '@/components/sections/ReviewsSection';
+import { StorySection } from '@/components/sections/StorySection';
 import { WidgetSection } from '@/components/sections/WidgetSection';
 import { faqItems } from '@/lib/faq';
 import { getDictionary, numberFormat, type Locale } from '@/lib/i18n';
+import { STORY_MAKER_LIVE } from '@/lib/site';
 
 // Every locale route renders this; the only difference is the dictionary and
 // the number formatter, so the pages cannot drift structurally.
@@ -32,14 +35,16 @@ export function Landing({ locale }: { locale: Locale }) {
           changes. `clip` rather than `hidden`, because hidden would make main a
           scroll container and break every position: sticky inside it. */}
       <main className="overflow-x-clip">
-        <Hero locale={locale} t={t.hero} cta={t.cta} />
+        <Hero locale={locale} t={t.hero} getApp={t.nav.getApp} />
         <HowItWorks locale={locale} t={t.how} />
         <LockScreenSection locale={locale} t={t.lockScreen} />
         <WidgetSection locale={locale} t={t.homeScreen} />
+        {STORY_MAKER_LIVE && <StorySection locale={locale} t={t.story} />}
         <Features t={t.features} />
         <KanaSection locale={locale} t={t.kana} />
         <JlptLadder locale={locale} t={t.levels} nf={nf} />
         <BrowseSection locale={locale} t={t.browse} nf={nf} />
+        <ReviewsSection locale={locale} t={t.reviews} rated={t.hero.rated} onStore={t.hero.onStore} />
         <Pricing locale={locale} t={t.pricing} cta={t.cta} nf={nf} words={t.levels.words} />
         <PrivacySection t={t.privacy} />
         {/* {price} stays a placeholder here: the FAQ fills it with the visitor's

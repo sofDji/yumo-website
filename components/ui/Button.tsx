@@ -11,7 +11,7 @@ const base =
   'group inline-flex items-center gap-2 rounded-full px-6 py-3 text-[15px] font-medium transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)]';
 
 const styles = {
-  primary: 'bg-ink text-ground shadow-soft hover:-translate-y-0.5 hover:shadow-lift',
+  primary: 'bg-accent text-[#15160F] font-semibold shadow-soft hover:-translate-y-0.5 hover:shadow-lift',
   ghost:
     'border border-line bg-surface/70 text-ink backdrop-blur hover:-translate-y-0.5 hover:border-accent/40 hover:shadow-soft',
 };

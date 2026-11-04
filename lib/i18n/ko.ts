@@ -36,7 +36,11 @@ export const ko: Dictionary = {
   hero: {
     titleLead: '애쓰지 않아도 익히는',
     titleAccent: '일본어',
-    lede: 'Yumo는 몇 시간마다 잠금 화면과 홈 화면에 새로운 일본어 단어를 띄워 줘요. 연속 기록도, 수업도 없어요. 그냥 눈에 들어와요.',
+    lede: "몇 시간마다 잠금 화면에 새로운 일본어 단어가 실제 예문과 함께 나타나요. 연습하고, 써 보고, 애쓰지 않아도 기억해요.",
+    ledeWithShare: "몇 시간마다 잠금 화면에 새로운 일본어 단어가 실제 예문과 함께 나타나요. 연습하고, 써 보고, 이제 공유도 할 수 있어요.",
+    onStore: "App Store 평점",
+    isNew: "새 기능: 단어를 스토리로 공유",
+    rated: "5점 만점에 {rating}점",
   },
   how: {
     eyebrow: '사용 방법',
@@ -307,6 +311,20 @@ export const ko: Dictionary = {
         a: '환불은 저희가 아니라 Apple과 Google이 처리해요. reportaproblem.apple.com 또는 Google Play 주문 내역을 이용하세요.',
       },
     ],
+  },
+  reviews: {
+    titleLead: "사람들이",
+    titleAccent: "정말",
+    titleEnd: "좋아해요",
+    translatedFrom: "{language}에서 번역됨",
+    languages: { en: "영어", fr: "프랑스어", de: '', es: '', ko: '', vi: '' },
+  },
+  story: {
+    eyebrow: "새 기능 · 스토리 메이커",
+    titleLead: "단어를 배웠나요?",
+    titleAccent: "올려 보세요.",
+    lede: "어떤 단어든 인스타그램 스토리로 만들어 보세요. 사진을 고르고, 구도를 잡고, 비율과 색상을 선택하세요.",
+    caption: "Yumo와 함께 일본어를 배워요",
   },
   footer: {
     tagline: '앱을 열지 않아도 만나는 일본어.',

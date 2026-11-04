@@ -26,7 +26,7 @@ export function LockScreen({ word, locale, t }: { word: SiteWord; locale: Locale
         </p>
 
         {/* the rectangular accessory */}
-        <div className="mt-7 w-full rounded-[0.9rem] border border-white/90 bg-white/80 px-3 py-2.5 shadow-[0_4px_14px_-8px_rgba(58,46,34,.4)]">
+        <div className="mt-7 w-full rounded-[0.9rem] border border-white/15 bg-white/10 px-3 py-2.5 shadow-[0_4px_14px_-8px_rgba(58,46,34,.4)]">
           <div className="flex items-center gap-2">
             <span
               className="rounded-full px-1.5 py-0.5 text-[8px] font-bold text-white"
@@ -53,13 +53,13 @@ export function LockScreen({ word, locale, t }: { word: SiteWord; locale: Locale
             </span>
             は法律で禁止すべきだ。
           </p>
-          <p lang="ja-Latn" className="mt-1 text-[8.5px] italic leading-tight" style={{ color: 'rgba(255,255,255,.74)' }}>
+          <p lang="ja-Latn" className="mt-1 text-[8.5px] italic leading-tight" style={{ color: 'rgba(255,255,255,.1)' }}>
             <span style={{ color: LIVE_LIME }} className="font-bold">
               getsuyoubi
             </span>{' '}
             wa houritsu de kinshi subeki da.
           </p>
-          <p className="mt-1 text-[10px] leading-tight" style={{ color: 'rgba(255,255,255,.74)' }}>
+          <p className="mt-1 text-[10px] leading-tight" style={{ color: 'rgba(255,255,255,.1)' }}>
             {t.sentence.before}
             <span style={{ color: LIVE_LIME }} className="font-bold">
               {t.sentence.word}
@@ -69,8 +69,8 @@ export function LockScreen({ word, locale, t }: { word: SiteWord; locale: Locale
         </div>
 
         <div className="mt-auto flex w-full items-center justify-between">
-          <span aria-hidden className="h-9 w-9 rounded-full border border-white/80 bg-white/65" />
-          <span aria-hidden className="h-9 w-9 rounded-full border border-white/80 bg-white/65" />
+          <span aria-hidden className="h-9 w-9 rounded-full border border-white/15 bg-white/10" />
+          <span aria-hidden className="h-9 w-9 rounded-full border border-white/15 bg-white/10" />
         </div>
         <div className="mt-4 h-1 w-24 rounded-full bg-ink/25" />
       </div>

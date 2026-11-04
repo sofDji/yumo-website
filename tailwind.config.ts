@@ -5,12 +5,12 @@ const config: Config = {
   theme: {
     extend: {
       colors: {
-        ground: '#FAF6EF',
-        surface: '#FFFFFF',
-        line: '#E8DFD0',
-        ink: '#201C17',
-        muted: '#6E6354',
-        accent: '#BE3F29',
+        ground: '#050505',
+        surface: '#141414',
+        line: '#2A2A2A',
+        ink: '#F5F5F2',
+        muted: '#A3A39D',
+        accent: '#E9ECA5',
         n5: '#10B981',
         n4: '#14B8A6',
         n3: '#3B82F6',
@@ -39,8 +39,8 @@ const config: Config = {
       },
       borderRadius: { lg: '12px', xl: '16px', '2xl': '24px' },
       boxShadow: {
-        soft: '0 1px 2px rgba(58,46,34,.06), 0 12px 32px -20px rgba(58,46,34,.30)',
-        lift: '0 2px 4px rgba(58,46,34,.08), 0 24px 48px -24px rgba(58,46,34,.38)',
+        soft: '0 1px 2px rgba(0,0,0,.4), 0 12px 32px -20px rgba(0,0,0,.8)',
+        lift: '0 2px 4px rgba(0,0,0,.4), 0 24px 48px -24px rgba(0,0,0,.9)',
       },
       maxWidth: { prose: '65ch' },
     },

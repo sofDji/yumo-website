@@ -11,7 +11,7 @@ import Image from 'next/image';
 // artwork's own luminance becomes the alpha channel, so every anti-aliased
 // edge survives intact, with a floor at 8 to discard the plate's noise (a third
 // of it sits at luminance 1, not 0) and a ceiling at 230 so the strokes are
-// fully opaque. The colour is the site's ink.
+// fully opaque. The colour is white, for the site's dark ground.
 const SRC_W = 720;
 const SRC_H = 458;
 

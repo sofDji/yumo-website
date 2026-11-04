@@ -15,8 +15,8 @@ const TILES = 8; // the cells a 2x2 widget leaves free in a 4x3 grid
 
 const face = (
   <div
-    className="flex h-full w-full flex-col justify-between rounded-[18%] border border-white/90 p-2 shadow-[0_4px_12px_rgba(58,46,34,.10)]"
-    style={{ background: `linear-gradient(150deg, ${LEVEL_COLORS.n5}26, rgba(255,255,255,.92))` }}
+    className="flex h-full w-full flex-col justify-between rounded-[18%] border border-white/15 p-2 shadow-[0_4px_12px_rgba(58,46,34,.10)]"
+    style={{ background: `linear-gradient(150deg, ${LEVEL_COLORS.n5}26, rgba(255,255,255,.1))` }}
   >
     <span
       className="w-fit rounded-full px-1.5 py-px text-[7px] font-bold text-white"

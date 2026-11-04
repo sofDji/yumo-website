@@ -36,7 +36,11 @@ export const vi: Dictionary = {
   hero: {
     titleLead: 'Học tiếng Nhật',
     titleAccent: 'thật nhẹ nhàng',
-    lede: 'Cứ vài giờ, Yumo lại đưa một từ tiếng Nhật mới lên màn hình khóa và màn hình chính của bạn. Không chuỗi ngày, không bài học. Từ cứ thế hiện ra.',
+    lede: "Vài giờ lại có một từ tiếng Nhật mới trên màn hình khóa, kèm một câu thật để thấy cách dùng. Luyện tập, tập viết và nhớ từ thật nhẹ nhàng.",
+    ledeWithShare: "Vài giờ lại có một từ tiếng Nhật mới trên màn hình khóa, kèm một câu thật để thấy cách dùng. Luyện tập, tập viết và giờ còn chia sẻ được nữa.",
+    onStore: "trên App Store",
+    isNew: "Mới: chia sẻ từ thành Story",
+    rated: "Được đánh giá {rating} trên 5",
   },
   how: {
     eyebrow: 'Cách hoạt động',
@@ -306,6 +310,20 @@ export const vi: Dictionary = {
         a: 'Việc hoàn tiền do Apple và Google xử lý, không phải chúng tôi. Hãy dùng reportaproblem.apple.com, hoặc lịch sử đơn hàng Google Play của bạn.',
       },
     ],
+  },
+  reviews: {
+    titleLead: "Mọi người",
+    titleAccent: "thật sự",
+    titleEnd: "yêu thích",
+    translatedFrom: "Dịch từ {language}",
+    languages: { en: "tiếng Anh", fr: "tiếng Pháp", de: '', es: '', ko: '', vi: '' },
+  },
+  story: {
+    eyebrow: "Mới · Tạo Story",
+    titleLead: "Vừa học được một từ?",
+    titleAccent: "Đăng ngay.",
+    lede: "Biến bất kỳ từ nào thành một Story trên Instagram. Chọn ảnh, căn khung, rồi chọn tỉ lệ và màu sắc.",
+    caption: "học tiếng Nhật cùng Yumo",
   },
   footer: {
     tagline: 'Tiếng Nhật, không cần mở ứng dụng.',

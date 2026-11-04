@@ -34,7 +34,11 @@ export const fr: Dictionary = {
   hero: {
     titleLead: 'Le japonais, appris',
     titleAccent: 'sans effort',
-    lede: "Yumo affiche un nouveau mot japonais sur votre écran de verrouillage et votre écran d'accueil toutes les quelques heures. Pas de série à tenir, pas de leçon. Il apparaît, c'est tout.",
+    lede: "Un nouveau mot japonais sur ton écran verrouillé toutes les quelques heures, avec une vraie phrase pour le voir en contexte. Entraîne-toi, écris-le, et retiens-le sans effort.",
+    ledeWithShare: "Un nouveau mot japonais sur ton écran verrouillé toutes les quelques heures, avec une vraie phrase pour le voir en contexte. Entraîne-toi, écris-le, et maintenant partage-le.",
+    onStore: "sur l’App Store",
+    isNew: "Nouveau : partage des mots en story",
+    rated: "Noté {rating} sur 5",
   },
   how: {
     eyebrow: 'Comment ça marche',
@@ -306,6 +310,20 @@ export const fr: Dictionary = {
         a: 'Les remboursements sont gérés par Apple et Google, pas par nous. Utilisez reportaproblem.apple.com, ou votre historique de commandes Google Play.',
       },
     ],
+  },
+  reviews: {
+    titleLead: "Les gens",
+    titleAccent: "aiment",
+    titleEnd: "vraiment",
+    translatedFrom: "Traduit de {language}",
+    languages: { en: "l’anglais", fr: "français", de: '', es: '', ko: '', vi: '' },
+  },
+  story: {
+    eyebrow: "Nouveau · Story maker",
+    titleLead: "Un mot appris ?",
+    titleAccent: "Poste-le.",
+    lede: "Transforme n’importe quel mot en story Instagram. Choisis une photo, cadre-la, puis choisis le format et la couleur.",
+    caption: "apprends le japonais avec Yumo",
   },
   footer: {
     tagline: "Le japonais, sans ouvrir d'application.",

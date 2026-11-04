@@ -31,11 +31,13 @@ export function NavBar({
   };
 
   return (
-    <div className="sticky top-4 z-50 flex justify-center px-4">
-      <nav className="flex w-full max-w-3xl items-center lg:max-w-4xl gap-2 rounded-full border border-line bg-[rgba(255,252,246,0.72)] p-2 shadow-soft backdrop-blur-xl">
+    <div className="sticky top-4 z-50 px-4">
+      {/* Three columns with equal sides, so the links sit in the true center
+          of the page, however wide the logo and the store button are. */}
+      <nav className="mx-auto grid w-full max-w-6xl grid-cols-[1fr_auto_1fr] items-center gap-2">
         <Link
           href={localePath(locale)}
-          className="shrink-0 px-2.5 py-1"
+          className="justify-self-start rounded-full bg-black/40 px-2.5 py-1 backdrop-blur-md"
           aria-label={t.home}
         >
           <Logo height={22} priority />
@@ -44,7 +46,7 @@ export function NavBar({
         {/* From lg, not md: with five links the French row needs ~830px, more
             than a tablet-width pill has, and a wrapped "Comment ça marche"
             breaks the pill. Below lg the section links are dropped, as on phones. */}
-        <ul className="ml-1 hidden items-center gap-1 lg:flex">
+        <ul className="hidden items-center gap-1 rounded-full border border-white/10 bg-[rgba(30,30,30,.72)] p-1 backdrop-blur-md lg:flex">
           {t.links.map((l) => (
             <li key={l.href}>
               <Link
@@ -57,14 +59,14 @@ export function NavBar({
           ))}
         </ul>
 
-        <span className="ml-auto flex items-center gap-2 pr-1">
+        <span className="col-start-3 flex items-center justify-self-end gap-2">
           <LanguageMenu locale={locale} path={path} label={t.language} />
           {state === 'coming-soon' ? (
             <Pill tone="accent">{t.comingSoon}</Pill>
           ) : (
             <Link
               href={store[state].href}
-              className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-ink px-3.5 py-1.5 text-xs font-semibold text-ground shadow-soft transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:shadow-lift"
+              className="inline-flex items-center gap-1.5 whitespace-nowrap rounded-full bg-accent px-3.5 py-2 text-xs font-semibold text-ground shadow-soft transition-all duration-300 ease-[cubic-bezier(0.22,1,0.36,1)] hover:-translate-y-px hover:shadow-lift"
             >
               {state === 'ios' && <AppleLogo className="-mt-0.5 h-3.5 w-3.5" />}
               {/* Under 400px the platform label crowds the logo and the language

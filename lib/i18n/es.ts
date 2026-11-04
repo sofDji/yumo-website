@@ -37,7 +37,11 @@ export const es: Dictionary = {
   hero: {
     titleLead: 'Japonés, aprendido',
     titleAccent: 'sin esfuerzo',
-    lede: 'Yumo pone una palabra japonesa nueva en tu pantalla de bloqueo y de inicio cada pocas horas. Sin rachas, sin lecciones. Simplemente aparece.',
+    lede: "Una nueva palabra en japonés en tu pantalla de bloqueo cada pocas horas, con una frase real para verla en contexto. Practícala, escríbela y recuérdala sin esfuerzo.",
+    ledeWithShare: "Una nueva palabra en japonés en tu pantalla de bloqueo cada pocas horas, con una frase real para verla en contexto. Practícala, escríbela y ahora compártela.",
+    onStore: "en la App Store",
+    isNew: "Novedad: comparte palabras en Stories",
+    rated: "Valorada con {rating} de 5",
   },
   how: {
     eyebrow: 'Cómo funciona',
@@ -308,6 +312,20 @@ export const es: Dictionary = {
         a: 'Los reembolsos los gestionan Apple y Google, no nosotros. Usa reportaproblem.apple.com o tu historial de pedidos de Google Play.',
       },
     ],
+  },
+  reviews: {
+    titleLead: "A la gente",
+    titleAccent: "de verdad",
+    titleEnd: "le gusta",
+    translatedFrom: "Traducida del {language}",
+    languages: { en: "inglés", fr: "francés", de: '', es: '', ko: '', vi: '' },
+  },
+  story: {
+    eyebrow: "Novedad · Creador de stories",
+    titleLead: "¿Has aprendido una palabra?",
+    titleAccent: "Publícala.",
+    lede: "Convierte cualquier palabra en una story de Instagram. Elige una foto, encuádrala y escoge el formato y el color.",
+    caption: "aprende japonés con Yumo",
   },
   footer: {
     tagline: 'Japonés, sin abrir ninguna app.',
