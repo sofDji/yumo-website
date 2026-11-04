@@ -22,7 +22,7 @@ export const APP_STORE_RATING = '4.9';
 // The story maker's switch: the "New" line in the hero and its section.
 // While it is true the site advertises the feature, so main should carry it only
 // once the app version with the story maker is approved.
-export const STORY_MAKER_LIVE: boolean = false;
+export const STORY_MAKER_LIVE: boolean = true;
 
 // The apex domain, and the only URL that may appear in a canonical tag.
 // Everything else Vercel answers on — the *.vercel.app aliases, preview

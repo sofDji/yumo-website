@@ -1,3 +1,4 @@
+// The site's dark look: black, lime, the handwritten logo and the hero's headline.
 // Renders the Open Graph cards to public/og.png, og-fr.png, og-de.png,
 // og-es.png, og-ko.png, og-vi.png and og-n5.png.
 //
@@ -14,7 +15,7 @@
 // run throws if a line outgrows that square, and writes the square crop to
 // shots-out/ so the constraint is checkable rather than remembered.
 import { chromium } from 'playwright';
-import { mkdirSync } from 'node:fs';
+import { mkdirSync, readFileSync } from 'node:fs';
 import sharp from 'sharp';
 
 const W = 1200;
@@ -22,90 +23,111 @@ const H = 630;
 const SAFE = H; // the widest square a centre-crop can take from a 1200x630 card
 
 const T = {
-  ground: '#FAF6EF',
-  ink: '#201C17',
-  muted: '#6E6354',
-  accent: '#BE3F29',
-  mint: '#E4EDE6',
-  haze: '#DEE5EA',
+  ground: '#050505',
+  ink: '#F5F5F2',
+  muted: '#A3A39D',
+  accent: '#E9ECA5',
 };
+
+const dataUri = (path, type) => `data:${type};base64,${readFileSync(path).toString('base64')}`;
+const LOGO = dataUri('public/logo-mark.png', 'image/png');
+const HERO = (level) => dataUri(`public/hero/${level}.jpg`, 'image/jpeg');
 
 const CARDS = [
   {
     out: 'public/og.png',
     lang: 'en',
-    headline: 'Japanese on<br>your Lock Screen',
-    sub: 'A new word every few hours<br>7,972 words &middot; fully offline',
+    lead: 'Japanese, learned',
+    accent: 'without trying',
+    sub: 'A new word on your Lock Screen every few hours',
   },
   {
     out: 'public/og-fr.png',
     lang: 'fr',
-    headline: 'Le japonais sur<br>votre &eacute;cran',
-    sub: 'Un nouveau mot toutes les heures<br>7 972 mots &middot; hors ligne',
+    lead: 'Le japonais, appris',
+    accent: 'sans effort',
+    sub: 'Un nouveau mot sur votre écran verrouillé',
   },
   {
     out: 'public/og-de.png',
     lang: 'de',
-    headline: 'Japanisch auf<br>deinem Sperrbildschirm',
-    sub: 'Alle paar Stunden ein neues Wort<br>7.972 W&ouml;rter &middot; komplett offline',
+    lead: 'Japanisch lernen,',
+    accent: 'ganz nebenbei',
+    sub: 'Alle paar Stunden ein neues Wort auf deinem Sperrbildschirm',
   },
   {
     out: 'public/og-es.png',
     lang: 'es',
-    headline: 'Japon&eacute;s en tu<br>pantalla de bloqueo',
-    sub: 'Una palabra nueva cada pocas horas<br>7972 palabras &middot; sin conexi&oacute;n',
+    lead: 'Japonés, aprendido',
+    accent: 'sin esfuerzo',
+    sub: 'Una palabra nueva en tu pantalla de bloqueo',
   },
   {
-    // Schibsted Grotesk has no Hangul, so these lines fall through to the
-    // system's Korean face — Malgun Gothic on Windows, Apple SD Gothic Neo on
-    // a Mac. word-break: keep-all stops a line breaking mid-word.
+    // Hangul falls through to the system's Korean face. word-break: keep-all
+    // stops a line breaking mid-word.
     out: 'public/og-ko.png',
     lang: 'ko',
-    headline: '잠금 화면에서<br>만나는 일본어',
-    sub: '몇 시간마다 새로운 단어<br>7,972개 단어 &middot; 완전한 오프라인',
+    lead: '애쓰지 않아도 익히는',
+    accent: '일본어',
+    sub: '몇 시간마다 잠금 화면에 새로운 단어',
   },
   {
     out: 'public/og-vi.png',
     lang: 'vi',
-    headline: 'Tiếng Nhật ngay trên<br>màn hình khóa',
-    sub: 'Cứ vài giờ một từ mới<br>7.972 từ &middot; không cần mạng',
+    lead: 'Học tiếng Nhật',
+    accent: 'thật nhẹ nhàng',
+    sub: 'Vài giờ lại có một từ mới trên màn hình khóa',
   },
   {
     // For /jlpt/n5. The count must match N5_WORDS.length in lib/jlpt/n5.ts —
     // the page title quotes the same number.
     out: 'public/og-n5.png',
     lang: 'en',
-    headline: 'JLPT N5<br>vocabulary list',
-    sub: 'All 718 words<br>kanji &middot; kana &middot; meanings',
+    lead: 'JLPT N5',
+    accent: 'vocabulary list',
+    sub: 'All 718 words: kanji, kana and meanings',
   },
 ];
+
+const side = (level, label, kanji, cls) =>
+  `<div class="card ${cls}" style="background-image:linear-gradient(180deg,rgba(0,0,0,0),rgba(0,0,0,.45)),url(${HERO(level)})"><span>${label}</span><b lang="ja">${kanji}</b></div>`;
 
 const html = (card) => `<!doctype html>
 <html lang="${card.lang}"><head><meta charset="utf-8">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Schibsted+Grotesk:wght@500;700&family=Be+Vietnam+Pro:wght@500;700&display=block" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Geist:wght@500;600&family=Instrument+Serif:ital@1&family=Be+Vietnam+Pro:wght@500;600&family=Lora:ital@1&display=block" rel="stylesheet">
 <style>
   *{margin:0;padding:0;box-sizing:border-box}
   body{width:${W}px;height:${H}px;background:${T.ground};overflow:hidden;
-       font-family:${card.lang === 'vi' ? "'Be Vietnam Pro'" : "'Schibsted Grotesk'"},system-ui,sans-serif;
+       font-family:${card.lang === 'vi' ? "'Be Vietnam Pro'" : "'Geist'"},'Malgun Gothic','Apple SD Gothic Neo',system-ui,sans-serif;
        display:flex;align-items:center;justify-content:center;position:relative}
-  /* Decoration only. Both sit largely outside the safe square by design. */
-  .blob{position:absolute;border-radius:50%}
-  .tl{width:760px;height:760px;background:${T.mint};top:-430px;left:-300px}
-  .br{width:820px;height:820px;background:${T.haze};bottom:-470px;right:-320px}
-  .safe{width:${SAFE}px;text-align:center;position:relative;z-index:1;word-break:keep-all}
-  .mark{font-size:22px;font-weight:700;letter-spacing:.34em;color:${T.accent};
-        text-indent:.34em;margin-bottom:30px}
-  h1{font-size:66px;font-weight:700;line-height:1.1;color:${T.ink};
-     letter-spacing:-.02em;margin-bottom:26px}
-  p{font-size:25px;font-weight:500;line-height:1.5;color:${T.muted}}
+  /* Decoration only. These sit outside the safe square by design. */
+  .glow{position:absolute;inset:0;background:
+    radial-gradient(circle 420px at 50% 44%,rgba(233,236,165,.1),transparent),
+    radial-gradient(circle 360px at 12% 20%,rgba(16,185,129,.1),transparent),
+    radial-gradient(circle 360px at 88% 80%,rgba(139,92,246,.1),transparent)}
+  .card{position:absolute;top:170px;width:216px;height:520px;border-radius:30px;padding:24px;color:#fff;
+        background-size:cover;background-position:center;
+        box-shadow:0 20px 60px rgba(0,0,0,.6),inset 0 0 0 1px rgba(255,255,255,.16)}
+  .card span{display:inline-block;padding:4px 11px;border-radius:14px;background:rgba(0,0,0,.28);font-size:15px;font-weight:600}
+  .card b{display:block;margin-top:18px;font-family:'Yu Gothic','Hiragino Sans','Meiryo',sans-serif;font-size:70px;line-height:1.1}
+  .l{left:26px;transform:rotate(-8deg)}
+  .r{right:26px;transform:rotate(8deg)}
+  .safe{width:${SAFE}px;padding:0 24px;text-align:center;position:relative;z-index:1;word-break:keep-all}
+  .logo{display:block;height:74px;margin:0 auto 26px}
+  h1{font-size:64px;font-weight:600;line-height:1.06;color:${T.ink};letter-spacing:-.03em;margin-bottom:24px}
+  h1 em{display:block;font-family:${card.lang === 'vi' ? "'Lora'" : "'Instrument Serif'"},'Malgun Gothic',serif;font-style:${card.lang === 'ko' ? 'normal' : 'italic'};
+        font-weight:400;font-size:1.14em;letter-spacing:-.01em;color:${T.accent}}
+  p{font-size:24px;font-weight:500;line-height:1.4;color:${T.muted}}
 </style></head>
 <body>
-  <div class="blob tl"></div><div class="blob br"></div>
+  <div class="glow"></div>
+  ${side('n4', 'N4', '夢', 'l')}
+  ${side('n3', 'N3', '桜', 'r')}
   <div class="safe">
-    <div class="mark">YUMO</div>
-    <h1>${card.headline}</h1>
+    <img class="logo" src="${LOGO}" alt="">
+    <h1>${card.lead}<em>${card.accent}</em></h1>
     <p>${card.sub}</p>
   </div>
 </body></html>`;
@@ -124,7 +146,7 @@ for (const card of CARDS) {
   const overflow = await page.evaluate((safe) => {
     // Fails loudly rather than shipping a card that crops badly: if a line has
     // outgrown the safe square, the whole point of this file is defeated.
-    const worst = [...document.querySelectorAll('.safe h1, .safe p, .safe .mark')]
+    const worst = [...document.querySelectorAll('.safe h1, .safe p')]
       .map((el) => {
         const r = document.createRange();
         r.selectNodeContents(el);

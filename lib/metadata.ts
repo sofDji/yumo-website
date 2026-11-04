@@ -23,21 +23,21 @@ export type ShareImage = { url: string; alt: string };
 
 /** The cards scripts/build-og.mjs renders. All are 1200x630. */
 export const SHARE_IMAGES = {
-  en: { url: '/og.png', alt: 'Yumo showing a Japanese word on an iPhone Lock Screen' },
+  en: { url: '/og.png', alt: 'Yumo: Japanese, learned without trying' },
   fr: {
     url: '/og-fr.png',
-    alt: "Yumo affichant un mot japonais sur l'écran de verrouillage d'un iPhone",
+    alt: 'Yumo : le japonais, appris sans effort',
   },
   de: {
     url: '/og-de.png',
-    alt: 'Yumo zeigt ein japanisches Wort auf dem Sperrbildschirm eines iPhone',
+    alt: 'Yumo: Japanisch lernen, ganz nebenbei',
   },
   es: {
     url: '/og-es.png',
-    alt: 'Yumo mostrando una palabra japonesa en la pantalla de bloqueo de un iPhone',
+    alt: 'Yumo: japonés, aprendido sin esfuerzo',
   },
-  ko: { url: '/og-ko.png', alt: 'iPhone 잠금 화면에 일본어 단어를 보여 주는 Yumo' },
-  vi: { url: '/og-vi.png', alt: 'Yumo hiển thị một từ tiếng Nhật trên màn hình khóa iPhone' },
+  ko: { url: '/og-ko.png', alt: 'Yumo: 애쓰지 않아도 익히는 일본어' },
+  vi: { url: '/og-vi.png', alt: 'Yumo: học tiếng Nhật thật nhẹ nhàng' },
   n5: { url: '/og-n5.png', alt: 'The JLPT N5 vocabulary list on Yumo' },
 } as const satisfies Record<string, ShareImage>;
 
