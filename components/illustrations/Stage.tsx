@@ -5,7 +5,7 @@ import type { CSSProperties, ReactNode } from 'react';
 // percentage of the stage's width), so a scene is the same at any width.
 export function Stage({ children, glow = '#10B981', className = '' }: { children: ReactNode; glow?: string; className?: string }) {
   return (
-    <div className={`future-stage relative mx-auto aspect-[1/1.04] w-full max-w-[440px] text-white ${className}`} style={{ '--glow': glow } as CSSProperties}>
+    <div className={`future-stage relative mx-auto aspect-[1/1.04] w-full max-w-[360px] text-white ${className}`} style={{ '--glow': glow } as CSSProperties}>
       <div aria-hidden className="stage-light" />
       <div className="absolute inset-0 [perspective:90cqw]">{children}</div>
     </div>
