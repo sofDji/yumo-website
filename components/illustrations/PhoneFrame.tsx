@@ -1,28 +1,13 @@
 import type { ReactNode } from 'react';
 
-// No device bezel. These read as part of the page rather than as photographs
-// of hardware: the screen surface dissolves into the ground at the bottom, so
-// the UI appears to rise out of the site instead of sitting on top of it.
-//
-// The aspect is a real phone's (9:19.5, an iPhone 14 Pro is 1179x2556). An
-// earlier version squashed it to 9:17 to hide empty space, which just made
-// the device look wrong — the fix is to fill the height with content.
-const DISSOLVE = 'linear-gradient(to bottom, #000 0%, #000 74%, rgba(0,0,0,0.55) 90%, transparent 100%)';
+// A real phone body on the dark page: without a bezel the screens dissolved
+// into the black ground and stopped reading as phones. The proportions are an
+// iPhone's (9:19.5).
 
 // The blooms are painted as gradients rather than as blurred circles. Safari
-// draws a large `filter: blur()` into a finite rectangle around the element
-// and clips whatever falls outside it, so on macOS the glow ended in straight
-// edges — the "faint rounded rectangle" the bloom layer below is written to
-// avoid. Blink spills far enough that it never showed in Chrome.
-//
-// A gradient has no filter region to run out of, so there is nothing to clip,
-// and it costs a gradient fill instead of a large convolution on every paint.
-//
-// The stops are not hand-picked: they are the measured radial alpha of the
-// blur they replace, sampled off a Chromium render at 1/6 of the radius, so
-// browsers that were already correct see the same wash they saw before. That
-// is also why the peak is 0.167 rather than the old 0.20 — a 64px blur spreads
-// a 224px disc thin enough that its centre never reached full opacity.
+// draws a large `filter: blur()` into a finite rectangle around the element and
+// clips whatever falls outside it. A gradient has no filter region to run out
+// of, so there is nothing to clip.
 function bloomGradient(hex: string, stops: readonly number[]) {
   const [r, g, b] = [1, 3, 5].map((i) => parseInt(hex.slice(i, i + 2), 16));
   const ramp = stops
@@ -31,68 +16,59 @@ function bloomGradient(hex: string, stops: readonly number[]) {
   return `radial-gradient(circle closest-side, ${ramp})`;
 }
 
-// Measured off `224px @ blur(64px) @ .20` and `208px @ blur(66px) @ .13`.
-const GREEN_STOPS = [0.1674, 0.1548, 0.1192, 0.0753, 0.0377, 0.0126, 0] as const;
-const VIOLET_STOPS = [0.0982, 0.092, 0.0736, 0.0491, 0.0276, 0.0123, 0] as const;
+const GREEN_STOPS = [0.26, 0.24, 0.18, 0.11, 0.055, 0.018, 0] as const;
+const VIOLET_STOPS = [0.14, 0.13, 0.1, 0.07, 0.04, 0.015, 0] as const;
 
 export function PhoneFrame({
   children,
   bloom = '#10B981',
-  tone = 'light',
-  wallpaper = false,
+  wallpaper,
   className = '',
 }: {
   children: ReactNode;
   bloom?: string;
-  tone?: 'light' | 'dusk';
-  /** Draw a screen surface behind the UI. Off by default: without it the
-   *  elements sit straight on the page ground, which is the point. */
-  wallpaper?: boolean;
+  /** An image behind the screen, for the Lock and Home Screens. App screens
+   *  stay true black, as the app is in its dark theme. */
+  wallpaper?: string;
   className?: string;
 }) {
-  const surface =
-    tone === 'dusk'
-      ? 'linear-gradient(165deg, #1B1B20 0%, #141416 55%, #0B0B0C 100%)'
-      : 'linear-gradient(160deg, #18201C 0%, #141416 55%, #0B0B0C 100%)';
-
   return (
-    <div className={`relative mx-auto w-full max-w-[272px] ${className}`}>
-      <div className="relative aspect-[9/19.5] w-full">
-        {/* Ambient light only — no screen. The blooms stay because they tie
-            these back to the hero's, and without any glow the UI reads as
-            floating rectangles rather than as a lit surface. */}
-        {wallpaper && (
-          <div
-            aria-hidden
-            className="absolute inset-0 overflow-hidden rounded-[2.3rem]"
-            style={{ background: surface, maskImage: DISSOLVE, WebkitMaskImage: DISSOLVE }}
-          />
-        )}
-
-        {/* Ambient light, deliberately NOT clipped to the phone's bounds. A
-            clipped glow draws a faint rounded rectangle — the ghost of the
-            screen we just removed — which defeats the point. Spilling past
-            the edges reads as page light instead.
-
-            Each box is sized to the full extent of the wash it carries and
-            centred where the blurred circle it replaces used to sit, so the
-            light lands in the same place it always did. */}
-        <div aria-hidden className="pointer-events-none absolute inset-0">
-          <div
-            className="absolute -left-[194px] -top-[178px] h-[452px] w-[452px]"
-            style={{ background: bloomGradient(bloom, GREEN_STOPS) }}
-          />
-          <div
-            className="absolute -right-[184px] top-[calc(45%-104px)] h-[416px] w-[416px]"
-            style={{ background: bloomGradient('#8B5CF6', VIOLET_STOPS) }}
-          />
-        </div>
-
+    <div className={`relative mx-auto w-full max-w-[290px] ${className}`}>
+      {/* Ambient light, deliberately not clipped to the phone. */}
+      <div aria-hidden className="pointer-events-none absolute inset-0">
         <div
-          className="relative flex h-full flex-col"
-          style={{ maskImage: DISSOLVE, WebkitMaskImage: DISSOLVE }}
-        >
-          {children}
+          className="absolute -left-[194px] -top-[178px] h-[452px] w-[452px]"
+          style={{ background: bloomGradient(bloom, GREEN_STOPS) }}
+        />
+        <div
+          className="absolute -right-[184px] top-[calc(45%-104px)] h-[416px] w-[416px]"
+          style={{ background: bloomGradient('#8B5CF6', VIOLET_STOPS) }}
+        />
+      </div>
+
+      {/* Side buttons */}
+      <span aria-hidden className="absolute -left-[2px] top-[17%] h-6 w-[3px] rounded-l-sm bg-[#3A3A3D]" />
+      <span aria-hidden className="absolute -left-[2px] top-[24%] h-11 w-[3px] rounded-l-sm bg-[#3A3A3D]" />
+      <span aria-hidden className="absolute -left-[2px] top-[33%] h-11 w-[3px] rounded-l-sm bg-[#3A3A3D]" />
+      <span aria-hidden className="absolute -right-[2px] top-[27%] h-16 w-[3px] rounded-r-sm bg-[#3A3A3D]" />
+
+      <div
+        className="relative aspect-[9/19.5] w-full rounded-[3rem] p-[7px] shadow-[0_30px_70px_-20px_rgba(0,0,0,.9),inset_0_0_0_1px_rgba(255,255,255,.16)]"
+        style={{ background: 'linear-gradient(145deg, #4A4A4E, #1B1B1D 28%, #0D0D0E 68%, #3C3C40)' }}
+      >
+        <div className="relative h-full overflow-hidden rounded-[2.6rem] bg-black">
+          {wallpaper && (
+            <div
+              aria-hidden
+              className="absolute inset-0 bg-cover bg-center"
+              style={{ backgroundImage: `linear-gradient(180deg, rgba(0,0,0,.16), rgba(0,0,0,.42)), url(${wallpaper})` }}
+            />
+          )}
+
+          <div className="relative flex h-full flex-col text-white">{children}</div>
+
+          <span aria-hidden className="absolute left-1/2 top-2.5 h-[22px] w-[74px] -translate-x-1/2 rounded-full bg-black" />
+          <span aria-hidden className="absolute bottom-1.5 left-1/2 h-1 w-24 -translate-x-1/2 rounded-full bg-white/70" />
         </div>
       </div>
     </div>
@@ -101,47 +77,91 @@ export function PhoneFrame({
 
 export function StatusBar({ time = '9:41' }: { time?: string }) {
   return (
-    <div className="flex items-center justify-between px-5 pt-4 text-[10px] font-semibold text-ink/65">
+    <div className="flex items-center justify-between px-6 pt-3.5 text-[11px] font-semibold">
       <span>{time}</span>
       <span aria-hidden className="flex items-center gap-1">
-        <span className="h-1.5 w-1.5 rounded-full bg-ink/40" />
-        <span className="h-1.5 w-1.5 rounded-full bg-ink/40" />
-        <span className="h-2 w-4 rounded-[3px] border border-ink/35" />
+        <svg viewBox="0 0 18 12" width="15" height="10" fill="currentColor">
+          <rect x="0" y="8" width="3" height="4" rx="0.8" />
+          <rect x="5" y="5.5" width="3" height="6.5" rx="0.8" />
+          <rect x="10" y="3" width="3" height="9" rx="0.8" />
+          <rect x="15" y="0" width="3" height="12" rx="0.8" />
+        </svg>
+        <svg viewBox="0 0 24 24" width="13" height="13" fill="none" stroke="currentColor" strokeWidth="3" strokeLinecap="round">
+          <path d="M2 9a15 15 0 0 1 20 0M6 13.5a9 9 0 0 1 12 0M10 18a3 3 0 0 1 4 0" />
+        </svg>
+        <span className="relative h-[10px] w-[20px] rounded-[3px] border border-white/60 p-[1px]">
+          <span className="block h-full w-4/5 rounded-[1.5px] bg-white" />
+        </span>
       </span>
     </div>
   );
 }
 
-// Abstract marks, not imitations of real app icons. Empty white squares read
-// as placeholder boxes once the screen behind them is gone — a tile needs
-// something in it to be read as an icon rather than a gap.
-const MARKS = [
-  <span key="a" className="h-1/3 w-1/3 rounded-full border-2 border-ink/20" />,
-  <span key="b" className="h-1/4 w-1/4 rounded-full bg-ink/20" />,
-  <span key="c" className="h-[3px] w-1/2 rounded-full bg-ink/18" />,
-  <span key="d" className="h-1/3 w-1/3 rounded-[4px] border-2 border-ink/18" />,
-  <span key="e" className="h-1/3 w-[3px] rounded-full bg-ink/18" />,
-  <span key="f" className="h-1/4 w-2/5 rounded-full border-2 border-ink/18" />,
+// Generic glyphs on coloured tiles: enough to read as a real home screen without
+// imitating anyone's actual app icon.
+const GLYPHS = [
+  'M9 18V6l10-2v12M9 18a3 3 0 1 1-3-3 3 3 0 0 1 3 3Zm10-2a3 3 0 1 1-3-3 3 3 0 0 1 3 3Z',
+  'M4 8h3l2-3h6l2 3h3v11H4zM12 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z',
+  'M12 21s7-6.2 7-11.5a7 7 0 1 0-14 0C5 14.8 12 21 12 21ZM12 12a2.5 2.5 0 1 0 0-5 2.5 2.5 0 0 0 0 5Z',
+  'M3 6h18v13H3zM3 7l9 7 9-7',
+  'M7 18a4 4 0 0 1-.5-8 6 6 0 0 1 11.6 1.5A3.3 3.3 0 0 1 17.5 18Z',
+  'M4 6h16v14H4zM4 10h16M8 3v4M16 3v4',
+  'M4 5h16v11H9l-5 4Z',
+  'M12 21a9 9 0 1 0 0-18 9 9 0 0 0 0 18ZM12 7v5l3 2',
+  'M4 5h16v14H4zM4 16l5-5 4 4 3-3 4 4M15 9.5h.01',
+  'M5 4h6a2 2 0 0 1 1 .3A2 2 0 0 1 13 4h6v15h-6a2 2 0 0 0-1 .3 2 2 0 0 0-1-.3H5ZM12 4.5V19',
 ];
 
-const TINTS = ['#10B981', '#3B82F6', '#8B5CF6', '#F43F5E', '#14B8A6'];
+const TINTS = [
+  ['#FF8A5C', '#E2553A'],
+  ['#6B7280', '#3F444D'],
+  ['#34D399', '#059669'],
+  ['#60A5FA', '#2563EB'],
+  ['#7DD3FC', '#0EA5E9'],
+  ['#F87171', '#DC2626'],
+  ['#4ADE80', '#16A34A'],
+  ['#3F3F46', '#18181B'],
+  ['#C084FC', '#7C3AED'],
+  ['#FBBF24', '#D97706'],
+];
 
 export function Tile({ i = 0, className = '' }: { i?: number; className?: string }) {
-  // A few tiles carry a whisper of level colour so the grid is not uniformly
-  // grey; the rest stay neutral so the Yumo widget keeps the only real colour.
-  const tinted = i % 5 === 2;
-  const tint = TINTS[i % TINTS.length];
-
+  const [from, to] = TINTS[i % TINTS.length];
   return (
     <div
-      className={`flex items-center justify-center rounded-[24%] border border-white/15 shadow-[0_2px_6px_rgba(58,46,34,.07)] ${className}`}
-      style={{
-        background: tinted
-          ? `linear-gradient(150deg, ${tint}1F, rgba(255,255,255,.1))`
-          : 'rgba(255,255,255,.1)',
-      }}
+      className={`flex items-center justify-center rounded-[24%] shadow-[0_3px_8px_rgba(0,0,0,.3),inset_0_0_0_.5px_rgba(255,255,255,.2)] ${className}`}
+      style={{ background: `linear-gradient(160deg, ${from}, ${to})` }}
     >
-      {MARKS[i % MARKS.length]}
+      <svg viewBox="0 0 24 24" className="h-[58%] w-[58%]" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinecap="round" strokeLinejoin="round" aria-hidden="true">
+        <path d={GLYPHS[i % GLYPHS.length]} />
+      </svg>
+    </div>
+  );
+}
+
+const TABS: ReactNode[] = [
+  <path key="today" d="M12 16a4 4 0 1 0 0-8 4 4 0 0 0 0 8ZM12 3v2M12 19v2M3 12h2M19 12h2M5.6 5.6 7 7M17 17l1.4 1.4M5.6 18.4 7 17M17 7l1.4-1.4" />,
+  <path key="practice" d="M7 8h10a4 4 0 0 1 4 4l.6 4a2.5 2.5 0 0 1-4.5 1.8L15.5 16h-7l-1.6 1.8A2.5 2.5 0 0 1 2.4 16L3 12a4 4 0 0 1 4-4ZM8 10.5v3M6.5 12h3M15.5 11h.01M17.5 13h.01" />,
+  <path key="browse" d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14ZM20 20l-4-4" />,
+  <path key="settings" d="M4 7h10M18 7h2M4 17h2M10 17h10M16 9a2 2 0 1 0 0-4 2 2 0 0 0 0 4ZM8 19a2 2 0 1 0 0-4 2 2 0 0 0 0 4Z" />,
+];
+
+// The app's floating tab bar: Today, Practice, Browse, Kana, Settings.
+export function AppTabBar({ active }: { active: 'browse' | 'kana' }) {
+  const on = (is: boolean) =>
+    `flex h-7 w-10 items-center justify-center rounded-full ${is ? 'bg-accent text-[#15160F]' : 'text-white/60'}`;
+  const icon = (node: ReactNode) => (
+    <svg viewBox="0 0 24 24" width="16" height="16" fill="none" stroke="currentColor" strokeWidth="1.9" strokeLinecap="round" strokeLinejoin="round">
+      {node}
+    </svg>
+  );
+  return (
+    <div aria-hidden className="mt-3 flex items-center justify-between rounded-full border border-white/10 bg-[#1C1C1E] p-1">
+      <span className={on(false)}>{icon(TABS[0])}</span>
+      <span className={on(false)}>{icon(TABS[1])}</span>
+      <span className={on(active === 'browse')}>{icon(TABS[2])}</span>
+      <span className={`${on(active === 'kana')} font-jp text-[13px] font-bold`}>あ</span>
+      <span className={on(false)}>{icon(TABS[3])}</span>
     </div>
   );
 }

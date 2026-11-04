@@ -4,7 +4,7 @@ import { useReducedMotion } from 'framer-motion';
 import { useEffect, useState } from 'react';
 import type { Dictionary } from '@/lib/i18n';
 import { BASIC_ROWS, toKatakana } from '@/lib/kana';
-import { PhoneFrame, StatusBar } from './PhoneFrame';
+import { AppTabBar, PhoneFrame, StatusBar } from './PhoneFrame';
 
 // Mirrors the app's Kana tab: the Hiragana/Katakana switch, the basic chart
 // with romaji under each kana, and the floating nav pill. The chart changes
@@ -31,14 +31,14 @@ export function KanaScreen({ t }: { t: Dictionary['kana'] }) {
 
   const pill = (active: boolean) =>
     `rounded-full px-3 py-1 text-[9.5px] font-semibold transition-colors duration-500 ${
-      active ? 'bg-accent text-white' : 'border border-line bg-white/10 text-ink'
+      active ? 'bg-accent text-[#15160F]' : 'border border-line bg-white/10 text-ink'
     }`;
 
   return (
     <PhoneFrame bloom="#14B8A6">
       <StatusBar time="9:41" />
 
-      <div className="flex flex-1 flex-col overflow-hidden px-4 pb-6 pt-3">
+      <div className="flex flex-1 flex-col overflow-hidden px-3.5 pb-5 pt-2">
         <p className="mb-3 text-center text-[12px] font-semibold">{t.tabTitle}</p>
 
         <div aria-hidden className="flex justify-center gap-1.5">
@@ -83,14 +83,7 @@ export function KanaScreen({ t }: { t: Dictionary['kana'] }) {
           ))}
         </div>
 
-        {/* the app's floating nav pill — five tabs since the Kana tab, this one lit */}
-        <div className="mt-3 flex items-center justify-around rounded-full border border-line bg-white/10 px-4 py-2.5">
-          <span aria-hidden className="h-3.5 w-3.5 rounded-full border-2 border-ink/35" />
-          <span aria-hidden className="h-3.5 w-3.5 rounded-full border-2 border-ink/35" />
-          <span aria-hidden className="h-4 w-4 rounded-full bg-accent" />
-          <span aria-hidden className="h-3.5 w-3.5 rounded-[3px] bg-ink/25" />
-          <span aria-hidden className="h-3.5 w-3.5 rounded-full border-2 border-ink/35" />
-        </div>
+        <AppTabBar active="kana" />
       </div>
     </PhoneFrame>
   );

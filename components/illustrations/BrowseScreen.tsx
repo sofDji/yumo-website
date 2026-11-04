@@ -1,7 +1,7 @@
 import type { Dictionary, Locale } from '@/lib/i18n';
 import type { SiteWord } from '@/lib/select-words';
 import { LEVELS, LEVEL_COLORS, LEVEL_LABELS } from '@/lib/tokens';
-import { PhoneFrame, StatusBar } from './PhoneFrame';
+import { AppTabBar, PhoneFrame, StatusBar } from './PhoneFrame';
 
 // Mirrors the app's Browse tab: search field, level filter, result rows and
 // the floating nav pill. Rows come from the real dataset, so the readings and
@@ -23,7 +23,7 @@ export function BrowseScreen({
     <PhoneFrame bloom="#3B82F6">
       <StatusBar time="9:41" />
 
-      <div className="flex flex-1 flex-col overflow-hidden px-4 pb-6 pt-3">
+      <div className="flex flex-1 flex-col overflow-hidden px-3.5 pb-5 pt-2">
         <p className="mb-3 text-center text-[12px] font-semibold">{t.tabTitle}</p>
 
         <div className="rounded-[0.8rem] border border-line bg-white/10 px-3 py-2 text-[10px] text-muted">
@@ -70,13 +70,7 @@ export function BrowseScreen({
           ))}
         </div>
 
-        {/* the app's floating nav pill */}
-        <div className="mt-3 flex items-center justify-around rounded-full border border-line bg-white/10 px-4 py-2.5">
-          <span aria-hidden className="h-4 w-4 rounded-full bg-accent" />
-          <span aria-hidden className="h-3.5 w-3.5 rounded-full border-2 border-ink/35" />
-          <span aria-hidden className="h-3.5 w-3.5 rounded-[3px] bg-ink/25" />
-          <span aria-hidden className="h-3.5 w-3.5 rounded-full border-2 border-ink/35" />
-        </div>
+        <AppTabBar active="browse" />
       </div>
     </PhoneFrame>
   );

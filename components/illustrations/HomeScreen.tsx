@@ -9,10 +9,10 @@ export function HomeScreen({ word, locale }: { word: SiteWord; locale: Locale })
   const color = LEVEL_COLORS[word.level];
 
   return (
-    <PhoneFrame bloom={color}>
+    <PhoneFrame bloom={color} wallpaper={`/hero/${word.level}.jpg`}>
       <StatusBar />
 
-      <div className="flex flex-1 flex-col px-5 pb-6 pt-5">
+      <div className="flex flex-1 flex-col px-4 pb-5 pt-6">
         <div
           className="relative aspect-square w-[62%] rounded-[1.35rem] p-3.5 text-white shadow-[0_10px_24px_-10px_rgba(0,0,0,.35)]"
           style={{ background: `linear-gradient(150deg, ${color}, ${color}CC)` }}
@@ -25,19 +25,23 @@ export function HomeScreen({ word, locale }: { word: SiteWord; locale: Locale })
           <p className="text-[9px] italic leading-tight text-white/75">{word.romaji}</p>
           <p className="mt-1 text-[9px] leading-snug text-white/95">{word.meaning[locale]}</p>
         </div>
-        <p className="mb-4 mt-1 pl-1 text-[8px] font-medium text-ink/55">Yumo</p>
+        <p className="mb-3 mt-1 pl-1 text-[9px] font-medium text-white/90">Yumo</p>
 
-        <div className="grid grid-cols-4 gap-3">
+        <div className="grid grid-cols-4 gap-3.5">
           {Array.from({ length: 12 }).map((_, i) => (
             <Tile key={i} i={i} className="aspect-square" />
           ))}
         </div>
 
         <div className="mt-auto">
-          <div className="mx-auto mb-2 h-4 w-16 rounded-full bg-white/10" />
-          <div className="flex items-center justify-center gap-2.5 rounded-[1.4rem] border border-white/15 bg-white/10 p-2.5">
+          <div className="mx-auto mb-2.5 flex h-5 w-16 items-center justify-center gap-1 rounded-full bg-black/25 backdrop-blur-md">
+            <svg viewBox="0 0 24 24" width="9" height="9" fill="none" stroke="#fff" strokeWidth="2.6" strokeLinecap="round" aria-hidden="true">
+              <path d="M11 18a7 7 0 1 0 0-14 7 7 0 0 0 0 14ZM20 20l-4-4" />
+            </svg>
+          </div>
+          <div className="flex items-center justify-center gap-2.5 rounded-[1.5rem] bg-white/15 p-2.5 backdrop-blur-md">
             {Array.from({ length: 4 }).map((_, i) => (
-              <Tile key={i} i={i + 1} className="h-8 w-8" />
+              <Tile key={i} i={[3, 6, 8, 1][i]} className="h-10 w-10" />
             ))}
           </div>
         </div>

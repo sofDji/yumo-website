@@ -16,17 +16,17 @@ export function LockScreen({ word, locale, t }: { word: SiteWord; locale: Locale
   const color = LEVEL_COLORS[word.level];
 
   return (
-    <PhoneFrame bloom={color} tone="dusk">
+    <PhoneFrame bloom={color} wallpaper={`/hero/${word.level}.jpg`}>
       <StatusBar time="9:41" />
 
-      <div className="flex flex-1 flex-col items-center px-5 pb-8 pt-12">
-        <p className="text-[11px] font-medium text-ink/60">{t.date}</p>
-        <p className="mt-0.5 text-[62px] font-semibold leading-none tracking-tight text-ink/85">
+      <div className="flex flex-1 flex-col items-center px-4 pb-6 pt-9">
+        <p className="text-[12px] font-medium text-white/85">{t.date}</p>
+        <p className="mt-0.5 text-[66px] font-semibold leading-none tracking-tight text-white">
           9:41
         </p>
 
         {/* the rectangular accessory */}
-        <div className="mt-7 w-full rounded-[0.9rem] border border-white/15 bg-white/10 px-3 py-2.5 shadow-[0_4px_14px_-8px_rgba(58,46,34,.4)]">
+        <div className="mt-6 w-full rounded-[1rem] border border-white/15 bg-black/30 px-3 py-2.5 backdrop-blur-md shadow-[0_4px_14px_-8px_rgba(58,46,34,.4)]">
           <div className="flex items-center gap-2">
             <span
               className="rounded-full px-1.5 py-0.5 text-[8px] font-bold text-white"
@@ -69,10 +69,17 @@ export function LockScreen({ word, locale, t }: { word: SiteWord; locale: Locale
         </div>
 
         <div className="mt-auto flex w-full items-center justify-between">
-          <span aria-hidden className="h-9 w-9 rounded-full border border-white/15 bg-white/10" />
-          <span aria-hidden className="h-9 w-9 rounded-full border border-white/15 bg-white/10" />
+          <span aria-hidden className="grid h-10 w-10 place-items-center rounded-full bg-black/35 backdrop-blur-md">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinejoin="round">
+              <path d="M8 3h8v3l-2 4v11h-4V10L8 6zM8 6h8" />
+            </svg>
+          </span>
+          <span aria-hidden className="grid h-10 w-10 place-items-center rounded-full bg-black/35 backdrop-blur-md">
+            <svg viewBox="0 0 24 24" width="17" height="17" fill="none" stroke="#fff" strokeWidth="1.8" strokeLinejoin="round">
+              <path d="M4 8h3l2-3h6l2 3h3v11H4zM12 16a3.5 3.5 0 1 0 0-7 3.5 3.5 0 0 0 0 7Z" />
+            </svg>
+          </span>
         </div>
-        <div className="mt-4 h-1 w-24 rounded-full bg-ink/25" />
       </div>
     </PhoneFrame>
   );
