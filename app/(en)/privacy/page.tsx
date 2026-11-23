@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function PrivacyPage() {
   return (
-    <LegalLayout locale="en" title="Yumo — Privacy Policy" updated="Effective November 2, 2026">
+    <LegalLayout locale="en" title="Yumo — Privacy Policy" updated="Effective November 23, 2026">
       <JsonLd
         data={pageGraph({
           locale: 'en',
@@ -66,8 +66,8 @@ export default function PrivacyPage() {
         on, the app sends that server the anonymous OneSignal identifier of your
         device, your time zone, your app language and version, and the settings
         that decide which word is current and how the card looks (JLPT level,
-        word frequency, active hours, Show romaji, appearance, and whether you
-        have Yumo Pro). The server stores this with a note of the card on your
+        word frequency, active hours, Show romaji, appearance, which lines the
+        card shows, and whether you have Yumo Pro). The server stores this with a note of the card on your
         Lock Screen, and uses it only to send the right sentence through
         OneSignal at the right time. It is never linked to your name or email,
         which Yumo never asks for. Turning the feature off ends the card and stops
@@ -93,9 +93,19 @@ export default function PrivacyPage() {
         No name, email, location, contacts, photos, microphone audio, or
         advertising identifiers. The entire word dataset ships inside the app and
         works offline. Besides RevenueCat, OneSignal and the Lock Screen feature,
-        as described above, Yumo&apos;s only network request is a daily check of
-        a public file on this website to see whether a newer version is
-        available; it sends nothing about you.
+        as described above, Yumo&apos;s only automatic network request is a
+        daily check of a public file on this website to see whether a newer
+        version is available; it sends nothing about you.
+      </p>
+
+      <h2>Images you make</h2>
+      <p>
+        When you make an image to share a word, any photo you choose stays on
+        your device. It is never sent to us. If you paste a link to use an image
+        from the web, your device downloads it directly from that website, which
+        can see your device&apos;s IP address as with any web request. We
+        don&apos;t receive the link or the image. Sharing the finished image is
+        up to you, through the apps you choose.
       </p>
 
       <h2>This website</h2>

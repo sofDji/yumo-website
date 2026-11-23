@@ -19,7 +19,7 @@ export const metadata: Metadata = {
 
 export default function TermsPage() {
   return (
-    <LegalLayout locale="en" title="Yumo — Terms of Use" updated="Effective November 2, 2026">
+    <LegalLayout locale="en" title="Yumo — Terms of Use" updated="Effective November 23, 2026">
       <JsonLd
         data={pageGraph({
           locale: 'en',
@@ -56,6 +56,8 @@ export default function TermsPage() {
         Don&apos;t attempt to resell, redistribute, or extract the app&apos;s
         bundled dictionary data for other products; the underlying open datasets
         are available from their original sources under their own licenses.
+        When you make an image to share, you are responsible for the photos and
+        image links you use, and for having the right to use and share them.
       </p>
 
       <h2>Attribution</h2>
